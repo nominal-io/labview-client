@@ -1,0 +1,21 @@
+# Libraries
+*.lvlibp
+*.llb
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+
+# Metadata
+*.aliases
+*.lvlps
+.cache/
+
+# Developer Tools
+#.token is a file which can be used to store a the developer's token without the risk of it being added to SCC!
+.token
