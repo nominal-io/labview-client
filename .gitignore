@@ -19,3 +19,4 @@
 # Developer Tools
 #.token is a file which can be used to store a the developer's token without the risk of it being added to SCC!
 .token
+*.vip
