@@ -18,6 +18,7 @@
 			</Item>
 			<Item Name="Simple - Create Data Source.vi" Type="VI" URL="../Examples/Simple - Create Data Source.vi"/>
 			<Item Name="Simple - Get All Units.vi" Type="VI" URL="../Examples/Simple - Get All Units.vi"/>
+			<Item Name="Simple - Upload File.vi" Type="VI" URL="../Examples/Simple - Upload File.vi"/>
 			<Item Name="Simple - Write Data.vi" Type="VI" URL="../Examples/Simple - Write Data.vi"/>
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
 		</Item>
