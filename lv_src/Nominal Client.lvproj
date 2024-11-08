@@ -16,6 +16,7 @@
 			<Item Name="support" Type="Folder">
 				<Item Name="PID Control.vi" Type="VI" URL="../Examples/PID Control.vi"/>
 			</Item>
+			<Item Name="Connect and Disconnect.vi" Type="VI" URL="../Examples/Connect and Disconnect.vi"/>
 			<Item Name="Multipart Upload.vi" Type="VI" URL="../Nominal Client/Multipart Upload.vi"/>
 			<Item Name="Simple - Create Data Source.vi" Type="VI" URL="../Examples/Simple - Create Data Source.vi"/>
 			<Item Name="Simple - Get All Units.vi" Type="VI" URL="../Examples/Simple - Get All Units.vi"/>
