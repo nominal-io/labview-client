@@ -14,6 +14,8 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Examples" Type="Folder">
 			<Item Name="support" Type="Folder">
+				<Item Name="Nominal Deadband Simulator.vi" Type="VI" URL="../Examples/Nominal Deadband Simulator.vi"/>
+				<Item Name="Nominal Plant System.vi" Type="VI" URL="../Examples/Nominal Plant System.vi"/>
 				<Item Name="PID Control.vi" Type="VI" URL="../Examples/PID Control.vi"/>
 			</Item>
 			<Item Name="Connect and Disconnect.vi" Type="VI" URL="../Examples/Connect and Disconnect.vi"/>
@@ -23,6 +25,17 @@
 			<Item Name="Simple - Upload File.vi" Type="VI" URL="../Examples/Simple - Upload File.vi"/>
 			<Item Name="Simple - Write Data.vi" Type="VI" URL="../Examples/Simple - Write Data.vi"/>
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
+		</Item>
+		<Item Name="Quick Start" Type="Folder">
+			<Item Name="Quick Start -  Simple - Create Data Source.vi" Type="VI" URL="../Quick Start/Quick Start -  Simple - Create Data Source.vi"/>
+			<Item Name="Quick Start - Connect and Disconnect.vi" Type="VI" URL="../Quick Start/Quick Start - Connect and Disconnect.vi"/>
+			<Item Name="Quick Start - Deadband Simulator.vi" Type="VI" URL="../Quick Start/Quick Start - Deadband Simulator.vi"/>
+			<Item Name="Quick Start - Nominal Plant System.vi" Type="VI" URL="../Quick Start/Quick Start - Nominal Plant System.vi"/>
+			<Item Name="Quick Start - PID Control.vi" Type="VI" URL="../Quick Start/Quick Start - PID Control.vi"/>
+			<Item Name="Quick Start - Simple - Get All Units.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Get All Units.vi"/>
+			<Item Name="Quick Start - Simple - Upload File.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Upload File.vi"/>
+			<Item Name="Quick Start - Simple - Write Data.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Write Data.vi"/>
+			<Item Name="Quick Start - Streaming - Write.vi" Type="VI" URL="../Quick Start/Quick Start - Streaming - Write.vi"/>
 		</Item>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
@@ -119,8 +132,6 @@
 				<Item Name="UTC Offsets -- enum.ctl" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/UTC Offsets -- enum.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
-			<Item Name="Deadband Simulator.vi" Type="VI" URL="../../../../Program Files/National Instruments/LabVIEW 2020/examples/control/PID/subVIs/Deadband Simulator.vi"/>
-			<Item Name="Plant System.vi" Type="VI" URL="../../../../Program Files/National Instruments/LabVIEW 2020/examples/control/PID/subVIs/Plant System.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
