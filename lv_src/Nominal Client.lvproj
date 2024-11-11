@@ -27,11 +27,11 @@
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
 		</Item>
 		<Item Name="Quick Start" Type="Folder">
-			<Item Name="Quick Start -  Simple - Create Data Source.vi" Type="VI" URL="../Quick Start/Quick Start -  Simple - Create Data Source.vi"/>
 			<Item Name="Quick Start - Connect and Disconnect.vi" Type="VI" URL="../Quick Start/Quick Start - Connect and Disconnect.vi"/>
 			<Item Name="Quick Start - Deadband Simulator.vi" Type="VI" URL="../Quick Start/Quick Start - Deadband Simulator.vi"/>
 			<Item Name="Quick Start - Nominal Plant System.vi" Type="VI" URL="../Quick Start/Quick Start - Nominal Plant System.vi"/>
 			<Item Name="Quick Start - PID Control.vi" Type="VI" URL="../Quick Start/Quick Start - PID Control.vi"/>
+			<Item Name="Quick Start - Simple - Create Data Source.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Create Data Source.vi"/>
 			<Item Name="Quick Start - Simple - Get All Units.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Get All Units.vi"/>
 			<Item Name="Quick Start - Simple - Upload File.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Upload File.vi"/>
 			<Item Name="Quick Start - Simple - Write Data.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Write Data.vi"/>
