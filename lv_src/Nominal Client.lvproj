@@ -34,6 +34,7 @@
 			<Item Name="Quick Start - Simple - Create Data Source.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Create Data Source.vi"/>
 			<Item Name="Quick Start - Simple - Get All Units.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Get All Units.vi"/>
 			<Item Name="Quick Start - Simple - Upload File.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Upload File.vi"/>
+			<Item Name="Quick Start - Simple - Upload Video.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Upload Video.vi"/>
 			<Item Name="Quick Start - Simple - Write Data.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Write Data.vi"/>
 			<Item Name="Quick Start - Streaming - Write.vi" Type="VI" URL="../Quick Start/Quick Start - Streaming - Write.vi"/>
 		</Item>
