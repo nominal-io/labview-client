@@ -20,3 +20,4 @@
 #.token is a file which can be used to store a the developer's token without the risk of it being added to SCC!
 .token
 *.vip
+test_files/Narrative Demo v3.mp4

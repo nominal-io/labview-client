@@ -39,6 +39,7 @@
 			<Item Name="Quick Start - Streaming - Write.vi" Type="VI" URL="../Quick Start/Quick Start - Streaming - Write.vi"/>
 			<Item Name="Tutorial - Tags and Properties.vi" Type="VI" URL="../Quick Start/Tutorial - Tags and Properties.vi"/>
 		</Item>
+		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
