@@ -49,6 +49,7 @@
 			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../ts.relative/ts.relative.lvclass"/>
 		</Item>
 		<Item Name="datasource connection.vi" Type="VI" URL="../Examples/datasource connection.vi"/>
+		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
