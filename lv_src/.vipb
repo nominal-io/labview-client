@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2024-11-18 13:54:30" Creator="Tom" Comments="" ID="162cb4c5a538f2f425274bafd4610d80">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2024-11-19 11:11:21" Creator="Tom" Comments="" ID="29dd6929abacca86a651df784995e50c">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>2.0.0.2</Library_Version>
+    <Library_Version>2.0.0.3</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -18,7 +18,7 @@
   <Advanced_Settings>
     <Package_Dependencies>
       <External_Dependencies>jdp_science_jsontext &gt;= 1.7.0.118</External_Dependencies>
-      <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.1.18</External_Dependencies>
+      <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.0.17</External_Dependencies>
       <External_Dependencies>jki_lib_rest_client &gt;= 2.1.0.34</External_Dependencies>
       <External_Dependencies>labview_open_source_lib_epoch_datetime &gt;= 1.2.0.6</External_Dependencies>
       <External_Dependencies>ni_lib_advanced_http_client_api &gt;= 1.1.0.6</External_Dependencies>
@@ -27,7 +27,7 @@
       <External_Dependencies>oglib_lvdata &gt;= 6.0.0.45</External_Dependencies>
       <External_Dependencies>oglib_time &gt;= 6.0.1.6</External_Dependencies>
       <Direct_Dependencies>jdp_science_jsontext-1.7.0.118</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.1.18</Direct_Dependencies>
+      <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.0.17</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_rest_client-2.1.0.34</Direct_Dependencies>
       <Direct_Dependencies>labview_open_source_lib_epoch_datetime-1.2.0.6</Direct_Dependencies>
       <Direct_Dependencies>ni_lib_advanced_http_client_api-1.1.0.6</Direct_Dependencies>
@@ -67,6 +67,7 @@ Features:
 
 Fixes:
 - #2 Yealding resources to OS
+- #8 Missing dep: "JDP Common Science Utilities" -&gt; Downgraded Package dep to current -1.
 
 Find more details here: https://docs.nominal.io/</Release_Notes>
     </Description>
@@ -490,7 +491,7 @@ Find more details here: https://docs.nominal.io/</Release_Notes>
         <Path>Nominal Client\video.get.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>95999578C6E2B9C13BCA8F15A194A953</GUID>
+      <GUID>F5779F4E0BADB809CC9D040BAA219203</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -567,7 +568,7 @@ Find more details here: https://docs.nominal.io/</Release_Notes>
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A0CA51AB9D784FF1F3083BFF24630AB9</GUID>
+      <GUID>FE9FC0632F79C1E6243D2380FB3A2408</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -714,7 +715,7 @@ Find more details here: https://docs.nominal.io/</Release_Notes>
         <Path>Quick Start\Tutorial - Tags and Properties.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CA025C2A432E1DE646FC08E6FE560E8A</GUID>
+      <GUID>123FBDD817B3F04961E87FA2295B9A9A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -794,7 +795,7 @@ Find more details here: https://docs.nominal.io/</Release_Notes>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>wait_to_finish_uploading.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Wait to Finish Uploading</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -847,7 +848,7 @@ Find more details here: https://docs.nominal.io/</Release_Notes>
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>17C815ADCE7B791F27EF0335CC519C1E</GUID>
+      <GUID>33F2F4BB2D150F7A97A8373CFA650F0B</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
