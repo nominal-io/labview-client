@@ -27,6 +27,7 @@
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
 		</Item>
 		<Item Name="Quick Start" Type="Folder">
+			<Property Name="NI.SortType" Type="Int">3</Property>
 			<Item Name="Quick Start - Connect and Disconnect.vi" Type="VI" URL="../Quick Start/Quick Start - Connect and Disconnect.vi"/>
 			<Item Name="Quick Start - Deadband Simulator.vi" Type="VI" URL="../Quick Start/Quick Start - Deadband Simulator.vi"/>
 			<Item Name="Quick Start - Nominal Plant System.vi" Type="VI" URL="../Quick Start/Quick Start - Nominal Plant System.vi"/>
@@ -37,6 +38,8 @@
 			<Item Name="Quick Start - Simple - Upload Video.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Upload Video.vi"/>
 			<Item Name="Quick Start - Simple - Write Data.vi" Type="VI" URL="../Quick Start/Quick Start - Simple - Write Data.vi"/>
 			<Item Name="Quick Start - Streaming - Write.vi" Type="VI" URL="../Quick Start/Quick Start - Streaming - Write.vi"/>
+			<Item Name="Quick Start - Run - Create.vi" Type="VI" URL="../Quick Start/Quick Start - Run - Create.vi"/>
+			<Item Name="Quick Start - Runs - Get.vi" Type="VI" URL="../Quick Start/Quick Start - Runs - Get.vi"/>
 			<Item Name="Tutorial - Tags and Properties.vi" Type="VI" URL="../Quick Start/Tutorial - Tags and Properties.vi"/>
 		</Item>
 		<Item Name="support" Type="Folder">
