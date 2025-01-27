@@ -1,6 +1,8 @@
 # LabVIEW Client for Nominal IO
 Streaming data to Nominal from LabVIEW.
 
+[![Image](https://www.vipm.io/package/nominal_lib_nominal_io_client/badge.svg?metric=installs)](https://www.vipm.io/package/nominal_lib_nominal_io_client/) [![Image](https://www.vipm.io/package/nominal_lib_nominal_io_client/badge.svg?metric=stars)](https://www.vipm.io/package/nominal_lib_nominal_io_client/)
+
 
 ## Notes for developers
 ### LabVIEW Version
