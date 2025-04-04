@@ -59,6 +59,7 @@
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
+		<Item Name="Quick Start - Complete Streaming.vi" Type="VI" URL="../Quick Start/Quick Start - Complete Streaming.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_array.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/openg_array.lvlib"/>
