@@ -44,6 +44,7 @@
 			<Item Name="Quick Start - Runs - Get.vi" Type="VI" URL="../Quick Start/Quick Start - Runs - Get.vi"/>
 			<Item Name="Quick Start - Runs - Add Data.vi" Type="VI" URL="../Quick Start/Quick Start - Runs - Add Data.vi"/>
 			<Item Name="Tutorial - Tags and Properties.vi" Type="VI" URL="../Quick Start/Tutorial - Tags and Properties.vi"/>
+			<Item Name="Quick Start - Complete Streaming with Datasource Creation.vi" Type="VI" URL="../Quick Start/Quick Start - Complete Streaming with Datasource Creation.vi"/>
 		</Item>
 		<Item Name="support" Type="Folder">
 			<Item Name="create tdms file.vi" Type="VI" URL="../support/create tdms file.vi"/>
@@ -59,7 +60,6 @@
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
-		<Item Name="Quick Start - Complete Streaming.vi" Type="VI" URL="../Quick Start/Quick Start - Complete Streaming.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_array.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/openg_array.lvlib"/>
