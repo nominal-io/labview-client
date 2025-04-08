@@ -44,6 +44,7 @@
 			<Item Name="Quick Start - Runs - Get.vi" Type="VI" URL="../Quick Start/Quick Start - Runs - Get.vi"/>
 			<Item Name="Quick Start - Runs - Add Data.vi" Type="VI" URL="../Quick Start/Quick Start - Runs - Add Data.vi"/>
 			<Item Name="Tutorial - Tags and Properties.vi" Type="VI" URL="../Quick Start/Tutorial - Tags and Properties.vi"/>
+			<Item Name="Quick Start - Complete Streaming with Datasource Creation.vi" Type="VI" URL="../Quick Start/Quick Start - Complete Streaming with Datasource Creation.vi"/>
 		</Item>
 		<Item Name="support" Type="Folder">
 			<Item Name="create tdms file.vi" Type="VI" URL="../support/create tdms file.vi"/>
