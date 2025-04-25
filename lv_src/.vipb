@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-04-15 13:27:50" Creator="Tom" Comments="" ID="e76f3d7b07e4184759df96dac162c965">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-04-22 13:37:33" Creator="Tom" Comments="" ID="b07c325380ffe758266e371245b9179b">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>3.3.0.3</Library_Version>
+    <Library_Version>3.3.0.4</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -59,7 +59,8 @@ Nominal is built for startup, enterprise, and government deployments. Our archit
       <Release_Notes>Introducing the Nominal LabVIEW Client API!
 
 New Features:
-- Added Get Connections List method</Release_Notes>
+- Made toolkit RealTime Compatable
+- Added Catch to prevent negative UNIX timestamps</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -568,7 +569,7 @@ New Features:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Create Connection</NameSub_Menu_Name>
+        <NameSub_Menu_Name>List Connections</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -579,7 +580,7 @@ New Features:
         <Path>Nominal Client\connection.list.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BB8121F5FF053AC3B5E567A51085C74D</GUID>
+      <GUID>DED721F665FF9EC30526DE499D36E2E3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -656,7 +657,7 @@ New Features:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>572BCE568EE554D3B265B5CF1F998C85</GUID>
+      <GUID>8C810778117803B0864133C231630628</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -859,7 +860,7 @@ New Features:
         <Path>Quick Start\Quick Start - Complete Streaming with Datasource Creation.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FC441531004D6EBF701E6CEF8EB57F17</GUID>
+      <GUID>AA07D800B8AA63770419C586E84A3C80</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -992,7 +993,7 @@ New Features:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1EBECE88A9906A939D37D2F1412CFE5D</GUID>
+      <GUID>C727B6CD05CFE0FF049461268A6338F6</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
