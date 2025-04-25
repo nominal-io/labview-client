@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-04-22 13:37:33" Creator="Tom" Comments="" ID="b07c325380ffe758266e371245b9179b">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-04-25 10:42:59" Creator="Tom" Comments="" ID="ef0cbb14b86ca654558ac3d5e6dfc9d5">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>3.3.0.4</Library_Version>
+    <Library_Version>3.3.0.5</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -19,18 +19,15 @@
     <Package_Dependencies>
       <External_Dependencies>jdp_science_jsontext &gt;= 1.7.0.118</External_Dependencies>
       <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.0.17</External_Dependencies>
-      <External_Dependencies>jki_lib_rest_client &gt;= 2.1.0.34</External_Dependencies>
       <External_Dependencies>labview_open_source_lib_epoch_datetime &gt;= 1.2.0.6</External_Dependencies>
-      <External_Dependencies>ni_lib_advanced_http_client_api &gt;= 1.1.0.6</External_Dependencies>
       <External_Dependencies>oglib_array &gt;= 6.0.1.20</External_Dependencies>
       <External_Dependencies>oglib_error &gt;= 6.0.0.26</External_Dependencies>
       <External_Dependencies>oglib_lvdata &gt;= 6.0.0.45</External_Dependencies>
       <External_Dependencies>oglib_time &gt;= 6.0.1.6</External_Dependencies>
       <Direct_Dependencies>jdp_science_jsontext-1.7.0.118</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.0.17</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_rest_client-2.1.0.34</Direct_Dependencies>
+      <Direct_Dependencies>jki_lib_rest_client-2.0.0.33</Direct_Dependencies>
       <Direct_Dependencies>labview_open_source_lib_epoch_datetime-1.2.0.6</Direct_Dependencies>
-      <Direct_Dependencies>ni_lib_advanced_http_client_api-1.1.0.6</Direct_Dependencies>
       <Direct_Dependencies>oglib_array-6.0.1.20</Direct_Dependencies>
       <Direct_Dependencies>oglib_error-6.0.0.26</Direct_Dependencies>
       <Direct_Dependencies>oglib_lvdata-6.0.0.45</Direct_Dependencies>
@@ -580,7 +577,7 @@ New Features:
         <Path>Nominal Client\connection.list.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DED721F665FF9EC30526DE499D36E2E3</GUID>
+      <GUID>7477F6FC5B832F5CBADD679854F0DBD0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -657,7 +654,7 @@ New Features:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8C810778117803B0864133C231630628</GUID>
+      <GUID>06AB7604961C3EB523EA4A6FB7D841B9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -860,7 +857,7 @@ New Features:
         <Path>Quick Start\Quick Start - Complete Streaming with Datasource Creation.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AA07D800B8AA63770419C586E84A3C80</GUID>
+      <GUID>7B32A4A62A22200617E210CB6E4D9658</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -993,7 +990,7 @@ New Features:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C727B6CD05CFE0FF049461268A6338F6</GUID>
+      <GUID>2DA037F9906A4FA8A6F87257CC77B694</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
