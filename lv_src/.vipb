@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-04-15 13:27:50" Creator="Tom" Comments="" ID="e76f3d7b07e4184759df96dac162c965">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-04-25 10:42:59" Creator="Tom" Comments="" ID="ef0cbb14b86ca654558ac3d5e6dfc9d5">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>3.3.0.3</Library_Version>
+    <Library_Version>3.3.0.5</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -19,18 +19,15 @@
     <Package_Dependencies>
       <External_Dependencies>jdp_science_jsontext &gt;= 1.7.0.118</External_Dependencies>
       <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.0.17</External_Dependencies>
-      <External_Dependencies>jki_lib_rest_client &gt;= 2.1.0.34</External_Dependencies>
       <External_Dependencies>labview_open_source_lib_epoch_datetime &gt;= 1.2.0.6</External_Dependencies>
-      <External_Dependencies>ni_lib_advanced_http_client_api &gt;= 1.1.0.6</External_Dependencies>
       <External_Dependencies>oglib_array &gt;= 6.0.1.20</External_Dependencies>
       <External_Dependencies>oglib_error &gt;= 6.0.0.26</External_Dependencies>
       <External_Dependencies>oglib_lvdata &gt;= 6.0.0.45</External_Dependencies>
       <External_Dependencies>oglib_time &gt;= 6.0.1.6</External_Dependencies>
       <Direct_Dependencies>jdp_science_jsontext-1.7.0.118</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.0.17</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_rest_client-2.1.0.34</Direct_Dependencies>
+      <Direct_Dependencies>jki_lib_rest_client-2.0.0.33</Direct_Dependencies>
       <Direct_Dependencies>labview_open_source_lib_epoch_datetime-1.2.0.6</Direct_Dependencies>
-      <Direct_Dependencies>ni_lib_advanced_http_client_api-1.1.0.6</Direct_Dependencies>
       <Direct_Dependencies>oglib_array-6.0.1.20</Direct_Dependencies>
       <Direct_Dependencies>oglib_error-6.0.0.26</Direct_Dependencies>
       <Direct_Dependencies>oglib_lvdata-6.0.0.45</Direct_Dependencies>
@@ -59,7 +56,8 @@ Nominal is built for startup, enterprise, and government deployments. Our archit
       <Release_Notes>Introducing the Nominal LabVIEW Client API!
 
 New Features:
-- Added Get Connections List method</Release_Notes>
+- Made toolkit RealTime Compatable
+- Added Catch to prevent negative UNIX timestamps</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -568,7 +566,7 @@ New Features:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Create Connection</NameSub_Menu_Name>
+        <NameSub_Menu_Name>List Connections</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -579,7 +577,7 @@ New Features:
         <Path>Nominal Client\connection.list.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BB8121F5FF053AC3B5E567A51085C74D</GUID>
+      <GUID>7477F6FC5B832F5CBADD679854F0DBD0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -656,7 +654,7 @@ New Features:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>572BCE568EE554D3B265B5CF1F998C85</GUID>
+      <GUID>06AB7604961C3EB523EA4A6FB7D841B9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -859,7 +857,7 @@ New Features:
         <Path>Quick Start\Quick Start - Complete Streaming with Datasource Creation.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FC441531004D6EBF701E6CEF8EB57F17</GUID>
+      <GUID>7B32A4A62A22200617E210CB6E4D9658</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -992,7 +990,7 @@ New Features:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1EBECE88A9906A939D37D2F1412CFE5D</GUID>
+      <GUID>2DA037F9906A4FA8A6F87257CC77B694</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
