@@ -55,6 +55,9 @@
 			<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="../ts.iso8601/ts.iso8601.lvclass"/>
 			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../ts.relative/ts.relative.lvclass"/>
 		</Item>
+		<Item Name="Tests" Type="Folder">
+			<Item Name="test.workspace_add.vi" Type="VI" URL="../Nominal Client/test.workspace_add.vi"/>
+		</Item>
 		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
@@ -178,6 +181,7 @@
 				<Item Name="Write Spreadsheet String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Spreadsheet String.vi"/>
 				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
 				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
+				<Item Name="1D String Array to Delimited String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/1D String Array to Delimited String.vi"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 		</Item>
