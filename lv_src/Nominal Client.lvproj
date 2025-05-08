@@ -64,6 +64,7 @@
 			<Item Name="test.workspace_create_datasource_and_connection_in_expected_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_in_expected_workspace.vi"/>
 			<Item Name="test.workspace_create_datasource_and_connection_without_specifying_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_without_specifying_workspace.vi"/>
 			<Item Name="test.workspace_create_datasource_and_connection_specifying_default_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_specifying_default_workspace.vi"/>
+			<Item Name="test.workspace_create_datasource_without_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_without_workspace.vi"/>
 			<Item Name="test.workspace_get.vi" Type="VI" URL="../tests/test.workspace_get.vi"/>
 		</Item>
 		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
