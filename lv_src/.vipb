@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-05-08 13:59:57" Creator="Tom" Comments="" ID="e5400e445a906fcd11e4571dc1b3a705">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-05-08 16:51:42" Creator="Tom" Comments="" ID="a2a58f41c46cf6c3610dd0e9be870299">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>3.3.0.7</Library_Version>
+    <Library_Version>3.4.0.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -48,6 +48,7 @@ Nominal is built for startup, enterprise, and government deployments. Our archit
       <Release_Notes>Introducing the Nominal LabVIEW Client API!
 
 New Features:
+- Added Workspace Support
 - Made toolkit RealTime Compatable
 - Added Catch to prevent negative UNIX timestamps
 
@@ -148,6 +149,12 @@ Improvements:
       </Exclusions>
       <Exclusions>
         <Path>tests</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>1 workspace.token</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>0 workspaces.token</Path>
       </Exclusions>
       <Place_Folder_Contents>
         <Path/>
@@ -645,7 +652,7 @@ Improvements:
         <Path>Quick Start</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D8D4254D818D8BA281FE931643209572</GUID>
+      <GUID>C778B6669FC3862D1713531D3B89877B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -722,7 +729,7 @@ Improvements:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FDCAA9E6E85B2979EA8B9F995681D865</GUID>
+      <GUID>A3246121194E9CD1CA7D5D750DD7D7DC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -939,7 +946,7 @@ Improvements:
         <Path>Quick Start\Quick Start - Workspaces.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3412DF4F7902B4ECB71265B88C5FD012</GUID>
+      <GUID>B5993E75B0DA898AD7BC84C80065392A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1072,7 +1079,7 @@ Improvements:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1708137E97E1B09AEE7BA7F5864D191C</GUID>
+      <GUID>FC9E34B3347DB4C82078407584C6B1AF</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
