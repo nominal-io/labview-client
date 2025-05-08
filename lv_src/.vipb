@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-05-08 13:59:57" Creator="Tom" Comments="" ID="e5400e445a906fcd11e4571dc1b3a705">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-05-08 15:42:50" Creator="Tom" Comments="" ID="ddb9b3142f67734d9af016319279ae47">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
     <Library_Version>3.3.0.7</Library_Version>
@@ -148,6 +148,12 @@ Improvements:
       </Exclusions>
       <Exclusions>
         <Path>tests</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>1 workspace.token</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>0 workspaces.token</Path>
       </Exclusions>
       <Place_Folder_Contents>
         <Path/>
@@ -645,7 +651,7 @@ Improvements:
         <Path>Quick Start</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D8D4254D818D8BA281FE931643209572</GUID>
+      <GUID>5DF05ABC3539C7257924433874594997</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -722,7 +728,7 @@ Improvements:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FDCAA9E6E85B2979EA8B9F995681D865</GUID>
+      <GUID>F4CC00B7C3015B8B01F2D41E6642BAB7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -939,7 +945,7 @@ Improvements:
         <Path>Quick Start\Quick Start - Workspaces.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3412DF4F7902B4ECB71265B88C5FD012</GUID>
+      <GUID>987AAE2828C8CB393B41A457685CF42B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1072,7 +1078,7 @@ Improvements:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1708137E97E1B09AEE7BA7F5864D191C</GUID>
+      <GUID>6C0D26533FC7296068531118BE18DCBC</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
