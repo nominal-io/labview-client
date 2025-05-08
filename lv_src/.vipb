@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-05-07 14:52:36" Creator="Tom" Comments="" ID="6264ab74119bbf28eda587db97f9433b">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-05-08 13:59:57" Creator="Tom" Comments="" ID="e5400e445a906fcd11e4571dc1b3a705">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
     <Library_Version>3.3.0.7</Library_Version>
@@ -146,6 +146,9 @@ Improvements:
       <Exclusions>
         <Path>Examples/Nominal Example TDMS File.tdms</Path>
       </Exclusions>
+      <Exclusions>
+        <Path>tests</Path>
+      </Exclusions>
       <Place_Folder_Contents>
         <Path/>
       </Place_Folder_Contents>
@@ -211,7 +214,7 @@ Improvements:
       <Edit_VI_Description>true</Edit_VI_Description>
       <Text_to_Add>
 {product_name} {version_number}
-{author_name} - {company_name}
+{author_name} - JKI
 {copyright}</Text_to_Add>
     </VI_Docs>
     <System_Destinations/>
@@ -642,7 +645,7 @@ Improvements:
         <Path>Quick Start</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>97B30339A3A4C5FC989C6CEED493B2DB</GUID>
+      <GUID>D8D4254D818D8BA281FE931643209572</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -719,7 +722,7 @@ Improvements:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6B3DC0121B18817D0AB8FA07AD177910</GUID>
+      <GUID>FDCAA9E6E85B2979EA8B9F995681D865</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -936,7 +939,7 @@ Improvements:
         <Path>Quick Start\Quick Start - Workspaces.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AAAF090820336A4F3491B9AC428C7808</GUID>
+      <GUID>3412DF4F7902B4ECB71265B88C5FD012</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1069,7 +1072,7 @@ Improvements:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8A7B325F1910E022E2B2035E6B08A894</GUID>
+      <GUID>1708137E97E1B09AEE7BA7F5864D191C</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
