@@ -4,10 +4,19 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="payload.lvclass" Type="LVClass" URL="../payload/payload.lvclass"/>
+	<Item Name="containerized.lvclass" Type="LVClass" URL="../containerized/containerized.lvclass"/>
 	<Item Name="csv.lvclass" Type="LVClass" URL="../csv/csv.lvclass"/>
+	<Item Name="dataset.lvclass" Type="LVClass" URL="../dataset/dataset.lvclass"/>
+	<Item Name="datasflash.lvclass" Type="LVClass" URL="../datasflash/datasflash.lvclass"/>
 	<Item Name="datasource.lvclass" Type="LVClass" URL="../datasource/datasource.lvclass"/>
+	<Item Name="journalJson.lvclass" Type="LVClass" URL="../journalJson/journalJson.lvclass"/>
+	<Item Name="mcapProtobufTimeseries.lvclass" Type="LVClass" URL="../mcapProtobufTimeseries/mcapProtobufTimeseries.lvclass"/>
+	<Item Name="parquet.lvclass" Type="LVClass" URL="../parquet/parquet.lvclass"/>
 	<Item Name="gcs.lvclass" Type="LVClass" URL="../gcs/gcs.lvclass"/>
 	<Item Name="s3.lvclass" Type="LVClass" URL="../s3/s3.lvclass"/>
 	<Item Name="source.lvclass" Type="LVClass" URL="../source/source.lvclass"/>
 	<Item Name="target.lvclass" Type="LVClass" URL="../target/target.lvclass"/>
+	<Item Name="video.lvclass" Type="LVClass" URL="../video/video.lvclass"/>
 </Library>

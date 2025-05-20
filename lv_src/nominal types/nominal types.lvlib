@@ -4,6 +4,10 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="channelFilter.lvlib" Type="Library" URL="../channelFilter.lvlib"/>
+	<Item Name="channelConfig.lvclass" Type="LVClass" URL="../channelConfig/channelConfig.lvclass"/>
 	<Item Name="labels.lvclass" Type="LVClass" URL="../labels/labels.lvclass"/>
 	<Item Name="properties.lvclass" Type="LVClass" URL="../properties/properties.lvclass"/>
+	<Item Name="workspace.lvclass" Type="LVClass" URL="../workspace/workspace.lvclass"/>
 </Library>
