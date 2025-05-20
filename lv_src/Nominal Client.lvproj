@@ -72,25 +72,11 @@
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
+		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
+		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
-			<Item Name="jdp_science_jsontext" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jdp_science_jsontext</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jki_lib_caraya" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jki_lib_caraya</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jki_lib_rest_client" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jki_lib_rest_client</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="labview_open_source_lib_epoch_datetime" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">labview_open_source_lib_epoch_datetime</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -277,6 +263,7 @@
 				<Item Name="Get System Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/Get System Directory.vi"/>
 				<Item Name="Caraya Interactive Menu.rtm" Type="Document" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/menu/Caraya Interactive Menu.rtm"/>
 				<Item Name="Create NI GUID.vi" Type="VI" URL="/&lt;vilib&gt;/string/Create NI GUID.vi"/>
+				<Item Name="LVMapReplaceAction.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMapReplaceAction.ctl"/>
 			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
