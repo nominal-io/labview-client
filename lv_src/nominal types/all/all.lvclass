@@ -29,10 +29,10 @@
 	<Item Name="to_json.vi" Type="VI" URL="../to_json.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;.!!!!#A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!Z!-0````]%;H.P&lt;A!!2E"Q!"Y!!$54&lt;G^N;7ZB&lt;#"U?8"F=SZM&gt;GRJ9B.D;'&amp;O&lt;G6M2GFM&gt;'6S,GRW&lt;'FC#W&amp;M&lt;#ZM&gt;G.M98.T!!&gt;B&lt;'QA&lt;X6U!":!5!!$!!!!!1!##'6S=G^S)'FO!!"'1(!!(A!!.2.O&lt;WVJ&lt;G&amp;M)(2Z='6T,GRW&lt;'FC%W.I97ZO:7R';7RU:8)O&lt;(:M;7),97RM,GRW9WRB=X-!"G&amp;M&lt;#"J&lt;A!!6!$Q!!Q!!Q!%!!5!"A!%!!1!"!!%!!=!"!!%!!A$!!"Y!!!.#!!!!!!!!!E!!!#.#Q!!!!!!!!!!!!!!!!!!!!!!!!I!!!!!!!!!!!!!!*!!!!!!!1!*!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1107821074</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1082139152</Property>
 	</Item>
 </LVClass>

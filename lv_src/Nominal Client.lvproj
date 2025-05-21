@@ -55,9 +55,12 @@
 		</Item>
 		<Item Name="timestampMetadata" Type="Folder">
 			<Item Name="timestampMetadata.lvclass" Type="LVClass" URL="../timestampMetadata/timestampMetadata.lvclass"/>
+			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../ts.relative/ts.relative.lvclass"/>
+			<Item Name="ts.absoloute.lvclass" Type="LVClass" URL="../ts.absoloute/ts.absoloute.lvclass"/>
 			<Item Name="ts.epochOfTimeUnit.lvclass" Type="LVClass" URL="../ts.epochOfTimeUnit/ts.epochOfTimeUnit.lvclass"/>
 			<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="../ts.iso8601/ts.iso8601.lvclass"/>
-			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../ts.relative/ts.relative.lvclass"/>
+			<Item Name="timestampType.lvclass" Type="LVClass" URL="../timestampType/timestampType.lvclass"/>
+			<Item Name="ts.absoloute type.lvclass" Type="LVClass" URL="../ts.absoloute type/ts.absoloute type.lvclass"/>
 		</Item>
 		<Item Name="Tests" Type="Folder">
 			<Item Name="test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi"/>
@@ -74,6 +77,8 @@
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
 		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
+		<Item Name="test.timestamp_json.vi" Type="VI" URL="../tests/test.timestamp_json.vi"/>
+		<Item Name="test.video injest payload.vi" Type="VI" URL="../tests/test.video injest payload.vi"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
