@@ -1,6 +1,6 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="20008000">
-	<Property Name="CCSymbols" Type="Str">Nominal_Debug_Trace,TRUE;Nominal_Debug_File,TRUE;</Property>
+	<Property Name="CCSymbols" Type="Str">Nominal_Debug_File,TRUE;Nominal_Debug_Trace,TRUE;Nominal_Disable_Comms,TRUE;</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
@@ -70,16 +70,20 @@
 			<Item Name="test.workspace_create_datasource_and_connection_specifying_default_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_specifying_default_workspace.vi"/>
 			<Item Name="test.workspace_create_datasource_without_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_without_workspace.vi"/>
 			<Item Name="test.workspace_get.vi" Type="VI" URL="../tests/test.workspace_get.vi"/>
+			<Item Name="test.timestamp_json.vi" Type="VI" URL="../tests/test.timestamp_json.vi"/>
+			<Item Name="test.video injest payload.vi" Type="VI" URL="../tests/test.video injest payload.vi"/>
+			<Item Name="test.ingest_dataflash.vi" Type="VI" URL="../tests/test.ingest_dataflash.vi"/>
+		</Item>
+		<Item Name="developer tools" Type="Folder">
+			<Item Name="debugging project symbols.vi" Type="VI" URL="../Nominal Client/debugging project symbols.vi"/>
 		</Item>
 		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
-		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
 		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
-		<Item Name="test.timestamp_json.vi" Type="VI" URL="../tests/test.timestamp_json.vi"/>
-		<Item Name="test.video injest payload.vi" Type="VI" URL="../tests/test.video injest payload.vi"/>
+		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
@@ -272,6 +276,7 @@
 				<Item Name="LVMapReplaceAction.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMapReplaceAction.ctl"/>
 				<Item Name="NI_SystemLogging.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/SystemLogging/NI_SystemLogging.lvlib"/>
 				<Item Name="Create Directory Recursive.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Create Directory Recursive.vi"/>
+				<Item Name="Delimited String to 1D String Array.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Delimited String to 1D String Array.vi"/>
 			</Item>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
