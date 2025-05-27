@@ -62,6 +62,7 @@
 			<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="../ts.iso8601/ts.iso8601.lvclass"/>
 			<Item Name="timestampType.lvclass" Type="LVClass" URL="../timestampType/timestampType.lvclass"/>
 			<Item Name="ts.absoloute type.lvclass" Type="LVClass" URL="../ts.absoloute type/ts.absoloute type.lvclass"/>
+			<Item Name="ts.logtime.lvclass" Type="LVClass" URL="../ts.logtime/ts.logtime.lvclass"/>
 		</Item>
 		<Item Name="Tests" Type="Folder">
 			<Item Name="test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi"/>
@@ -73,6 +74,8 @@
 			<Item Name="test.timestamp_json.vi" Type="VI" URL="../tests/test.timestamp_json.vi"/>
 			<Item Name="test.video injest payload.vi" Type="VI" URL="../tests/test.video injest payload.vi"/>
 			<Item Name="test.ingest_dataflash.vi" Type="VI" URL="../tests/test.ingest_dataflash.vi"/>
+			<Item Name="test.ingest_journalJson.vi" Type="VI" URL="../tests/test.ingest_journalJson.vi"/>
+			<Item Name="test.ingest_mcapProtobufTimeseries.vi" Type="VI" URL="../tests/test.ingest_mcapProtobufTimeseries.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">
 			<Item Name="debugging project symbols.vi" Type="VI" URL="../developer tools/debugging project symbols.vi"/>
@@ -90,6 +93,7 @@
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
 		</Item>
+		<Item Name="test.ingest_csv.vi" Type="VI" URL="../tests/test.ingest_csv.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
