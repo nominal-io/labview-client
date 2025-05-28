@@ -74,7 +74,10 @@
 			<Item Name="test.timestamp_json.vi" Type="VI" URL="../tests/test.timestamp_json.vi"/>
 			<Item Name="test.video injest payload.vi" Type="VI" URL="../tests/test.video injest payload.vi"/>
 			<Item Name="test.ingest_dataflash.vi" Type="VI" URL="../tests/test.ingest_dataflash.vi"/>
+			<Item Name="test.ingest_csv.vi" Type="VI" URL="../tests/test.ingest_csv.vi"/>
 			<Item Name="test.ingest_journalJson.vi" Type="VI" URL="../tests/test.ingest_journalJson.vi"/>
+			<Item Name="test.ingest_parquet.vi" Type="VI" URL="../tests/test.ingest_parquet.vi"/>
+			<Item Name="test.ingest_video.vi" Type="VI" URL="../tests/test.ingest_video.vi"/>
 			<Item Name="test.ingest_mcapProtobufTimeseries.vi" Type="VI" URL="../tests/test.ingest_mcapProtobufTimeseries.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">
@@ -93,7 +96,6 @@
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
 		</Item>
-		<Item Name="test.ingest_csv.vi" Type="VI" URL="../tests/test.ingest_csv.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
