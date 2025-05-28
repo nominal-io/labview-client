@@ -78,6 +78,7 @@
 			<Item Name="test.ingest_journalJson.vi" Type="VI" URL="../tests/test.ingest_journalJson.vi"/>
 			<Item Name="test.ingest_parquet.vi" Type="VI" URL="../tests/test.ingest_parquet.vi"/>
 			<Item Name="test.ingest_video.vi" Type="VI" URL="../tests/test.ingest_video.vi"/>
+			<Item Name="test.ingest_containerized.vi" Type="VI" URL="../tests/test.ingest_containerized.vi"/>
 			<Item Name="test.ingest_mcapProtobufTimeseries.vi" Type="VI" URL="../tests/test.ingest_mcapProtobufTimeseries.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">
