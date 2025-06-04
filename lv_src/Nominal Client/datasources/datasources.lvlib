@@ -19,4 +19,5 @@
 	<Item Name="source.lvclass" Type="LVClass" URL="../source/source.lvclass"/>
 	<Item Name="target.lvclass" Type="LVClass" URL="../target/target.lvclass"/>
 	<Item Name="video.lvclass" Type="LVClass" URL="../video/video.lvclass"/>
+	<Item Name="target.video.lvclass" Type="LVClass" URL="../target.video/target.video.lvclass"/>
 </Library>
