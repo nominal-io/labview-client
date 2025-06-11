@@ -1,0 +1,4 @@
+timestamp,numeric,string,bool,vid
+1970-01-01T00:00:00.000Z,0.0,"blah",true,0
+1970-01-01T00:00:00.000Z,1.0,"value 2",false,1
+1970-01-01T00:00:00.002Z,2.0,unquoted value,false,0

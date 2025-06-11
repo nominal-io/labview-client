@@ -1,0 +1,3 @@
+{"__CURSOR":"s=1;i=2;m=3","_TRANSPORT":"stdout","SYSLOG_IDENTIFIER":"nom","_BOOT_ID":"1","_SYSTEMD_UNIT":"nom.service","__REALTIME_TIMESTAMP":"1","__MONOTONIC_TIMESTAMP":"1157055514","MESSAGE":"foo","_HOSTNAME":"piplup","PRIORITY":"1"}
+{"_TRANSPORT":"stdout","_HOSTNAME":"empoleon","SYSLOG_IDENTIFIER":"nom","__REALTIME_TIMESTAMP":"2","__MONOTONIC_TIMESTAMP":"1157059001","MESSAGE":"bar","_BOOT_ID":"1","_SYSTEMD_UNIT":"nom.service","__CURSOR":"s=3;i=4c492;b=2;m=2;t=1;x=3","PRIORITY":"2"}
+{"MESSAGE":"baz","__CURSOR":"s=1;i=2;b=2;m=3;t=4","_BOOT_ID":"1","_TRANSPORT":"stdout","SYSLOG_IDENTIFIER":"configd","_HOSTNAME":"prinplup","__MONOTONIC_TIMESTAMP":"1157062375","_SYSTEMD_UNIT":"configd.service","PRIORITY":"1","__REALTIME_TIMESTAMP":"3"}
