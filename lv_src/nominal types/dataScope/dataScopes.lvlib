@@ -4,4 +4,17 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Item Name="data_scope.ctl" Type="VI" URL="../data_scope.ctl"/>
+	<Item Name="data_scopes.ctl" Type="VI" URL="../data_scopes.ctl"/>
+	<Item Name="data_source.ctl" Type="VI" URL="../data_source.ctl"/>
+	<Item Name="datascope.from_json.vi" Type="VI" URL="../datascope.from_json.vi"/>
+	<Item Name="datascope.to_json.vi" Type="VI" URL="../datascope.to_json.vi"/>
+	<Item Name="datascopes.to_json.vi" Type="VI" URL="../datascopes.to_json.vi"/>
+	<Item Name="datasource.from_json.vi" Type="VI" URL="../datasource.from_json.vi"/>
+	<Item Name="datasource.to_json.vi" Type="VI" URL="../datasource.to_json.vi"/>
+	<Item Name="links.ctl" Type="VI" URL="../../../Nominal Client/links.ctl"/>
+	<Item Name="offset.ctl" Type="VI" URL="../offset.ctl"/>
+	<Item Name="offset.to_json.vi" Type="VI" URL="../offset.to_json.vi"/>
+	<Item Name="timstampType.ctl" Type="VI" URL="../timstampType.ctl"/>
+	<Item Name="type.ctl" Type="VI" URL="../type.ctl"/>
 </Library>

@@ -83,24 +83,27 @@
 			<Item Name="test.ingest_parquet 2.vi" Type="VI" URL="../tests/test.ingest_parquet 2.vi"/>
 			<Item Name="test.ingest_csv 2.vi" Type="VI" URL="../tests/test.ingest_csv 2.vi"/>
 			<Item Name="test.ingest_journalJSON v2.vi" Type="VI" URL="../tests/test.ingest_journalJSON v2.vi"/>
+			<Item Name="asset create.vi" Type="VI" URL="../tests/asset create.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">
 			<Item Name="debugging project symbols.vi" Type="VI" URL="../developer tools/debugging project symbols.vi"/>
 			<Item Name="open log file directory.vi" Type="VI" URL="../developer tools/open log file directory.vi"/>
 			<Item Name="read log.vi" Type="VI" URL="../developer tools/read log.vi"/>
 		</Item>
+		<Item Name="asset.lvclass" Type="LVClass" URL="../asset/asset.lvclass"/>
 		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
 		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
+		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
+		<Item Name="type.lvclass" Type="LVClass" URL="../type/type.lvclass"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
 		</Item>
-		<Item Name="links.ctl" Type="VI" URL="../Nominal Client/links.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
