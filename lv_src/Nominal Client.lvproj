@@ -84,6 +84,7 @@
 			<Item Name="test.ingest_csv 2.vi" Type="VI" URL="../tests/test.ingest_csv 2.vi"/>
 			<Item Name="test.ingest_journalJSON v2.vi" Type="VI" URL="../tests/test.ingest_journalJSON v2.vi"/>
 			<Item Name="asset create.vi" Type="VI" URL="../tests/asset create.vi"/>
+			<Item Name="test type.vi" Type="VI" URL="../Nominal Client/test type.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">
 			<Item Name="debugging project symbols.vi" Type="VI" URL="../developer tools/debugging project symbols.vi"/>
@@ -91,6 +92,7 @@
 			<Item Name="read log.vi" Type="VI" URL="../developer tools/read log.vi"/>
 		</Item>
 		<Item Name="asset.lvclass" Type="LVClass" URL="../asset/asset.lvclass"/>
+		<Item Name="type.lvclass" Type="LVClass" URL="../type/type.lvclass"/>
 		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
@@ -99,7 +101,6 @@
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
 		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
-		<Item Name="type.lvclass" Type="LVClass" URL="../type/type.lvclass"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
