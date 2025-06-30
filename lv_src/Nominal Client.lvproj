@@ -1,6 +1,6 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="20008000">
-	<Property Name="CCSymbols" Type="Str">Nominal_Debug_File,TRUE;Nominal_Debug_Trace,TRUE;Nominal_Disable_Comms,FALSE;</Property>
+	<Property Name="CCSymbols" Type="Str">Nominal_Debug_File,TRUE;Nominal_Debug_Trace,FALSE;Nominal_Disable_Comms,FALSE;</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
@@ -29,6 +29,7 @@
 			<Item Name="Simple - Write Data.vi" Type="VI" URL="../Examples/Simple - Write Data.vi"/>
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
 			<Item Name="Workspaces.vi" Type="VI" URL="../Examples/Workspaces.vi"/>
+			<Item Name="Streaming - Write Custom Cluster.vi" Type="VI" URL="../Examples/Streaming - Write Custom Cluster.vi"/>
 		</Item>
 		<Item Name="Quick Start" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
@@ -93,6 +94,7 @@
 		</Item>
 		<Item Name="asset.lvclass" Type="LVClass" URL="../asset/asset.lvclass"/>
 		<Item Name="type.lvclass" Type="LVClass" URL="../type/type.lvclass"/>
+		<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="../stream_custom_cluster/stream_custom_cluster.lvclass"/>
 		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
@@ -101,7 +103,6 @@
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
 		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
-		<Item Name="parse generic data with strings.vi" Type="VI" URL="../parse generic data with strings.vi"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
