@@ -90,7 +90,7 @@
 		<Item Name="developer tools" Type="Folder">
 			<Item Name="debugging project symbols.vi" Type="VI" URL="../developer tools/debugging project symbols.vi"/>
 			<Item Name="open log file directory.vi" Type="VI" URL="../developer tools/open log file directory.vi"/>
-			<Item Name="read log.vi" Type="VI" URL="../developer tools/read log.vi"/>
+			<Item Name="log file viewer.vi" Type="VI" URL="../developer tools/log file viewer.vi"/>
 		</Item>
 		<Item Name="asset.lvclass" Type="LVClass" URL="../asset/asset.lvclass"/>
 		<Item Name="type.lvclass" Type="LVClass" URL="../type/type.lvclass"/>
