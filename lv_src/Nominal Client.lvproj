@@ -1,5 +1,6 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="20008000">
+	<Property Name="CCSymbols" Type="Str">Nominal_Debug_File,TRUE;Nominal_Debug_Trace,FALSE;Nominal_Disable_Comms,FALSE;</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
@@ -28,6 +29,7 @@
 			<Item Name="Simple - Write Data.vi" Type="VI" URL="../Examples/Simple - Write Data.vi"/>
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
 			<Item Name="Workspaces.vi" Type="VI" URL="../Examples/Workspaces.vi"/>
+			<Item Name="Streaming - Write Custom Cluster.vi" Type="VI" URL="../Examples/Streaming - Write Custom Cluster.vi"/>
 		</Item>
 		<Item Name="Quick Start" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
@@ -55,9 +57,13 @@
 		</Item>
 		<Item Name="timestampMetadata" Type="Folder">
 			<Item Name="timestampMetadata.lvclass" Type="LVClass" URL="../timestampMetadata/timestampMetadata.lvclass"/>
+			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../ts.relative/ts.relative.lvclass"/>
+			<Item Name="ts.absoloute.lvclass" Type="LVClass" URL="../ts.absoloute/ts.absoloute.lvclass"/>
 			<Item Name="ts.epochOfTimeUnit.lvclass" Type="LVClass" URL="../ts.epochOfTimeUnit/ts.epochOfTimeUnit.lvclass"/>
 			<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="../ts.iso8601/ts.iso8601.lvclass"/>
-			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../ts.relative/ts.relative.lvclass"/>
+			<Item Name="timestampType.lvclass" Type="LVClass" URL="../timestampType/timestampType.lvclass"/>
+			<Item Name="ts.absoloute type.lvclass" Type="LVClass" URL="../ts.absoloute type/ts.absoloute type.lvclass"/>
+			<Item Name="ts.logtime.lvclass" Type="LVClass" URL="../ts.logtime/ts.logtime.lvclass"/>
 		</Item>
 		<Item Name="Tests" Type="Folder">
 			<Item Name="test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi"/>
@@ -66,31 +72,40 @@
 			<Item Name="test.workspace_create_datasource_and_connection_specifying_default_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_specifying_default_workspace.vi"/>
 			<Item Name="test.workspace_create_datasource_without_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_without_workspace.vi"/>
 			<Item Name="test.workspace_get.vi" Type="VI" URL="../tests/test.workspace_get.vi"/>
+			<Item Name="test.timestamp_json.vi" Type="VI" URL="../tests/test.timestamp_json.vi"/>
+			<Item Name="test.video injest payload.vi" Type="VI" URL="../tests/test.video injest payload.vi"/>
+			<Item Name="test.ingest_dataflash.vi" Type="VI" URL="../tests/test.ingest_dataflash.vi"/>
+			<Item Name="test.ingest_csv.vi" Type="VI" URL="../tests/test.ingest_csv.vi"/>
+			<Item Name="test.ingest_journalJson.vi" Type="VI" URL="../tests/test.ingest_journalJson.vi"/>
+			<Item Name="test.ingest_parquet.vi" Type="VI" URL="../tests/test.ingest_parquet.vi"/>
+			<Item Name="test.ingest_video.vi" Type="VI" URL="../tests/test.ingest_video.vi"/>
+			<Item Name="test.ingest_containerized.vi" Type="VI" URL="../tests/test.ingest_containerized.vi"/>
+			<Item Name="test.ingest_mcapProtobufTimeseries.vi" Type="VI" URL="../tests/test.ingest_mcapProtobufTimeseries.vi"/>
+			<Item Name="test.ingest_parquet 2.vi" Type="VI" URL="../tests/test.ingest_parquet 2.vi"/>
+			<Item Name="test.ingest_csv 2.vi" Type="VI" URL="../tests/test.ingest_csv 2.vi"/>
+			<Item Name="test.ingest_journalJSON v2.vi" Type="VI" URL="../tests/test.ingest_journalJSON v2.vi"/>
+			<Item Name="asset create.vi" Type="VI" URL="../tests/asset create.vi"/>
+			<Item Name="test type.vi" Type="VI" URL="../Nominal Client/test type.vi"/>
 		</Item>
+		<Item Name="developer tools" Type="Folder">
+			<Item Name="debugging project symbols.vi" Type="VI" URL="../developer tools/debugging project symbols.vi"/>
+			<Item Name="open log file directory.vi" Type="VI" URL="../developer tools/open log file directory.vi"/>
+			<Item Name="read log.vi" Type="VI" URL="../developer tools/read log.vi"/>
+		</Item>
+		<Item Name="asset.lvclass" Type="LVClass" URL="../asset/asset.lvclass"/>
+		<Item Name="type.lvclass" Type="LVClass" URL="../type/type.lvclass"/>
+		<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="../stream_custom_cluster/stream_custom_cluster.lvclass"/>
 		<Item Name="mcap.channel_locator.lvclass" Type="LVClass" URL="../mcap.channel_locator/mcap.channel_locator.lvclass"/>
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
+		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
+		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
+		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
-			<Item Name="jdp_science_jsontext" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jdp_science_jsontext</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jki_lib_caraya" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jki_lib_caraya</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jki_lib_rest_client" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jki_lib_rest_client</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="labview_open_source_lib_epoch_datetime" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">labview_open_source_lib_epoch_datetime</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -277,7 +292,30 @@
 				<Item Name="Get System Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/Get System Directory.vi"/>
 				<Item Name="Caraya Interactive Menu.rtm" Type="Document" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/menu/Caraya Interactive Menu.rtm"/>
 				<Item Name="Create NI GUID.vi" Type="VI" URL="/&lt;vilib&gt;/string/Create NI GUID.vi"/>
+				<Item Name="LVMapReplaceAction.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMapReplaceAction.ctl"/>
+				<Item Name="NI_SystemLogging.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/SystemLogging/NI_SystemLogging.lvlib"/>
+				<Item Name="Create Directory Recursive.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Create Directory Recursive.vi"/>
+				<Item Name="Delimited String to 1D String Array.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Delimited String to 1D String Array.vi"/>
+				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
+				<Item Name="Select State(s)_err__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Select State(s)_err__jki_lib_state_machine.vi"/>
+				<Item Name="Select State(s)_bool__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Select State(s)_bool__jki_lib_state_machine.vi"/>
+				<Item Name="Select State(s)__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Select State(s)__jki_lib_state_machine.vi"/>
+				<Item Name="Parse State Queue_2024__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Parse State Queue_2024__jki_lib_state_machine.vi"/>
+				<Item Name="Append Error Details__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Append Error Details__jki_lib_state_machine.vi"/>
+				<Item Name="Conditional State String__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Conditional State String__jki_lib_state_machine.vi"/>
+				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
+				<Item Name="Get LV Class Default Value By Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value By Name.vi"/>
+				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
+				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
 			</Item>
+			<Item Name="user.lib" Type="Folder">
+				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
+				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
+			</Item>
+			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
