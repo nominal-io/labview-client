@@ -10,4 +10,5 @@
 	<Item Name="labels.lvclass" Type="LVClass" URL="../labels/labels.lvclass"/>
 	<Item Name="properties.lvclass" Type="LVClass" URL="../properties/properties.lvclass"/>
 	<Item Name="workspace.lvclass" Type="LVClass" URL="../workspace/workspace.lvclass"/>
+	<Item Name="timestampManifest.lvlib" Type="Library" URL="../timestampManifest/timestampManifest.lvlib"/>
 </Library>
