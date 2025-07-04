@@ -28,8 +28,8 @@
 			<Item Name="Simple - Upload File.vi" Type="VI" URL="../Examples/Simple - Upload File.vi"/>
 			<Item Name="Simple - Write Data.vi" Type="VI" URL="../Examples/Simple - Write Data.vi"/>
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
-			<Item Name="Workspaces.vi" Type="VI" URL="../Examples/Workspaces.vi"/>
 			<Item Name="Streaming - Write Custom Cluster.vi" Type="VI" URL="../Examples/Streaming - Write Custom Cluster.vi"/>
+			<Item Name="Workspaces.vi" Type="VI" URL="../Examples/Workspaces.vi"/>
 		</Item>
 		<Item Name="Quick Start" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
@@ -47,8 +47,9 @@
 			<Item Name="Quick Start - Run - Create.vi" Type="VI" URL="../Quick Start/Quick Start - Run - Create.vi"/>
 			<Item Name="Quick Start - Runs - Get.vi" Type="VI" URL="../Quick Start/Quick Start - Runs - Get.vi"/>
 			<Item Name="Quick Start - Runs - Add Data.vi" Type="VI" URL="../Quick Start/Quick Start - Runs - Add Data.vi"/>
-			<Item Name="Tutorial - Tags and Properties.vi" Type="VI" URL="../Quick Start/Tutorial - Tags and Properties.vi"/>
 			<Item Name="Quick Start - Complete Streaming with Datasource Creation.vi" Type="VI" URL="../Quick Start/Quick Start - Complete Streaming with Datasource Creation.vi"/>
+			<Item Name="Quick Start - Write Custom Cluster.vi" Type="VI" URL="../Quick Start/Quick Start - Write Custom Cluster.vi"/>
+			<Item Name="Tutorial - Tags and Properties.vi" Type="VI" URL="../Quick Start/Tutorial - Tags and Properties.vi"/>
 		</Item>
 		<Item Name="support" Type="Folder">
 			<Item Name="periodic_trigger.vi" Type="VI" URL="../support/periodic_trigger.vi"/>
