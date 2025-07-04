@@ -93,6 +93,10 @@
 			<Item Name="open log file directory.vi" Type="VI" URL="../developer tools/open log file directory.vi"/>
 			<Item Name="log file viewer.vi" Type="VI" URL="../developer tools/log file viewer.vi"/>
 		</Item>
+		<Item Name="non library methods" Type="Folder">
+			<Item Name="type.property.set.vi" Type="VI" URL="../type/type.property.set.vi"/>
+			<Item Name="assets.property.set.vi" Type="VI" URL="../asset/assets.property.set.vi"/>
+		</Item>
 		<Item Name="asset.lvclass" Type="LVClass" URL="../asset/asset.lvclass"/>
 		<Item Name="type.lvclass" Type="LVClass" URL="../type/type.lvclass"/>
 		<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="../stream_custom_cluster/stream_custom_cluster.lvclass"/>
@@ -103,8 +107,6 @@
 		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
 		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
-		<Item Name="type.property.set.vi" Type="VI" URL="../type/type.property.set.vi"/>
-		<Item Name="assets.property.set.vi" Type="VI" URL="../asset/assets.property.set.vi"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
