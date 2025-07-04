@@ -111,6 +111,34 @@
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
+			<Item Name="jdp_science_jsontext" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
+				<Property Name="package-name" Type="Str">jdp_science_jsontext</Property>
+				<Property Name="package-type" Type="Str">vipm</Property>
+			</Item>
+			<Item Name="jdp_science_lib_common_utilities" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
+				<Property Name="package-name" Type="Str">jdp_science_lib_common_utilities</Property>
+				<Property Name="package-type" Type="Str">vipm</Property>
+			</Item>
+			<Item Name="jki_lib_caraya" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
+				<Property Name="package-name" Type="Str">jki_lib_caraya</Property>
+				<Property Name="package-type" Type="Str">vipm</Property>
+			</Item>
+			<Item Name="jki_lib_rest_client" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
+				<Property Name="package-name" Type="Str">jki_lib_rest_client</Property>
+				<Property Name="package-type" Type="Str">vipm</Property>
+			</Item>
+			<Item Name="jki_lib_state_machine" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
+				<Property Name="package-name" Type="Str">jki_lib_state_machine</Property>
+				<Property Name="package-type" Type="Str">vipm</Property>
+			</Item>
+			<Item Name="labview_open_source_lib_epoch_datetime" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
+				<Property Name="package-name" Type="Str">labview_open_source_lib_epoch_datetime</Property>
+				<Property Name="package-type" Type="Str">vipm</Property>
+			</Item>
+			<Item Name="oglib_lvdata" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
+				<Property Name="package-name" Type="Str">oglib_lvdata</Property>
+				<Property Name="package-type" Type="Str">vipm</Property>
+			</Item>
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
