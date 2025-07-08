@@ -84,9 +84,12 @@
 			<Item Name="test.ingest_mcapProtobufTimeseries.vi" Type="VI" URL="../tests/test.ingest_mcapProtobufTimeseries.vi"/>
 			<Item Name="test.ingest_parquet 2.vi" Type="VI" URL="../tests/test.ingest_parquet 2.vi"/>
 			<Item Name="test.ingest_csv 2.vi" Type="VI" URL="../tests/test.ingest_csv 2.vi"/>
+			<Item Name="test.ingest_csv_express.vi" Type="VI" URL="../tests/test.ingest_csv_express.vi"/>
 			<Item Name="test.ingest_journalJSON v2.vi" Type="VI" URL="../tests/test.ingest_journalJSON v2.vi"/>
 			<Item Name="asset create.vi" Type="VI" URL="../tests/asset create.vi"/>
 			<Item Name="test type.vi" Type="VI" URL="../Nominal Client/test type.vi"/>
+			<Item Name="test.reqwest_get.vi" Type="VI" URL="../tests/test.reqwest_get.vi"/>
+			<Item Name="test.reqwest_post.vi" Type="VI" URL="../tests/test.reqwest_post.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">
 			<Item Name="debugging project symbols.vi" Type="VI" URL="../developer tools/debugging project symbols.vi"/>
@@ -107,7 +110,9 @@
 		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
 		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
+		<Item Name="reQwestClient.lvclass" Type="LVClass" URL="../reqwest/reQwestClient.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
+		<Item Name="test.ingest_video 2.vi" Type="VI" URL="../tests/test.ingest_video 2.vi"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
@@ -340,15 +345,27 @@
 				<Item Name="Get LV Class Default Value By Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value By Name.vi"/>
 				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
 				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
+				<Item Name="Librarian Get Info.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Librarian Get Info.vi"/>
+				<Item Name="Librarian Path Location.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Librarian Path Location.vi"/>
+				<Item Name="Find First Error.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find First Error.vi"/>
+				<Item Name="Librarian Set Info.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Librarian Set Info.vi"/>
+				<Item Name="Set VI Library File Info.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Set VI Library File Info.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
 				<Item Name="openg_error.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/openg_error.lvlib"/>
+				<Item Name="openg_string.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/openg_string.lvlib"/>
+				<Item Name="openg_file.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/openg_file.lvlib"/>
+				<Item Name="openg_array.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/openg_array.lvlib"/>
 			</Item>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
+			<Item Name="reqwest.lvlib" Type="Library" URL="../submodules/reqwest-rs-labview/lv_src/reqwest.lvlib"/>
+			<Item Name="lv_reqwest_64.dll" Type="Document" URL="../submodules/reqwest-rs-labview/lv_src/lv_reqwest_64.dll"/>
+			<Item Name="lv_reqwest_64.so" Type="Document" URL="../submodules/reqwest-rs-labview/lv_src/lv_reqwest_64.so"/>
+			<Item Name="lv_reqwest_32.dll" Type="Document" URL="../submodules/reqwest-rs-labview/lv_src/lv_reqwest_32.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
