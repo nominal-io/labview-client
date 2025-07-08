@@ -84,6 +84,7 @@
 			<Item Name="test.ingest_mcapProtobufTimeseries.vi" Type="VI" URL="../tests/test.ingest_mcapProtobufTimeseries.vi"/>
 			<Item Name="test.ingest_parquet 2.vi" Type="VI" URL="../tests/test.ingest_parquet 2.vi"/>
 			<Item Name="test.ingest_csv 2.vi" Type="VI" URL="../tests/test.ingest_csv 2.vi"/>
+			<Item Name="test.ingest_video 2.vi" Type="VI" URL="../tests/test.ingest_video 2.vi"/>
 			<Item Name="test.ingest_csv_express.vi" Type="VI" URL="../tests/test.ingest_csv_express.vi"/>
 			<Item Name="test.ingest_journalJSON v2.vi" Type="VI" URL="../tests/test.ingest_journalJSON v2.vi"/>
 			<Item Name="asset create.vi" Type="VI" URL="../tests/asset create.vi"/>
@@ -112,7 +113,6 @@
 		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
 		<Item Name="reQwestClient.lvclass" Type="LVClass" URL="../reqwest/reQwestClient.lvclass"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
-		<Item Name="test.ingest_video 2.vi" Type="VI" URL="../tests/test.ingest_video 2.vi"/>
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
@@ -364,8 +364,8 @@
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="reqwest.lvlib" Type="Library" URL="../submodules/reqwest-rs-labview/lv_src/reqwest.lvlib"/>
 			<Item Name="lv_reqwest_64.dll" Type="Document" URL="../submodules/reqwest-rs-labview/lv_src/lv_reqwest_64.dll"/>
-			<Item Name="lv_reqwest_64.so" Type="Document" URL="../submodules/reqwest-rs-labview/lv_src/lv_reqwest_64.so"/>
 			<Item Name="lv_reqwest_32.dll" Type="Document" URL="../submodules/reqwest-rs-labview/lv_src/lv_reqwest_32.dll"/>
+			<Item Name="lv_reqwest_64.so" Type="Document" URL="../submodules/reqwest-rs-labview/lv_src/lv_reqwest_64.so"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
