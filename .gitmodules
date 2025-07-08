@@ -1,0 +1,3 @@
+[submodule "lv_src/submodules/reqwest-rs-labview"]
+	path = lv_src/submodules/reqwest-rs-labview
+	url = https://github.com/Tom-McQuillan/reqwest-rs-labview.git
