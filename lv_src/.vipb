@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-07-10 15:41:29" Creator="Tom" Comments="" ID="546fc776dd356cf15b9069e3721ab635">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-07-10 16:16:31" Creator="Tom" Comments="" ID="72ed44c2852b7aafb92d81ec729a8c77">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_2018_Client</Package_File_Name>
-    <Library_Version>0.0.0.1</Library_Version>
+    <Library_Version>0.0.0.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -541,7 +541,7 @@ If you are using LabVIEW 2020 or greater it is recommended you use the official 
         <Path>Nominal Client\logical_series.create_logical_series.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DF9CBD8719C629B82DC05E53C078C015</GUID>
+      <GUID>4002DF7FFEDF70C8CAF09478B9AD8942</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -618,7 +618,7 @@ If you are using LabVIEW 2020 or greater it is recommended you use the official 
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BFB6ED877CD8E9252DD8DB58BF2E63DD</GUID>
+      <GUID>7A0DFC6C7F8A34183A6E39D1F8CABF47</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -821,7 +821,7 @@ If you are using LabVIEW 2020 or greater it is recommended you use the official 
         <Path>Quick Start\Quick Start - Complete Streaming with Datasource Creation.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0462EC023ACD74421553DEAF6E83A2EA</GUID>
+      <GUID>96C78E576F9C9C67109BDA1AC80B692C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -954,7 +954,7 @@ If you are using LabVIEW 2020 or greater it is recommended you use the official 
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6C3B45117214764106A699500EF5089C</GUID>
+      <GUID>D30556AD55D1C1695F4C1410B7D4602B</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
