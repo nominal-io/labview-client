@@ -132,7 +132,7 @@
 			<Property Name="NI.ClassItem.State" Type="Int">8388624</Property>
 		</Item>
 		<Item Name="map_to_compatible_json.vim" Type="VI" URL="../map_to_compatible_json.vim">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%Z!!!!$Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!"*!-0````])3F.04C"P&gt;81!!"*!)1V1=G6U&gt;(EA5(*J&lt;H1`!"*!-0````]*3F.04C"1982I!":!5!!$!!!!!1!##'6S=G^S)'FO!!!/1$$`````"%ZB&lt;75!!!Z!-0````]&amp;6G&amp;M&gt;75!%E"1!!)!#1!+"U.M&gt;8.U:8)!%E"!!!(`````!!M%6'&amp;H=Q!!%%!Q`````Q&gt;+5U^/)'FO!&amp;1!]!!-!!-!"!!%!!5!"!!%!!9!"Q!)!!1!$!!.!Q!!?!!!$1A!!!!!!!!!!!!!$1M!!!!!!!!!!!!!!!!!!B!!!!!+!!!!!!!!!B!!!!%+!!!!!!%!$A!!!!!</Property>
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%Z!!!!$Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!"*!-0````])3F.04C"P&gt;81!!"*!)1V1=G6U&gt;(EA5(*J&lt;H1`!"*!-0````]*3F.04C"1982I!":!5!!$!!!!!1!##'6S=G^S)'FO!!!/1$$`````"%ZB&lt;75!!!Z!-0````]&amp;6G&amp;M&gt;75!%E"1!!)!#1!+"U.M&gt;8.U:8)!%E"!!!(`````!!M%6'&amp;H=Q!!%%!Q`````Q&gt;+5U^/)'FO!&amp;1!]!!-!!-!"!!%!!5!"!!%!!9!"Q!)!!1!$!!.!Q!!?!!!$1A!!!!!!!!!!!!!$1M!!!!!!!!!!!!!!!!!!B!!!!!+!!!!!!!!!"!!!!%+!!!!!!%!$A!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">1090519168</Property>
 			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
@@ -223,6 +223,15 @@
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">268967954</Property>
 		</Item>
+		<Item Name="to_map.vim" Type="VI" URL="../to_map.vim">
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#W!!!!"Q!%!!!!$E!Q`````Q2/97VF!!!/1$$`````"6:B&lt;(6F!"*!5!!#!!%!!A&gt;$&lt;(6T&gt;'6S!"2!1!!"`````Q!$"WVB=#"P&gt;81!&amp;%"!!!(`````!!-'&lt;7&amp;Q)'FO!!"5!0!!$!!!!!!!"!!!!!!!!!!!!!!!!!!!!!5!!!-!!(A!!!!!!!!!!!!!$1I!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)1!!!!!!!!!!!"!!9!!!!!</Property>
+			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+			<Property Name="NI.ClassItem.Flags" Type="Int">1073741984</Property>
+			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
+			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+			<Property Name="NI.ClassItem.State" Type="Int">8400912</Property>
+		</Item>
 	</Item>
 	<Item Name="Logical Series" Type="Folder">
 		<Item Name="logical_series.get.vi" Type="VI" URL="../logical_series.get.vi">
@@ -297,7 +306,7 @@
 	</Item>
 	<Item Name="Ingest" Type="Folder">
 		<Item Name="Ingest.vi" Type="VI" URL="../Ingest.vi">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!!1!!!!!1!)!0)F53E%!!%!!!!!!!!</Property>
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!!1!!!!!1!)!0)F88]W!!%!!!!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">-2147483648</Property>
 			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
@@ -544,7 +553,7 @@
 			<Property Name="NI.ClassItem.State" Type="Int">1342710290</Property>
 		</Item>
 	</Item>
-	<Item Name="create.vim" Type="VI" URL="../create.vim">
+	<Item Name="create.vi" Type="VI" URL="../create.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%*!!!!#1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!$*!=!!?!!!9&amp;EZP&lt;7FO97QA1WRJ:7ZU,GRW9WRB=X-!!!Z/&lt;WVJ&lt;G&amp;M)%.M;76O&gt;!!!&amp;E"1!!-!!!!"!!)):8*S&lt;X)A;7Y!!#2!-0````];16"*)&amp;2P;W6O)#BT&gt;(*J&lt;G=A&lt;X)A='&amp;U;#E!!&amp;1!]!!-!!-!"!!%!!5!"!!%!!1!"!!'!!1!"!!(!Q!!?!!!$1A!!!!!!!!!!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!+!!!!!!!!!!!!!!%3!!!!!!%!#!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
