@@ -111,34 +111,6 @@
 		<Item Name="Package Dependencies" Type="IIO Ladder Diagram">
 			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Property Name="ShowPackages" Type="Bool">true</Property>
-			<Item Name="jdp_science_jsontext" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jdp_science_jsontext</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jdp_science_lib_common_utilities" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jdp_science_lib_common_utilities</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jki_lib_caraya" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jki_lib_caraya</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jki_lib_rest_client" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jki_lib_rest_client</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="jki_lib_state_machine" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">jki_lib_state_machine</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="labview_open_source_lib_epoch_datetime" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">labview_open_source_lib_epoch_datetime</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
-			<Item Name="oglib_lvdata" Type="{2DC17C6E-B9FF-4CBE-BC4B-3D45FE0534D9}">
-				<Property Name="package-name" Type="Str">oglib_lvdata</Property>
-				<Property Name="package-type" Type="Str">vipm</Property>
-			</Item>
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -340,6 +312,15 @@
 				<Item Name="Get LV Class Default Value By Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value By Name.vi"/>
 				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
 				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
+				<Item Name="Timestamp to ISO8601 String.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Timestamp to ISO8601 String.vi"/>
+				<Item Name="Seconds Units -- enum.ctl" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Seconds Units -- enum.ctl"/>
+				<Item Name="Locale -- enum.ctl" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Locale -- enum.ctl"/>
+				<Item Name="Epoch_Seconds Format String.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Epoch_Seconds Format String.vi"/>
+				<Item Name="Epoch_NotationLocale.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Epoch_NotationLocale.vi"/>
+				<Item Name="Timestamp to ISO8601 Time.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Timestamp to ISO8601 Time.vi"/>
+				<Item Name="ISO8601 String to Timestamp.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/ISO8601 String to Timestamp.vi"/>
+				<Item Name="ISO8601 TimeString to Timestamp.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/ISO8601 TimeString to Timestamp.vi"/>
+				<Item Name="Epoch.DecomposeFractional.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/Epoch.DecomposeFractional.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
