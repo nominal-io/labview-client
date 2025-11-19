@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-11-13 10:34:21" Creator="Tom" Comments="" ID="ef0e66e761d5f4b91422dde4fc593d1d">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2025-11-19 09:53:15" Creator="Tom" Comments="" ID="554c999bfd194ae4a6b795fa6ddbba3e">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>4.0.0.4</Library_Version>
+    <Library_Version>4.0.2.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -52,12 +52,10 @@ Nominal is built for startup, enterprise, and government deployments. Our archit
       <URL>https://docs.nominal.io/</URL>
       <Release_Notes>Introducing the Nominal LabVIEW Client API!
 
-New Features:
-- Enhanced Debugging Tools
-- Streaming custom cluster API
-- Support for Assets and Types
-- Support for updated ingest API
-</Release_Notes>
+Fixes:
+[37] Added tag support for Write Cluster Data Batches VI
+[38] Resolved compiler issue with tdms.parse.vi
+[39] Resolved RT Build Issues (declaring external dependency)</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -678,7 +676,7 @@ New Features:
         <Path>Nominal Client\Ingest Utilities.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>238269676516959CE963D1BCF852BD2F</GUID>
+      <GUID>D15FC39BD5EAA6B51CAA99599E9807D1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -755,7 +753,7 @@ New Features:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1DAE55AF369AAAC00D7BCCE9C7E17BAA</GUID>
+      <GUID>ADE3A94131EFE77E9B8E63AD5A8A6606</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -986,7 +984,7 @@ New Features:
         <Path>Quick Start\Tutorial - Tags and Properties.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>485F58E5BC073EC858B1CB6C434AAE7C</GUID>
+      <GUID>76CF8EE604D8A88D7723266BB37C827A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1119,7 +1117,7 @@ New Features:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>08233C975EDA29D33760B467DB3A8CF4</GUID>
+      <GUID>6CBCBF3408CE77D65135377BDA5FD4CC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1350,7 +1348,7 @@ New Features:
         <Path>type\type.property.set.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D226ADA0832D4EC5D87E360C6DEFED09</GUID>
+      <GUID>0749EAC3B0637AF481AFC85C146F0029</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1455,7 +1453,7 @@ New Features:
         <Path>Nominal Client\workspace.get_details.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5B87797AD2597C8A0CBD7D12EF51CE0B</GUID>
+      <GUID>382E72CC6EAA274C4F7BA0C4D374F7F8</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
