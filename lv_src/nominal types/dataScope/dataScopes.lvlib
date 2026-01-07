@@ -13,7 +13,7 @@
 	<Item Name="datascopes.to_json.vi" Type="VI" URL="../datascopes.to_json.vi"/>
 	<Item Name="datasource.from_json.vi" Type="VI" URL="../datasource.from_json.vi"/>
 	<Item Name="datasource.to_json.vi" Type="VI" URL="../datasource.to_json.vi"/>
-	<Item Name="links.ctl" Type="VI" URL="../../../Nominal Client/links.ctl"/>
+	<Item Name="links.ctl" Type="VI" URL="../links.ctl"/>
 	<Item Name="offset.ctl" Type="VI" URL="../offset.ctl"/>
 	<Item Name="offset.to_json.vi" Type="VI" URL="../offset.to_json.vi"/>
 	<Item Name="timstampType.ctl" Type="VI" URL="../timstampType.ctl"/>
