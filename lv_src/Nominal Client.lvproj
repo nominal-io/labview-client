@@ -88,6 +88,7 @@
 			<Item Name="asset create.vi" Type="VI" URL="../tests/asset create.vi"/>
 			<Item Name="test type.vi" Type="VI" URL="../Nominal Client/test type.vi"/>
 			<Item Name="test.event_create.vi" Type="VI" URL="../tests/test.event_create.vi"/>
+			<Item Name="test.write_log.vi" Type="VI" URL="../tests/test.write_log.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">
 			<Item Name="debugging project symbols.vi" Type="VI" URL="../developer tools/debugging project symbols.vi"/>
