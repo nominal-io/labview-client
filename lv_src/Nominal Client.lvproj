@@ -89,6 +89,7 @@
 			<Item Name="test type.vi" Type="VI" URL="../Nominal Client/test type.vi"/>
 			<Item Name="test.event_create.vi" Type="VI" URL="../tests/test.event_create.vi"/>
 			<Item Name="test.write_waveform.vi" Type="VI" URL="../tests/test.write_waveform.vi"/>
+			<Item Name="test.assets_by_data_source.vi" Type="VI" URL="../tests/test.assets_by_data_source.vi"/>
 			<Item Name="test.write_log.vi" Type="VI" URL="../tests/test.write_log.vi"/>
 		</Item>
 		<Item Name="developer tools" Type="Folder">

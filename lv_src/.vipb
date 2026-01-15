@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-01-07 17:19:34" Creator="Tom" Comments="" ID="3c5d1b83744a13e7580c4a6b732d1769">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-01-15 15:16:37" Creator="Tom" Comments="" ID="8b904bf337a5f3d3211d04b64bd34815">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>4.0.3.2</Library_Version>
+    <Library_Version>4.0.3.3</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -19,6 +19,7 @@
     <Package_Dependencies>
       <External_Dependencies>jdp_science_jsontext &gt;= 1.9.1.125</External_Dependencies>
       <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.2.19</External_Dependencies>
+      <External_Dependencies>jki_lib_rest_client &gt;= 2.0.0.33</External_Dependencies>
       <External_Dependencies>jki_lib_state_machine &gt;= 2024.0.3.23</External_Dependencies>
       <External_Dependencies>labview_open_source_lib_epoch_datetime &gt;= 1.3.0.8</External_Dependencies>
       <External_Dependencies>oglib_lvdata &gt;= 6.0.0.45</External_Dependencies>
@@ -54,6 +55,9 @@ Nominal is built for startup, enterprise, and government deployments. Our archit
 
 New Features:
 [41] Added API support for creating events during test runs
+[52] Added API support for pushing logs
+Added LabVIEW Waveform support to batch writing
+Added Assets By Data Source method
 
 Fixes:
 [44] Fixed broken example VIs
@@ -681,7 +685,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>event.create_programmatic.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Create API Event</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -692,7 +696,35 @@ Fixes:
         <Path>Nominal Client\event.create_programmatic.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>30B74CACF195DBF9AD4756B5C58CCA28</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Write Log</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>4</Row>
+          <Column>8</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>Nominal Client\log.write.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Write Waveform Batches </NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>4</Row>
+          <Column>7</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>Nominal Client\nominal_channel_writer.write_batches_from_waveform.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>6AAB915CEA87DB73EF6C976F96DC57CC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -769,7 +801,7 @@ Fixes:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1C1EFFEFBD0C8D5AE7D15484D0559F06</GUID>
+      <GUID>81DF960EC01EC3A2D51608EE01C05198</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1000,7 +1032,7 @@ Fixes:
         <Path>Quick Start\Tutorial - Tags and Properties.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8798E4ED112424638C2DCB5387E346F4</GUID>
+      <GUID>1D61EFB8FEED3E8261767D694C40D9E1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1133,7 +1165,7 @@ Fixes:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CF5EC12C812CCD06757E9C371E57CE43</GUID>
+      <GUID>D4775127A3F1EB3141B7384070078542</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1364,7 +1396,21 @@ Fixes:
         <Path>type\type.property.set.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2DA1EE294A526AB77DA63266EF8F1661</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Assets By Data Source</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>3</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>Nominal Client\asset.get_from_datasouce.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>BE0958E54A961C5703AFB1A8EB32FC35</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1469,7 +1515,7 @@ Fixes:
         <Path>Nominal Client\workspace.get_details.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A212F9F88142593A4BE71BF99430017B</GUID>
+      <GUID>65D3CC9BBDA9DB154A02773E9E94E8FA</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
