@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-01-15 15:16:37" Creator="Tom" Comments="" ID="8b904bf337a5f3d3211d04b64bd34815">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-01-15 17:33:38" Creator="Tom" Comments="" ID="5fa6d66e7ef27d39a5359321cc36b9f3">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>4.0.3.3</Library_Version>
+    <Library_Version>4.0.3.5</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -56,12 +56,13 @@ Nominal is built for startup, enterprise, and government deployments. Our archit
 New Features:
 [41] Added API support for creating events during test runs
 [52] Added API support for pushing logs
-Added LabVIEW Waveform support to batch writing
-Added Assets By Data Source method
+[53] Added Assets By Data Source method
+[54] Added Description as an input to the Create API Event
+[55] Added LabVIEW Waveform support to batch writing
 
 Fixes:
 [44] Fixed broken example VIs
-[45] Improved type acceptance fornominal_channel_writer.write_batches.vim</Release_Notes>
+[45] Improved type acceptance for nominal_channel_writer.write_batches.vim</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -724,7 +725,7 @@ Fixes:
         <Path>Nominal Client\nominal_channel_writer.write_batches_from_waveform.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6AAB915CEA87DB73EF6C976F96DC57CC</GUID>
+      <GUID>D13F7302B5CD5A925DEC2E642F26F9CC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -801,7 +802,7 @@ Fixes:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>81DF960EC01EC3A2D51608EE01C05198</GUID>
+      <GUID>D5FEFD2B5C4C662761A3EDCB8208A1C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1032,7 +1033,7 @@ Fixes:
         <Path>Quick Start\Tutorial - Tags and Properties.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1D61EFB8FEED3E8261767D694C40D9E1</GUID>
+      <GUID>363F47A1DD4F17CC0F8AEC50FD9D2AF4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1165,7 +1166,7 @@ Fixes:
         <Path>Nominal Client MultiPart Upload\upload.abort_multipart_upload.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D4775127A3F1EB3141B7384070078542</GUID>
+      <GUID>363D8F7ADBE4C530441C689F493AE2A8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1410,7 +1411,7 @@ Fixes:
         <Path>Nominal Client\asset.get_from_datasouce.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BE0958E54A961C5703AFB1A8EB32FC35</GUID>
+      <GUID>FA93061E7C312EFCA4AB04CD2FDEF2D0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1515,7 +1516,7 @@ Fixes:
         <Path>Nominal Client\workspace.get_details.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>65D3CC9BBDA9DB154A02773E9E94E8FA</GUID>
+      <GUID>552158CE5E53EDF28127C0ADB5720C9B</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
