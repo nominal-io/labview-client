@@ -30,6 +30,7 @@
 			<Item Name="Streaming - Write.vi" Type="VI" URL="../Examples/Streaming - Write.vi"/>
 			<Item Name="Streaming - Write Custom Cluster.vi" Type="VI" URL="../Examples/Streaming - Write Custom Cluster.vi"/>
 			<Item Name="Workspaces.vi" Type="VI" URL="../Examples/Workspaces.vi"/>
+			<Item Name="Test Centric Run Workflow.vi" Type="VI" URL="../Examples/Test Centric Run Workflow.vi"/>
 		</Item>
 		<Item Name="Quick Start" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
