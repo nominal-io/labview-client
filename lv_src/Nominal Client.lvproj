@@ -258,11 +258,6 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
-			<Item Name="title.set.vi" Type="VI" URL="../asset/title.set.vi"/>
-			<Item Name="isStaged.set.vi" Type="VI" URL="../asset/isStaged.set.vi"/>
-			<Item Name="description.set.vi" Type="VI" URL="../asset/description.set.vi"/>
-			<Item Name="run.json_to_object.vi" Type="VI" URL="../Nominal Client/run.json_to_object.vi"/>
-			<Item Name="runs.get.vim" Type="VI" URL="../Nominal Client/runs.get.vim"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
