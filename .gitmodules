@@ -4,3 +4,9 @@
 [submodule "submodules/nominal-streaming-labview-ffi"]
 	path = submodules/nominal-streaming-labview-ffi
 	url = https://github.com/nominal-io/nominal-streaming-labview-ffi
+[submodule "submodules/reqwest-rs-labview"]
+	path = submodules/reqwest-rs-labview
+	url = https://github.com/nominal-io/reqwest-rs-labview.git
+[submodule "submodules/reqwest-labview"]
+	path = submodules/reqwest-labview
+	url = https://github.com/nominal-io/reqwest-labview
