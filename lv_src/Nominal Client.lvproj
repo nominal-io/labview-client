@@ -111,7 +111,7 @@
 		<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 		<Item Name="Run.lvclass" Type="LVClass" URL="../Run/Run.lvclass"/>
 		<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../Nominal Client/Nominal Client.lvclass"/>
-		<Item Name="datasources.lvlib" Type="Library" URL="../Nominal Client/datasources/datasources.lvlib"/>
+		<Item Name="datasources.lvlib" Type="Library" URL="../datasources/datasources.lvlib"/>
 		<Item Name="nominal types.lvlib" Type="Library" URL="../nominal types/nominal types.lvlib"/>
 		<Item Name="dataScopes.lvlib" Type="Library" URL="../nominal types/dataScope/dataScopes.lvlib"/>
 		<Item Name="Nominal LabVIEW Client API Tree.vi" Type="VI" URL="../Nominal Client/Nominal LabVIEW Client API Tree.vi"/>
@@ -346,6 +346,7 @@
 			<Item Name="reqwest-labview.lvlib" Type="Library" URL="../../submodules/reqwest-labview/lv-src/shared-library/reqwest-labview.lvlib"/>
 			<Item Name="lib_http_rs_labview_64.dll" Type="Document" URL="../../submodules/reqwest-labview/lv-src/shared-library/lib_http_rs_labview_64.dll"/>
 			<Item Name="lib_nominal-streaming-lv_64.dll" Type="Document" URL="../../submodules/nominal-streaming-labview-ffi/lv_src/bin/lib_nominal-streaming-lv_64.dll"/>
+			<Item Name="nominal_channel_writer.write_batches.vim" Type="VI" URL="../Nominal Client/nominal_channel_writer.write_batches.vim"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
