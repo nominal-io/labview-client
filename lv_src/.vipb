@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-02-24 19:23:39" Creator="Tom" Comments="" ID="776654289d61782c62bca963fe3f935b">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-02-24 19:48:07" Creator="Tom" Comments="" ID="92f714bcdc116d0eaa69e2f715b8a0a9">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
     <Library_Version>5.0.0.5</Library_Version>
@@ -217,15 +217,6 @@ Fixes:
         <Path>submodules/reqwest-labview/lv-src/reqwest.lvproj</Path>
       </Exclusions>
       <Exclusions>
-        <Path>nominal_lib_nominal_io_client-5.0.0.3.vip</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>nominal_lib_nominal_io_client-5.0.0.2.vip</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>nominal_lib_nominal_io_client-5.0.0.1.vip</Path>
-      </Exclusions>
-      <Exclusions>
         <Path>submodules/nominal-streaming-labview-ffi/lv_src/bin/deploy to rt.ps1</Path>
       </Exclusions>
       <Exclusions>
@@ -428,7 +419,7 @@ Fixes:
         <Path>Nominal Client\Palette Items\log.write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>62415DAABA5226512B450B61A540CF53</GUID>
+      <GUID>9903F7A4BEBAF327C404770D54C44B36</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -452,7 +443,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Dataset to Asset</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Add Video to Asset</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -466,7 +457,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Dataset to Asset</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Get Videos from Asset</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -592,7 +583,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Dataset to Asset</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Create Run from Asset</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -676,7 +667,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Dataset to Asset</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Get Runs from Asset</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -715,7 +706,7 @@ Fixes:
         <Path>Nominal Client\Palette Items\asset.get_poly.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>60AF9A01FEF59ED4007B4CAF86620206</GUID>
+      <GUID>CBE504D98BF7981AAF28241DB24D4C64</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -865,7 +856,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Dataset to Asset</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Create Run from Asset</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -890,7 +881,7 @@ Fixes:
         <Path>Nominal Client\Palette Items\run.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>09C8DC4E8675B7DB379ACAF6F1C41204</GUID>
+      <GUID>E1E57EC8ACFC8E88800D2AAEBDBE0B0C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1051,7 +1042,7 @@ Fixes:
         <Path>Run\Palette Items\event.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>03E7F1F2540566479A497638A7C4017F</GUID>
+      <GUID>52825A5983F6050FE2933F501E4B3E95</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1142,7 +1133,7 @@ Fixes:
         <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Stream\Shutdown.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>10004EA7E4768B33BEE2CF1D43E6A15F</GUID>
+      <GUID>290C1A53126862E3A09D03A13DDB36E5</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
