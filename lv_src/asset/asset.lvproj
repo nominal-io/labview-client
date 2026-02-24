@@ -43,6 +43,7 @@
 				<Item Name="Get LV Class Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Name.vi"/>
 				<Item Name="Get System Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/Get System Directory.vi"/>
 				<Item Name="GregorianCal_MonthLengths.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/GregorianCal_MonthLengths.vi"/>
+				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
 				<Item Name="isDST.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/isDST.vi"/>
 				<Item Name="isLeapYear (integer).vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/isLeapYear (integer).vi"/>
 				<Item Name="isLeapYear (timestamp).vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/isLeapYear (timestamp).vi"/>
@@ -91,11 +92,17 @@
 				<Item Name="Write Spreadsheet String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Spreadsheet String.vi"/>
 			</Item>
 			<Item Name="dataScopes.lvlib" Type="Library" URL="../../nominal types/dataScope/dataScopes.lvlib"/>
-			<Item Name="datasources.lvlib" Type="Library" URL="../../Nominal Client/datasources/datasources.lvlib"/>
+			<Item Name="datasources.lvlib" Type="Library" URL="../../datasources/datasources.lvlib"/>
+			<Item Name="event.lvclass" Type="LVClass" URL="../../event/event.lvclass"/>
+			<Item Name="lib_http_rs_labview_64.dll" Type="Document" URL="../../../submodules/reqwest-labview/lv-src/shared-library/lib_http_rs_labview_64.dll"/>
+			<Item Name="lib_nominal-streaming-lv_64.dll" Type="Document" URL="../../../submodules/nominal-streaming-labview-ffi/lv_src/bin/lib_nominal-streaming-lv_64.dll"/>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 			<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../../Nominal Client/Nominal Client.lvclass"/>
+			<Item Name="Nominal Streaming.lvlib" Type="Library" URL="../../../submodules/nominal-streaming-labview-ffi/lv_src/Nominal Streaming/Nominal Streaming.lvlib"/>
 			<Item Name="nominal types.lvlib" Type="Library" URL="../../nominal types/nominal types.lvlib"/>
+			<Item Name="reqwest-labview.lvlib" Type="Library" URL="../../../submodules/reqwest-labview/lv-src/shared-library/reqwest-labview.lvlib"/>
+			<Item Name="reqwest.lvclass" Type="LVClass" URL="../../../submodules/reqwest-labview/lv-src/reqwest/reqwest.lvclass"/>
 			<Item Name="Run.lvclass" Type="LVClass" URL="../../Run/Run.lvclass"/>
 			<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="../../stream_custom_cluster/stream_custom_cluster.lvclass"/>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
