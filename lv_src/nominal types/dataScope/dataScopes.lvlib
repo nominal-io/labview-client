@@ -16,6 +16,6 @@
 	<Item Name="links.ctl" Type="VI" URL="../links.ctl"/>
 	<Item Name="offset.ctl" Type="VI" URL="../offset.ctl"/>
 	<Item Name="offset.to_json.vi" Type="VI" URL="../offset.to_json.vi"/>
-	<Item Name="timstampType.ctl" Type="VI" URL="../timstampType.ctl"/>
+	<Item Name="timstampType.ctl" Type="VI" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/lv_src/nominal types/dataScope/timstampType.ctl"/>
 	<Item Name="type.ctl" Type="VI" URL="../type.ctl"/>
 </Library>
