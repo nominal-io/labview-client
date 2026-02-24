@@ -366,6 +366,7 @@
 			<Item Name="lib_http_rs_labview_64.dll" Type="Document" URL="../../submodules/reqwest-labview/lv-src/shared-library/lib_http_rs_labview_64.dll"/>
 			<Item Name="lib_nominal-streaming-lv_64.dll" Type="Document" URL="../../submodules/nominal-streaming-labview-ffi/lv_src/bin/lib_nominal-streaming-lv_64.dll"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
+			<Item Name="library.get.vi" Type="VI" URL="../../submodules/nominal-streaming-labview-ffi/lv_src/Stream/library.get.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
