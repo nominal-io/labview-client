@@ -1,5 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="20008000">
+	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
@@ -327,40 +329,40 @@
 				<Item Name="Write Spreadsheet String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Spreadsheet String.vi"/>
 			</Item>
 			<Item Name="_ChannelSupport.lvlib" Type="Library" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/_ChannelSupport.lvlib"/>
-			<Item Name="asset.lvclass" Type="LVClass" URL="../../../lv_src/asset/asset.lvclass"/>
+			<Item Name="asset.lvclass" Type="LVClass" URL="../../../../lv_src/asset/asset.lvclass"/>
 			<Item Name="ChannelProbePositionAndTitle.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbePositionAndTitle.vi"/>
 			<Item Name="ChannelProbeWindowStagger.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbeWindowStagger.vi"/>
-			<Item Name="dataScopes.lvlib" Type="Library" URL="../../../lv_src/nominal types/dataScope/dataScopes.lvlib"/>
-			<Item Name="datasources.lvlib" Type="Library" URL="../../../lv_src/datasources/datasources.lvlib"/>
-			<Item Name="event.lvclass" Type="LVClass" URL="../../../lv_src/event/event.lvclass"/>
-			<Item Name="lib_http_rs_labview_64.dll" Type="Document" URL="../../../submodules/reqwest-labview/lv-src/shared-library/lib_http_rs_labview_64.dll"/>
-			<Item Name="lib_nominal-streaming-lv_64.dll" Type="Document" URL="../../../submodules/nominal-streaming-labview-ffi/lv_src/bin/lib_nominal-streaming-lv_64.dll"/>
+			<Item Name="dataScopes.lvlib" Type="Library" URL="../../../../lv_src/nominal types/dataScope/dataScopes.lvlib"/>
+			<Item Name="datasources.lvlib" Type="Library" URL="../../../../lv_src/datasources/datasources.lvlib"/>
+			<Item Name="event.lvclass" Type="LVClass" URL="../../../../lv_src/event/event.lvclass"/>
+			<Item Name="lib_http_rs_labview_64.dll" Type="Document" URL="../../../../submodules/reqwest-labview/lv-src/shared-library/lib_http_rs_labview_64.dll"/>
+			<Item Name="lib_nominal-streaming-lv_64.dll" Type="Document" URL="../../../../submodules/nominal-streaming-labview-ffi/lv_src/bin/lib_nominal-streaming-lv_64.dll"/>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
-			<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../../../lv_src/Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
+			<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../../../../lv_src/Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../../../lv_src/Nominal Client/Nominal Client.lvclass"/>
-			<Item Name="Nominal Streaming.lvlib" Type="Library" URL="../../../submodules/nominal-streaming-labview-ffi/lv_src/Nominal Streaming/Nominal Streaming.lvlib"/>
-			<Item Name="nominal types.lvlib" Type="Library" URL="../../../lv_src/nominal types/nominal types.lvlib"/>
-			<Item Name="reqwest-labview.lvlib" Type="Library" URL="../../../submodules/reqwest-labview/lv-src/shared-library/reqwest-labview.lvlib"/>
-			<Item Name="reqwest.lvclass" Type="LVClass" URL="../../../submodules/reqwest-labview/lv-src/reqwest/reqwest.lvclass"/>
-			<Item Name="Run.lvclass" Type="LVClass" URL="../../../lv_src/Run/Run.lvclass"/>
-			<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="../../../lv_src/stream_custom_cluster/stream_custom_cluster.lvclass"/>
+			<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../../../../lv_src/Nominal Client/Nominal Client.lvclass"/>
+			<Item Name="Nominal Streaming.lvlib" Type="Library" URL="../../../../submodules/nominal-streaming-labview-ffi/lv_src/Nominal Streaming/Nominal Streaming.lvlib"/>
+			<Item Name="nominal types.lvlib" Type="Library" URL="../../../../lv_src/nominal types/nominal types.lvlib"/>
+			<Item Name="reqwest-labview.lvlib" Type="Library" URL="../../../../submodules/reqwest-labview/lv-src/shared-library/reqwest-labview.lvlib"/>
+			<Item Name="reqwest.lvclass" Type="LVClass" URL="../../../../submodules/reqwest-labview/lv-src/reqwest/reqwest.lvclass"/>
+			<Item Name="Run.lvclass" Type="LVClass" URL="../../../../lv_src/Run/Run.lvclass"/>
+			<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="../../../../lv_src/stream_custom_cluster/stream_custom_cluster.lvclass"/>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="Tag-bool.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool.lvlib"/>
-			<Item Name="timestampMetadata.lvclass" Type="LVClass" URL="../../../lv_src/timestampMetadata/timestampMetadata.lvclass"/>
-			<Item Name="timestampType.lvclass" Type="LVClass" URL="../../../lv_src/timestampType/timestampType.lvclass"/>
-			<Item Name="ts.absoloute type.lvclass" Type="LVClass" URL="../../../lv_src/ts.absoloute type/ts.absoloute type.lvclass"/>
-			<Item Name="ts.epochOfTimeUnit.lvclass" Type="LVClass" URL="../../../lv_src/ts.epochOfTimeUnit/ts.epochOfTimeUnit.lvclass"/>
-			<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="../../../lv_src/ts.iso8601/ts.iso8601.lvclass"/>
-			<Item Name="ts.logtime.lvclass" Type="LVClass" URL="../../../lv_src/ts.logtime/ts.logtime.lvclass"/>
-			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../../../lv_src/ts.relative/ts.relative.lvclass"/>
-			<Item Name="type.lvclass" Type="LVClass" URL="../../../lv_src/type/type.lvclass"/>
-			<Item Name="User.lvclass" Type="LVClass" URL="../../../lv_src/User/User.lvclass"/>
+			<Item Name="timestampMetadata.lvclass" Type="LVClass" URL="../../../../lv_src/timestampMetadata/timestampMetadata.lvclass"/>
+			<Item Name="timestampType.lvclass" Type="LVClass" URL="../../../../lv_src/timestampType/timestampType.lvclass"/>
+			<Item Name="ts.absoloute type.lvclass" Type="LVClass" URL="../../../../lv_src/ts.absoloute type/ts.absoloute type.lvclass"/>
+			<Item Name="ts.epochOfTimeUnit.lvclass" Type="LVClass" URL="../../../../lv_src/ts.epochOfTimeUnit/ts.epochOfTimeUnit.lvclass"/>
+			<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="../../../../lv_src/ts.iso8601/ts.iso8601.lvclass"/>
+			<Item Name="ts.logtime.lvclass" Type="LVClass" URL="../../../../lv_src/ts.logtime/ts.logtime.lvclass"/>
+			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../../../../lv_src/ts.relative/ts.relative.lvclass"/>
+			<Item Name="type.lvclass" Type="LVClass" URL="../../../../lv_src/type/type.lvclass"/>
+			<Item Name="User.lvclass" Type="LVClass" URL="../../../../lv_src/User/User.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
