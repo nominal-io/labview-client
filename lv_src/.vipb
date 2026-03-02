@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-03-02 14:15:27" Creator="Tom" Comments="" ID="1d38dbc17c44968533cc9d1e14e82456">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-03-02 14:56:14" Creator="Tom" Comments="" ID="faa04a993059a26faed5186db6f22a84">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>5.0.0.10</Library_Version>
+    <Library_Version>5.0.0.11</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..</Library_Source_Folder>
     <Library_Output_Folder>..\builds</Library_Output_Folder>
@@ -138,7 +138,7 @@ Fixes:
       </Destination_Overrides>
       <Destination_Overrides>
         <Path>sample_project</Path>
-        <Destination>0</Destination>
+        <Destination>9</Destination>
         <Additional_Destination>false</Additional_Destination>
         <Additional_Destination_Index>0</Additional_Destination_Index>
       </Destination_Overrides>
