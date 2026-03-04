@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-03-04 11:48:58" Creator="Tom" Comments="" ID="099bca383eb4026f357667b39cfbe159">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-03-04 20:22:38" Creator="Tom" Comments="" ID="89701435f16f54179165461f3f8bbc71">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
     <Library_Version>5.0.0.14</Library_Version>
@@ -523,7 +523,7 @@ Fixes:
         <Path>..\Workspaces</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A6E41F0189CD34BB262D301C09850254</GUID>
+      <GUID>7A59612D0F66B9910AC58CF62B904EA0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -810,7 +810,7 @@ Fixes:
         <Path>asset\Palette Items\unarchive.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4537D3C0B42BB25A571803E7C18BE4CC</GUID>
+      <GUID>3D197CD658F7B75E3E20C8A0F45FD6EA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -985,7 +985,7 @@ Fixes:
         <Path>Nominal Client\Palette Items\run.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F8FE21F787F964E36627DB933EC5B24F</GUID>
+      <GUID>7C130490DB7DD6051504F1E361541B7B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1146,7 +1146,7 @@ Fixes:
         <Path>Run\Palette Items\event.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B7064352B2CAE4D7B5D8DD36054CC163</GUID>
+      <GUID>7C73C827D75278DDA9FA7BC5E254EE27</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1179,34 +1179,6 @@ Fixes:
         </Position>
         <Icon>00000000</Icon>
         <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Stream\Create Channel.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Close</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>5</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Close.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Push Double Batch</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>4</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Push Double Batch.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1321,7 +1293,49 @@ Fixes:
         <Path>datasources\dataset\stream.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>685FDB50D49BAA2B105FFBC7C0B6E828</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Push Points Batch</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>2</Row>
+          <Column>5</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Push Points Batch.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Push Double Batch</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>2</Row>
+          <Column>4</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Push Double Batch.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Close</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>2</Row>
+          <Column>6</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Close.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>77E95CE172440363C24FD2F6F3D50A0C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1370,7 +1384,7 @@ Fixes:
         <Path>datasources\dataset\stream.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D8CCBD3B4A21FAAE3014AB33CD0B2149</GUID>
+      <GUID>48416A5343D45EECA2427DE02141D1AB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1433,7 +1447,7 @@ Fixes:
         <Path>..\MultiPart File Upload</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>850964D568881069954A031499DBE6D3</GUID>
+      <GUID>57F37ACE94D93730EB72774A3462BC33</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1566,7 +1580,7 @@ Fixes:
         <Path>Nominal Client MultiPart Upload\upload.list_parts.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>ADB67631019D36242387088DB31F1E40</GUID>
+      <GUID>8A07B374E563E937DEFAFEED51400CF8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1713,7 +1727,7 @@ Fixes:
         <Path>Quick Start\Quick Start - Simple - Get All Units.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D2A88AD4B3F2BC84D8F6D81F424A137C</GUID>
+      <GUID>0B14A647EEC883AD1D3141B49061BC73</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1804,7 +1818,7 @@ Fixes:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>45A0983BFFE1472F31CE7950D21384AA</GUID>
+      <GUID>4BE8A4AF949C4B44EE3E4D0FF6767F7F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1895,7 +1909,7 @@ Fixes:
         <Path>Nominal Client\workspace.from_rid.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4989AA9B3D5E93CEA1B0A2CB8BECD09B</GUID>
+      <GUID>A9793818789CE34525BC7C5CDEB7200D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2014,7 +2028,7 @@ Fixes:
         <Path>type\type.property.set.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D6C020EFDA55525C342ECDEEF8E1AE76</GUID>
+      <GUID>5EBFAFFE54F80F3D10E7245B93A74A29</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
