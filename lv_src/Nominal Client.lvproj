@@ -51,6 +51,7 @@
 			<Item Name="Quick Start - Complete Streaming with Datasource Creation.vi" Type="VI" URL="../Quick Start/Quick Start - Complete Streaming with Datasource Creation.vi"/>
 			<Item Name="Quick Start - Write Custom Cluster.vi" Type="VI" URL="../Quick Start/Quick Start - Write Custom Cluster.vi"/>
 			<Item Name="Tutorial - Tags and Properties.vi" Type="VI" URL="../Quick Start/Tutorial - Tags and Properties.vi"/>
+			<Item Name="Quick Start - Update Channel Metadata.vi" Type="VI" URL="../Quick Start/Quick Start - Update Channel Metadata.vi"/>
 		</Item>
 		<Item Name="support" Type="Folder">
 			<Item Name="create tdms file.vi" Type="VI" URL="../support/create tdms file.vi"/>
