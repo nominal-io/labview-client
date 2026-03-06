@@ -1,3 +1,9 @@
 [submodule "lv_src/submodules/reqwest-rs-labview"]
 	path = lv_src/submodules/reqwest-rs-labview
 	url = https://github.com/Tom-McQuillan/reqwest-rs-labview.git
+[submodule "submodules/nominal-streaming-labview-ffi"]
+	path = submodules/nominal-streaming-labview-ffi
+	url = https://github.com/nominal-io/nominal-streaming-labview-ffi
+[submodule "submodules/reqwest-labview"]
+	path = submodules/reqwest-labview
+	url = https://github.com/nominal-io/reqwest-labview
