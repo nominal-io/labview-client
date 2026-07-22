@@ -10,9 +10,9 @@
   "worker_layer": "repo-vipc-layer",
   "copied_from_base": false,
   "image_ref": "ghcr.io/nominal-io/labview-client-labview:win-adecf1482f37",
-  "build_date": "2026-07-22T19:45:58Z",
+  "build_date": "2026-07-22T21:40:51Z",
   "git_sha": "d0ada293ffcf0dc098bed82b9ac5705a4be31f24",
-  "run_url": "https://github.com/nominal-io/labview-client/actions/runs/29949138607",
+  "run_url": "https://github.com/nominal-io/labview-client/actions/runs/29957327425",
   "vipc": [
     {
       "file": "ci-tooling.vipc",
