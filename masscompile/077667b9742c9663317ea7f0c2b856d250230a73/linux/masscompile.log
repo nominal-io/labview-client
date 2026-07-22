@@ -1,0 +1,9 @@
+LabVIEWCLI started logging in file:  /tmp/lvtemporary_763320.log
+Using LabVIEW: "/usr/local/natinst/LabVIEW-2026-64/labviewprofull"
+LabVIEW launched successfully.
+Connection established with LabVIEW at port number 3363.
+
+Error code : 66
+Error message : Call By Reference in RunExecuteOperationVI.vi->RunOperationCore.vi->RunOperation.vi->RunOperation.vi.ProxyCaller
+An error occurred while running the LabVIEW CLI.
+
