@@ -1,4 +1,12 @@
 # LabVIEW Client for Nominal IO
+
+<!-- labview-ci:dashboard -->
+## LabVIEW CI
+
+[![LabVIEW CI dashboard](https://img.shields.io/badge/LabVIEW%20CI-dashboard-2ea44f)](https://nominal-io.github.io/labview-client/)
+
+LabVIEW CI runs on every pull request. See the [**CI dashboard**](https://nominal-io.github.io/labview-client/) for build status, VI Analyzer results, VI diffs, and mass-compile reports.
+
 Streaming data to Nominal from LabVIEW.
 
 [![Image](https://www.vipm.io/package/nominal_lib_nominal_io_client/badge.svg?metric=installs)](https://www.vipm.io/package/nominal_lib_nominal_io_client/) [![Image](https://www.vipm.io/package/nominal_lib_nominal_io_client/badge.svg?metric=stars)](https://www.vipm.io/package/nominal_lib_nominal_io_client/)

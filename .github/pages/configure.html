@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<!--
+  .github/pages/configure.html
+  Settings editor for an ALREADY-INSTALLED repo. Loads the repo's current
+  labview-ci.yml + ci-tooling.packages.json, lets the user change settings
+  (LabVIEW version, OS, activities, concurrent runners, container dependencies /
+  Antidoc, the worker container + its baked VIPC files, and which container each
+  action runs in), and produces the updated config files. Organised into tabs so
+  each concern is found quickly. The page applies changes by dispatching the
+  Reconfigure workflow with the dashboard's stored token; the workflow writes the
+  files and opens a PR. Download and CLI fallbacks remain available.
+  It can also dispatch the image build directly (`gh workflow run
+  build-labview-image.yml`) to create/update the container in GHCR on demand.
+  Pure static page, no backend.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Configure LabVIEW CI</title>
+  <script>window.LVCI={context:'configure'};</script>
+  <script src="lvci-header.js" defer></script>
+  <style>
+    :root{
+      --bg:#0d1117;--surface:#161b22;--surface2:#0d1117;--border:#30363d;
+      --fg:#e6edf3;--fg-muted:#8b949e;--link:#58a6ff;--accent:#238636;--accent-fg:#fff;
+      --chip:#21262d;--code:#010409;--warn:#9a6700;
+    }
+    @media(prefers-color-scheme:light){
+      :root{
+        --bg:#ffffff;--surface:#f6f8fa;--surface2:#fff;--border:#d0d7de;
+        --fg:#1f2328;--fg-muted:#57606a;--link:#0969da;--accent:#1f883d;--accent-fg:#fff;
+        --chip:#eaeef2;--code:#f6f8fa;--warn:#9a6700;
+      }
+    }
+    /* Re-assert page-specific tokens the shared header's theme toggle doesn't
+       manage, so a forced Light/Dark choice fully re-themes this page. */
+    :root[data-lvci-theme=dark]{--surface2:#0d1117}
+    :root[data-lvci-theme=light]{--surface2:#fff}
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+         background:var(--bg);color:var(--fg);line-height:1.5}
+    a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:24px 20px 64px}
+    header.top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+    h1{font-size:1.5em;margin:0}
+    .sub{color:var(--fg-muted);font-size:.9em;margin:4px 0 24px}
+    .back{font-size:.85em}
+    section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:18px}
+    section h2{font-size:1.02em;margin:0 0 4px}
+    section .hint{color:var(--fg-muted);font-size:.82em;margin:0 0 14px}
+    .row{display:flex;gap:18px;flex-wrap:wrap}
+    .field{flex:1 1 200px;min-width:180px}
+    label.fl{display:block;font-size:.8em;color:var(--fg-muted);margin-bottom:5px}
+    input[type=text],input[type=number],select{width:100%;padding:8px 10px;background:var(--surface2);color:var(--fg);
+         border:1px solid var(--border);border-radius:6px;font-size:.92em;font-family:inherit}
+    .toggle-row{display:flex;gap:10px;flex-wrap:wrap}
+    .toggle{display:flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--border);
+         border-radius:6px;background:var(--surface2);cursor:pointer;font-size:.9em;user-select:none}
+    .toggle input{accent-color:var(--accent);margin:0}
+    .acts{display:flex;gap:10px;flex-wrap:wrap}
+    .act{display:flex;align-items:center;gap:7px;padding:6px 11px;border:1px solid var(--border);border-radius:6px;
+         background:var(--surface2);font-size:.88em;cursor:pointer}
+    .act.disabled{opacity:.5;cursor:not-allowed}
+    .pkgs{display:flex;flex-direction:column;gap:8px}
+    .pkg{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:9px 12px;
+         border:1px solid var(--border);border-radius:8px;background:var(--surface2)}
+    .pkg input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px;margin:0}
+    .pkg .pname{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.84em}
+    .pkg .psum{color:var(--fg-muted);font-size:.8em}
+    .pkg .pver{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.74em;color:var(--fg-muted)}
+    .pkg .pkgctl{display:flex;align-items:center;gap:10px;justify-content:flex-end}
+    .pkg .pkgmon{display:inline-flex;align-items:center;gap:5px;font-size:.76em;color:var(--fg-muted);white-space:nowrap;cursor:pointer;user-select:none}
+    .addpkg{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    .addpkg input{flex:1 1 160px}
+    .badge{display:inline-block;font-size:.64em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+         padding:2px 6px;border-radius:20px;border:1px solid var(--border);color:var(--fg-muted);background:var(--chip);margin-left:6px}
+    .codebox{position:relative;background:var(--code);border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:10px}
+    pre{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78em;white-space:pre-wrap;word-break:break-word;color:var(--fg);max-height:280px;overflow:auto}
+    .copy{position:absolute;top:8px;right:8px;padding:4px 10px;font-size:.72em;border:1px solid var(--border);
+         border-radius:6px;background:var(--surface);color:var(--fg);cursor:pointer}
+    .copy:hover{border-color:var(--link)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
+    button.primary{padding:9px 16px;font-size:.9em;font-weight:600;border:1px solid transparent;border-radius:6px;background:var(--accent);color:var(--accent-fg);cursor:pointer}
+    button.ghost{padding:9px 16px;font-size:.9em;border:1px solid var(--border);border-radius:6px;background:var(--surface2);color:var(--fg);cursor:pointer}
+    button:disabled{opacity:.6;cursor:not-allowed}
+    .status{font-size:.82em;color:var(--fg-muted);margin-top:8px;min-height:1.2em}
+    .status.err{color:#cf222e}.status.ok{color:var(--accent)}
+    .tokpanel{border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--surface2);margin:10px 0 12px;font-size:.84em}
+    .tokpanel[hidden]{display:none}
+    .tokpanel input{width:100%;margin:8px 0;padding:8px 10px;background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .subhead{font-weight:600;font-size:.9em;margin:14px 0 6px}
+    code.inl{background:var(--chip);padding:1px 6px;border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em}
+    details{margin-top:10px}summary{cursor:pointer;font-size:.85em;color:var(--link)}
+    /* Tabs */
+    .tabs{display:flex;gap:2px;border-bottom:1px solid var(--border);margin:0 0 18px;flex-wrap:wrap}
+    .tab{appearance:none;border:0;background:none;color:var(--fg-muted);font:inherit;font-size:.92em;
+         padding:10px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;
+         display:flex;align-items:center;gap:8px;white-space:nowrap}
+    .tab:hover{color:var(--fg)}
+    .tab.active{color:var(--fg);font-weight:600;border-bottom-color:var(--accent)}
+    .tab .badge{margin:0}
+    .tabpane[hidden]{display:none}
+    /* Per-action routing rows */
+    .routerow{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:11px 13px;
+         border:1px solid var(--border);border-radius:8px;background:var(--surface2);margin-bottom:8px}
+    .routerow .rtitle{font-size:.9em;font-weight:600;display:flex;align-items:center}
+    .routerow .rsub{color:var(--fg-muted);font-size:.78em;margin-top:2px}
+    .routerow .rsel{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:230px}
+    .routerow.off{opacity:.6}
+    .pill{display:inline-block;font-size:.6em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+         padding:2px 7px;border-radius:20px;border:1px solid var(--border);color:var(--fg-muted);background:var(--chip);margin-left:8px}
+    /* Info (i) button + popover — reusable, click to reveal detail */
+    .infowrap{position:relative;display:inline-block;vertical-align:middle}
+    .infobtn{appearance:none;width:16px;height:16px;line-height:13px;padding:0;margin-left:6px;border-radius:50%;
+         border:1px solid var(--border);background:var(--surface2);color:var(--fg-muted);font-size:.72em;font-weight:700;
+         font-style:italic;font-family:Georgia,'Times New Roman',serif;cursor:pointer;text-align:center}
+    .infobtn:hover{color:var(--fg);border-color:var(--link)}
+    .infobtn[aria-expanded="true"]{color:var(--accent-fg);background:var(--accent);border-color:var(--accent)}
+    .infopop{position:absolute;z-index:40;top:calc(100% + 6px);left:0;width:330px;max-width:78vw;background:var(--surface);
+         border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.82em;color:var(--fg-muted);
+         line-height:1.55;font-weight:400;text-transform:none;letter-spacing:normal;box-shadow:0 8px 28px rgba(0,0,0,.35)}
+    .infopop[hidden]{display:none}
+    .infopop strong{color:var(--fg)}
+    .infopop.right{left:auto;right:0}
+    /* Triggers matrix — which submission sources run each activity */
+    #trigMatrix{overflow-x:auto}
+    .trigtable{width:100%;min-width:430px;border-collapse:collapse;margin-top:8px;font-size:.88em}
+    .trigtable th,.trigtable td{padding:9px 10px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle}
+    .trigtable thead th{color:var(--fg-muted);font-weight:600;font-size:.82em;border-bottom:1px solid var(--border)}
+    .trigtable th:not(:first-child),.trigtable td:not(:first-child){width:92px}
+    .trigtable th:first-child,.trigtable td:first-child{text-align:left;min-width:140px}
+    .trigtable tbody tr:last-child td{border-bottom:0}
+    .trigtable tbody tr.off{opacity:.5}
+    .trigtable .actname{font-weight:600}
+    .trigtable .colsrc{display:inline}
+    .trigtable input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px;margin:0;cursor:pointer}
+    .trigtable input[type=checkbox]:disabled{cursor:not-allowed}
+    /* VI Browser render matrix (reuses .trigtable) */
+    #vbMatrix{overflow-x:auto}
+    .vbna{color:var(--fg-muted)}
+    .vbsub{display:block;color:var(--fg-muted);font-weight:400;font-size:.82em;margin-top:2px}
+    /* VI Analyzer configuration rules */
+    .viarule{border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px;background:var(--surface)}
+    .viarule .viarhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px}
+    .viarule .viarhead select{flex:1 1 260px;min-width:200px}
+    .viarule .rmrule{margin-left:auto}
+    .viapaths{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+    .viapaths:empty{display:none}
+    .viachip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);background:var(--bg);
+      border-radius:16px;padding:3px 6px 3px 11px;font-size:.8em}
+    .viachip code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.95em}
+    .viachip .x{background:none;border:none;color:var(--fg-muted);cursor:pointer;font-size:1.1em;line-height:1;padding:0 2px}
+    .viachip .x:hover{color:#f85149}
+    .viaaddpath{display:flex;gap:8px;flex-wrap:wrap}
+    .viaaddpath input{flex:1 1 260px;min-width:200px}
+    .viascope{display:inline-block;font-size:.72em;border-radius:4px;padding:1px 6px;margin-left:4px}
+    .viascope.folder{background:rgba(88,166,255,.16);color:var(--link)}
+    .viascope.file{background:rgba(46,160,67,.16);color:#3fb950}
+    .viaempty{color:var(--fg-muted);font-style:italic}
+    /* Actions table — installed actions and the OS each one runs on */
+    .depopts{display:flex;flex-direction:column;gap:8px;margin:2px 0 14px}
+    .depopts .toggle{width:fit-content;max-width:100%}
+    #acts{overflow-x:auto}
+    .acttable th:nth-child(2),.acttable td:nth-child(2){width:72px;text-align:center}
+    .acttable th:last-child,.acttable td:last-child{min-width:200px}
+    .acttable .vbna{color:var(--fg-muted)}
+    .acttable .wincell{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .acttable .wincell select{font-size:.82em;max-width:188px}
+    .acttable .wincell .wincustom{font-size:.82em;width:130px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1>Configure Pipeline</h1>
+        <p class="sub">Define the actions that run automatically whenever something changes in this repository &mdash; which actions run, on which platforms and containers, and when.</p>
+      </div>
+    </header>
+
+    <section id="targetBar">
+      <h2>Configuring <code class="inl" id="targetRepo">this repository</code></h2>
+      <p class="hint">These settings define <strong>what your CI does whenever a revision is submitted</strong> to this repository &mdash; whether you push directly to the default branch, open a pull request from a branch here, or receive a pull request from a fork. They apply only to the repo above, detected automatically from the dashboard you launched this from.</p>
+      <input type="hidden" id="repo">
+      <input type="hidden" id="branch" value="main">
+      <div class="status" id="loadStatus"></div>
+    </section>
+
+    <!-- ============================ PIPELINE ============================ -->
+    <div id="pane-pipeline">
+      <section>
+        <h2>Pipeline settings</h2>
+        <p class="hint">LabVIEW version, platforms, runner concurrency, and which activities run. Written to <code class="inl">.github/labview-ci.yml</code>.</p>
+        <div class="row">
+          <div class="field">
+            <label class="fl" for="version">LabVIEW version</label>
+            <select id="version" disabled aria-disabled="true" title="The CI tooling, container images, and baked dependencies are built for LabVIEW 2026."></select>
+            <p class="hint" style="margin-top:6px">Fixed to LabVIEW 2026 &mdash; the container images and tooling are built for it.</p>
+          </div>
+          <div class="field">
+            <label class="fl" for="runners">Max concurrent runners
+              <span class="infowrap">
+                <button type="button" class="infobtn" aria-expanded="false" aria-label="About max concurrent runners">i</button>
+                <span class="infopop" hidden role="note">Your per-repo preference for how many CI jobs run in parallel. GitHub's real concurrency limit is <strong>per account, not per repo</strong> &mdash; Free 20, Pro 40, Team 60, Enterprise 500 simultaneous jobs, shared across <em>all</em> your repositories. Runners are also consumed automatically whenever you submit code or run a tooling upgrade, so CI spread over several repos draws from that one shared pool. The default of 5 leaves headroom; raise it only if your account can spare the capacity.</span>
+              </span>
+            </label>
+            <input type="number" id="runners" min="1" max="50" value="5">
+            <div class="hint" style="margin-top:4px">Per-repo cap, drawn from your account-wide pool.</div>
+          </div>
+        </div>
+        <div class="subhead">Actions</div>
+        <p class="hint" style="margin:-2px 0 10px">Every action installed in this repository and the platforms it runs on. Tick the operating systems each action should run on. On <strong>Windows</strong> the cell doubles as the container picker &mdash; it reads <strong>default</strong> (the project's default image); click it to run a different container, or choose <em>Don't run</em>. Linux jobs always use the NI base image. Choose <em>when</em> each runs under <strong>When activities run</strong> below.</p>
+        <div class="depopts">
+          <label class="toggle"><input type="checkbox" id="requireDeps"> Require all <a href="dependencies.html">monitored</a> dependencies to be installed before running</label>
+          <label class="toggle"><input type="checkbox" id="autoInstallDeps"> Automatically install missing dependencies and rebuild containers before running actions</label>
+        </div>
+        <p class="hint" style="margin:8px 0 0">Choose monitored dependency files on the <strong>Dependencies</strong> page. Monitoring controls dependency warnings and dependency-file change detection; installation before actions only happens when automatic dependency installation is enabled.</p>
+        <div id="acts"></div>
+      </section>
+
+      <section>
+        <h2>When activities run
+          <span class="infowrap">
+            <button type="button" class="infobtn" aria-expanded="false" aria-label="About activity triggers">i</button>
+            <span class="infopop" hidden role="note">A &ldquo;submission&rdquo; is any change arriving at this repository. Standard git workflows map to three sources: a <strong>push to the default branch</strong> (a direct commit, or a merged pull request landing on the default branch), a <strong>pull request from a branch</strong> in this repository, and a <strong>pull request from a fork</strong> (an outside contributor). Tick which activities run for each source. Pull requests from forks run with a <strong>read-only token and no access to your repository secrets</strong>, so they can validate code but can't deploy or publish.</span>
+          </span>
+        </h2>
+        <p class="hint">Decide what happens for each way a revision reaches this repository. For example, run Mass Compile and VIDiff on every pull request, but build the VI Snapshots gallery only when a commit lands on the default branch.</p>
+        <div id="trigMatrix"></div>
+        <p class="hint" style="margin-top:10px">Saved to your configuration and included in the pull request. Activities already run on the sources ticked by default; custom per-source rules are recorded here and take effect as each workflow is wired to honor them &mdash; the same way <strong>Max concurrent runners</strong> is stored today. Pull requests from forks run sandboxed by GitHub &mdash; read-only and without access to your secrets.</p>
+      </section>
+
+    </div><!-- /pane-pipeline -->
+
+    <!-- ========================= SAVE & APPLY ========================= -->
+    <section id="saveApply">
+      <h2>Save and apply</h2>
+      <p class="hint">Save these settings by queuing a reviewable <code class="inl">Reconfigure</code> workflow run with the dashboard token. It opens a pull request before anything changes on your default branch. Dependency-file monitoring, manual dependency installation, and status stay on the <strong>Dependencies</strong> page.</p>
+      <div class="actions">
+        <button class="primary" id="applyCfg" type="button">Save and apply</button>
+        <a id="wfLink" href="https://github.com/actions/workflows/reconfigure.yml" target="_blank" rel="noopener">View workflow</a>
+        <span class="status" id="applyStatus"></span>
+      </div>
+      <div class="tokpanel" id="tokPanel" hidden>
+        <div id="tokMsg">Saving needs a fine-grained token with <strong>Actions: Read and write</strong> for this repository.</div>
+        <a id="tokCreate" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a token</a>
+        <input id="tokInput" type="password" placeholder="github_pat_..." autocomplete="off" spellcheck="false">
+        <button class="primary" id="tokSave" type="button">Save and apply</button>
+      </div>
+      <details class="genscript">
+        <summary class="hint">Prefer to apply it yourself? Generate the script.</summary>
+        <p class="hint">Dispatch the same change from GitHub's CLI, or download the settings file to commit by hand.</p>
+        <div class="codebox"><button class="copy" id="copyGh">Copy</button><pre id="ghCmd"></pre></div>
+        <div class="actions" style="margin-top:10px">
+          <button class="primary" id="dlYaml">Download labview-ci.yml</button>
+          <span class="status" id="dlStatus"></span>
+        </div>
+        <div class="subhead">.github/labview-ci.yml</div>
+        <div class="codebox"><button class="copy" id="copyYaml">Copy</button><pre id="yamlPreview"></pre></div>
+      </details>
+    </section>
+  </div>
+
+  <script>
+  (() => {
+    "use strict";
+    const SOURCE_FALLBACK = { repo: "nominal-io/labview-client", ref: "main" };
+    const TOK_KEY = "lvci_dispatch_token";
+    const ANTIDOC_PKG = "wovalab_lib_antidoc_cli";
+
+    let catalog = null;
+    let pkgObj = null;                       // parsed ci-tooling.packages.json
+    const osSel = new Set(["windows"]);      // derived UNION of per-action OS (config.os); recomputed from actionOs
+    const osPref = new Set(["windows"]);     // default-OS preference used to seed a newly listed action's platforms
+    const actSel = new Set();
+    const actionOs = new Map();              // action id -> Set of OS it runs on (subset of the action's supportsOs)
+    let requireDeps = false;                 // config.dependencyPolicy.requireInstalled — gate runs on all deps present
+    let autoInstallDeps = false;             // config.dependencyPolicy.autoInstall — install missing deps + rebuild first
+    let winLatest = null;                    // workers/windows/latest.json (current build)
+    let containerUse = "latest";             // config.container.use (default tag activities pull)
+    let vipcList = [];                       // [{ path, include, monitor }] repo VIPC files; only `include` ones are baked
+    let dragonList = [];                     // [{ path, include, monitor }] repo .dragon files; only `include` ones are baked
+    let vipcFoundCount = 0;                  // how many .vipc files discovery found in the repo
+    let dragonFoundCount = 0;                // how many .dragon files discovery found in the repo
+    const actionContainer = new Map();       // activity id -> container tag override (absent = inherit `use`)
+    const triggerSel = new Map();            // activity id -> Set of submission sources that run it
+    // VI Browser render matrix: which render generations run on each OS on a new
+    // revision. classic (1.0 HTML) is Windows-only; positionAware (2.0 frames) can
+    // run on Windows and/or Linux. See the VI Browser tab.
+    const viBrowser = { classic: new Set(["windows"]), positionAware: new Set(["windows"]) };
+
+    // VI Analyzer: which .viancfg test configuration runs on which code.
+    //   viaDefault  = "builtin" (full default suite), "none" (don't test unmatched
+    //                 VIs), or a committed .viancfg path applied to every unmatched VI.
+    //   viaRules    = [{ config: "<path>"|"none", paths: [string] }] — a config (or
+    //                 "none" = exclude) mapped to specific files/folders; first match wins.
+    // With no saved config, the pipeline auto-uses the FIRST discovered .viancfg as the
+    // default (resolved here once discovery runs), else the built-in suite.
+    let viaDefault = "";                      // "" until resolved from the manifest or discovery
+    let viaRules = [];                        // [{ config, paths: [] }]
+    let viaConfigs = [];                      // discovered .viancfg paths in the repo
+    let viaPathSuggest = [];                  // discovered folders + VIs (datalist suggestions)
+    let viaDefaultTouched = false;            // user explicitly chose a default (don't auto-override)
+
+    // The submission sources a revision can arrive by, in display order. These map
+    // to GitHub events: push-default -> `push` to the default branch; pr-branch and
+    // pr-fork -> `pull_request` (a fork is distinguished at run time). Snapshots only
+    // run on the default branch today; everything else runs on all three by default,
+    // which matches the activity workflows' current `on:` triggers.
+    const TRIGGER_SOURCES = [
+      ["push-default", "Push to default branch"],
+      ["pr-branch", "Pull request from a branch"],
+      ["pr-fork", "Pull request from a fork"],
+    ];
+
+    const $ = (id) => document.getElementById(id);
+    const csv = (set) => [...set].join(",");
+
+    function source() { return (catalog && catalog.source) || SOURCE_FALLBACK; }
+    function rawUrl(repo, ref, path) { return `https://raw.githubusercontent.com/${repo}/${ref}/${path}`; }
+
+    async function fetchJson(url) {
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    }
+    async function fetchText(url) {
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.text();
+    }
+
+    async function loadCatalog() {
+      const cands = ["./catalog.json", "./labview-ci/catalog.json",
+        rawUrl(SOURCE_FALLBACK.repo, SOURCE_FALLBACK.ref, ".github/labview-ci/catalog.json")];
+      for (const u of cands) { try { return await fetchJson(u); } catch (_) {} }
+      throw new Error("Could not load catalog.json");
+    }
+
+    async function loadDefaultPackages() {
+      // Prefer a same-origin copy (deployed next to this page), then fall back to
+      // the source repo's raw manifest. Empty list if neither is reachable.
+      const cands = ["./ci-tooling.packages.json",
+        rawUrl(source().repo, source().ref, ".github/labview/vipm/ci-tooling.packages.json")];
+      for (const u of cands) { try { return await fetchJson(u); } catch (_) {} }
+      return { vipmPackages: { packages: [] } };
+    }
+
+    // ---- minimal labview-ci.yml parser (our own simple format) -------------
+    // VI Analyzer block is scanned on its own (it has a nested rules list) so the
+    // main line state-machine below stays untouched.
+    function parseViAnalyzerBlock(text) {
+      const out = { default: "", rules: [] };
+      const lines = text.split(/\r?\n/);
+      let i = 0;
+      for (; i < lines.length; i++) { if (/^\s{2}viAnalyzer:\s*$/.test(lines[i])) { i++; break; } }
+      if (i >= lines.length) return out;
+      let curRule = null, inRules = false;
+      for (; i < lines.length; i++) {
+        const line = lines[i];
+        if (/^\s{0,3}\S/.test(line)) break;   // dedented out of the viAnalyzer block
+        let m;
+        if ((m = line.match(/^\s{4}default:\s*"?([^"\s]+)"?/))) { out.default = m[1]; inRules = false; continue; }
+        if (/^\s{4}rules:\s*$/.test(line)) { inRules = true; continue; }
+        if (inRules) {
+          if ((m = line.match(/^\s{6}-\s*config:\s*"?([^"]+?)"?\s*$/))) { curRule = { config: m[1].trim(), paths: [] }; out.rules.push(curRule); continue; }
+          if (curRule && (m = line.match(/^\s{8}paths:\s*"?([^"]*?)"?\s*$/))) { curRule.paths = m[1].split("|").map(s => s.trim()).filter(Boolean); continue; }
+        }
+      }
+      return out;
+    }
+    function parseManifest(text) {
+      const out = { version: "", os: [], activities: [], runners: null, containerUse: "", vipc: [], dragon: [], actions: {}, triggers: {}, viBrowser: {}, actionOs: {}, dependencyPolicy: {}, viAnalyzer: { default: "", rules: [] } };
+      let inActs = false, inContainer = false, inVipc = false, inDragon = false, inActions = false, inTriggers = false, inViBrowser = false, inActionOs = false, inDepPolicy = false, curVipc = null, curDragon = null;
+      for (const line of text.split(/\r?\n/)) {
+        if (/^\s*activities:\s*$/.test(line)) { inActs = true; inContainer = false; inVipc = false; inActions = false; inTriggers = false; inViBrowser = false; inActionOs = false; inDepPolicy = false; continue; }
+        if (/^\s*container:\s*$/.test(line)) { inContainer = true; inActs = false; inVipc = false; inActions = false; inTriggers = false; inViBrowser = false; inActionOs = false; inDepPolicy = false; continue; }
+        if (/^\s*triggers:\s*$/.test(line)) { inTriggers = true; inActs = false; inContainer = false; inVipc = false; inActions = false; inViBrowser = false; inActionOs = false; inDepPolicy = false; continue; }
+        if (/^\s*viBrowser:\s*$/.test(line)) { inViBrowser = true; inActs = false; inContainer = false; inVipc = false; inActions = false; inTriggers = false; inActionOs = false; inDepPolicy = false; continue; }
+        if (/^\s*actionOs:\s*$/.test(line)) { inActionOs = true; inActs = false; inContainer = false; inVipc = false; inActions = false; inTriggers = false; inViBrowser = false; inDepPolicy = false; continue; }
+        if (/^\s*dependencyPolicy:\s*$/.test(line)) { inDepPolicy = true; inActionOs = false; inActs = false; inContainer = false; inVipc = false; inActions = false; inTriggers = false; inViBrowser = false; continue; }
+        if (inActs) {
+          const m = line.match(/^\s*-\s*(\S+)/);
+          if (m) { out.activities.push(m[1]); continue; }
+          inActs = false;
+        }
+        if (inTriggers) {
+          const mt = line.match(/^\s{4}([A-Za-z0-9_.\-]+):\s*(\S+)/);
+          if (mt) { out.triggers[mt[1]] = mt[2]; continue; }
+          if (/^\s{0,3}\S/.test(line)) inTriggers = false;
+        }
+        if (inViBrowser) {
+          const mv = line.match(/^\s{4}(classic|positionAware):\s*(\S+)/);
+          if (mv) { out.viBrowser[mv[1]] = mv[2]; continue; }
+          if (/^\s{0,3}\S/.test(line)) inViBrowser = false;
+        }
+        if (inActionOs) {
+          const mao = line.match(/^\s{4}([A-Za-z0-9_.\-]+):\s*(\S+)/);
+          if (mao) { out.actionOs[mao[1]] = mao[2]; continue; }
+          if (/^\s{0,3}\S/.test(line)) inActionOs = false;
+        }
+        if (inDepPolicy) {
+          const mdp = line.match(/^\s{4}(requireInstalled|autoInstall):\s*(\S+)/);
+          if (mdp) { out.dependencyPolicy[mdp[1]] = mdp[2]; continue; }
+          if (/^\s{0,3}\S/.test(line)) inDepPolicy = false;
+        }
+        if (inContainer) {
+          let mc;
+          if ((mc = line.match(/^\s{4}use:\s*"?([^"\s]+)"?/))) { out.containerUse = mc[1]; inVipc = false; inDragon = false; inActions = false; continue; }
+          if (/^\s{4}vipc:\s*$/.test(line)) { inVipc = true; inDragon = false; inActions = false; continue; }
+          if (/^\s{4}dragon:\s*$/.test(line)) { inDragon = true; inVipc = false; inActions = false; continue; }
+          if (/^\s{4}actions:\s*$/.test(line)) { inActions = true; inVipc = false; inDragon = false; continue; }
+          if (inVipc) {
+            if ((mc = line.match(/^\s{6}-\s*path:\s*"?([^"]+?)"?\s*$/))) { curVipc = { path: mc[1].trim(), monitor: false }; out.vipc.push(curVipc); continue; }
+            if (curVipc && (mc = line.match(/^\s{8}monitor:\s*(\S+)/))) { curVipc.monitor = mc[1].trim().toLowerCase() === "true"; continue; }
+          }
+          if (inDragon) {
+            if ((mc = line.match(/^\s{6}-\s*path:\s*"?([^"]+?)"?\s*$/))) { curDragon = { path: mc[1].trim(), monitor: false }; out.dragon.push(curDragon); continue; }
+            if (curDragon && (mc = line.match(/^\s{8}monitor:\s*(\S+)/))) { curDragon.monitor = mc[1].trim().toLowerCase() === "true"; continue; }
+          }
+          if (inActions) {
+            if ((mc = line.match(/^\s{6}([A-Za-z0-9_.\-]+):\s*"?([^"\s]+)"?\s*$/))) { out.actions[mc[1]] = mc[2]; continue; }
+          }
+          if (/^\s{0,3}\S/.test(line)) { inContainer = false; inVipc = false; inDragon = false; inActions = false; }
+        }
+        let m;
+        if ((m = line.match(/^\s*labviewVersion:\s*"?([^"\s]+)"?/))) out.version = m[1];
+        if ((m = line.match(/^\s*os:\s*\[([^\]]*)\]/))) out.os = m[1].split(",").map(s => s.trim()).filter(Boolean);
+        if ((m = line.match(/^\s*maxParallel:\s*(\d+)/))) out.runners = parseInt(m[1], 10);
+      }
+      out.viAnalyzer = parseViAnalyzerBlock(text);
+      return out;
+    }
+
+    // ---- rendering ---------------------------------------------------------
+    // LOCKED to the single supported LabVIEW year (catalog.defaults.labviewVersion).
+    // The container images / baked VIPC / LabVIEW.exe paths are all built for that
+    // year, so reconfiguring to another year asked for an image that doesn't exist
+    // and broke every container job. Ignore the repo's stored value and always show
+    // that year, disabled -- so saving heals a repo pinned to an unsupported year.
+    // Code COMPATIBILITY with an older LabVIEW run-time is owned by the project's own
+    // .lvproj "save for previous version" setting, honored by the 2026 container -- so
+    // this field stays permanently locked and needs no version/compatibility picker.
+    function renderVersions(sel) {
+      const el = $("version");
+      const locked = (catalog.defaults && catalog.defaults.labviewVersion) || "2026";
+      el.innerHTML = "";
+      const o = document.createElement("option");
+      o.value = locked; o.textContent = locked; o.selected = true;
+      el.appendChild(o);
+      el.disabled = true;
+      el.setAttribute("aria-disabled", "true");
+    }
+
+    // Installed actions and the platforms each one runs on. The OS columns are the
+    // single OS control: a checkbox appears for every operating system an action
+    // supports (catalog.supportsOs). config.os is the UNION of the checked
+    // platforms across actions (the dashboard runs on ubuntu regardless, so it
+    // never gates config.os).
+    const OS_COLS = [["linux", "Linux"], ["windows", "Windows"]];
+    function capById(id) { return (catalog.capabilities || []).find(c => c.id === id); }
+    function defaultOsFor(cap) {
+      const sup = cap.supportsOs || [];
+      const within = sup.filter(o => osPref.has(o));
+      return new Set(within.length ? within : sup);
+    }
+    function seedActionOs() {
+      actSel.forEach(id => { if (!actionOs.has(id)) { const c = capById(id); if (c) actionOs.set(id, defaultOsFor(c)); } });
+    }
+    function recomputeOsSel() {
+      osSel.clear();
+      actSel.forEach(id => {
+        if (id === "dashboard") return;       // ubuntu host job — not gated by config.os
+        const s = actionOs.get(id);
+        if (s) s.forEach(o => osSel.add(o));
+      });
+      if (!osSel.size) osSel.add("windows");
+    }
+
+    function renderActivities() {
+      const host = $("acts"); host.innerHTML = "";
+      const caps = (catalog.capabilities || []).filter(c => c.status !== "planned" && actSel.has(c.id));
+      if (!caps.length) { host.innerHTML = '<p class="hint">No actions are installed in this repository yet.</p>'; return; }
+      const table = document.createElement("table"); table.className = "trigtable acttable";
+      const thead = document.createElement("thead"); const hr = document.createElement("tr");
+      const h0 = document.createElement("th"); h0.textContent = "Action"; hr.appendChild(h0);
+      OS_COLS.forEach(([, label]) => { const th = document.createElement("th"); th.textContent = label; hr.appendChild(th); });
+      thead.appendChild(hr); table.appendChild(thead);
+      const tbody = document.createElement("tbody");
+      caps.forEach(cap => {
+        const sel = actionOs.get(cap.id) || new Set();
+        const routable = cap.id !== "dashboard" && cap.id !== "custom-image";
+        const tr = document.createElement("tr");
+        const tdName = document.createElement("td");
+        const nm = document.createElement("span"); nm.className = "actname"; nm.textContent = cap.name; tdName.appendChild(nm);
+        tr.appendChild(tdName);
+        OS_COLS.forEach(([os]) => {
+          const td = document.createElement("td");
+          const supports = (cap.supportsOs || []).includes(os);
+          if (!supports) {
+            const dash = document.createElement("span"); dash.className = "vbna"; dash.textContent = "\u2014"; td.appendChild(dash);
+          } else if (os === "windows" && routable) {
+            // The Windows cell doubles as the container picker: "default" runs the
+            // project's default image; pick another tag to override; "Don't run"
+            // turns the action's Windows job off. Linux always uses the NI base image.
+            td.appendChild(buildWinContainerCell(cap, sel));
+          } else {
+            const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = sel.has(os);
+            cb.setAttribute("aria-label", cap.name + " on " + os);
+            cb.addEventListener("change", () => {
+              const s = actionOs.get(cap.id) || new Set();
+              cb.checked ? s.add(os) : s.delete(os);
+              actionOs.set(cap.id, s);
+              recomputeOsSel();
+              update();
+            });
+            td.appendChild(cb);
+          }
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody); host.appendChild(table);
+    }
+
+    // Windows cell = on/off + container selector in one control (Option folded in
+    // from the old Action Routing tab). "default" = the project default image.
+    function buildWinContainerCell(cap, osSet) {
+      const wrap = document.createElement("div"); wrap.className = "wincell";
+      const sel = document.createElement("select");
+      sel.setAttribute("aria-label", cap.name + " on Windows (run + container)");
+      const opts = [["__off__", "Don't run"]].concat(actionTagOptions());
+      opts.forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = (v === "__default__" ? "default" : l); sel.appendChild(o); });
+      const custom = document.createElement("input"); custom.type = "text"; custom.className = "wincustom"; custom.placeholder = "tag, e.g. win-ab12cd34"; custom.hidden = true;
+      const on = osSet.has("windows");
+      const override = actionContainer.get(cap.id);
+      if (!on) { sel.value = "__off__"; }
+      else if (!override) { sel.value = "__default__"; }
+      else if ([...sel.options].some(o => o.value === override)) { sel.value = override; }
+      else { sel.value = "__custom__"; custom.hidden = false; custom.value = override; }
+      const apply = () => {
+        const v = sel.value;
+        const s = actionOs.get(cap.id) || new Set();
+        if (v === "__off__") { s.delete("windows"); actionContainer.delete(cap.id); custom.hidden = true; }
+        else {
+          s.add("windows");
+          if (v === "__default__") { actionContainer.delete(cap.id); custom.hidden = true; }
+          else if (v === "__custom__") { custom.hidden = false; const t = (custom.value || "").trim(); if (t) actionContainer.set(cap.id, t); else actionContainer.delete(cap.id); }
+          else { custom.hidden = true; actionContainer.set(cap.id, v); }
+        }
+        actionOs.set(cap.id, s);
+        recomputeOsSel(); update();
+      };
+      sel.addEventListener("change", apply);
+      custom.addEventListener("input", apply);
+      wrap.appendChild(sel); wrap.appendChild(custom);
+      return wrap;
+    }
+
+    function pkgList() { return ((pkgObj && pkgObj.vipmPackages && pkgObj.vipmPackages.packages) || []); }
+
+    function renderPackages() {
+      const host = $("pkgs"); if (!host) return; host.innerHTML = "";
+      pkgList().forEach((p, i) => {
+        const row = document.createElement("div"); row.className = "pkg";
+        const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = p.include !== false;
+        cb.addEventListener("change", () => { p.include = cb.checked; syncAntidoc(); update(); });
+        const mid = document.createElement("div");
+        mid.innerHTML = `<span class="pname">${p.name}</span>` + (p.summary ? `<div class="psum">${p.summary}</div>` : "");
+        const ver = document.createElement("span"); ver.className = "pver"; ver.textContent = p.version || "latest";
+        row.appendChild(cb); row.appendChild(mid); row.appendChild(ver);
+        host.appendChild(row);
+      });
+      syncAntidoc();
+    }
+
+    function syncAntidoc() {
+      const a = $("antidoc"); if (!a) return;
+      const p = pkgList().find(x => x.name === ANTIDOC_PKG);
+      a.checked = !!(p && p.include !== false);
+      a.disabled = !p;
+    }
+
+    // ---- worker container --------------------------------------------------
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+    function containerUseValue() {
+      const sel = $("containerUse");
+      if (!sel) return containerUse || "latest";
+      if (sel.value === "__custom__") return ($("containerUseCustom").value || "").trim() || "latest";
+      return sel.value || "latest";
+    }
+    function renderContainerUse() {
+      const sel = $("containerUse"); if (!sel) return;
+      const cur = (winLatest && winLatest.version) ? String(winLatest.version) : "";
+      const opts = [["latest", "Latest build \u2014 recommended (auto-updates with your dependencies)"]];
+      if (cur) opts.push([cur, "Pinned: " + cur + " (current build)"]);
+      opts.push(["__custom__", "Pin a specific tag\u2026"]);
+      sel.innerHTML = "";
+      opts.forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; sel.appendChild(o); });
+      const custom = $("containerUseCustom");
+      if (!containerUse || containerUse === "latest") {
+        sel.value = "latest"; if (custom) custom.hidden = true;
+      } else if (cur && containerUse === cur) {
+        sel.value = cur; if (custom) custom.hidden = true;
+      } else {
+        sel.value = "__custom__"; if (custom) { custom.hidden = false; custom.value = containerUse; }
+      }
+    }
+    function renderVipcs() {
+      const host = $("vipcs"); if (!host) return; host.innerHTML = "";
+      updateVipcNote();
+      if (!vipcList.length) {
+        host.innerHTML = '<div class="hint">No VIPC files found in this repository. The image still builds; add a <code class="inl">.vipc</code> path to bake project dependencies into the container.</div>';
+        return;
+      }
+      vipcList.forEach((v, i) => {
+        const included = v.include === true;
+        const row = document.createElement("div"); row.className = "pkg";
+        // Primary control: include this VIPC in the worker container (de-selected by default).
+        const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = included;
+        cb.title = "Include this VIPC file in the worker container";
+        cb.addEventListener("change", () => { v.include = cb.checked; renderVipcs(); update(); });
+        const mid = document.createElement("div");
+        mid.innerHTML = '<span class="pname">' + escapeHtml(v.path) + "</span>" +
+          '<div class="psum">' + (included
+            ? (v.monitor === true
+                ? "Included \u2014 monitored, rebuilds &amp; re-pushes the container when this file changes"
+                : "Included \u2014 baked once, not monitored for changes")
+            : "Not included \u2014 tick to bake this file into the container") + "</div>";
+        const ctl = document.createElement("div"); ctl.className = "pkgctl";
+        if (included) {
+          const ml = document.createElement("label"); ml.className = "pkgmon";
+          ml.title = "Monitor this file and rebuild the container automatically when it changes";
+          const mcb = document.createElement("input"); mcb.type = "checkbox"; mcb.checked = v.monitor === true;
+          mcb.addEventListener("change", () => { v.monitor = mcb.checked; renderVipcs(); update(); });
+          ml.appendChild(mcb); ml.appendChild(document.createTextNode("Monitor"));
+          ctl.appendChild(ml);
+        }
+        const rm = document.createElement("button"); rm.type = "button"; rm.className = "ghost"; rm.textContent = "Remove";
+        rm.addEventListener("click", () => { vipcList.splice(i, 1); renderVipcs(); update(); });
+        ctl.appendChild(rm);
+        row.appendChild(cb); row.appendChild(mid); row.appendChild(ctl);
+        host.appendChild(row);
+      });
+    }
+    function renderDragons() {
+      const host = $("dragons"); if (!host) return; host.innerHTML = "";
+      updateDragonNote();
+      if (!dragonList.length) {
+        host.innerHTML = '<div class="hint">No <code class="inl">.dragon</code> (NIPM) files found in this repository. Add a <code class="inl">.dragon</code> file to bake NIPM dependencies into the container.</div>';
+        return;
+      }
+      dragonList.forEach((v, i) => {
+        const included = v.include === true;
+        const row = document.createElement("div"); row.className = "pkg";
+        const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = included;
+        cb.title = "Include this Dragon file in the worker container";
+        cb.addEventListener("change", () => { v.include = cb.checked; if (!cb.checked) v.monitor = false; renderDragons(); update(); });
+        const mid = document.createElement("div");
+        mid.innerHTML = '<span class="pname">' + escapeHtml(v.path) + "</span>" +
+          '<div class="psum">' + (included
+            ? (v.monitor === true
+                ? "Included \u2014 monitored, rebuilds &amp; re-pushes the container when this file changes"
+                : "Included \u2014 baked once, not monitored for changes")
+            : "Not included \u2014 tick to bake this file into the container") + "</div>";
+        const ctl = document.createElement("div"); ctl.className = "pkgctl";
+        if (included) {
+          const ml = document.createElement("label"); ml.className = "pkgmon";
+          ml.title = "Monitor this file and rebuild the container automatically when it changes";
+          const mcb = document.createElement("input"); mcb.type = "checkbox"; mcb.checked = v.monitor === true;
+          mcb.addEventListener("change", () => { v.monitor = mcb.checked; renderDragons(); update(); });
+          ml.appendChild(mcb); ml.appendChild(document.createTextNode("Monitor"));
+          ctl.appendChild(ml);
+        }
+        const rm = document.createElement("button"); rm.type = "button"; rm.className = "ghost"; rm.textContent = "Remove";
+        rm.addEventListener("click", () => { dragonList.splice(i, 1); renderDragons(); update(); });
+        ctl.appendChild(rm);
+        row.appendChild(cb); row.appendChild(mid); row.appendChild(ctl);
+        host.appendChild(row);
+      });
+    }
+    function updateDragonNote() {
+      const el = $("dragonNote"); if (!el) return;
+      const parts = [];
+      if (dragonFoundCount) parts.push("Found " + dragonFoundCount + " Dragon file" + (dragonFoundCount === 1 ? "" : "s") + " in the repository.");
+      if (dragonList.length) {
+        const sel = dragonList.filter(v => v.include === true).length;
+        parts.push(sel ? (sel + " selected to bake into the container.") : "None selected \u2014 tick a file to bake it in, then enable Monitor for auto-rebuild.");
+      }
+      el.textContent = parts.join(" ");
+    }
+    function renderContainer() { renderContainerUse(); renderVipcs(); renderDragons(); }
+    function updateVipcNote() {
+      const el = $("vipcNote"); if (!el) return;
+      const parts = [];
+      if (vipcFoundCount) parts.push("Found " + vipcFoundCount + " VIPC file" + (vipcFoundCount === 1 ? "" : "s") + " in the repository.");
+      if (vipcList.length) {
+        const sel = vipcList.filter(v => v.include === true).length;
+        parts.push(sel
+          ? (sel + " selected to bake into the container.")
+          : "None selected \u2014 files are de-selected by default; tick the ones you want baked in.");
+      }
+      el.textContent = parts.join(" ");
+    }
+    function updateBuildExpectation() {
+      const el = $("buildExpectation"); if (!el) return;
+      const selected = vipcList.filter(v => v.include === true).length;
+      if (selected) {
+        el.innerHTML = "<strong>Expect a longer update:</strong> " + selected + " VIPC file" + (selected === 1 ? " is" : "s are") + " selected, so the next container update will start from the LCWC base and then apply repository dependencies before CI jobs continue.";
+      } else {
+        el.innerHTML = "<strong>Expected fast path:</strong> no VIPC dependencies are selected, so the workflow copies/tags the LCWC base image into this repository's GHCR package instead of reinstalling the shared LabVIEW tooling layers.";
+      }
+    }
+
+    // ---- per-action container routing --------------------------------------
+    // The container activities (Windows container jobs) that can pick a specific
+    // image: every non-dashboard, non-builder, non-planned capability that runs
+    // on Windows. dashboard runs on ubuntu; custom-image IS the builder.
+    function containerRoutableCaps() {
+      return (catalog.capabilities || []).filter(c =>
+        c.status !== "planned" && c.id !== "dashboard" && c.id !== "custom-image" &&
+        (c.supportsOs || []).includes("windows"));
+    }
+    function actionTagOptions() {
+      const cur = (winLatest && winLatest.version) ? String(winLatest.version) : "";
+      const o = [["__default__", "Project default (inherit)"], ["latest", "Latest build"]];
+      if (cur) o.push([cur, "Pinned: " + cur]);
+      // Newly-created dependency containers (published by "Create new" in the
+      // Dependencies dialog as <year>-deps-<date>) are offered here so an action
+      // can be pointed at a new container without replacing the current one.
+      (window.__lvciDepTags || []).forEach(t => { if (t && !o.some(x => x[0] === t)) o.push([t, "Dependency build: " + t]); });
+      o.push(["base", "Bare NI base image"], ["__custom__", "Custom tag\u2026"]);
+      return o;
+    }
+    function renderActionRouting() {
+      const host = $("routeList"); if (!host || !catalog) return; host.innerHTML = "";
+      containerRoutableCaps().forEach(cap => {
+        const enabled = actSel.has(cap.id);
+        const row = document.createElement("div"); row.className = "routerow" + (enabled ? "" : " off");
+        const left = document.createElement("div");
+        const title = document.createElement("div"); title.className = "rtitle";
+        title.textContent = cap.name;
+        if (!enabled) { const pill = document.createElement("span"); pill.className = "pill"; pill.textContent = "not enabled"; title.appendChild(pill); }
+        const sub = document.createElement("div"); sub.className = "rsub";
+        sub.textContent = cap.id === "snapshots" ? "Windows container job" : "Windows container job (Linux uses the NI base image)";
+        left.appendChild(title); left.appendChild(sub);
+
+        const wrap = document.createElement("div"); wrap.className = "rsel";
+        const sel = document.createElement("select");
+        sel.setAttribute("aria-label", "Container for " + cap.name);
+        actionTagOptions().forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; sel.appendChild(o); });
+        const custom = document.createElement("input"); custom.type = "text"; custom.placeholder = "tag, e.g. 2026-deps-20260623 or win-ab12cd34"; custom.hidden = true;
+        const curVal = actionContainer.get(cap.id);
+        if (!curVal) { sel.value = "__default__"; }
+        else if ([...sel.options].some(o => o.value === curVal)) { sel.value = curVal; }
+        else { sel.value = "__custom__"; custom.hidden = false; custom.value = curVal; }
+        const apply = () => {
+          const v = sel.value;
+          if (v === "__default__") { actionContainer.delete(cap.id); custom.hidden = true; }
+          else if (v === "__custom__") { custom.hidden = false; const t = (custom.value || "").trim(); if (t) actionContainer.set(cap.id, t); else actionContainer.delete(cap.id); }
+          else { custom.hidden = true; actionContainer.set(cap.id, v); }
+          update();
+        };
+        sel.addEventListener("change", apply);
+        custom.addEventListener("input", apply);
+        wrap.appendChild(sel); wrap.appendChild(custom);
+        row.appendChild(left); row.appendChild(wrap);
+        host.appendChild(row);
+      });
+      const note = $("routeNote");
+      if (note) note.innerHTML = "Project default currently resolves to <code class=\"inl\">" + escapeHtml(containerUseValue() || "latest") + "</code> (set in the Container tab).";
+    }
+    // Entries that actually override the default (stable, sorted output).
+    function containerActionEntries() {
+      return [...actionContainer.entries()]
+        .filter(([, t]) => t && t !== "__default__")
+        .sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+    }
+
+    // ---- per-activity submission triggers ----------------------------------
+    // Which submission sources run each activity. dashboard + custom-image are not
+    // submission-triggered (the dashboard reacts to status events; the image builds
+    // on dependency changes), so they are excluded — the same set the routing tab uses.
+    function triggerableCaps() {
+      return (catalog.capabilities || []).filter(c =>
+        c.status !== "planned" && c.id !== "dashboard" && c.id !== "custom-image");
+    }
+    function defaultTriggerSet(id) {
+      // Snapshots build the historical gallery only when a commit lands on the
+      // default branch; every other activity also runs on pull requests — which is
+      // exactly what the activity workflows' `on:` triggers do today.
+      return new Set(id === "snapshots" ? ["push-default"] : ["push-default", "pr-branch", "pr-fork"]);
+    }
+    function setsEqual(a, b) {
+      if (a.size !== b.size) return false;
+      for (const v of a) if (!b.has(v)) return false;
+      return true;
+    }
+    function initTriggerDefaults() {
+      triggerSel.clear();
+      triggerableCaps().forEach(c => triggerSel.set(c.id, defaultTriggerSet(c.id)));
+    }
+    // Only activities whose sources differ from their default (stable, sorted).
+    function triggerEntries() {
+      const out = [];
+      triggerableCaps().forEach(c => {
+        const cur = triggerSel.get(c.id) || defaultTriggerSet(c.id);
+        if (!setsEqual(cur, defaultTriggerSet(c.id))) {
+          out.push([c.id, TRIGGER_SOURCES.map(([k]) => k).filter(k => cur.has(k))]);
+        }
+      });
+      return out.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+    }
+    function triggerYamlLines() {
+      const entries = triggerEntries();
+      if (!entries.length) return [];
+      return ["  triggers:"].concat(
+        entries.map(([id, srcs]) => "    " + id + ": " + (srcs.length ? srcs.join("+") : "none")));
+    }
+    function triggerInputEnc() {
+      return triggerEntries().map(([id, srcs]) => `${id}::${srcs.length ? srcs.join("+") : "none"}`).join(";");
+    }
+
+    // ---- per-action OS + dependency policy ---------------------------------
+    // Only actions whose platform set DIFFERS from their full supportsOs are
+    // recorded (a divergence = the user turned a supported platform off); a
+    // missing entry means "every platform this action supports".
+    function actionOsEntries() {
+      const out = [];
+      (catalog.capabilities || []).forEach(c => {
+        if (!actSel.has(c.id)) return;
+        const sup = c.supportsOs || [];
+        const sel = actionOs.get(c.id) || new Set();
+        const selList = sup.filter(o => sel.has(o));
+        if (selList.length !== sup.length) out.push([c.id, selList]);
+      });
+      return out.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+    }
+    function actionOsYamlLines() {
+      const e = actionOsEntries();
+      if (!e.length) return [];
+      return ["  actionOs:"].concat(e.map(([id, oses]) => "    " + id + ": " + (oses.length ? oses.join("+") : "none")));
+    }
+    function actionOsInputEnc() {
+      return actionOsEntries().map(([id, oses]) => `${id}::${oses.length ? oses.join("+") : "none"}`).join(";");
+    }
+    function dependencyPolicyYamlLines() {
+      if (!requireDeps && !autoInstallDeps) return [];
+      return ["  dependencyPolicy:",
+        "    requireInstalled: " + (requireDeps ? "true" : "false"),
+        "    autoInstall: " + (autoInstallDeps ? "true" : "false")];
+    }
+    function renderTriggers() {
+      const host = $("trigMatrix"); if (!host || !catalog) return; host.innerHTML = "";
+      const table = document.createElement("table"); table.className = "trigtable";
+      const thead = document.createElement("thead"); const hr = document.createElement("tr");
+      const hAct = document.createElement("th"); hAct.textContent = "Activity"; hr.appendChild(hAct);
+      TRIGGER_SOURCES.forEach(([, label]) => {
+        const th = document.createElement("th");
+        const span = document.createElement("span"); span.className = "colsrc"; span.textContent = label;
+        th.appendChild(span); hr.appendChild(th);
+      });
+      thead.appendChild(hr); table.appendChild(thead);
+      const tbody = document.createElement("tbody");
+      triggerableCaps().forEach(cap => {
+        const enabled = actSel.has(cap.id);
+        const cur = triggerSel.get(cap.id) || defaultTriggerSet(cap.id);
+        const tr = document.createElement("tr"); if (!enabled) tr.className = "off";
+        const tdName = document.createElement("td");
+        const nm = document.createElement("span"); nm.className = "actname"; nm.textContent = cap.name; tdName.appendChild(nm);
+        if (!enabled) { const pill = document.createElement("span"); pill.className = "pill"; pill.textContent = "not enabled"; tdName.appendChild(pill); }
+        tr.appendChild(tdName);
+        TRIGGER_SOURCES.forEach(([key]) => {
+          const td = document.createElement("td");
+          const cb = document.createElement("input"); cb.type = "checkbox";
+          cb.checked = cur.has(key); cb.disabled = !enabled;
+          cb.setAttribute("aria-label", cap.name + " on " + key);
+          cb.addEventListener("change", () => {
+            const s = triggerSel.get(cap.id) || defaultTriggerSet(cap.id);
+            cb.checked ? s.add(key) : s.delete(key);
+            triggerSel.set(cap.id, s); update();
+          });
+          td.appendChild(cb); tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody); host.appendChild(table);
+    }
+
+    // ---- VI Browser render matrix ------------------------------------------
+    // Which render generations run on each OS when a new revision is submitted.
+    // classic (1.0) = flat-HTML snapshots (the Windows snapshots run); only Windows
+    // has an HTML renderer. positionAware (2.0) = in-place block-diagram frames:
+    // Windows emits them from the same snapshots run (PrintToImagesJson), Linux from
+    // the render engine baked into the Linux worker image. Both the Windows and Linux 2.0 render paths are
+    // released (core) capabilities.
+    const VB_ROWS = [
+      { key: "classic", label: "Classic gallery", sub: "1.0 \u2014 flat HTML snapshots" },
+      { key: "positionAware", label: "Position-aware", sub: "2.0 \u2014 in-place block-diagram renders" }
+    ];
+    const VB_OS = [{ key: "windows", label: "Windows" }, { key: "linux", label: "Linux" }];
+    // No Linux HTML renderer exists, so 1.0 runs on Windows only.
+    function vbAvailable(rowKey, osKey) { return !(rowKey === "classic" && osKey === "linux"); }
+    function vbList(set) { return VB_OS.map(o => o.key).filter(k => set.has(k)); }
+    function renderViBrowser() {
+      const host = $("vbMatrix"); if (!host || !catalog) return; host.innerHTML = "";
+      const on = actSel.has("snapshots");
+      const table = document.createElement("table"); table.className = "trigtable";
+      const thead = document.createElement("thead"); const hr = document.createElement("tr");
+      const h0 = document.createElement("th"); h0.textContent = "Render"; hr.appendChild(h0);
+      VB_OS.forEach(o => { const th = document.createElement("th"); th.textContent = o.label; hr.appendChild(th); });
+      thead.appendChild(hr); table.appendChild(thead);
+      const tbody = document.createElement("tbody");
+      VB_ROWS.forEach(row => {
+        const tr = document.createElement("tr"); if (!on) tr.className = "off";
+        const td0 = document.createElement("td");
+        const nm = document.createElement("span"); nm.className = "actname"; nm.textContent = row.label; td0.appendChild(nm);
+        if (!on) { const pill = document.createElement("span"); pill.className = "pill"; pill.textContent = "snapshots off"; td0.appendChild(pill); }
+        const sub = document.createElement("span"); sub.className = "vbsub"; sub.textContent = row.sub; td0.appendChild(sub);
+        tr.appendChild(td0);
+        VB_OS.forEach(o => {
+          const td = document.createElement("td");
+          if (!vbAvailable(row.key, o.key)) {
+            const dash = document.createElement("span"); dash.className = "vbna"; dash.textContent = "\u2014";
+            dash.title = "No Linux HTML renderer \u2014 the classic gallery runs on Windows.";
+            td.appendChild(dash);
+          } else {
+            // 1.0 on Windows is the gallery foundation (and the base for 2.0 on
+            // Windows, which rides the same render loop), so it is always on when
+            // VI Snapshots is enabled \u2014 shown locked rather than a no-op toggle.
+            const forced = (row.key === "classic" && o.key === "windows");
+            const cb = document.createElement("input"); cb.type = "checkbox";
+            cb.checked = forced ? true : viBrowser[row.key].has(o.key);
+            cb.disabled = !on || forced;
+            if (forced) cb.title = "1.0 on Windows is the snapshot gallery and the base for 2.0 on Windows; it runs whenever VI Snapshots is enabled.";
+            cb.setAttribute("aria-label", row.label + " on " + o.label);
+            cb.addEventListener("change", () => {
+              cb.checked ? viBrowser[row.key].add(o.key) : viBrowser[row.key].delete(o.key);
+              update();
+            });
+            td.appendChild(cb);
+          }
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody); host.appendChild(table);
+    }
+    function viBrowserYamlLines() {
+      if (!actSel.has("snapshots")) return [];
+      const c = vbList(viBrowser.classic), p = vbList(viBrowser.positionAware);
+      return ["  viBrowser:",
+        "    classic: " + (c.length ? c.join("+") : "none"),
+        "    positionAware: " + (p.length ? p.join("+") : "none")];
+    }
+    function viBrowserInputEnc() {
+      if (!actSel.has("snapshots")) return "";
+      const c = vbList(viBrowser.classic), p = vbList(viBrowser.positionAware);
+      return "classic::" + (c.length ? c.join("+") : "none") + ";positionAware::" + (p.length ? p.join("+") : "none");
+    }
+
+    // ---- VI Analyzer configuration -----------------------------------------
+    // Maps committed .viancfg test configurations to subsets of the project. The
+    // default applies to every VI not matched by a rule (built-in full suite, a
+    // .viancfg, or "none" = don't test); each rule pins a config (or "none" =
+    // exclude) to chosen files/folders. First matching rule wins. See the runner
+    // (.github/labview/run-vi-analyzer.ps1) which honors this at run time.
+    function isViaFolder(p) { return !/\.(vi|ctl|lvclass|lvlib)$/i.test(p); }
+    function renderViaDefault() {
+      const sel = $("viaDefault"); if (!sel) return;
+      const cur = viaDefault || "builtin";
+      const opts = [["builtin", "Built-in full test suite \u2014 every default VI Analyzer test"]];
+      viaConfigs.forEach(p => opts.push([p, "Use " + p]));
+      opts.push(["none", "Don't test by default \u2014 only rule-matched files are analyzed"]);
+      if (cur && !opts.some(o => o[0] === cur)) opts.push([cur, cur + " (not found in repo)"]);
+      sel.innerHTML = "";
+      opts.forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; sel.appendChild(o); });
+      sel.value = cur;
+    }
+    function viaRuleConfigOptions(rule) {
+      const opts = [];
+      viaConfigs.forEach(p => opts.push([p, "Use " + p]));
+      if (rule.config && rule.config !== "none" && !viaConfigs.includes(rule.config)) opts.push([rule.config, "Use " + rule.config + " (not found)"]);
+      opts.push(["none", "Exclude \u2014 don't test these files"]);
+      return opts;
+    }
+    function renderViaRules() {
+      const host = $("viaRules"); if (!host) return; host.innerHTML = "";
+      if (!viaRules.length) {
+        host.innerHTML = '<div class="viaempty">No rules \u2014 the default configuration applies to every VI. Add a rule to use a different <code class="inl">.viancfg</code> on specific files or folders.</div>';
+        return;
+      }
+      viaRules.forEach((rule, ri) => {
+        const box = document.createElement("div"); box.className = "viarule";
+        const head = document.createElement("div"); head.className = "viarhead";
+        const sel = document.createElement("select");
+        const opts = viaRuleConfigOptions(rule);
+        opts.forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; sel.appendChild(o); });
+        sel.value = (rule.config && opts.some(o => o[0] === rule.config)) ? rule.config : (viaConfigs[0] || "none");
+        rule.config = sel.value;
+        sel.addEventListener("change", () => { rule.config = sel.value; renderViaRules(); update(); });
+        head.appendChild(sel);
+        const rm = document.createElement("button"); rm.type = "button"; rm.className = "ghost rmrule"; rm.textContent = "Remove rule";
+        rm.addEventListener("click", () => { viaRules.splice(ri, 1); renderViaRules(); update(); });
+        head.appendChild(rm);
+        box.appendChild(head);
+        const chips = document.createElement("div"); chips.className = "viapaths";
+        rule.paths.forEach((p, pi) => {
+          const chip = document.createElement("span"); chip.className = "viachip";
+          const folder = isViaFolder(p);
+          chip.innerHTML = "<code>" + escapeHtml(p) + "</code><span class=\"viascope " + (folder ? "folder" : "file") + "\">" + (folder ? "folder" : "file") + "</span>";
+          const x = document.createElement("button"); x.type = "button"; x.className = "x"; x.title = "Remove"; x.textContent = "\u00d7";
+          x.addEventListener("click", () => { rule.paths.splice(pi, 1); renderViaRules(); update(); });
+          chip.appendChild(x); chips.appendChild(chip);
+        });
+        box.appendChild(chips);
+        const add = document.createElement("div"); add.className = "viaaddpath";
+        const inp = document.createElement("input"); inp.type = "text"; inp.setAttribute("list", "viaPathSuggest");
+        inp.placeholder = "add a file or folder (e.g. src/Drivers or Main.vi)";
+        const addBtn = document.createElement("button"); addBtn.type = "button"; addBtn.className = "ghost"; addBtn.textContent = "Add path";
+        const doAdd = () => {
+          const v = inp.value.trim().replace(/^\/+|\/+$/g, "");
+          if (!v) return;
+          if (!rule.paths.includes(v)) rule.paths.push(v);
+          inp.value = ""; renderViaRules(); update();
+        };
+        addBtn.addEventListener("click", doAdd);
+        inp.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); doAdd(); } });
+        add.appendChild(inp); add.appendChild(addBtn);
+        box.appendChild(add);
+        host.appendChild(box);
+      });
+    }
+    function renderViAnalyzer() {
+      if (!catalog) return;
+      const on = actSel.has("vi-analyzer");
+      const offNote = $("viaOffNote"); if (offNote) offNote.hidden = on;
+      const note = $("viaConfigNote");
+      if (note) {
+        note.innerHTML = viaConfigs.length
+          ? ("Found " + viaConfigs.length + " <code class=\"inl\">.viancfg</code> file" + (viaConfigs.length === 1 ? "" : "s") + " in the repository.")
+          : "No <code class=\"inl\">.viancfg</code> files found yet \u2014 CI uses the built-in full test suite. Author a configuration in LabVIEW (Tools \u203a VI Analyzer), <strong>Save Configuration</strong>, and commit the <code class=\"inl\">.viancfg</code>; it then appears here.";
+      }
+      const dl = $("viaPathSuggest");
+      if (dl) dl.innerHTML = viaPathSuggest.map(p => "<option value=\"" + escapeHtml(p) + "\">").join("");
+      renderViaDefault();
+      renderViaRules();
+    }
+    function viAnalyzerYamlLines() {
+      if (!actSel.has("vi-analyzer")) return [];
+      const def = viaDefault || "builtin";
+      const rules = viaRules.filter(r => r.config && r.paths.length);
+      if (def === "builtin" && !rules.length) return [];   // implicit default; emit nothing
+      const lines = ["  viAnalyzer:", "    default: " + def];
+      if (rules.length) {
+        lines.push("    rules:");
+        rules.forEach(r => {
+          lines.push("      - config: " + (r.config === "none" ? "none" : '"' + String(r.config).replace(/"/g, "") + '"'));
+          lines.push('        paths: "' + r.paths.map(p => String(p).replace(/[|"]/g, "")).join("|") + '"');
+        });
+      }
+      return lines;
+    }
+    function viAnalyzerInputEnc() {
+      if (!actSel.has("vi-analyzer")) return { def: "", rules: "" };
+      const def = viaDefault || "builtin";
+      const rules = viaRules.filter(r => r.config && r.paths.length)
+        .map(r => (r.config === "none" ? "none" : r.config) + "::" + r.paths.map(p => p.replace(/[|]/g, "")).join("|"))
+        .join(";");
+      if (def === "builtin" && !rules) return { def: "", rules: "" };
+      return { def, rules };
+    }
+
+    function containerVipcInputEnc() {
+      return vipcList.filter(v => v.include === true).map(v => String(v.path).replace(/;/g, "") + "::" + (v.monitor === true ? "true" : "false")).join(";");
+    }
+    function containerDragonInputEnc() {
+      return dragonList.filter(v => v.include === true).map(v => String(v.path).replace(/;/g, "") + "::" + (v.monitor === true ? "true" : "false")).join(";");
+    }
+    function containerYamlLines() {
+      const lines = ["  container:", "    use: " + (containerUseValue() || "latest")];
+      const baked = vipcList.filter(v => v.include === true);
+      if (baked.length) {
+        lines.push("    vipc:");
+        baked.forEach(v => {
+          lines.push('      - path: "' + String(v.path).replace(/"/g, "") + '"');
+          lines.push("        monitor: " + (v.monitor === true ? "true" : "false"));
+        });
+      }
+      const bakedDragon = dragonList.filter(v => v.include === true);
+      if (bakedDragon.length) {
+        lines.push("    dragon:");
+        bakedDragon.forEach(v => {
+          lines.push('      - path: "' + String(v.path).replace(/"/g, "") + '"');
+          lines.push("        monitor: " + (v.monitor === true ? "true" : "false"));
+        });
+      }
+      const acts = containerActionEntries();
+      if (acts.length) {
+        lines.push("    actions:");
+        acts.forEach(([id, tag]) => lines.push("      " + id + ": " + tag));
+      }
+      return lines;
+    }
+    // Best-effort discovery of the repo's .vipc files (unauthenticated; silent on
+    // failure / rate-limit). Pre-fills the list so the project's dependency files
+    // are visible without hand-typing each path.
+    async function discoverVipc(repo, ref) {
+      try {
+        const url = "https://api.github.com/repos/" + repo + "/git/trees/" +
+          encodeURIComponent(ref || "main") + "?recursive=1";
+        const r = await fetch(url, { cache: "no-store" });
+        if (!r.ok) return;
+        const data = await r.json();
+        const found = (data.tree || []).filter(t => t.type === "blob" && /\.vipc$/i.test(t.path)).map(t => t.path);
+        vipcFoundCount = found.length;
+        const have = new Set(vipcList.map(v => v.path));
+        let added = false;
+        // Pre-populate every discovered file, de-selected by default — the user picks which to bake.
+        found.forEach(p => { if (!have.has(p)) { vipcList.push({ path: p, monitor: false, include: false }); added = true; } });
+        const foundDragon = (data.tree || []).filter(t => t.type === "blob" && /\.dragon$/i.test(t.path)).map(t => t.path);
+        dragonFoundCount = foundDragon.length;
+        const haveD = new Set(dragonList.map(v => v.path));
+        foundDragon.forEach(p => { if (!haveD.has(p)) { dragonList.push({ path: p, monitor: false, include: false }); added = true; } });
+        renderVipcs(); renderDragons();
+        if (added) update();
+        // VI Analyzer: discover .viancfg configs + folder/VI path suggestions from
+        // the same tree (single API call). Skip CI-tooling paths the analyzer ignores.
+        const isTooling = (p) => /^(\.github|ci-out|build)\//i.test(p);
+        viaConfigs = (data.tree || []).filter(t => t.type === "blob" && /\.viancfg$/i.test(t.path) && !isTooling(t.path)).map(t => t.path).sort();
+        const folders = [], vis = [];
+        (data.tree || []).forEach(t => {
+          if (isTooling(t.path)) return;
+          if (t.type === "tree") folders.push(t.path);
+          else if (t.type === "blob" && /\.(vi|ctl|lvclass|lvlib)$/i.test(t.path)) vis.push(t.path);
+        });
+        viaPathSuggest = folders.sort().concat(vis.sort());
+        // VI Analyzer mapping is edited on its own page (vi-analyzer.html); here we
+        // keep the saved config as-is so applying other settings never changes it.
+        renderViAnalyzer();
+        update();
+      } catch (_) {}
+    }
+
+    // ---- output generation -------------------------------------------------
+    function genYaml() {
+      const s = source();
+      const now = new Date().toISOString().replace(/\.\d+Z$/, "Z");
+      const acts = [...actSel];
+      const lines = [
+        "# .github/labview-ci.yml - LabVIEW CI configuration",
+        "# Edited with the Configure tool. Commit this file to change pipeline settings.",
+        "schemaVersion: " + (catalog.schemaVersion || 1),
+        "configuredAt: " + now,
+        "source:", "  repo: " + s.repo, "  ref: " + s.ref,
+        "config:",
+        '  labviewVersion: "' + $("version").value + '"',
+        "  os: [" + [...osSel].join(", ") + "]",
+        "  concurrency:",
+        "    maxParallel: " + (parseInt($("runners").value, 10) || 1),
+        ...containerYamlLines(),
+        ...viBrowserYamlLines(),
+        ...viAnalyzerYamlLines(),
+        ...triggerYamlLines(),
+        ...actionOsYamlLines(),
+        ...dependencyPolicyYamlLines(),
+        "activities:",
+        ...acts.map(a => "  - " + a),
+        "",
+      ];
+      return lines.join("\n");
+    }
+
+    function genJson() {
+      if (!pkgObj) return "// no ci-tooling.packages.json loaded";
+      return JSON.stringify(pkgObj, null, 2) + "\n";
+    }
+
+    function osChoice() {
+      const has = (o) => osSel.has(o);
+      if (has("windows") && has("linux")) return "both";
+      if (has("windows")) return "windows";
+      if (has("linux")) return "linux";
+      return "both";
+    }
+
+    function genGhCmd() {
+      const repo = $("repo").value.trim();
+      const r = repo.includes("/") ? ` -R ${repo}` : "";
+      const cActs = containerActionEntries().map(([id, t]) => `${id}::${t}`).join(";");
+      const cTrig = triggerInputEnc();
+      const cVia = viAnalyzerInputEnc();
+      const cActionOs = actionOsInputEnc();
+      // Per-action container routing travels as container_actions. Dependency-file
+      // monitoring is managed from the Dependencies page, so Configure leaves
+      // container_vipc/container_dragon unchanged.
+      const cVipc = "";
+      const cDragon = "";
+      const cLine =
+        (cVipc ? ` \\\n  -f container_vipc="${cVipc}"` : "") +
+        (cDragon ? ` \\\n  -f container_dragon="${cDragon}"` : "") +
+        (cActs ? ` \\\n  -f container_actions="${cActs}"` : "") +
+        (cVia.def ? ` \\\n  -f via_default="${cVia.def}"` : "") +
+        (cVia.rules ? ` \\\n  -f via_rules="${cVia.rules}"` : "") +
+        (cTrig ? ` \\\n  -f action_triggers="${cTrig}"` : "") +
+        (cActionOs ? ` \\\n  -f action_os="${cActionOs}"` : "") +
+        ` \\\n  -f require_dependencies=${requireDeps ? "true" : "false"}` +
+        ` \\\n  -f auto_install_dependencies=${autoInstallDeps ? "true" : "false"}`;
+      return `gh workflow run reconfigure.yml${r} \\\n` +
+        `  -f labview_version=${$("version").value} \\\n` +
+        `  -f operating_systems=${osChoice()} \\\n` +
+        `  -f antidoc=keep \\\n` +
+        `  -f concurrent_runners=${parseInt($("runners").value, 10) || 1} \\\n` +
+        `  -f activities=${csv(actSel) || "dashboard"}` + cLine;
+    }
+
+    function reconfigureInputs() {
+      const cActs = containerActionEntries().map(([id, t]) => `${id}::${t}`).join(";");
+      const cVia = viAnalyzerInputEnc();
+      // Dependency-file monitoring is managed from the Dependencies page. Blank
+      // container_vipc/container_dragon tells reconfigure.yml to preserve them.
+      return {
+        labview_version: $("version").value,
+        operating_systems: osChoice(),
+        antidoc: "keep",
+        concurrent_runners: String(parseInt($("runners").value, 10) || 1),
+        activities: csv(actSel) || "dashboard",
+        container_use: "",
+        container_vipc: "",
+        container_dragon: "",
+        container_actions: cActs,
+        action_triggers: triggerInputEnc(),
+        vi_browser: "",
+        via_default: cVia.def || "",
+        via_rules: cVia.rules || "",
+        action_os: actionOsInputEnc(),
+        require_dependencies: requireDeps ? "true" : "false",
+        auto_install_dependencies: autoInstallDeps ? "true" : "false"
+      };
+    }
+
+    function workflowUrl() {
+      const repo = $("repo").value.trim();
+      return repo.includes("/") ? "https://github.com/" + repo + "/actions/workflows/reconfigure.yml" : "https://github.com/actions/workflows/reconfigure.yml";
+    }
+    function token() { try { return localStorage.getItem(TOK_KEY) || ""; } catch (_) { return ""; } }
+    function tokenUrl() {
+      const repo = $("repo").value.trim();
+      const owner = (repo.split("/")[0]) || "";
+      const qp = new URLSearchParams();
+      qp.set("name", "LabVIEW CI dispatch");
+      qp.set("description", "Dispatch LabVIEW CI configuration changes for " + repo);
+      if (owner) qp.set("target_name", owner);
+      qp.set("actions", "write");
+      return "https://github.com/settings/personal-access-tokens/new?" + qp.toString();
+    }
+    function setApplyStatus(html, kind) {
+      const st = $("applyStatus"); if (!st) return;
+      st.innerHTML = html || "";
+      st.className = "status" + (kind ? " " + kind : "");
+    }
+    function showTokenPanel(msg) {
+      const p = $("tokPanel"); if (!p) return;
+      const m = $("tokMsg"); if (m) m.innerHTML = msg || "Saving needs a fine-grained token with <strong>Actions: Read and write</strong> for this repository.";
+      const a = $("tokCreate"); if (a) a.href = tokenUrl();
+      p.hidden = false;
+      const inp = $("tokInput"); if (inp) inp.focus();
+    }
+    function hideTokenPanel() { const p = $("tokPanel"); if (p) p.hidden = true; }
+    async function dispatchReconfigure() {
+      const repo = $("repo").value.trim();
+      if (!repo.includes("/")) { setApplyStatus("Choose a repository before applying.", "err"); return; }
+      if (!token()) { showTokenPanel(); setApplyStatus("Paste a token to queue the Reconfigure workflow."); return; }
+      const btn = $("applyCfg");
+      if (btn) { btn.disabled = true; btn.textContent = "Queuing..."; }
+      setApplyStatus("Queuing the Reconfigure workflow...");
+      try {
+        const r = await fetch("https://api.github.com/repos/" + repo + "/actions/workflows/reconfigure.yml/dispatches", {
+          method: "POST",
+          headers: { "Authorization": "Bearer " + token(), "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json" },
+          body: JSON.stringify({ ref: $("branch").value || "main", inputs: reconfigureInputs() })
+        });
+        if (btn) { btn.disabled = false; btn.textContent = "Save and apply"; }
+        if (r.status === 204) {
+          hideTokenPanel();
+          setApplyStatus("Queued Reconfigure. It will open a pull request when the settings files are updated. <a href=\"" + workflowUrl() + "\" target=\"_blank\" rel=\"noopener\">View runs</a>.", "ok");
+          return;
+        }
+        if (r.status === 401) { try { localStorage.removeItem(TOK_KEY); } catch (_) {} showTokenPanel("That token was rejected. Paste a valid fine-grained token with <strong>Actions: Read and write</strong> for this repository."); setApplyStatus("Token rejected (401).", "err"); return; }
+        if (r.status === 403) { showTokenPanel("The saved token cannot dispatch workflows here. Grant <strong>Actions: Read and write</strong> for <code class=\"inl\">" + escapeHtml(repo) + "</code>."); setApplyStatus("Dispatch forbidden (403).", "err"); return; }
+        if (r.status === 404) { showTokenPanel("The saved token cannot see <code class=\"inl\">" + escapeHtml(repo) + "</code>, or this repo does not have <code class=\"inl\">reconfigure.yml</code> installed."); setApplyStatus("Workflow not found or repo not accessible (404).", "err"); return; }
+        setApplyStatus("Dispatch failed (HTTP " + r.status + ").", "err");
+      } catch (e) {
+        if (btn) { btn.disabled = false; btn.textContent = "Save and apply"; }
+        setApplyStatus("Network error: " + escapeHtml(String(e && e.message || e)), "err");
+      }
+    }
+
+    function genBuildCmd() {
+      const repo = $("repo").value.trim();
+      const r = repo.includes("/") ? ` -R ${repo}` : "";
+      return `gh workflow run build-labview-image.yml${r}`;
+    }
+
+    function update() {
+      const yp = $("yamlPreview"); if (yp) yp.textContent = genYaml();
+      const gc = $("ghCmd"); if (gc) gc.textContent = genGhCmd();
+      const wf = $("wfLink"); if (wf) wf.href = workflowUrl();
+    }
+
+    function download(name, text) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([text], { type: "text/plain" }));
+      a.download = name; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(a.href);
+    }
+
+    // ---- info (i) popovers (event-delegated so dynamic buttons work too) ----
+    function closeAllInfo() {
+      document.querySelectorAll('.infobtn[aria-expanded="true"]').forEach(b => b.setAttribute("aria-expanded", "false"));
+      document.querySelectorAll(".infopop").forEach(p => { p.hidden = true; });
+    }
+    function initInfoButtons() {
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".infobtn");
+        if (btn) {
+          e.preventDefault(); e.stopPropagation();
+          const pop = btn.parentElement.querySelector(".infopop");
+          const open = btn.getAttribute("aria-expanded") === "true";
+          closeAllInfo();
+          if (!open && pop) { btn.setAttribute("aria-expanded", "true"); pop.hidden = false; }
+          return;
+        }
+        if (!e.target.closest(".infopop")) closeAllInfo();
+      });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAllInfo(); });
+    }
+
+    // Resolve the repo this dialog configures. The dialog is always scoped to the
+    // repository whose dashboard launched it; the user never picks it. Priority:
+    //   1. ?repo=owner/name (passed by the dashboard launcher / explicit deep-link)
+    //   2. the GitHub Pages URL this page is served from (<owner>.github.io/<repo>/…)
+    //   3. catalog.source (only when this IS the source repo's own dashboard)
+    function detectTarget() {
+      const params = new URLSearchParams(location.search);
+      const qRepo = (params.get("repo") || "").trim();
+      let ref = (params.get("ref") || "").trim();
+      let repo = qRepo.includes("/") ? qRepo : "";
+      if (!repo) {
+        const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
+        if (m) {
+          const owner = m[1];
+          // Project Pages serve at /<repo>/…; user/org root Pages at /… (repo = <owner>.github.io).
+          const dir = location.pathname.split("/").filter(s => s && !s.includes("."));
+          repo = dir.length ? owner + "/" + dir[0] : owner + "/" + owner + ".github.io";
+        }
+      }
+      if (!repo.includes("/")) { const s = source(); repo = s.repo; if (!ref) ref = s.ref; }
+      return { repo, ref: ref || "main" };
+    }
+
+    // ---- load current settings from a repo --------------------------------
+    async function loadCurrent() {
+      const repo = $("repo").value.trim(); const ref = $("branch").value.trim() || "main";
+      const st = $("loadStatus");
+      if (!repo.includes("/")) { st.className = "status err"; st.textContent = "Enter owner/name first."; return; }
+      st.className = "status"; st.textContent = "Loading…";
+      let loadedAny = false;
+      try {
+        const yaml = await fetchText(rawUrl(repo, ref, ".github/labview-ci.yml"));
+        const m = parseManifest(yaml);
+        if (m.version) renderVersions(m.version);
+        osPref.clear(); (m.os.length ? m.os : ["windows"]).forEach(o => osPref.add(o));
+        if (m.activities.length) { actSel.clear(); m.activities.forEach(a => actSel.add(a)); }
+        actionOs.clear();
+        actSel.forEach(id => {
+          const cap = capById(id); if (!cap) return;
+          const saved = m.actionOs && m.actionOs[id];
+          if (saved != null) {
+            const v = String(saved).trim();
+            actionOs.set(id, new Set(v === "none" || v === "" ? [] : v.split("+").map(s => s.trim()).filter(Boolean)));
+          } else {
+            actionOs.set(id, defaultOsFor(cap));
+          }
+        });
+        recomputeOsSel();
+        requireDeps = !!(m.dependencyPolicy && String(m.dependencyPolicy.requireInstalled).toLowerCase() === "true");
+        autoInstallDeps = !!(m.dependencyPolicy && String(m.dependencyPolicy.autoInstall).toLowerCase() === "true");
+        $("requireDeps").checked = requireDeps; $("autoInstallDeps").checked = autoInstallDeps;
+        renderActivities();
+        if (m.runners) $("runners").value = m.runners;
+        containerUse = m.containerUse || "latest";
+        vipcList = (m.vipc || []).map(v => ({ path: v.path, monitor: v.monitor === true, include: true }));
+        dragonList = (m.dragon || []).map(v => ({ path: v.path, monitor: v.monitor === true, include: true }));
+        actionContainer.clear();
+        Object.keys(m.actions || {}).forEach(id => actionContainer.set(id, m.actions[id]));
+        // Triggers: reset to per-activity defaults, then apply any saved overrides.
+        initTriggerDefaults();
+        Object.keys(m.triggers || {}).forEach(id => {
+          if (id === "onDependencyChange") return;   // retired flag in legacy configs; ignore
+          const v = String(m.triggers[id]).trim();
+          triggerSel.set(id, new Set(v === "none" || v === "" ? [] : v.split("+").map(s => s.trim()).filter(Boolean)));
+        });
+        // VI Browser render matrix: reset to defaults, then apply any saved selection.
+        viBrowser.classic = new Set(["windows"]);
+        viBrowser.positionAware = new Set(["windows"]);
+        ["classic", "positionAware"].forEach(k => {
+          if (m.viBrowser && m.viBrowser[k] != null) {
+            const v = String(m.viBrowser[k]).trim();
+            viBrowser[k] = new Set(v === "none" || v === "" ? [] : v.split("+").map(s => s.trim()).filter(Boolean));
+          }
+        });
+        viBrowser.classic.add("windows"); // 1.0 on Windows is the gallery foundation (always on)
+        // VI Analyzer: load the saved default + rules (discovery fills in available
+        // configs / suggestions afterwards). viaDefault left "" when unsaved so
+        // discovery can auto-pick the first .viancfg.
+        viaDefault = (m.viAnalyzer && m.viAnalyzer.default) ? m.viAnalyzer.default : "";
+        viaRules = (m.viAnalyzer && m.viAnalyzer.rules || []).map(r => ({ config: r.config, paths: (r.paths || []).slice() }));
+        viaDefaultTouched = false;
+        renderTriggers();
+        renderViAnalyzer();
+        renderContainer();
+        loadedAny = true;
+      } catch (_) { /* not installed yet */ }
+      try {
+        pkgObj = await fetchJson(rawUrl(repo, ref, ".github/labview/vipm/ci-tooling.packages.json"));
+        renderPackages(); loadedAny = true;
+      } catch (_) {}
+      st.className = loadedAny ? "status ok" : "status";
+      st.textContent = loadedAny
+        ? "Loaded current settings from " + repo + "@" + ref + "."
+        : "No existing config found (repo may not have the pipeline yet) — showing defaults to download & commit.";
+      update();
+      renderContainer();
+      discoverVipc(repo, ref);
+    }
+
+    // ---- wiring ------------------------------------------------------------
+    function wire() {
+      $("requireDeps").addEventListener("change", () => { requireDeps = $("requireDeps").checked; update(); });
+      $("autoInstallDeps").addEventListener("change", () => { autoInstallDeps = $("autoInstallDeps").checked; update(); });
+      $("version").addEventListener("change", update);
+      $("runners").addEventListener("input", update);
+      $("dlYaml").addEventListener("click", () => { download("labview-ci.yml", genYaml()); flash("labview-ci.yml downloaded — place at .github/labview-ci.yml"); });
+      $("applyCfg").addEventListener("click", dispatchReconfigure);
+      $("tokSave").addEventListener("click", () => {
+        const inp = $("tokInput"); const v = (inp && inp.value || "").trim();
+        if (!v) { if (inp) inp.focus(); return; }
+        try { localStorage.setItem(TOK_KEY, v); } catch (_) {}
+        dispatchReconfigure();
+      });
+      $("tokInput").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("tokSave").click(); } });
+      const copy = (btn, src) => { const b = $(btn); if (!b) return; b.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText($(src).textContent); b.textContent = "Copied!"; setTimeout(() => b.textContent = "Copy", 1400); } catch (_) {}
+      }); };
+      copy("copyGh", "ghCmd"); copy("copyYaml", "yamlPreview");
+    }
+    function flash(msg) { const st = $("dlStatus"); st.className = "status ok"; st.textContent = msg; }
+
+    (async function init() {
+      if (window.top !== window.self) { const _bl = document.getElementById("backLink"); if (_bl) _bl.style.display = "none"; }
+      try { catalog = await loadCatalog(); }
+      catch (e) {
+        document.querySelector(".wrap").insertAdjacentHTML("afterbegin",
+          `<section><h2 style="color:#cf222e">Could not load catalog.json</h2><p class="hint">${e.message}. Serve this folder over HTTP if viewing locally.</p></section>`);
+        return;
+      }
+      // Pre-select recommended activities; seed each one's platforms from the
+      // default OS preference; load the default dependency manifest.
+      catalog.capabilities.filter(c => c.recommended && c.status !== "planned").forEach(c => actSel.add(c.id));
+      seedActionOs(); recomputeOsSel();
+      renderVersions(); renderActivities();
+      pkgObj = await loadDefaultPackages();
+      renderPackages();
+      winLatest = await (async () => { try { return await fetchJson("./workers/windows/latest.json"); } catch (_) { return null; } })();
+      initTriggerDefaults(); renderTriggers();
+      renderViAnalyzer();
+      wire(); initInfoButtons(); update();
+
+      // The dialog is scoped to the repo whose dashboard launched it (never asked).
+      // Auto-detect it, reflect it read-only, and load that repo's current settings
+      // and any available update. Install still comes from the source repo (catalog.source).
+      const tgt = detectTarget();
+      $("repo").value = tgt.repo;
+      $("branch").value = tgt.ref;
+      const tr = $("targetRepo");
+      if (tr && tgt.repo) tr.textContent = tgt.repo;
+      if (tgt.repo.includes("/")) loadCurrent().catch(() => {});
+    })();
+  })();
+  </script>
+</body>
+</html>
