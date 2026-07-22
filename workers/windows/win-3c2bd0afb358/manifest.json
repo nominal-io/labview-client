@@ -1,0 +1,21 @@
+{
+  "schema": 2,
+  "platform": "windows",
+  "version": "win-3c2bd0afb358",
+  "labview_version": "2026",
+  "base_image": "ghcr.io/elijah286/labview-ci-with-containers-labview-base:2026",
+  "base_digest": "sha256:5ca79385260dd195e31b1582607b2e0916bf41248bd431379af893b84af1d476",
+  "seed_image": "ghcr.io/elijah286/labview-ci-with-containers-labview-base:2026",
+  "seed_digest": "sha256:5ca79385260dd195e31b1582607b2e0916bf41248bd431379af893b84af1d476",
+  "worker_layer": "seed-only-copy",
+  "copied_from_base": true,
+  "image_ref": "ghcr.io/nominal-io/labview-client-labview:win-3c2bd0afb358",
+  "build_date": "2026-07-22T17:37:32Z",
+  "git_sha": "da78450cd859a2f3034acd2a5fc532647e064d00",
+  "run_url": "https://github.com/nominal-io/labview-client/actions/runs/29943112918",
+  "vipc": [],
+  "vipm_raw": "",
+  "vipm_packages": [],
+  "nipkg_raw": "",
+  "nipkg_packages": []
+}
