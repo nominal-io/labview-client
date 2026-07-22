@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "da78450cd859a2f3034acd2a5fc532647e064d00",
+  "sha": "d0ada293ffcf0dc098bed82b9ac5705a4be31f24",
   "revisions": [
+    {
+      "sha": "d0ada293ffcf0dc098bed82b9ac5705a4be31f24",
+      "short": "d0ada29",
+      "message": "ci: adopt LabVIEW CI tooling v4.8.11 (full update)",
+      "author": "github-actions[bot]",
+      "date": "2026-07-22T18:57:36Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "da78450cd859a2f3034acd2a5fc532647e064d00",
       "short": "da78450",
@@ -891,15 +900,6 @@
       "message": ".",
       "author": "Tom McQuillan",
       "date": "2025-06-03T15:57:38Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "01c3cdacbba6a92591323646b7466e709aac3965",
-      "short": "01c3cda",
-      "message": "Updated video upload (and ingest)",
-      "author": "Tom McQuillan",
-      "date": "2025-06-03T14:20:14Z",
       "project": true,
       "dep_only": false
     }
