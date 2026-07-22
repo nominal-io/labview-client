@@ -1,4 +1,4 @@
-# CI Dashboard — GitHub Pages. Thin caller installed by the LabVIEW CI configurator.
+# CI Dashboard — GitHub Pages. Thin caller installed by .github/labview-ci/install.py.
 # The dashboard build logic lives in the shared composite action, pulled at the tooling
 # version this repo opted into (.github/labview-ci.yml: source.ref) and checked out at
 # runtime — so this repo keeps no copy of the generator and the dashboard updates only
@@ -16,6 +16,7 @@ on:
       - '.github/workflows/dashboard-pages.yml'
       - '**/*.vipc'
       - '**/*.dragon'
+  status:
   workflow_run:
     workflows:
       - "Mass Compile — Windows Container"
@@ -52,7 +53,7 @@ jobs:
         shell: bash
         run: |
           REF=$(awk '/^[[:space:]]*ref:[[:space:]]/{print $2; exit}' .github/labview-ci.yml 2>/dev/null)
-          echo "ref=${REF:-v4.8.9}" >> "$GITHUB_OUTPUT"
+          echo "ref=${REF:-v4.8.11}" >> "$GITHUB_OUTPUT"
       - name: Check out tooling (opted-in version)
         uses: actions/checkout@v5
         with:
@@ -72,9 +73,6 @@ jobs:
           publish_dir: ci-out/dashboard
           destination_dir: .
           keep_files: true
-      # Retry once if a concurrent gh-pages push (configurator site, VI
-      # snapshots, report deploys) made this a non-fast-forward; peaceiris
-      # re-clones gh-pages each run, so the retry starts from the new tip.
       - name: Wait out a gh-pages push race
         if: steps.deploy.outcome == 'failure'
         run: sleep 30
