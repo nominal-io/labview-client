@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<!--
+  .github/pages/whats-new.html
+  "What's New" / update dialog, published next to the dashboard and opened from the
+  dashboard's version badge when a consumer repo is behind the source repo.
+
+  It reads the consumer's own catalog.json (same-origin, deployed next to this page)
+  for the source pointer + installed version, then reads the SOURCE repo's catalog.json
+  (raw.githubusercontent.com) for the latest version + release history. It shows every
+  release the consumer does not yet have, lets them pick a specific version to update to,
+  and prints the matching `install.sh ... --update` command. Pure static page, no backend.
+
+  Query params (all optional — sensible fallbacks):
+    repo  owner/name of the consumer repo being updated (for display + commands)
+    from  the version the consumer is currently running
+    src   owner/name of the tooling SOURCE repo
+    ref   branch/tag of the tooling SOURCE repo (default: main)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>What's New — LabVIEW CI</title>
+  <script>
+    // Tell the shared header which repository this page is about. In central mode
+    // the page is served from the SOURCE site but upgrades a CONSUMER repo (?repo=),
+    // so brandRepo points the header brand + Dashboard/VI Browser nav at the repo
+    // being upgraded instead of the source site that serves the assets.
+    (function () {
+      var LVCI = { context: 'whats-new' };
+      try { var r = new URLSearchParams(location.search).get('repo'); if (r) LVCI.brandRepo = r; } catch (e) {}
+      window.LVCI = LVCI;
+    })();
+  </script>
+  <script src="lvci-header.js" defer></script>
+  <style>
+    :root{
+      --bg:#0d1117;--surface:#161b22;--surface2:#0d1117;--border:#30363d;
+      --fg:#e6edf3;--fg-muted:#8b949e;--link:#58a6ff;--accent:#238636;--accent-fg:#fff;
+      --chip:#21262d;--code:#010409;--warn:#9a6700;
+    }
+    @media(prefers-color-scheme:light){
+      :root{
+        --bg:#ffffff;--surface:#f6f8fa;--surface2:#fff;--border:#d0d7de;
+        --fg:#1f2328;--fg-muted:#57606a;--link:#0969da;--accent:#1f883d;--accent-fg:#fff;
+        --chip:#eaeef2;--code:#f6f8fa;--warn:#9a6700;
+      }
+    }
+    /* Re-assert page-specific tokens the shared header's theme toggle doesn't
+       manage, so a forced Light/Dark choice fully re-themes this page. */
+    :root[data-lvci-theme=dark]{--surface2:#0d1117}
+    :root[data-lvci-theme=light]{--surface2:#fff}
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+         background:var(--bg);color:var(--fg);line-height:1.5}
+    a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:900px;margin:0 auto;padding:24px 20px 64px}
+    header.top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+    h1{font-size:1.5em;margin:0}
+    .sub{color:var(--fg-muted);font-size:.9em;margin:4px 0 24px}
+    .back{font-size:.85em;white-space:nowrap}
+    /* Persistent identity of the repo being upgraded — visible the whole time. */
+    .target-repo{display:inline-flex;align-items:center;gap:7px;max-width:100%;margin:9px 0 2px;padding:5px 12px;
+         border:1px solid var(--border);border-radius:20px;background:var(--chip);font-size:.9em;font-weight:600}
+    .target-repo[hidden]{display:none}
+    .target-repo .tr-ico{flex:none;color:var(--fg-muted)}
+    .target-repo .tr-label{color:var(--fg-muted);font-weight:500}
+    .target-repo .tr-name{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.95em;color:var(--link);
+         overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .target-repo .tr-name:hover{text-decoration:underline}
+    /* Any repo name shown inline links to the repository on GitHub. */
+    .repo-link{color:var(--link)}.repo-link code{color:inherit;cursor:pointer}
+    .up-prog-repo a{color:inherit;text-decoration:none}.up-prog-repo a:hover{text-decoration:underline}
+    /* "What's changed" collapses by default so the update controls stay above the fold. */
+    #notesReveal>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:9px;user-select:none;margin:0}
+    #notesReveal>summary::-webkit-details-marker{display:none}
+    #notesReveal>summary::before{content:"\25B6";font-size:.72em;color:var(--fg-muted);transition:transform .15s}
+    #notesReveal[open]>summary::before{transform:rotate(90deg)}
+    #notesReveal>summary .notes-h2{font-size:1.02em;font-weight:600;color:var(--fg)}
+    #notesReveal>summary:hover .notes-h2{color:var(--link)}
+    #notesReveal>summary .notes-meta{font-size:.82em;color:var(--fg-muted)}
+    #notesHint{margin-top:12px}
+    section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:18px}
+    section h2{font-size:1.02em;margin:0 0 4px}
+    section .hint{color:var(--fg-muted);font-size:.82em;margin:0 0 14px}
+    .row{display:flex;gap:18px;flex-wrap:wrap}
+    .field{flex:1 1 220px;min-width:200px}
+    label.fl{display:block;font-size:.8em;color:var(--fg-muted);margin-bottom:5px}
+    select{width:100%;padding:8px 10px;background:var(--surface2);color:var(--fg);
+         border:1px solid var(--border);border-radius:6px;font-size:.92em;font-family:inherit}
+    .vline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.95em;margin-top:6px}
+    .vpill{display:inline-flex;align-items:center;gap:5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+         font-size:.82em;font-weight:700;padding:3px 9px;border-radius:20px;border:1px solid var(--border);
+         color:var(--fg-muted);background:var(--chip)}
+    .vpill.new{color:#fff;background:var(--accent);border-color:transparent}
+    .arrow{color:var(--fg-muted)}
+    .rel{border:1px solid var(--border);border-radius:8px;background:var(--surface2);padding:12px 14px;margin-bottom:10px}
+    .rel-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .rel-title{font-weight:600;font-size:.95em}
+    .rel-date{color:var(--fg-muted);font-size:.78em;margin-left:auto}
+    .rel-sum{color:var(--fg);font-size:.88em;margin:8px 0 6px}
+    .rel-hi{margin:0;padding-left:20px;font-size:.86em;color:var(--fg-muted)}
+    .rel-hi li{margin-bottom:3px}
+    .pickbtn{font-size:.74em;border:1px solid var(--border);border-radius:6px;background:var(--surface);
+         color:var(--fg);padding:4px 9px;cursor:pointer;white-space:nowrap}
+    .pickbtn:hover{border-color:var(--link)}
+    details{margin-top:6px}
+    summary{cursor:pointer;font-size:.86em;color:var(--link);user-select:none;margin-bottom:8px}
+    .tabs{display:flex;gap:4px;margin-bottom:0;margin-top:6px}
+    .tab{padding:7px 14px;border:1px solid var(--border);border-bottom:none;border-radius:8px 8px 0 0;
+         background:var(--chip);cursor:pointer;font-size:.85em;color:var(--fg-muted)}
+    .tab.active{background:var(--code);color:var(--fg);font-weight:600}
+    .codebox{position:relative;background:var(--code);border:1px solid var(--border);border-radius:0 8px 8px 8px;padding:14px}
+    pre{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82em;white-space:pre-wrap;word-break:break-word;color:var(--fg)}
+    .copy{position:absolute;top:8px;right:8px;padding:4px 10px;font-size:.74em;border:1px solid var(--border);
+         border-radius:6px;background:var(--surface);color:var(--fg);cursor:pointer}
+    .copy:hover{border-color:var(--link)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+    button.ghost,a.ghost{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;font-size:.9em;border:1px solid var(--border);border-radius:6px;background:var(--surface2);color:var(--fg);cursor:pointer;text-decoration:none}
+    button.ghost:hover,a.ghost:hover{border-color:var(--link)}
+    code{background:var(--chip);padding:1px 6px;border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em}
+    .status{font-size:.82em;color:var(--fg-muted);margin-top:8px;min-height:1.2em}
+    .status.err{color:#cf222e}.status.ok{color:var(--accent)}
+    .uptodate{display:flex;align-items:center;gap:8px;font-size:.92em;color:var(--accent);font-weight:600}
+    button.primary,a.primary{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;font-size:.9em;font-weight:600;
+         border:1px solid transparent;border-radius:6px;background:var(--accent);color:var(--accent-fg);cursor:pointer;text-decoration:none}
+    button.primary:hover,a.primary:hover{filter:brightness(1.08)}
+    button.primary:disabled{opacity:.6;cursor:default}
+    .tokpanel{border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--surface2);margin:0 0 12px}
+    .tokpanel h3{font-size:.9em;margin:0 0 8px}
+    .tokpanel ol{font-size:.84em;color:var(--fg-muted);margin:0 0 10px;padding-left:20px;line-height:1.7}
+    .tokpanel .note{font-size:.78em;color:var(--fg-muted);margin:0 0 10px}
+    .tokpanel .tokrow{display:flex;gap:8px;flex-wrap:wrap}
+    .tokpanel input{flex:1 1 240px;min-width:180px;padding:8px 10px;background:var(--bg);color:var(--fg);
+         border:1px solid var(--border);border-radius:6px;font-family:ui-monospace,Menlo,monospace;font-size:.82em}
+    .upsteps{margin:4px 0 16px;padding:0;list-style:none;counter-reset:upstep}
+    .upsteps li{position:relative;padding:1px 0 0 34px;margin:0 0 11px;font-size:.88em;color:var(--fg);line-height:1.5}
+    .upsteps li::before{counter-increment:upstep;content:counter(upstep);position:absolute;left:0;top:0;
+         width:23px;height:23px;border-radius:50%;background:var(--chip);border:1px solid var(--border);
+         color:var(--fg-muted);font-size:.78em;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .upsteps li.key::before{background:var(--warn);border-color:transparent;color:#fff}
+    .upsteps li small{display:block;color:var(--fg-muted);font-size:.92em;margin-top:3px}
+    .upsteps em{color:var(--warn);font-style:normal;font-weight:600}
+    /* ---- live update progress (Update now) --------------------------------- */
+    button.ghost:disabled,a.ghost[aria-disabled="true"]{opacity:.55;cursor:default;pointer-events:none}
+    .up-prog{margin:14px 0 8px;border:1px solid var(--border);border-radius:10px;background:var(--surface2);padding:16px 18px}
+    .up-prog[hidden]{display:none}
+    .up-prog-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:13px}
+    .up-prog-title{font-weight:600;font-size:.95em;display:flex;align-items:center;gap:8px}
+    .up-prog-repo{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8em;color:var(--fg-muted);
+         background:var(--chip);border:1px solid var(--border);border-radius:20px;padding:2px 10px}
+    .up-spin{width:15px;height:15px;border:2px solid var(--border);border-top-color:var(--link);border-radius:50%;
+         animation:upspin .8s linear infinite;flex:none}
+    .up-spin[hidden]{display:none}
+    @keyframes upspin{to{transform:rotate(360deg)}}
+    .up-bar{height:6px;border-radius:6px;background:var(--chip);overflow:hidden;position:relative;margin:0 0 16px}
+    .up-bar::after{content:"";position:absolute;top:0;bottom:0;left:-35%;width:35%;border-radius:6px;background:var(--link);
+         animation:upslide 1.25s ease-in-out infinite}
+    @keyframes upslide{0%{left:-35%}100%{left:100%}}
+    .up-bar.wait::after{animation:none;left:0;width:100%;background:var(--warn);opacity:.7}
+    .up-bar.done::after{animation:none;left:0;width:100%;background:var(--accent)}
+    .up-bar.err::after{animation:none;left:0;width:100%;background:#cf222e}
+    @media(prefers-reduced-motion:reduce){.up-bar::after{animation:none;left:0;width:100%;opacity:.7}.up-spin{animation:none}}
+    .up-steps{display:flex;margin:0 0 14px;padding:0;list-style:none;counter-reset:ups}
+    .up-steps li{flex:1 1 0;position:relative;text-align:center;font-size:.73em;color:var(--fg-muted);padding-top:26px;line-height:1.25}
+    .up-steps li::before{counter-increment:ups;content:counter(ups);position:absolute;top:0;left:50%;transform:translateX(-50%);
+         width:20px;height:20px;border-radius:50%;background:var(--chip);border:1px solid var(--border);
+         display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82em;color:var(--fg-muted);z-index:1}
+    .up-steps li::after{content:"";position:absolute;top:9px;right:50%;width:100%;height:2px;background:var(--border);z-index:0}
+    .up-steps li:first-child::after{display:none}
+    .up-steps li.active::before{background:var(--link);border-color:transparent;color:#fff}
+    .up-steps li.active{color:var(--fg);font-weight:600}
+    .up-steps li.done::before{content:"\2713";background:var(--accent);border-color:transparent;color:#fff;font-size:.9em}
+    .up-steps li.done::after{background:var(--accent)}
+    .up-steps li.wait::before{background:var(--warn);border-color:transparent;color:#fff}
+    .up-steps li.wait{color:var(--fg);font-weight:600}
+    .up-prog-msg{font-size:.86em;color:var(--fg);min-height:1.2em;margin:0}
+    .up-note{display:block;margin-top:5px;font-size:.95em;color:var(--fg-muted)}
+    .up-prog-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:12px;font-size:.84em}
+    .up-prog-foot{margin-top:11px;font-size:.78em;color:var(--fg-muted)}
+    .up-prog-foot[hidden]{display:none}
+    .up-prog-foot a{color:var(--link);cursor:pointer}
+    .locked-area{opacity:.5;pointer-events:none;filter:saturate(.55)}
+    /* expandable "what's running" — the update workflow's jobs + live step */
+    .up-detail{margin:2px 0;border-top:1px solid var(--border);padding-top:11px}
+    .up-detail[hidden]{display:none}
+    .up-detail>summary{cursor:pointer;font-size:.83em;color:var(--link);user-select:none;list-style:none;display:flex;align-items:center;gap:6px}
+    .up-detail>summary::-webkit-details-marker{display:none}
+    .up-detail>summary::before{content:"\25B6";font-size:.7em;color:var(--fg-muted);transition:transform .15s}
+    .up-detail[open]>summary::before{transform:rotate(90deg)}
+    .up-jobs{margin:11px 0 2px;display:flex;flex-direction:column;gap:9px}
+    .up-job{border:1px solid var(--border);border-radius:8px;background:var(--bg);padding:9px 11px}
+    .up-job-head{display:flex;align-items:center;gap:8px;font-size:.86em}
+    .up-job-name{font-weight:600;color:var(--fg)}
+    .up-job-state{margin-left:auto;font-size:.77em;color:var(--fg-muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:capitalize}
+    .up-job-ico{width:14px;height:14px;flex:none;border-radius:50%;display:inline-block;background:var(--border)}
+    .up-job-ico.run{background:none;border:2px solid var(--border);border-top-color:var(--link);animation:upspin .8s linear infinite}
+    .up-job-ico.ok{background:var(--accent)}
+    .up-job-ico.bad{background:#cf222e}
+    .up-job-ico.wait{background:var(--warn)}
+    .up-steps2{margin:8px 0 0;padding:0;list-style:none;font-size:.8em}
+    .up-steps2 li{display:flex;align-items:center;gap:7px;padding:2px 0;color:var(--fg-muted);line-height:1.4}
+    .up-steps2 li.run{color:var(--fg);font-weight:600}
+    .up-step-dot{width:7px;height:7px;border-radius:50%;flex:none;background:var(--border)}
+    .up-steps2 li.run .up-step-dot{background:var(--link)}
+    .up-steps2 li.ok .up-step-dot{background:var(--accent)}
+    .up-steps2 li.bad .up-step-dot{background:#cf222e}
+    .up-jobs-note{font-size:.8em;color:var(--fg-muted);margin:9px 0 2px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1>What's new in LabVIEW CI</h1>
+        <div class="target-repo" id="targetRepo" hidden>
+          <svg class="tr-ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>
+          <span class="tr-label" id="targetRepoLabel">Updating</span>
+          <a class="tr-name" id="targetRepoName" target="_blank" rel="noopener"></a>
+        </div>
+        <p class="sub" id="sub">Checking for updates&hellip;</p>
+      </div>
+    </header>
+
+    <section>
+      <h2>Update status</h2>
+      <p class="hint" id="statusHint">Comparing the version this repository runs against the latest published by the source repository.</p>
+      <div class="vline" id="versionLine"></div>
+      <div class="status" id="loadStatus"></div>
+      <div class="status" id="movedNote" style="display:none"></div>
+    </section>
+
+    <section id="updateSec" style="display:none">
+      <h2>Update your CI tooling</h2>
+      <p class="hint" id="updateLead">One click &mdash; <strong>Update now</strong> applies the latest tooling
+        <strong>straight to your repository</strong>, with no pull request to open or merge.</p>
+      <details id="howWorks" style="margin:2px 0 14px">
+        <summary style="cursor:pointer;font-size:.86em">What happens when you click Update&nbsp;now?</summary>
+        <ol class="upsteps" id="upSeq" style="margin-top:12px">
+          <li>Click <strong>Update now</strong> below. The first time, paste a one-time token &mdash; the dialog walks you
+            through it (the same token the dashboard&rsquo;s &ldquo;Run now&rdquo; uses).</li>
+          <li>The <strong>Apply LabVIEW CI update</strong> workflow runs and <strong>commits the new version straight to your
+            default branch</strong> &mdash; nothing to review or merge.</li>
+          <li class="key"><strong>That&rsquo;s it.</strong>
+            <small>Your dashboard rebuilds and the badge turns green with the new version within a minute. If your default
+            branch is <strong>protected</strong> (it requires pull requests), the update opens one instead and turns on
+            <strong>auto-merge</strong> &mdash; it still finishes on its own wherever the repository allows it, otherwise just
+            <strong>merge</strong> that pull request to finish.</small></li>
+        </ol>
+        <p class="hint" id="updateHowto" style="margin:0"></p>
+      </details>
+      <!-- One-time token setup (hidden until needed), mirroring the dashboard's Run now dialog. -->
+      <div class="tokpanel" id="tokPanel" style="display:none">
+        <h3>One-time setup &mdash; a token to start the update</h3>
+        <ol>
+          <li><a id="tokCreate" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a fine-grained token &#8599;</a> &mdash; opens with the name, resource owner, and <strong>Actions: Read and write</strong> already filled in.</li>
+          <li><strong>Repository access</strong> &rarr; Only select repositories &rarr; add <code id="tokRepo"></code>. <span class="note">(This is the one step GitHub can&rsquo;t pre-fill from a link.)</span></li>
+          <li><strong>Permissions &rarr; Repository permissions &rarr; Actions &rarr; Read and write</strong>. Required &mdash; selecting the repo alone gives a 403.</li>
+          <li>Generate, then paste it below.</li>
+        </ol>
+        <p class="note">Stored only in this browser (localStorage); sent only to api.github.com &mdash; never to the repo, the page, or CI. The same token works for the dashboard&rsquo;s &ldquo;Run now&rdquo;.</p>
+        <div class="tokrow">
+          <input id="tokInput" type="password" autocomplete="off" placeholder="github_pat_&hellip; or ghp_&hellip;">
+          <button type="button" class="primary" id="tokSave">Save &amp; start</button>
+          <button type="button" class="ghost" id="tokCancel">Cancel</button>
+        </div>
+      </div>
+      <div class="actions" style="margin-bottom:8px">
+        <button type="button" class="primary" id="updateNowBtn">&#11014; Update now</button>
+        <a class="ghost" id="openOnGh" target="_blank" rel="noopener">Open the workflow on GitHub &#8599;</a>
+        <button type="button" class="ghost" id="viewRelease">View this release in the source repo</button>
+        <button type="button" class="ghost" id="tokForget" style="display:none" title="Remove the token saved in this browser">Forget token</button>
+      </div>
+      <!-- Live progress for an in-flight update. The update runs server-side (the
+           apply-tooling-update.yml workflow), so this card reflects REAL polled
+           GitHub state: the workflow run, then the pull request it opens, then the
+           merge. While the automatic phases run, the controls above lock so a user
+           can't fire a duplicate update; it unlocks once the PR is open (their turn). -->
+      <div class="up-prog" id="upProg" hidden aria-live="polite">
+        <div class="up-prog-head">
+          <span class="up-prog-title"><span class="up-spin" id="upSpin"></span><span id="upTitle">Updating&hellip;</span></span>
+          <span class="up-prog-repo" id="upRepo"></span>
+        </div>
+        <div class="up-bar" id="upBar"></div>
+        <ol class="up-steps" id="upSteps">
+          <li>Start</li>
+          <li>Build update</li>
+          <li>Apply</li>
+          <li>Publish</li>
+          <li>Done</li>
+        </ol>
+        <p class="up-prog-msg" id="upMsg"></p>
+        <div class="up-prog-links" id="upLinks"></div>
+        <details class="up-detail" id="upDetails" hidden>
+          <summary id="upDetailsSummary">Show what&rsquo;s running</summary>
+          <div class="up-jobs" id="upJobs"></div>
+        </details>
+        <div class="up-prog-foot" id="upProgFoot" hidden></div>
+      </div>
+      <!-- Inline recovery for an update the repo's built-in token can't apply on its
+           own. TWO causes, same fix: (a) the release changes .github/workflows/** which
+           the built-in token may not push, or (b) a protected default branch blocks the
+           Actions bot from writing / opening a PR. A one-time fine-grained token
+           (Contents + Workflows + Pull requests + Secrets = write) applies the update
+           (it can push workflow files and, on a protected branch, open a PR as the
+           user). The page seals it in the browser, stores it as the TOOLING_UPDATE_TOKEN
+           secret, then restarts the update -- no trip to repository settings. -->
+      <div class="tokpanel" id="wfTokPanel" style="display:none">
+        <h3>Finish the update &mdash; add a one-time token</h3>
+        <p class="note">The update is built, but the repository&rsquo;s built-in token couldn&rsquo;t apply it &mdash;
+          either this release touches GitHub <strong>workflow files</strong> the built-in token can&rsquo;t push, or it
+          isn&rsquo;t allowed to write to this branch. A one-time token below <strong>applies the update for you</strong>,
+          finishing right here.</p>
+        <ol>
+          <li><a id="wfTokCreate" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a fine-grained token &#8599;</a> &mdash; opens with the name, owner, and <strong>Contents + Workflows + Pull requests + Secrets = Read and write</strong> already filled in.</li>
+          <li><strong>Repository access</strong> &rarr; Only select repositories &rarr; add <code id="wfTokRepo"></code>. <span class="note">(The one step GitHub can&rsquo;t pre-fill from a link.)</span></li>
+          <li>Generate, then paste it below.</li>
+        </ol>
+        <p class="note">Encrypted in this browser (libsodium) and stored only as this repository&rsquo;s <code>TOOLING_UPDATE_TOKEN</code> secret &mdash; sent only to api.github.com, never to this page or CI, and not kept in your browser.</p>
+        <div class="tokrow">
+          <input id="wfTokInput" type="password" autocomplete="off" placeholder="github_pat_&hellip;">
+          <button type="button" class="primary" id="wfTokSave">Save &amp; finish update</button>
+          <button type="button" class="ghost" id="wfTokCancel">Cancel</button>
+        </div>
+        <div class="status" id="wfTokStatus"></div>
+      </div>
+      <div class="status" id="cmdStatus" style="margin-bottom:4px"></div>
+      <details id="cliDetails" style="margin-top:14px">
+        <summary style="cursor:pointer">Prefer the command line?</summary>
+        <div style="margin-top:12px">
+          <p class="hint">Run this from the root of your repository. <code>--update</code> re-pulls the tooling and
+            preserves your configuration files (<code>.github/labview-ci.yml</code> and baked dependencies).
+            Review with <code>git diff</code> before committing.</p>
+          <div class="row">
+            <div class="field">
+              <label class="fl" for="target">Update to</label>
+              <select id="target"></select>
+            </div>
+          </div>
+          <div class="tabs" id="tabs">
+            <div class="tab active" data-tab="bash">macOS / Linux / Git Bash</div>
+            <div class="tab" data-tab="pwsh">Windows PowerShell</div>
+          </div>
+          <div class="codebox">
+            <button class="copy" id="copyCmd">Copy</button>
+            <pre id="cmd"></pre>
+          </div>
+        </div>
+      </details>
+      <p class="hint" style="margin-top:12px">When the update finishes, your dashboard badge turns green and
+        the pipeline runs the updated capabilities.</p>
+    </section>
+
+    <section id="notesSec" style="display:none">
+      <details id="notesReveal">
+        <summary>
+          <span class="notes-h2" id="notesTitle">What's changed</span>
+          <span class="notes-meta" id="notesMeta"></span>
+        </summary>
+        <p class="hint" id="notesHint">Release notes between your version and the latest, newest first.</p>
+        <div id="latestNote"></div>
+        <details id="allNotes" style="display:none">
+          <summary id="allNotesSummary"></summary>
+          <div id="allNotesBody"></div>
+        </details>
+      </details>
+    </section>
+  </div>
+
+  <script>
+  (() => {
+    "use strict";
+    const SOURCE_FALLBACK = { repo: "nominal-io/labview-client", ref: "main" };
+    const qp = new URLSearchParams(location.search);
+    const $ = (id) => document.getElementById(id);
+
+    let activeTab = "bash";
+    const state = { repo: "", from: "", srcRepo: "", srcRef: "main", latest: "", releases: [], missing: [], target: "", branch: "", movedTo: "" };
+
+    // ---- helpers ---------------------------------------------------------
+    function cmpVer(a, b) {
+      const pa = String(a || "0").split(".").map(n => parseInt(n, 10) || 0);
+      const pb = String(b || "0").split(".").map(n => parseInt(n, 10) || 0);
+      for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+        const d = (pa[i] || 0) - (pb[i] || 0);
+        if (d) return d;
+      }
+      return 0;
+    }
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"]/g,
+        c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    }
+    function rawUrl(repo, ref, path) { return `https://raw.githubusercontent.com/${repo}/${ref}/${path}`; }
+    // A repository's page on GitHub, and that repo NAME as a clickable <code> chip.
+    // Used everywhere a repo name is shown (the source repo, the repo being
+    // upgraded, token hints, …) so the name always links to the repository.
+    function ghUrl(repo) { return "https://github.com/" + encodeURI(String(repo || "")); }
+    function repoCode(repo) {
+      return repo ? `<a class="repo-link" href="${esc(ghUrl(repo))}" target="_blank" rel="noopener"><code>${esc(repo)}</code></a>` : "";
+    }
+    async function fetchJson(url) {
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }
+
+    // The consumer's own catalog is deployed next to this page (same origin); it
+    // carries the source pointer and the installed version. Source repo's catalog
+    // (the source of truth for "latest" + history) is read cross-origin from raw.
+    // In "central mode" this page is served from the SOURCE site for a DIFFERENT
+    // client (?repo=<client>), so the same-origin catalog.json belongs to the host,
+    // not the client -- read the client's deployed catalog cross-origin instead.
+    // Query params (?from/&src/&ref) still take precedence; this fills any gaps and
+    // keeps the page working from a bare ?repo= link.
+    async function loadConsumerCatalog() {
+      const host = detectRepoFromUrl();
+      const central = !!state.repo && (!host || state.repo.toLowerCase() !== host.toLowerCase());
+      if (central) return loadRemoteCatalog(state.repo);
+      for (const u of ["./catalog.json", "./labview-ci/catalog.json"]) {
+        try { return await fetchJson(u); } catch (_) { /* try next */ }
+      }
+      return null;
+    }
+    // Read a client's installed catalog without same-origin access: its published
+    // dashboard (gh-pages root = the deployed/installed copy) first, then raw on the
+    // common default branches. Public clients resolve here; for private clients the
+    // link's ?from/&src/&ref params carry what we need.
+    async function loadRemoteCatalog(repo) {
+      const [owner, name] = String(repo || "").split("/");
+      const urls = [];
+      if (owner && name) urls.push(`https://${owner}.github.io/${name}/catalog.json`);
+      for (const ref of ["main", "master"]) urls.push(rawUrl(repo, ref, ".github/labview-ci/catalog.json"));
+      for (const u of urls) { try { return await fetchJson(u); } catch (_) { /* try next */ } }
+      return null;
+    }
+    async function loadSourceCatalog(repo, ref) {
+      try { return await fetchJson(rawUrl(repo, ref, ".github/labview-ci/catalog.json")); }
+      catch (_) { return null; }
+    }
+
+    function releases(cat) {
+      const h = cat && cat.history;
+      if (!h) return [];
+      const list = Array.isArray(h) ? h : (h.releases || []);
+      return list.filter(r => r && r.version).slice().sort((a, b) => cmpVer(b.version, a.version));
+    }
+
+    // ---- detect repo / source context ------------------------------------
+    function detectRepoFromUrl() {
+      // https://<owner>.github.io/<repo>/whats-new.html  ->  owner/repo
+      const host = location.hostname || "";
+      const owner = host.endsWith(".github.io") ? host.slice(0, -".github.io".length) : "";
+      const seg = location.pathname.split("/").filter(Boolean)[0] || "";
+      return owner && seg ? `${owner}/${seg}` : "";
+    }
+
+    // ---- rendering -------------------------------------------------------
+    function releaseCard(rel) {
+      const text = rel.summary || rel.notes || rel.description || "";
+      const hi = (rel.highlights || []).map(h => `<li>${esc(h)}</li>`).join("");
+      return `<div class="rel">
+        <div class="rel-head">
+          <span class="vpill new">v${esc(rel.version)}</span>
+          ${rel.title ? `<span class="rel-title">${esc(rel.title)}</span>` : ""}
+          ${rel.date ? `<span class="rel-date">${esc(rel.date)}</span>` : ""}
+        </div>
+        ${text ? `<p class="rel-sum">${esc(text)}</p>` : `<p class="rel-sum">This update was published without detailed release notes. Open the source release to review the exact changes.</p>`}
+        ${hi ? `<ul class="rel-hi">${hi}</ul>` : ""}
+      </div>`;
+    }
+
+    function renderVersionLine() {
+      const cur = state.from || "?";
+      const latest = state.latest || "?";
+      $("versionLine").innerHTML =
+        `<span class="vpill">This repo&nbsp; v${esc(cur)}</span>` +
+        `<span class="arrow">&rarr;</span>` +
+        `<span class="vpill new">Latest&nbsp; v${esc(latest)}</span>` +
+        (state.repo ? `<span style="color:var(--fg-muted);font-size:.82em">&nbsp; (${repoCode(state.repo)})</span>` : "");
+    }
+
+    function renderNotes() {
+      const m = state.missing;
+      $("notesSec").style.display = "";
+      $("notesTitle").textContent = "What's changed";
+      $("notesMeta").textContent = `${m.length} update${m.length > 1 ? "s" : ""} \u00b7 v${state.from || "?"} \u2192 v${state.latest}`;
+      $("notesHint").textContent = "Release notes between your version and the latest, newest first.";
+      $("latestNote").innerHTML = releaseCard(m[0]);
+      if (m.length > 1) {
+        const det = $("allNotes");
+        det.style.display = "";
+        $("allNotesSummary").textContent = `Show all ${m.length} updates (v${state.from || "?"} \u2192 v${state.latest})`;
+        $("allNotesBody").innerHTML = m.map(releaseCard).join("");
+      }
+    }
+
+    // Shown when the repo is already current: the badge is always clickable, so
+    // give it something worthwhile — the full release history, newest first.
+    function renderHistory() {
+      const all = state.releases || [];
+      if (!all.length) return;
+      $("notesSec").style.display = "";
+      $("notesTitle").textContent = "Release history";
+      $("notesMeta").textContent = `${all.length} release${all.length > 1 ? "s" : ""}`;
+      $("notesHint").textContent = "Every published release, newest first.";
+      $("latestNote").innerHTML = releaseCard(all[0]);
+      if (all.length > 1) {
+        const det = $("allNotes");
+        det.style.display = "";
+        $("allNotesSummary").textContent = `Show all ${all.length} releases`;
+        $("allNotesBody").innerHTML = all.map(releaseCard).join("");
+      }
+    }
+
+    function renderPicker() {
+      const sel = $("target");
+      sel.innerHTML = "";
+      state.missing.forEach((r, i) => {
+        const o = document.createElement("option");
+        o.value = r.version;
+        o.textContent = "v" + r.version + (i === 0 ? "  (latest)" : "");
+        sel.appendChild(o);
+      });
+      state.target = state.missing[0].version;
+      sel.value = state.target;
+    }
+
+    function targetRef() {
+      // Every published version is tagged v<version> in the source repo (the
+      // version guard cuts the tag on release), so pin the exact version picked.
+      return "v" + state.target;
+    }
+
+    function commandText() {
+      const src = state.srcRepo;
+      const ref = targetRef();
+      if (activeTab === "pwsh") {
+        return `& ([scriptblock]::Create((irm ${rawUrl(src, state.srcRef, ".github/labview-ci/install.ps1")}))) \`\n` +
+               `    --update --source-repo ${src} --source-ref ${ref}`;
+      }
+      return `curl -fsSL ${rawUrl(src, state.srcRef, ".github/labview-ci/install.sh")} \\\n` +
+             `  | bash -s -- --update --source-repo ${src} --source-ref ${ref}`;
+    }
+
+    function renderCommand() {
+      $("cmd").textContent = commandText();
+      renderUpdateButton();
+      $("updateSec").style.display = "";
+    }
+
+    // ---- token-based update dispatch (mirrors the dashboard's Run now) -----
+    // Dispatching apply-tooling-update.yml needs an "Actions: Read and write"
+    // token the browser can send. It is shared with Run now under the same
+    // localStorage key, stored only here and sent only to api.github.com. The
+    // dispatched workflow runs with the repo's own GITHUB_TOKEN to open the PR,
+    // so the user's token never needs contents/PR scopes — just Actions.
+    const TOK_KEY = "lvci_dispatch_token";
+    function getTok() { try { return localStorage.getItem(TOK_KEY) || ""; } catch (_) { return ""; } }
+    function setTok(v) { try { localStorage.setItem(TOK_KEY, v); } catch (_) {} }
+    function clearTok() { try { localStorage.removeItem(TOK_KEY); } catch (_) {} }
+    function setCmdStatus(html, kind) {
+      const s = $("cmdStatus"); if (!s) return;
+      s.className = "status" + (kind ? " " + kind : "");
+      s.innerHTML = html || "";
+    }
+    function showTokenPanel() { $("tokPanel").style.display = ""; const i = $("tokInput"); if (i) i.focus(); }
+    function hideTokenPanel() { $("tokPanel").style.display = "none"; }
+    function refreshTokForget() { const f = $("tokForget"); if (f) f.style.display = getTok() ? "" : "none"; }
+
+    // The dispatch ref must be a branch that carries the workflow — the repo's
+    // default branch. Resolve it once (public read, unauthenticated) and cache;
+    // fall back to main.
+    function resolveBranch() {
+      if (state.branch) return Promise.resolve(state.branch);
+      return fetch(`https://api.github.com/repos/${state.repo}`, { cache: "no-store" })
+        .then((r) => r.ok ? r.json() : null)
+        .then((m) => { state.branch = (m && m.default_branch) || "main"; return state.branch; })
+        .catch(() => { state.branch = "main"; return state.branch; });
+    }
+
+    // ---- live update progress -------------------------------------------
+    // The update runs server-side (apply-tooling-update.yml), so we surface honest
+    // progress by POLLING real GitHub state: the dispatched workflow run
+    // (queued -> in_progress -> completed), then the pull request it opens, then
+    // the merge. The whole control set stays locked through every in-flight phase
+    // (including while the PR waits for the user to approve + merge) so a duplicate
+    // update can never be started; it unlocks only once the update finishes or
+    // fails. Progress is mirrored to localStorage so a reload restores the live view.
+    // DISPATCH..RUNNING = building the update on Actions; APPLYING = the run
+    // finished and we're determining how it landed; most repos get a DIRECT push to
+    // the default branch (no PR) -> PUBLISHING (Pages deploy) -> DONE. A protected
+    // default branch falls back to a PR the user merges -> REVIEW (your turn).
+    const PH = { IDLE: 0, DISPATCH: 1, QUEUED: 2, RUNNING: 3, APPLYING: 4, REVIEW: 5, PUBLISHING: 6, DONE: 7, ERROR: -1 };
+    const PROG_KEY = "lvci_update_progress2";
+    const prog = { phase: PH.IDLE, ver: "", runId: 0, runUrl: "", prUrl: "", prNum: 0, ts: 0, timers: [] };
+
+    function authHeaders(extra) {
+      const h = Object.assign({ "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" }, extra || {});
+      const t = getTok(); if (t) h["Authorization"] = "Bearer " + t;
+      return h;
+    }
+    function clearTimers() { prog.timers.forEach(clearTimeout); prog.timers = []; }
+    function later(fn, ms) { const id = setTimeout(fn, ms); prog.timers.push(id); return id; }
+
+    function saveProg() {
+      try { localStorage.setItem(PROG_KEY, JSON.stringify({ repo: state.repo, phase: prog.phase, ver: prog.ver, runId: prog.runId, runUrl: prog.runUrl, prUrl: prog.prUrl, prNum: prog.prNum, ts: prog.ts })); } catch (_) {}
+    }
+    function loadProg() { try { return JSON.parse(localStorage.getItem(PROG_KEY) || "null"); } catch (_) { return null; } }
+    function clearProg() { try { localStorage.removeItem(PROG_KEY); } catch (_) {} }
+
+    // Lock the picker + buttons + CLI while the automatic phases run. Keeps the
+    // "Open the workflow on GitHub" link live (it's harmless + helpful).
+    function lockUpdateControls(b) {
+      ["updateNowBtn", "target", "viewRelease"].forEach(id => { const el = $(id); if (el) el.disabled = b; });
+      const cli = $("cliDetails"); if (cli) cli.classList.toggle("locked-area", b);
+      const btn = $("updateNowBtn");
+      if (btn) btn.innerHTML = b
+        ? (prog.phase === PH.REVIEW ? "&#9203; Update in progress&hellip;" : "&#8635; Updating&hellip;")
+        : ("&#11014; Update to v" + esc(state.target || state.latest || ""));
+      if (b) hideTokenPanel();
+    }
+
+    function renderProgress(msg) {
+      const card = $("upProg"); if (!card) return;
+      if (prog.phase === PH.IDLE) { card.hidden = true; return; }
+      card.hidden = false;
+      const active = { [PH.DISPATCH]: 1, [PH.QUEUED]: 2, [PH.RUNNING]: 2, [PH.APPLYING]: 3, [PH.REVIEW]: 3, [PH.PUBLISHING]: 4, [PH.DONE]: 5, [PH.ERROR]: 0 }[prog.phase] || 0;
+      card.querySelectorAll("#upSteps li").forEach((li, i) => {
+        const n = i + 1; li.classList.remove("active", "done", "wait");
+        if (prog.phase === PH.DONE) { li.classList.add("done"); return; }
+        if (prog.phase === PH.ERROR) { if (n < active) li.classList.add("done"); return; }
+        if (n < active) li.classList.add("done");
+        else if (n === active) li.classList.add(prog.phase === PH.REVIEW ? "wait" : "active");
+      });
+      const bar = $("upBar");
+      if (bar) bar.className = "up-bar" + (prog.phase === PH.REVIEW ? " wait" : prog.phase === PH.DONE ? " done" : prog.phase === PH.ERROR ? " err" : "");
+      const active_auto = (prog.phase >= PH.DISPATCH && prog.phase <= PH.APPLYING) || prog.phase === PH.PUBLISHING;
+      const spin = $("upSpin"); if (spin) spin.hidden = !active_auto;
+      card.setAttribute("aria-busy", String(active_auto));
+      const title = $("upTitle");
+      if (title) title.textContent =
+        prog.phase === PH.DONE ? ("Updated to v" + prog.ver) :
+        prog.phase === PH.REVIEW ? "Almost there \u2014 your turn" :
+        prog.phase === PH.PUBLISHING ? ("Publishing v" + prog.ver + "\u2026") :
+        prog.phase === PH.ERROR ? "Update didn\u2019t start" :
+        ("Updating to v" + prog.ver + "\u2026");
+      const rp = $("upRepo"); if (rp) rp.innerHTML = state.repo ? `<a href="${esc(ghUrl(state.repo))}" target="_blank" rel="noopener">${esc(state.repo)}</a>` : "";
+      if (msg != null) { const m = $("upMsg"); if (m) m.innerHTML = msg; }
+      const links = [];
+      if (prog.phase === PH.DONE) {
+        const dash = clientPagesUrl();
+        if (dash) links.push(`<a class="primary" href="${esc(dash)}">Go to your dashboard &#8599;</a>`);
+      }
+      if (prog.prUrl) links.push(`<a href="${esc(prog.prUrl)}" target="_blank" rel="noopener">Open pull request${prog.prNum ? " #" + prog.prNum : ""} &#8599;</a>`);
+      if (prog.runUrl) links.push(`<a href="${esc(prog.runUrl)}" target="_blank" rel="noopener">Open the workflow run &#8599;</a>`);
+      const lz = $("upLinks"); if (lz) lz.innerHTML = links.join("");
+      const foot = $("upProgFoot");
+      if (foot) {
+        // Dismiss only when the update has truly stopped (done/failed). While it
+        // is in flight the controls stay locked — there is no restart path.
+        const showFoot = prog.phase === PH.DONE || prog.phase === PH.ERROR;
+        foot.hidden = !showFoot;
+        if (showFoot) {
+          foot.innerHTML = (prog.phase === PH.DONE)
+            ? `<a id="upReset">Update another version</a>`
+            : `<a id="upReset">Dismiss</a> &mdash; you can try again.`;
+          const r = $("upReset"); if (r) r.addEventListener("click", resetProgress);
+        }
+      }
+      syncJobsPanel();
+    }
+
+    function setPhase(phase, msg) {
+      prog.phase = phase;
+      // Lock every in-flight phase (dispatch -> publishing) so a user who lands on
+      // an update already in progress cannot start a duplicate.
+      lockUpdateControls(phase >= PH.DISPATCH && phase <= PH.PUBLISHING);
+      renderProgress(msg);
+      // Errors aren't resumable; only persist the live automatic/review phases.
+      if (phase === PH.IDLE || phase === PH.DONE || phase === PH.ERROR) clearProg(); else saveProg();
+      // Keep the dashboard's version badge in sync (phases dispatch..publishing).
+      if (phase >= PH.DISPATCH && phase <= PH.PUBLISHING) {
+        try { localStorage.setItem("lvci_updating", JSON.stringify({ v: prog.ver, ts: Date.now(), repo: state.repo })); } catch (_) {}
+        try { if (window.parent && window.parent !== window && window.parent.lvciMarkUpdating) window.parent.lvciMarkUpdating(prog.ver); } catch (_) {}
+      } else {
+        try { localStorage.removeItem("lvci_updating"); } catch (_) {}
+      }
+    }
+
+    function resetProgress() {
+      clearTimers(); clearProg();
+      prog.phase = PH.IDLE; prog.runId = 0; prog.runUrl = ""; prog.prUrl = ""; prog.prNum = 0;
+      try { localStorage.removeItem("lvci_updating"); } catch (_) {}
+      lockUpdateControls(false);
+      hideWfTokenPanel();
+      renderProgress("");
+      setCmdStatus("", null);
+    }
+
+    // Find the workflow run our dispatch created (newest dispatch run at/after ts).
+    function findRun() {
+      const url = `https://api.github.com/repos/${state.repo}/actions/workflows/apply-tooling-update.yml/runs?event=workflow_dispatch&per_page=10`;
+      return fetch(url, { cache: "no-store", headers: authHeaders() })
+        .then(r => r.ok ? r.json() : null)
+        .then(j => {
+          const runs = (j && j.workflow_runs) || [];
+          const since = prog.ts - 60000;
+          return runs.filter(r => new Date(r.created_at).getTime() >= since)
+                     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0] || null;
+        }).catch(() => null);
+    }
+
+    function pollRun(tries) {
+      tries = tries || 0;
+      findRun().then(run => {
+        if (run) {
+          prog.runId = run.id; prog.runUrl = run.html_url;
+          if (run.status === "completed") {
+            if (run.conclusion === "success") { startPrPoll(); return; }
+            setPhase(PH.ERROR, `The update workflow finished with <strong>${esc(run.conclusion || "a failure")}</strong>. Open the run to see why, then try again.`);
+            return;
+          }
+          setPhase(run.status === "in_progress" ? PH.RUNNING : PH.QUEUED,
+            run.status === "in_progress"
+              ? "Building the update on GitHub Actions&hellip; this usually takes under a minute."
+              : "Queued on GitHub Actions&hellip; waiting for a runner.");
+        }
+        if (tries < 40) later(() => pollRun(tries + 1), 3000);
+        else startPrPoll(); // give up tracking the run; fall back to PR detection
+      });
+    }
+
+    function startPrPoll() {
+      if (prog.phase !== PH.APPLYING) setPhase(PH.APPLYING, "Applying the update to your repository&hellip;");
+      pollOutcome(prog.ver, 0);
+    }
+
+    function dispatchUpdate() {
+      const ver = state.target || state.latest || "";
+      if (!ver) return;
+      if (prog.phase >= PH.DISPATCH && prog.phase <= PH.PUBLISHING) return; // already running — no duplicates
+      if (deploying) { showDeploying(deploying); return; }             // a merged update is still publishing
+      if (!getTok()) { showTokenPanel(); return; }
+      hideWfTokenPanel();
+      prog.ver = ver; prog.ts = Date.now(); prog.runId = 0; prog.runUrl = ""; prog.prUrl = ""; prog.prNum = 0;
+      clearTimers();
+      setCmdStatus("", null);
+      setPhase(PH.DISPATCH, "Starting the update&hellip;");
+      resolveBranch().then((branch) => {
+        return fetch(`https://api.github.com/repos/${state.repo}/actions/workflows/apply-tooling-update.yml/dispatches`, {
+          method: "POST",
+          headers: authHeaders({ "Content-Type": "application/json" }),
+          // The workflow accepts `source_ref` (the source ref/tag to pull); pin it
+          // to the advertised release tag so the PR adopts exactly that version.
+          body: JSON.stringify({ ref: branch, inputs: { source_ref: "v" + ver } })
+        });
+      }).then(async (r) => {
+        if (r.status === 204) { setPhase(PH.QUEUED, "Queued on GitHub Actions&hellip; waiting for a runner."); pollRun(0); return; }
+        if (r.status === 401) { setPhase(PH.IDLE); clearTok(); refreshTokForget(); setCmdStatus("That token was rejected (401). Paste a valid one.", "err"); showTokenPanel(); return; }
+        let ghMsg = ""; try { const j = await r.json(); ghMsg = (j && j.message) || ""; } catch (_) {}
+        let hint;
+        if (r.status === 403) hint = `<strong>403</strong>: the token is missing the <strong>Actions: Read and write</strong> permission. On the token page open <strong>Permissions &rarr; Repository permissions &rarr; Actions &rarr; Read and write</strong> (selecting the repository is not enough), then <strong>Update</strong> and try again.`;
+        else if (r.status === 404) hint = `<strong>404</strong>: the token cannot see ${repoCode(state.repo)} (or the update workflow is not installed). Grant it <strong>Repository access</strong> to this repo AND the <strong>Actions: Read and write</strong> permission.`;
+        else if (r.status === 422) hint = `<strong>422</strong>: GitHub couldn&rsquo;t start the update${ghMsg ? ` &mdash; <em>${esc(ghMsg)}</em>` : ""}. This is a workflow issue, not your token &mdash; make sure this repo&rsquo;s update workflow is current (re-run the installer to refresh the tooling), then try again.`;
+        else hint = `HTTP ${r.status}${ghMsg ? ` &mdash; ${esc(ghMsg)}` : ""}. If this persists, check the token has <strong>Actions: Read and write</strong> on this repository.`;
+        setPhase(PH.IDLE);
+        setCmdStatus(hint + ` <a href="#" id="cmdFixTok">Update token &rarr;</a>`, "err");
+        const ft = $("cmdFixTok"); if (ft) ft.addEventListener("click", (e) => { e.preventDefault(); showTokenPanel(); });
+      }).catch((e) => {
+        setPhase(PH.IDLE);
+        setCmdStatus("Could not reach api.github.com: " + esc(String(e && e.message || e)), "err");
+      });
+    }
+
+    function saveTokAndDispatch() {
+      const i = $("tokInput");
+      const v = (i && i.value || "").trim();
+      if (!v) { if (i) i.focus(); return; }
+      setTok(v); refreshTokForget(); hideTokenPanel();
+      if (i) i.value = "";
+      dispatchUpdate();
+    }
+
+    // ---- workflow-file-only recovery: install TOOLING_UPDATE_TOKEN inline -----
+    // Some releases change ONLY .github/workflows/** files. The repo's built-in
+    // GITHUB_TOKEN can't push workflow files, so apply-tooling-update.yml defers
+    // them and (when nothing else changed) opens no pull request. The repo-side fix
+    // is a TOOLING_UPDATE_TOKEN secret the workflow pushes + opens the PR with
+    // (Contents + Workflows + Pull requests = write). Rather than send the user to
+    // Settings, we let them create that token and store it here: it is sealed in the
+    // browser with the repo's public key (GitHub requires a libsodium crypto_box_seal)
+    // and PUT as the secret using its own Secrets:write, then the update is restarted.
+    let sealReady = null;
+    function addSealScript(src, integ) {
+      return new Promise((res, rej) => {
+        const s = document.createElement("script");
+        s.src = src; if (integ) s.integrity = integ; s.crossOrigin = "anonymous";
+        let settled = false;
+        const timer = setTimeout(() => { if (settled) return; settled = true; s.onload = s.onerror = null; rej(new Error("timeout")); }, 12000);
+        s.onload = () => { if (settled) return; settled = true; clearTimeout(timer); res(); };
+        s.onerror = () => { if (settled) return; settled = true; clearTimeout(timer); rej(new Error("error")); };
+        document.head.appendChild(s);
+      });
+    }
+    function loadSealCdn(pkg, integ) {
+      return addSealScript("https://cdn.jsdelivr.net/npm/" + pkg, integ)
+        .catch(() => addSealScript("https://unpkg.com/" + pkg, integ));
+    }
+    function loadSealedBox() {
+      if (sealReady) return sealReady;
+      if (window.nacl && window.sealedBox) { sealReady = Promise.resolve(window.sealedBox); return sealReady; }
+      sealReady = loadSealCdn("tweetnacl@1.0.3/nacl-fast.min.js", "sha384-05+sicyRJQ56XpL4U9HJ8YbtSzFDvAg7apPKOGV6A0JsAJKFM68jp5oLnUjG5mEp")
+        .then(() => loadSealCdn("tweetnacl-sealedbox-js@1.2.0/sealedbox.web.js", "sha384-gCr/Ers2SYUTIvvm+iWV5lakrZ/tTqxgYQckm0Znr3blQzNfOPirDZlpvkINLyhv"))
+        .then(() => { if (!window.nacl || !window.sealedBox) throw new Error("Encryption library unavailable."); return window.sealedBox; })
+        .catch(() => { sealReady = null; throw new Error("Couldn't load the in-browser encryption library (network blocked?). Check your connection and try again."); });
+      return sealReady;
+    }
+    function b64ToBytes(b) { const s = atob(b), u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; }
+    function bytesToB64(u) { let s = ""; for (let i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s); }
+    function sealForRepo(v, pk) { return loadSealedBox().then((sb) => bytesToB64(sb.seal(new TextEncoder().encode(v), b64ToBytes(pk)))); }
+
+    // Use the NEW token's own Secrets:write to seal + store itself as TOOLING_UPDATE_TOKEN.
+    function writeToolingSecret(token) {
+      const base = `https://api.github.com/repos/${state.repo}/actions/secrets`;
+      const h = { "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Authorization": "Bearer " + token };
+      return fetch(base + "/public-key", { cache: "no-store", headers: h })
+        .then((r) => { if (!r.ok) { const e = new Error("HTTP " + r.status); e.status = r.status; throw e; } return r.json(); })
+        .then((pk) => sealForRepo(token, pk.key).then((enc) =>
+          fetch(`${base}/TOOLING_UPDATE_TOKEN`, {
+            method: "PUT",
+            headers: Object.assign({ "Content-Type": "application/json" }, h),
+            body: JSON.stringify({ encrypted_value: enc, key_id: pk.key_id })
+          }).then((r) => { if (!r.ok) { const e = new Error("HTTP " + r.status); e.status = r.status; throw e; } })));
+    }
+
+    // Pre-fill the fine-grained token form with exactly the permissions the workflow
+    // needs to push the update + open the PR (Pull requests is what lets it open the
+    // PR when the repo blocks the Actions bot), plus Secrets so the browser can store
+    // it as the secret. GitHub can't pre-select the repo, so that stays manual.
+    function wfTokenUrl() {
+      const owner = (state.repo || "").split("/")[0];
+      const qp = new URLSearchParams({
+        name: "LabVIEW CI tooling update",
+        description: "Finish a LabVIEW CI update for " + (state.repo || "this repo") + ": push the update and open its pull request (TOOLING_UPDATE_TOKEN).",
+        contents: "write", workflows: "write", pull_requests: "write", secrets: "write"
+      });
+      if (owner) qp.set("target_name", owner);
+      return "https://github.com/settings/personal-access-tokens/new?" + qp.toString();
+    }
+    function setWfTokStatus(html, kind) { const s = $("wfTokStatus"); if (!s) return; s.className = "status" + (kind ? " " + kind : ""); s.innerHTML = html || ""; }
+    function showWfTokenRecovery() {
+      const p = $("wfTokPanel"); if (!p) return;
+      const tr = $("wfTokRepo"); if (tr) tr.textContent = state.repo || "";
+      const tc = $("wfTokCreate"); if (tc) tc.href = wfTokenUrl();
+      const sv = $("wfTokSave"); if (sv) sv.disabled = false;
+      setWfTokStatus("", null);
+      p.style.display = "";
+    }
+    function hideWfTokenPanel() { const p = $("wfTokPanel"); if (p) p.style.display = "none"; }
+    function saveWfTokenAndRetry() {
+      const i = $("wfTokInput");
+      const v = (i && i.value || "").trim();
+      if (!v) { if (i) i.focus(); return; }
+      const btn = $("wfTokSave"); if (btn) btn.disabled = true;
+      setWfTokStatus(`Encrypting and saving the token to ${repoCode(state.repo)}&hellip;`, null);
+      writeToolingSecret(v)
+        .then(() => {
+          if (i) i.value = "";
+          hideWfTokenPanel();
+          // Clear the stuck REVIEW phase so the duplicate guard doesn't block the
+          // re-dispatch, then re-run with the existing dispatch token. The workflow
+          // now has TOOLING_UPDATE_TOKEN and can push the update + open the PR as the
+          // user (which also bypasses a repo that blocks the Actions bot from PRs).
+          resetProgress();
+          dispatchUpdate();
+          setCmdStatus("Saved the <code>TOOLING_UPDATE_TOKEN</code> secret &mdash; restarting the update&hellip;", "ok");
+        })
+        .catch((e) => {
+          const s = e && e.status;
+          let msg;
+          if (s === 401) msg = "That token was rejected (401). Copy the whole <code>github_pat_&hellip;</code> value and try again.";
+          else if (s === 403) msg = `That token can&rsquo;t write <strong>Secrets</strong> on ${repoCode(state.repo)}. On the token page set <strong>Secrets: Read and write</strong> (picking the repository alone isn&rsquo;t enough), regenerate, and paste it again.`;
+          else if (s === 404) msg = `That token can&rsquo;t see ${repoCode(state.repo)}. Under <strong>Repository access</strong> choose <strong>Only select repositories</strong> and add this repository.`;
+          else msg = "Couldn&rsquo;t save the token: " + esc(e && e.message || String(e));
+          setWfTokStatus(msg, "err");
+          if (btn) btn.disabled = false;
+        });
+    }
+
+    // Once the update PR is open, it's the user's turn. The PR changes only config
+    // and tooling files (never .vi paths) and is opened by automation, so it
+    // normally has NO checks and is mergeable immediately. Lead with MERGE, not
+    // "approve checks" -- sending people to approve a check that isn't there is
+    // exactly what made updates feel stuck. Then refine the note from the PR's REAL
+    // check state: say plainly there's nothing to wait for, or -- only when GitHub
+    // actually paused a check ("Action required") -- point at Approve and run.
+    function reviewMsg(pr, ver, lead, note) {
+      return (lead || "") +
+        `Pull request <a href="${esc(pr.html_url)}" target="_blank" rel="noopener">#${pr.number}</a> is open. ` +
+        `<strong>Merge it</strong> to finish updating to <code>v${esc(ver)}</code>.` +
+        (note ? " " + note : "");
+    }
+    function showReview(pr, ver, lead) {
+      prog.prUrl = pr.html_url; prog.prNum = pr.number;
+      setPhase(PH.REVIEW, reviewMsg(pr, ver, lead,
+        `<span class="up-note">Most updates change only configuration and tooling, so there are no checks to wait for &mdash; you can merge right away.</span>`));
+      const sha = pr.head && pr.head.sha;
+      if (!sha) return;
+      // Best-effort: read the head commit's checks and tailor the note to reality.
+      fetch(`https://api.github.com/repos/${state.repo}/commits/${sha}/check-runs`,
+        { cache: "no-store", headers: authHeaders() })
+        .then((r) => r.ok ? r.json() : null)
+        .then((d) => {
+          if (prog.phase !== PH.REVIEW || prog.prNum !== pr.number) return;   // moved on
+          const runs = (d && d.check_runs) || [];
+          const paused = runs.filter((r) => r.status === "waiting" || r.status === "action_required" || r.conclusion === "action_required");
+          const running = runs.filter((r) => r.status !== "completed" && r.status !== "waiting" && r.status !== "action_required");
+          let note;
+          if (paused.length)
+            note = `<span class="up-note">GitHub paused a check (<em>&ldquo;Action&nbsp;required&rdquo;</em>) because the pull request was opened by automation &mdash; open its <a href="${esc(pr.html_url)}/checks" target="_blank" rel="noopener">Checks tab</a> (or the repo&rsquo;s <strong>Actions</strong> tab), click <strong>Approve and run</strong>, then merge.</span>`;
+          else if (running.length)
+            note = `<span class="up-note">Its checks are still running &mdash; they finish on their own, then you can merge.</span>`;
+          else if (!runs.length)
+            note = `<span class="up-note">This update has <strong>no checks</strong> to wait for &mdash; it&rsquo;s ready to <strong>merge now</strong>.</span>`;
+          else
+            note = `<span class="up-note">Its checks have passed &mdash; it&rsquo;s ready to <strong>merge now</strong>.</span>`;
+          renderProgress(reviewMsg(pr, ver, lead, note));
+        })
+        .catch(() => {});
+    }
+
+    // The update is fetched + built by the server-side workflow, then APPLIED. Most
+    // repositories get a direct commit to the default branch (no PR): the workflow
+    // bumps .github/labview-ci/catalog.json there, so the committed version reaching
+    // the target is the signal the push landed. A protected default branch falls back
+    // to a pull request on ci/adopt-tooling-v<ver>. Poll for BOTH each tick so the
+    // happy (direct) path is detected the instant it lands; only when neither appears
+    // does the built-in token genuinely need a one-time token (handled below).
+    function contentsUrl(repo, ref) {
+      return `https://api.github.com/repos/${repo}/contents/.github/labview-ci/catalog.json?ref=${encodeURIComponent(ref)}`;
+    }
+    // True once the default branch's committed catalog version >= the target — i.e.
+    // the workflow committed the update straight to the branch (no PR needed).
+    function checkDirectPush(ver) {
+      return resolveBranch().then((branch) =>
+        fetch(contentsUrl(state.repo, branch) + "&_=" + Date.now(),
+          { cache: "no-store", headers: authHeaders({ "Accept": "application/vnd.github.raw" }) })
+          .then((r) => r.ok ? r.json() : null)
+          .then((c) => (c && c.version) ? cmpVer(c.version, ver) >= 0 : false)
+          .catch(() => false));
+    }
+    function pollOutcome(ver, tries) {
+      tries = tries || 0;
+      const branches = ["ci/adopt-tooling-v" + ver, "ci/update-tooling-v" + ver];
+      const pullsUrl = `https://api.github.com/repos/${state.repo}/pulls?state=open&per_page=100`;
+      const pullsPage = `https://github.com/${state.repo}/pulls`;
+      Promise.all([
+        fetch(pullsUrl, { cache: "no-store", headers: authHeaders() }).then((r) => r.ok ? r.json() : null).catch(() => null),
+        checkDirectPush(ver)
+      ]).then(([list, landed]) => {
+        // Direct push landed (committed catalog on the default branch hit the target).
+        if (landed) { hideWfTokenPanel(); startPublishPoll(ver); return; }
+        // Protected branch fell back to a PR — the user merges it (REVIEW).
+        const pr = Array.isArray(list)
+          ? list.find((p) => p && p.head && branches.indexOf(p.head.ref) !== -1)
+          : null;
+        if (pr) {
+          hideWfTokenPanel();
+          showReview(pr, ver, "");
+          pollPrMerged(pr.number, 0);
+          return;
+        }
+        if (tries < 12) { later(() => pollOutcome(ver, tries + 1), 2500); return; }
+        // The run finished but neither committed the update directly nor opened a PR:
+        // the built-in token couldn't push (a workflow-file-only change) or write to
+        // this branch. A one-time TOOLING_UPDATE_TOKEN (Contents + Workflows + Pull
+        // requests + Secrets) applies the update for you, so offer it inline; keep the
+        // run-summary link as a fallback for anything else.
+        showWfTokenRecovery();
+        setPhase(PH.REVIEW,
+          `The update ran, but it couldn&rsquo;t finish on its own &mdash; the repository&rsquo;s built-in token either can&rsquo;t push a ` +
+          `<strong>workflow-file</strong> change or isn&rsquo;t allowed to write to this branch. ` +
+          `<strong>Add a one-time token below</strong> and it applies the update for you &mdash; no settings trip. ` +
+          `Prefer to do it by hand? Open the <a href="${esc(prog.runUrl || `https://github.com/${state.repo}/actions`)}" target="_blank" rel="noopener">workflow run</a> ` +
+          `(its summary explains the one remaining step) or check <a href="${esc(pullsPage)}" target="_blank" rel="noopener">Pull requests &rarr;</a>.`);
+      }).catch(() => { if (tries < 12) later(() => pollOutcome(ver, tries + 1), 2500); });
+    }
+
+    // The update was applied (committed straight to the default branch). Watch the
+    // LIVE deployed catalog version until the new build publishes, then refresh.
+    function startPublishPoll(ver) {
+      setPhase(PH.PUBLISHING,
+        `Applied to your repository &mdash; now publishing <code>v${esc(ver)}</code> to your dashboard&hellip; ` +
+        `this is the GitHub&nbsp;Pages deploy and usually lands within a minute.`);
+      pollPublished(ver, Date.now());
+    }
+    function pollPublished(ver, start) {
+      fetchDeployedVer().then((dep) => {
+        if (dep && cmpVer(dep, ver) >= 0) {
+          setPhase(PH.DONE,
+            `&#10003; ${repoCode(state.repo)} is now running <code>v${esc(ver)}</code> &mdash; published and live. ` +
+            `Open your dashboard to explore what&rsquo;s new.`);
+          return;
+        }
+        if (Date.now() - start > 10 * 60 * 1000) {
+          setPhase(PH.DONE,
+            `<code>v${esc(ver)}</code> was applied to ${repoCode(state.repo)}. It&rsquo;s taking longer than usual to ` +
+            `publish to GitHub&nbsp;Pages &mdash; open your dashboard in a minute to see it, or check the ` +
+            `<a href="https://github.com/${esc(state.repo)}/actions" target="_blank" rel="noopener">Actions tab</a>.`);
+          return;
+        }
+        later(() => pollPublished(ver, start), 12000);
+      }).catch(() => later(() => pollPublished(ver, start), 12000));
+    }
+
+    // Once a PR exists, watch for the merge so the card can show "done" and stop
+    // painting the dashboard's "Updating…" badge. Closed-unmerged = user dismissed.
+    function pollPrMerged(num, tries) {
+      tries = tries || 0;
+      fetch(`https://api.github.com/repos/${state.repo}/pulls/${num}`, { cache: "no-store", headers: authHeaders() })
+        .then(r => r.ok ? r.json() : null)
+        .then(pr => {
+          if (pr && pr.merged_at) { startPublishPoll(prog.ver); return; }
+          if (pr && pr.state === "closed") { resetProgress(); return; }
+          if (tries < 40) later(() => pollPrMerged(num, tries + 1), 8000);
+        })
+        .catch(() => { if (tries < 40) later(() => pollPrMerged(num, tries + 1), 8000); });
+    }
+
+    // ---- "what's running": the update workflow's jobs + live step ----------
+    // An honest drill-down into the automatic work. Reads the run's jobs from
+    // GitHub and shows each job with its current step, so the user can see exactly
+    // what is executing rather than wondering whether anything is happening.
+    let jobsTimer = 0;
+    function stopJobsTimer() { if (jobsTimer) { clearTimeout(jobsTimer); jobsTimer = 0; } }
+    const JOB_ICO = { in_progress: "run", queued: "wait", waiting: "wait", pending: "wait", requested: "wait" };
+    function jobIconClass(job) {
+      if (job.status !== "completed") return JOB_ICO[job.status] || "wait";
+      return job.conclusion === "success" ? "ok"
+        : (job.conclusion === "skipped" || job.conclusion === "neutral") ? "wait" : "bad";
+    }
+    function stepClass(st) {
+      if (st.status !== "completed") return st.status === "in_progress" ? "run" : "";
+      return st.conclusion === "success" ? "ok" : st.conclusion === "skipped" ? "" : "bad";
+    }
+    function renderJobs(jobs) {
+      const box = $("upJobs"); if (!box) return;
+      if (!jobs || !jobs.length) {
+        box.innerHTML = `<p class="up-jobs-note">Waiting for the update workflow to report its steps&hellip;</p>`;
+        return;
+      }
+      box.innerHTML = jobs.map((job) => {
+        const ico = jobIconClass(job);
+        const stateTxt = job.status === "completed" ? (job.conclusion || "done") : String(job.status).replace(/_/g, " ");
+        const steps = (job.steps || []).filter((s) => s.name && s.number > 0);
+        const running = steps.find((s) => s.status === "in_progress");
+        const stepsHtml = steps.length
+          ? `<ul class="up-steps2">` + steps.map((s) =>
+              `<li class="${stepClass(s)}"><span class="up-step-dot"></span>${esc(s.name)}</li>`).join("") + `</ul>`
+          : "";
+        const head = `<div class="up-job-head"><span class="up-job-ico ${ico}"></span>` +
+          `<span class="up-job-name">${esc(job.name || "job")}</span>` +
+          `<span class="up-job-state">${esc(running ? running.name : stateTxt)}</span></div>`;
+        return `<div class="up-job">${head}${stepsHtml}</div>`;
+      }).join("");
+    }
+    function refreshJobs() {
+      const det = $("upDetails");
+      if (!det || det.hidden || !det.open) return;
+      if (!prog.runId) { renderJobs(null); return; }
+      fetch(`https://api.github.com/repos/${state.repo}/actions/runs/${prog.runId}/jobs?per_page=100`,
+        { cache: "no-store", headers: authHeaders() })
+        .then((r) => r.ok ? r.json() : null)
+        .then((j) => {
+          renderJobs(j && j.jobs);
+          stopJobsTimer();
+          // Keep refreshing while the run is still active and the panel is open.
+          if (prog.phase >= PH.QUEUED && prog.phase <= PH.APPLYING && det.open && !det.hidden) {
+            jobsTimer = later(refreshJobs, 5000);
+          }
+        })
+        .catch(() => { renderJobs(null); });
+    }
+    // Show the drill-down whenever there is a concrete run to describe.
+    function syncJobsPanel() {
+      const det = $("upDetails"); if (!det) return;
+      const show = prog.phase !== PH.IDLE && !!prog.runId;
+      det.hidden = !show;
+      if (!show) { det.open = false; stopJobsTimer(); return; }
+      if (det.open) refreshJobs();
+    }
+
+    // ---- detect an update already in flight (independent of this browser) ---
+    // The dashboard badge shows "Updating to vX" from real GitHub state, so a user
+    // can land here with an update in progress that THIS browser never started (a
+    // different device, or a run kicked off elsewhere). Poll GitHub directly so the
+    // page reflects that — locked, with live progress — instead of offering to start
+    // it again. Public repos read unauthenticated; private repos use the saved
+    // token; any failure just leaves the normal (idle) page.
+    function verFromBranch(ref) {
+      const m = /(?:^|\/)(?:update|adopt)-tooling-v(\d+\.\d+\.\d+)/.exec(ref || "");
+      return m ? m[1] : "";
+    }
+    function findOpenUpdatePr() {
+      return fetch(`https://api.github.com/repos/${state.repo}/pulls?state=open&per_page=30`,
+        { cache: "no-store", headers: authHeaders() })
+        .then((r) => r.ok ? r.json() : null)
+        .then((list) => {
+          if (!Array.isArray(list)) return null;
+          const ours = list
+            .map((pr) => ({ pr, ver: verFromBranch(pr.head && pr.head.ref) }))
+            .filter((x) => x.ver && cmpVer(x.ver, state.from || "0") > 0)   // a genuine pending upgrade
+            .sort((a, b) => cmpVer(b.ver, a.ver));
+          return ours.length ? ours[0] : null;
+        }).catch(() => null);
+    }
+    function findActiveRun() {
+      return fetch(`https://api.github.com/repos/${state.repo}/actions/workflows/apply-tooling-update.yml/runs?per_page=10`,
+        { cache: "no-store", headers: authHeaders() })
+        .then((r) => r.ok ? r.json() : null)
+        .then((j) => {
+          const runs = (j && j.workflow_runs) || [];
+          return runs.filter((r) => r.status !== "completed")
+                     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0] || null;
+        }).catch(() => null);
+    }
+    // ---- "an update already merged and is publishing" lock -------------------
+    // After the update PR merges there's a window where the new version is building
+    // and deploying to Pages while the LIVE dashboard still shows the OLD version.
+    // In that window the source still looks newer than what's deployed, so the page
+    // would happily offer Update now again -> a duplicate run. Detect it from a
+    // RECENTLY-MERGED update PR whose version the live dashboard hasn't picked up yet
+    // (checked against the REAL deployed catalog, not the possibly-stale ?from=), and
+    // lock the controls until the new build lands.
+    let deploying = "", deployTimer = 0, deployStart = 0;
+    // The repo-being-upgraded's own GitHub Pages site (its dashboard root). Used
+    // for the deployed-catalog check AND the "Go to your dashboard" / "Back" links.
+    function clientPagesUrl() {
+      const parts = (state.repo || "/").split("/"), owner = parts[0], name = parts[1];
+      if (!owner || !name) return "";
+      const host = owner.toLowerCase() + ".github.io";
+      return name.toLowerCase() === host ? `https://${host}/` : `https://${host}/${name}/`;
+    }
+    function deployedCatalogUrl() {
+      const root = clientPagesUrl();
+      return root ? root + "catalog.json" : "";
+    }
+    function fetchDeployedVer() {
+      const u = deployedCatalogUrl();
+      if (!u) return Promise.resolve("");
+      return fetch(u + "?_=" + Date.now(), { cache: "no-store" })
+        .then(r => r.ok ? r.json() : null).then(c => (c && c.version) || "").catch(() => "");
+    }
+    // Resolve the version of an install/update that merged recently but isn't live
+    // yet, or "". Covers a fresh install ("ci/install-labview-ci") AND an Update-now
+    // ("ci/(adopt|update)-tooling-v<ver>"): the update branch carries the version;
+    // the install branch does not, so fall back to the source's latest (what the
+    // install vendored). Either way we only lock while the LIVE dashboard is behind.
+    function findDeployingUpdate() {
+      return fetch(`https://api.github.com/repos/${state.repo}/pulls?state=closed&per_page=20`,
+        { cache: "no-store", headers: authHeaders() })
+        .then(r => r.ok ? r.json() : null)
+        .then(list => {
+          if (!Array.isArray(list)) return "";
+          const now = Date.now();
+          const recent = list.filter(pr => pr.merged_at
+            && (now - new Date(pr.merged_at).getTime()) < 25 * 60 * 1000
+            && (verFromBranch(pr.head && pr.head.ref) || /(?:^|\/)ci\/install-labview-ci$/.test((pr.head && pr.head.ref) || "")));
+          if (!recent.length) return "";
+          let ver = "";
+          recent.forEach(pr => { const v = verFromBranch(pr.head && pr.head.ref); if (v && cmpVer(v, ver || "0") > 0) ver = v; });
+          if (!ver) ver = state.latest || "";
+          if (!ver) return "";
+          return fetchDeployedVer().then(dep => (cmpVer(ver, dep || "0") > 0) ? ver : "");
+        }).catch(() => "");
+    }
+    function clearDeployTimer() { if (deployTimer) { clearTimeout(deployTimer); deployTimer = 0; } }
+    // Lock the update controls while a merged update publishes; poll until it lands.
+    function showDeploying(ver) {
+      if (prog.phase !== PH.IDLE || !ver) return;       // a live tracker already owns the UI
+      deploying = ver; deployStart = Date.now();
+      const btn = $("updateNowBtn"); if (btn) { btn.disabled = true; btn.innerHTML = "&#9203; Finishing update&hellip;"; }
+      const tg = $("target"); if (tg) tg.disabled = true;
+      setCmdStatus(
+        `An update to <code>v${esc(ver)}</code> was merged and is <strong>publishing now</strong> &mdash; the dashboard ` +
+        `will show it shortly. You can&rsquo;t start another update until this one finishes.`, null);
+      clearDeployTimer(); deployTimer = setTimeout(pollDeploying, 15000);
+    }
+    function pollDeploying() {
+      fetchDeployedVer().then(dep => {
+        if (deploying && dep && cmpVer(dep, deploying) >= 0) {                  // the new version is live
+          clearDeployTimer();
+          setCmdStatus(`&#10003; <code>v${esc(deploying)}</code> is now published &mdash; refreshing&hellip;`, null);
+          deploying = "";
+          setTimeout(() => location.reload(), 1500);
+          return;
+        }
+        if (deploying && Date.now() - deployStart > 10 * 60 * 1000) {           // gave it long enough -- unlock
+          clearDeployTimer();
+          const v = deploying; deploying = "";
+          const btn = $("updateNowBtn"); if (btn) btn.disabled = false;
+          const tg = $("target"); if (tg) tg.disabled = false;
+          setCmdStatus(`The update to <code>v${esc(v)}</code> is taking longer than usual to publish &mdash; reload this page to check, or open the <a href="https://github.com/${esc(state.repo)}/actions" target="_blank" rel="noopener">Actions tab</a>.`, null);
+          return;
+        }
+        deployTimer = setTimeout(pollDeploying, 15000);
+      }).catch(() => { deployTimer = setTimeout(pollDeploying, 15000); });
+    }
+    // A direct-push update (no PR) committed to the default branch that the live
+    // dashboard hasn't deployed yet. Detect from the default branch's head commit:
+    // a recent "adopt LabVIEW CI tooling v<ver>" whose version is ahead of deployed.
+    function findDirectPushPublishing() {
+      return resolveBranch().then((branch) =>
+        fetch(`https://api.github.com/repos/${state.repo}/commits/${encodeURIComponent(branch)}`,
+          { cache: "no-store", headers: authHeaders() })
+          .then((r) => r.ok ? r.json() : null)
+          .then((c) => {
+            const msg = (c && c.commit && c.commit.message) || "";
+            const when = c && c.commit && c.commit.committer && c.commit.committer.date;
+            const recent = when && (Date.now() - new Date(when).getTime()) < 25 * 60 * 1000;
+            const m = /adopt LabVIEW CI tooling v(\d+\.\d+\.\d+)/i.exec(msg);
+            if (!recent || !m) return "";
+            return fetchDeployedVer().then((dep) => (cmpVer(m[1], dep || "0") > 0) ? m[1] : "");
+          }).catch(() => ""));
+    }
+    function detectInFlight() {
+      if (prog.phase !== PH.IDLE) return;            // a local resume already owns the view
+      Promise.all([findOpenUpdatePr(), findActiveRun(), findDeployingUpdate(), findDirectPushPublishing()]).then(([hit, run, dep, dep2]) => {
+        if (prog.phase !== PH.IDLE) return;          // a resume landed while we polled
+        if (hit) {
+          const pr = hit.pr;
+          prog.ver = hit.ver; prog.ts = Date.now();
+          if (run) { prog.runId = run.id; prog.runUrl = run.html_url; }
+          showReview(pr, hit.ver, `An update to <code>v${esc(hit.ver)}</code> is already in progress. `);
+          pollPrMerged(pr.number, 0);
+          return;
+        }
+        if (run) {
+          prog.ver = state.target || state.latest || "";
+          prog.ts = new Date(run.created_at).getTime() || Date.now();
+          prog.runId = run.id; prog.runUrl = run.html_url;
+          setPhase(run.status === "in_progress" ? PH.RUNNING : PH.QUEUED,
+            run.status === "in_progress"
+              ? "An update is already building on GitHub Actions&hellip; tracking its progress."
+              : "An update is already queued on GitHub Actions&hellip; waiting for a runner.");
+          pollRun(0);
+          return;
+        }
+        const publishing = dep || dep2;     // a merged PR OR a direct push, now deploying
+        if (publishing) showDeploying(publishing);   // lock until the new build lands
+      });
+    }
+
+    // Restore a live update view after a reload (state is scoped to THIS repo and
+    // expires after 2h). Resumes polling from wherever it left off.
+    function resumeProgress() {
+      const s = loadProg();
+      if (!s || s.repo !== state.repo) return;
+      if (!s.phase || s.phase === PH.IDLE || s.phase === PH.DONE) { clearProg(); return; }
+      if (s.ts && Date.now() - s.ts > 2 * 3600 * 1000) { clearProg(); return; }
+      prog.ver = s.ver || state.target || state.latest || "";
+      prog.ts = s.ts || Date.now(); prog.runId = s.runId || 0; prog.runUrl = s.runUrl || "";
+      prog.prUrl = s.prUrl || ""; prog.prNum = s.prNum || 0;
+      if (s.phase === PH.PUBLISHING) { startPublishPoll(prog.ver); }
+      else if (prog.prNum) { setPhase(PH.REVIEW, `Resuming&hellip; pull request <a href="${esc(prog.prUrl)}" target="_blank" rel="noopener">#${prog.prNum}</a> is open. <strong>Merge it</strong> to finish updating to <code>v${esc(prog.ver)}</code>. <span class="up-note">Most updates have no checks to wait for &mdash; you can merge right away.</span>`); pollPrMerged(prog.prNum, 0); }
+      else if (prog.runId || s.phase >= PH.QUEUED) { setPhase(PH.RUNNING, "Resuming&hellip; checking the update workflow&rsquo;s progress."); pollRun(0); }
+      else { startPrPoll(); }
+    }
+
+    function renderUpdateButton() {
+      const btn = $("updateNowBtn");
+      if (!btn) return;
+      const ver = state.target || state.latest || "";
+      const ghUrl = `https://github.com/${state.repo}/actions/workflows/apply-tooling-update.yml`;
+      btn.innerHTML = "&#11014; Update to v" + esc(ver);
+      const gh = $("openOnGh"); if (gh) gh.href = ghUrl;
+      const tr = $("tokRepo"); if (tr) tr.textContent = state.repo;
+      // Pre-fill the token-creation form: name, resource owner, and the one
+      // permission a dispatch needs (Actions: write). GitHub has no URL param to
+      // pre-select the specific repository, so step 2 (Repository access) stays
+      // manual. Same shape the dashboard's "Run now" and the report header use.
+      const tc = $("tokCreate");
+      if (tc) {
+        const owner = (state.repo || "").split("/")[0];
+        const qp = new URLSearchParams({
+          name: "LabVIEW CI dispatch",
+          description: "Queue LabVIEW CI runs for " + (state.repo || "this repo") + " (Run now / Re-run / Update).",
+          actions: "write"
+        });
+        if (owner) qp.set("target_name", owner);
+        tc.href = "https://github.com/settings/personal-access-tokens/new?" + qp.toString();
+      }
+      refreshTokForget();
+      $("updateHowto").innerHTML =
+        `<strong>Update now</strong> starts the <strong>Apply LabVIEW CI update</strong> workflow, which commits ` +
+        `<code>v${esc(ver)}</code> <strong>straight to your repository</strong> &mdash; no pull request to merge (see the ` +
+        `steps above). The first time, paste a fine-grained token with <strong>Actions: Read and write</strong> (the dialog ` +
+        `walks you through it; the same token the dashboard&rsquo;s &ldquo;Run now&rdquo; uses). Prefer not to use a token? ` +
+        `<a href="${esc(ghUrl)}" target="_blank" rel="noopener">Open the workflow on GitHub</a> and click <strong>Run workflow</strong>.`;
+    }
+
+    function showUpToDate() {
+      const lbl = $("targetRepoLabel"); if (lbl) lbl.textContent = "Up to date \u2014";
+      $("sub").innerHTML = `${repoCode(state.repo)} is running the latest LabVIEW CI tooling.`;
+      $("versionLine").innerHTML =
+        `<span class="uptodate">&#10003; Up to date &mdash; v${esc(state.from || state.latest)} is the latest version.</span>`;
+    }
+
+    // ---- wiring ----------------------------------------------------------
+    function wireTabs() {
+      document.querySelectorAll("#tabs .tab").forEach(t =>
+        t.addEventListener("click", () => {
+          document.querySelectorAll("#tabs .tab").forEach(x => x.classList.remove("active"));
+          t.classList.add("active");
+          activeTab = t.dataset.tab;
+          renderCommand();
+        }));
+    }
+    function wirePicker() {
+      $("target").addEventListener("change", () => { state.target = $("target").value; renderCommand(); });
+    }
+    function wireButtons() {
+      $("copyCmd").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText($("cmd").textContent);
+          $("copyCmd").textContent = "Copied!";
+          setTimeout(() => $("copyCmd").textContent = "Copy", 1400);
+        } catch (_) { /* clipboard blocked */ }
+      });
+      $("viewRelease").addEventListener("click", () => {
+        const tag = "v" + state.target;
+        const url = `https://github.com/${state.srcRepo}/releases/tag/${encodeURIComponent(tag)}`;
+        window.open(url, "_blank", "noopener");
+      });
+      $("updateNowBtn").addEventListener("click", dispatchUpdate);
+      $("tokSave").addEventListener("click", saveTokAndDispatch);
+      $("tokCancel").addEventListener("click", hideTokenPanel);
+      $("tokForget").addEventListener("click", () => { clearTok(); refreshTokForget(); setCmdStatus("Token removed from this browser.", null); });
+      const ti = $("tokInput"); if (ti) ti.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); saveTokAndDispatch(); } });
+      const ws = $("wfTokSave"); if (ws) ws.addEventListener("click", saveWfTokenAndRetry);
+      const wc = $("wfTokCancel"); if (wc) wc.addEventListener("click", hideWfTokenPanel);
+      const wi = $("wfTokInput"); if (wi) wi.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); saveWfTokenAndRetry(); } });
+      const det = $("upDetails"); if (det) det.addEventListener("toggle", () => { if (det.open) refreshJobs(); else stopJobsTimer(); });
+    }
+
+    // ---- init ------------------------------------------------------------
+    (async function init() {
+      state.repo = qp.get("repo") || detectRepoFromUrl();
+      state.from = qp.get("from") || "";
+      state.srcRepo = qp.get("src") || "";
+      state.srcRef = qp.get("ref") || "";
+
+      // Surface the repo being upgraded immediately (and keep its name clickable),
+      // and point "Back to dashboard" at THAT repo's own dashboard, not the source.
+      if (state.repo) {
+        const tn = $("targetRepoName"); if (tn) { tn.textContent = state.repo; tn.href = ghUrl(state.repo); }
+        const tr = $("targetRepo"); if (tr) tr.hidden = false;
+        const dash = clientPagesUrl(); const bl = $("backLink"); if (bl && dash) bl.href = dash;
+      }
+
+      const consumer = await loadConsumerCatalog();
+      if (consumer) {
+        if (!state.from) state.from = consumer.version || "";
+        const cs = consumer.source || {};
+        if (!state.srcRepo) state.srcRepo = cs.repo || "";
+        if (!state.srcRef) state.srcRef = cs.ref || "";
+      }
+      if (!state.srcRepo) state.srcRepo = SOURCE_FALLBACK.repo;
+      if (!state.srcRef) state.srcRef = SOURCE_FALLBACK.ref;
+
+      // Follow the relocation pointer (.github/labview-ci/source.json in the source
+      // repo): if the tooling moved to a new official home, check THERE for updates
+      // and tell the user their next update will move them. The update itself (the
+      // apply-tooling-update workflow dispatched by "Update now") follows the same
+      // pointer server-side and re-pins this repository to the new home.
+      try {
+        const ptr = await fetchJson(rawUrl(state.srcRepo, state.srcRef, ".github/labview-ci/source.json"));
+        if (ptr && ptr.repo && ptr.repo.toLowerCase() !== state.srcRepo.toLowerCase()) {
+          state.movedTo = state.srcRepo;
+          state.srcRepo = ptr.repo;
+          state.srcRef = ptr.ref || state.srcRef;
+        }
+      } catch (_) { /* no redirect */ }
+      if (state.movedTo) {
+        const mn = $("movedNote");
+        if (mn) {
+          mn.style.display = "";
+          mn.innerHTML = `<strong>New home.</strong> This LabVIEW CI tooling has moved to ` +
+            `<a href="https://github.com/${esc(state.srcRepo)}" target="_blank" rel="noopener"><code>${esc(state.srcRepo)}</code></a>. ` +
+            `Updates are now pulled from there; running the update once moves this repository to the new official source.`;
+        }
+      }
+
+      const ls = $("loadStatus");
+      const source = await loadSourceCatalog(state.srcRepo, state.srcRef);
+      if (!source) {
+        ls.className = "status err";
+        ls.innerHTML = `Could not reach the source repository (${repoCode(state.srcRepo)}) to check for updates. ` +
+          `Try again later, or view it on <a href="https://github.com/${esc(state.srcRepo)}" target="_blank" rel="noopener">GitHub</a>.`;
+        $("sub").textContent = "Could not check for updates.";
+        renderVersionLine();
+        return;
+      }
+
+      state.latest = source.version || "";
+      state.releases = releases(source);
+      state.missing = state.from
+        ? state.releases.filter(r => cmpVer(r.version, state.from) > 0)
+        : state.releases.slice();
+
+      renderVersionLine();
+
+      if (!state.missing.length) {
+        showUpToDate();
+        ls.className = "status ok";
+        ls.textContent = "No newer releases are available.";
+        // Any in-flight update for this repo has landed — clear the live state.
+        clearProg();
+        try { localStorage.removeItem("lvci_updating"); } catch (_) {}
+        renderHistory();
+        return;
+      }
+
+      const n = state.missing.length;
+      const lbl = $("targetRepoLabel"); if (lbl) lbl.textContent = "Updating";
+      $("sub").innerHTML = `${repoCode(state.repo)} has ${n} newer release${n > 1 ? "s" : ""} available ` +
+        `from ${repoCode(state.srcRepo)}. Update below; expand <strong>What&rsquo;s changed</strong> for the notes.`;
+      ls.className = "status";
+      ls.textContent = "";
+
+      renderNotes();
+      renderPicker();
+      renderCommand();
+      wireTabs();
+      wirePicker();
+      wireButtons();
+      resumeProgress();
+      if (prog.phase === PH.IDLE) detectInFlight();
+    })();
+  })();
+  </script>
+</body>
+</html>
