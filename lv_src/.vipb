@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-03-05 17:05:48" Creator="Tom" Comments="" ID="88b45323d50e281a4f4c3dfd80435619">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-07-28 19:47:01" Creator="Tom" Comments="" ID="9b7e51d8ddd62e96baedf38c7cbf6171">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
     <Library_Version>5.0.0.14</Library_Version>
@@ -14,6 +14,8 @@
     <Product_Name>Nominal IO Client</Product_Name>
     <Was_Built>true</Was_Built>
     <Target>LabVIEW</Target>
+    <Package_LabVIEW_Save_Version>false</Package_LabVIEW_Save_Version>
+    <LabVIEW_Save_Version/>
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
@@ -171,9 +173,6 @@ Fixes:
         <Path>lv_src/Nominal Client.lvproj</Path>
       </Exclusions>
       <Exclusions>
-        <Path>lv_src/.token</Path>
-      </Exclusions>
-      <Exclusions>
         <Path>submodules/nominal-streaming-labview-ffi/.cargo</Path>
       </Exclusions>
       <Exclusions>
@@ -241,9 +240,6 @@ Fixes:
       </Exclusions>
       <Exclusions>
         <Path>submodules/reqwest-labview/lv-src/shared-library/deploy_rt_lib.ps1</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>builds</Path>
       </Exclusions>
       <Exclusions>
         <Path>submodules/nominal-streaming-labview-ffi/lv_src/example</Path>
@@ -523,7 +519,7 @@ Fixes:
         <Path>..\Workspaces</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B2EEAA5DD914A821476CB97B7F449A01</GUID>
+      <GUID>A9C152B5028391E5BF362466A76211C5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -810,7 +806,7 @@ Fixes:
         <Path>asset\Palette Items\unarchive.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>057A20D12A03488748FFCD67C4876435</GUID>
+      <GUID>B3228457FC4B778CF5FE6689A6DC9160</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -985,7 +981,7 @@ Fixes:
         <Path>Nominal Client\Palette Items\run.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>11AA60F7EC0EA6A3FB87562C9F259CA2</GUID>
+      <GUID>661F192BA71FA1DD5047A07977CC6EB6</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1146,7 +1142,7 @@ Fixes:
         <Path>Run\Palette Items\event.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2C0631870C90236D6F4F0C44813867CC</GUID>
+      <GUID>22BD5C2492A9BFE65D55E871A58F5C93</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1352,7 +1348,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>metadata.update_unit.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Update Channel Unit</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -1366,7 +1362,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>metadata.update_description.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Update Channel Description</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -1380,7 +1376,7 @@ Fixes:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>metadata.get.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Get Channel Metadata</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -1391,7 +1387,21 @@ Fixes:
         <Path>channel helper\metadata.get.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BB3393A9E00FC084A2AC34A984ADB419</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Basic Function Generator (Absolute Time).vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>1</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Basic Function Generator (Absolute Time).vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>8F377BB2C353E4BAD196E8C02651EB0E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1454,7 +1464,7 @@ Fixes:
         <Path>Nominal Client\Palette Items\catalog.get_dataset.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E07A43179CED2FD8525833DCCE299D25</GUID>
+      <GUID>8769FB0C6CBCD2468CB7AFD9CF9E7FBF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1517,7 +1527,7 @@ Fixes:
         <Path>..\MultiPart File Upload</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>443591B80C2C2570FD0D4F5EB90CCB96</GUID>
+      <GUID>E83297A53D262068DBD225696B7AD4E1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1650,7 +1660,7 @@ Fixes:
         <Path>Nominal Client MultiPart Upload\upload.list_parts.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5C6155C0AF39825E21403B4FAEA9B97A</GUID>
+      <GUID>8568828857C5DB16DD74380443B4CE35</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1811,7 +1821,7 @@ Fixes:
         <Path>Quick Start\Quick Start - Update Channel Metadata.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E59CE4ECF6D71E9D804BCD90F2C18A76</GUID>
+      <GUID>F336EA36E4602767E28E412577BD9376</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1902,7 +1912,7 @@ Fixes:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2F1378DA21718AE1F8C80BB88BED6B6E</GUID>
+      <GUID>43E41294AB3BD638AFC954C0D3136D9D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1993,7 +2003,7 @@ Fixes:
         <Path>Nominal Client\workspace.from_rid.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FC052F2549FF0095C5AF527FC1ADAEA0</GUID>
+      <GUID>ECEB6FE1E91CD9033565FB04C0EC3C23</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2112,7 +2122,7 @@ Fixes:
         <Path>type\type.property.set.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>972EACADE0F8E4F602E0B510E7E94AAA</GUID>
+      <GUID>6AFB5E16F04E2B3BEE7D75C3CE92CF91</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -2147,7 +2157,7 @@ Fixes:
         <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Stream\Initialize.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0628C02B020E0885751EE0E2BACD6EDE</GUID>
+      <GUID>6AB2C7CD5B773D16B17DAA160B6AA5B1</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
