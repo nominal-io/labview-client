@@ -1,8 +1,44 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "f62890b4278b154592224a30adab258b66afa2a6",
+  "sha": "dded3924c395a246970783e63e3a6b7ca4fe9ac0",
   "revisions": [
+    {
+      "sha": "dded3924c395a246970783e63e3a6b7ca4fe9ac0",
+      "short": "dded392",
+      "message": "Merge pull request #69 from nominal-io/64-get-epoch-time-assumes-current-time-for-time0-rather-than-labview-epoch-0-times-before-unix-epoch-not-handled-correctly",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T20:36:14Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "1c7f16da59a84831317b13d74d6a413fd5805e52",
+      "short": "1c7f16d",
+      "message": "removed proplematic dependency",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T20:35:27Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "a8f6ab394cb8232eb5f5673799dd0b73571786c1",
+      "short": "a8f6ab3",
+      "message": "Bump nominal-streaming-labview-ffi submodule for Channel/Nominal Streaming library updates",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T20:17:18Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "ec77ff1d4b89e016a154a831ac4cbed03124573e",
+      "short": "ec77ff1",
+      "message": "Bump nominal-streaming-labview-ffi submodule for Basic Function Generator (Absolute Time) VI",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T18:41:30Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "f62890b4278b154592224a30adab258b66afa2a6",
       "short": "f62890b",
@@ -865,42 +901,6 @@
       "author": "Tom McQuillan",
       "date": "2025-06-12T10:58:38Z",
       "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "d6b12603857323513b59fb235d269881b188401d",
-      "short": "d6b1260",
-      "message": "First pass at Asset. Create",
-      "author": "Tom McQuillan",
-      "date": "2025-06-11T16:23:23Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "94dd82821abe6fa0b350d8d38167f5fb63d2494a",
-      "short": "94dd828",
-      "message": "Update Nominal Client.lvclass",
-      "author": "Tom McQuillan",
-      "date": "2025-06-11T14:51:12Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "e97a3020a4c05087e0fd10fc1dfa3c9ebf96543b",
-      "short": "e97a302",
-      "message": "Got new ingest functions working!",
-      "author": "Tom McQuillan",
-      "date": "2025-06-11T14:50:56Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "6462e7d1d1df32c3c46b9c95c1eba6a05d2ea70d",
-      "short": "6462e7d",
-      "message": "Added test files",
-      "author": "Tom McQuillan",
-      "date": "2025-06-11T10:18:18Z",
-      "project": false,
       "dep_only": false
     }
   ],
