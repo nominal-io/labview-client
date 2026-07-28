@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "dded3924c395a246970783e63e3a6b7ca4fe9ac0",
+  "sha": "2ceba8acf7c902efc939b808b29ef7168874b061",
   "revisions": [
+    {
+      "sha": "2ceba8acf7c902efc939b808b29ef7168874b061",
+      "short": "2ceba8a",
+      "message": "updated descripton",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T20:44:34Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "dded3924c395a246970783e63e3a6b7ca4fe9ac0",
       "short": "dded392",
@@ -891,15 +900,6 @@
       "message": "Added methods to create, get, and set type properties",
       "author": "Tom McQuillan",
       "date": "2025-06-12T15:00:21Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "60615879b0593f1c1b904aeed7dcdc2cfc572a84",
-      "short": "6061587",
-      "message": "Great progress on asset and Types",
-      "author": "Tom McQuillan",
-      "date": "2025-06-12T10:58:38Z",
       "project": true,
       "dep_only": false
     }
