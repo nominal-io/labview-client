@@ -1,0 +1,71 @@
+{
+ "meta": {
+  "sha": "712105ac4926de3779dad6fd112757c337bbe8da",
+  "short": "712105a",
+  "platform": "windows",
+  "repo": "nominal-io/labview-client",
+  "pages_url": "https://nominal-io.github.io/labview-client",
+  "snap_base": "https://nominal-io.github.io/labview-client/vi-snapshots/",
+  "dash_url": "https://nominal-io.github.io/labview-client/",
+  "labview_version": "2026",
+  "tools": [],
+  "commit": {
+   "message": "Merge f39a2f01b447c0c9f056d258a5df4b90dd8efe56 into ffa25b504109126ebb7b7cee2dcbacdfba0c4ced",
+   "author": "Tom McQuillan",
+   "date": "2026-07-28T13:29:36Z"
+  },
+  "generated_utc": "2026-07-28 13:45 UTC"
+ },
+ "summary": {
+  "tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errored": 0,
+  "skipped": 0,
+  "percent": 0,
+  "status": "empty",
+  "duration": 0.0
+ },
+ "status_order": [
+  "failed",
+  "error",
+  "skipped",
+  "passed"
+ ],
+ "status_meta": {
+  "failed": {
+   "label": "Failed",
+   "color": "#da3633",
+   "blurb": "An assertion failed."
+  },
+  "error": {
+   "label": "Errored",
+   "color": "#bb8009",
+   "blurb": "The test raised an unexpected error."
+  },
+  "skipped": {
+   "label": "Skipped",
+   "color": "#6e7681",
+   "blurb": "The test was skipped."
+  },
+  "passed": {
+   "label": "Passed",
+   "color": "#2ea043",
+   "blurb": "The test passed."
+  }
+ },
+ "platforms": [
+  {
+   "id": "windows",
+   "url": null
+  },
+  {
+   "id": "linux",
+   "url": "linux/results.json"
+  }
+ ],
+ "suites": [],
+ "tooling": {
+  "missing": []
+ }
+}
