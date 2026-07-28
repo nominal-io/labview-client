@@ -8,7 +8,7 @@ run-name: Publish CI dashboard - ${{ github.event_name == 'workflow_dispatch' &&
 
 on:
   # Build on the install merge + whenever the config changes, so the dashboard
-  # publishes itself the first time without waiting for the hourly schedule.
+  # publishes itself the first time without needing a manual dispatch.
   push:
     branches: [main]
     paths:
@@ -29,8 +29,6 @@ on:
       - "Build LabVIEW CI Image"
       - "Build LabVIEW CI Image - Linux"
     types: [completed]
-  schedule:
-    - cron: '0 * * * *'
   workflow_dispatch:
 
 concurrency:
