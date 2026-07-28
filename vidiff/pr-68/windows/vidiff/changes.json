@@ -1,0 +1,20 @@
+{
+  "platform": "windows",
+  "files": [
+    {
+      "file": "lv_src/Nominal Client/Nominal LabVIEW Client API Tree.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-Nominal_LabVIEW_Client_API_Tree.vi/index.html"
+    },
+    {
+      "file": "lv_src/asset/asset.from_json.vi",
+      "type": "modified",
+      "report": "lv_src-asset-asset.from_json.vi/index.html"
+    },
+    {
+      "file": "lv_src/asset/create.vi",
+      "type": "modified",
+      "report": "lv_src-asset-create.vi/index.html"
+    }
+  ]
+}
