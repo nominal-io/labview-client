@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "ffa25b504109126ebb7b7cee2dcbacdfba0c4ced",
+  "sha": "f62890b4278b154592224a30adab258b66afa2a6",
   "revisions": [
+    {
+      "sha": "f62890b4278b154592224a30adab258b66afa2a6",
+      "short": "f62890b",
+      "message": "Merge pull request #68 from nominal-io/66-assetfrom_jsonvi-breaks-when-optional-top-level-assettype-field-is-absent-from-the-response",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T13:39:39Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "f39a2f01b447c0c9f056d258a5df4b90dd8efe56",
+      "short": "f39a2f0",
+      "message": "added error filtering to optional asset json items",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T13:28:39Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "ffa25b504109126ebb7b7cee2dcbacdfba0c4ced",
       "short": "ffa25b5",
@@ -883,24 +901,6 @@
       "author": "Tom McQuillan",
       "date": "2025-06-11T10:18:18Z",
       "project": false,
-      "dep_only": false
-    },
-    {
-      "sha": "36910819ea1c9e6854d44d201cbf38ba15089812",
-      "short": "3691081",
-      "message": "Update containerized.lvclass",
-      "author": "Tom McQuillan",
-      "date": "2025-06-10T11:04:44Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "cecf8a2a7dc3cd9c8ea4834f459270213e70a5ea",
-      "short": "cecf8a2",
-      "message": "Added options container to ingest payloads",
-      "author": "Tom McQuillan",
-      "date": "2025-06-10T11:04:12Z",
-      "project": true,
       "dep_only": false
     }
   ],
