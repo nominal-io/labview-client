@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "2ceba8acf7c902efc939b808b29ef7168874b061",
+  "sha": "3fbfc4f2f39cafe12dcdffa30a1ed3e975ac426d",
   "revisions": [
+    {
+      "sha": "3fbfc4f2f39cafe12dcdffa30a1ed3e975ac426d",
+      "short": "3fbfc4f",
+      "message": "ci: adopt LabVIEW CI tooling v4.11.10 (full update)",
+      "author": "github-actions[bot]",
+      "date": "2026-07-28T21:17:53Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "2ceba8acf7c902efc939b808b29ef7168874b061",
       "short": "2ceba8a",
@@ -891,15 +900,6 @@
       "message": "Updated some JSON parsing errors",
       "author": "Tom McQuillan",
       "date": "2025-06-13T15:25:19Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "e765bd46be982d6971c7190b2ea8aed49ef89ed4",
-      "short": "e765bd4",
-      "message": "Added methods to create, get, and set type properties",
-      "author": "Tom McQuillan",
-      "date": "2025-06-12T15:00:21Z",
       "project": true,
       "dep_only": false
     }
