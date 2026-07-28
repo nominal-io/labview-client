@@ -1,0 +1,71 @@
+{
+ "meta": {
+  "sha": "f62890b4278b154592224a30adab258b66afa2a6",
+  "short": "f62890b",
+  "platform": "windows",
+  "repo": "nominal-io/labview-client",
+  "pages_url": "https://nominal-io.github.io/labview-client",
+  "snap_base": "https://nominal-io.github.io/labview-client/vi-snapshots/",
+  "dash_url": "https://nominal-io.github.io/labview-client/",
+  "labview_version": "2026",
+  "tools": [],
+  "commit": {
+   "message": "Merge pull request #68 from nominal-io/66-assetfrom_jsonvi-breaks-when-optional-top-level-assettype-field-is-absent-from-the-response",
+   "author": "Tom McQuillan",
+   "date": "2026-07-28T14:39:39+01:00"
+  },
+  "generated_utc": "2026-07-28 13:55 UTC"
+ },
+ "summary": {
+  "tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errored": 0,
+  "skipped": 0,
+  "percent": 0,
+  "status": "empty",
+  "duration": 0.0
+ },
+ "status_order": [
+  "failed",
+  "error",
+  "skipped",
+  "passed"
+ ],
+ "status_meta": {
+  "failed": {
+   "label": "Failed",
+   "color": "#da3633",
+   "blurb": "An assertion failed."
+  },
+  "error": {
+   "label": "Errored",
+   "color": "#bb8009",
+   "blurb": "The test raised an unexpected error."
+  },
+  "skipped": {
+   "label": "Skipped",
+   "color": "#6e7681",
+   "blurb": "The test was skipped."
+  },
+  "passed": {
+   "label": "Passed",
+   "color": "#2ea043",
+   "blurb": "The test passed."
+  }
+ },
+ "platforms": [
+  {
+   "id": "windows",
+   "url": null
+  },
+  {
+   "id": "linux",
+   "url": "linux/results.json"
+  }
+ ],
+ "suites": [],
+ "tooling": {
+  "missing": []
+ }
+}
