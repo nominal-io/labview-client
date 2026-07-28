@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "d0ada293ffcf0dc098bed82b9ac5705a4be31f24",
+  "sha": "ffa25b504109126ebb7b7cee2dcbacdfba0c4ced",
   "revisions": [
+    {
+      "sha": "ffa25b504109126ebb7b7cee2dcbacdfba0c4ced",
+      "short": "ffa25b5",
+      "message": "Merge pull request #67 from nominal-io/ci/remove-hourly-dashboard-cron",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T12:41:51Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "1bba3fc3e6779cb938d816cdc6a271dcd9cb838d",
+      "short": "1bba3fc",
+      "message": "ci: remove hourly cron trigger from dashboard-pages workflow",
+      "author": "Tom McQuillan",
+      "date": "2026-07-28T12:38:39Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "d0ada293ffcf0dc098bed82b9ac5705a4be31f24",
       "short": "d0ada29",
@@ -882,24 +900,6 @@
       "message": "Added options container to ingest payloads",
       "author": "Tom McQuillan",
       "date": "2025-06-10T11:04:12Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "cf94056f58089efc8c7fcdc2072c7216c5eb0181",
-      "short": "cf94056",
-      "message": "Improved video ingest data",
-      "author": "Tom McQuillan",
-      "date": "2025-06-04T20:29:31Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "9f6c6e231ea9dc6317b47ad6472551037c5efa3c",
-      "short": "9f6c6e2",
-      "message": ".",
-      "author": "Tom McQuillan",
-      "date": "2025-06-03T15:57:38Z",
       "project": true,
       "dep_only": false
     }
