@@ -1,0 +1,79 @@
+Project has no build specifications: lv_src\Nominal Client.lvproj
+Project has no build specifications: lv_src\asset\asset.lvproj
+Project has no build specifications: lv_src\dataset\dataset.lvproj
+Project has no build specifications: lv_src\Run\run.lvproj
+Project has no build specifications: sample_project\Source\Nominal Fan Test\Fan Characterization.lvproj
+=== ExecuteBuildSpec 'My Application' [EXE] target 'My Computer' in test_files\build from toolkit\build from toolkit.lvproj ===
+LabVIEWCLI started logging in file:  C:\Users\ContainerAdministrator\AppData\Local\Temp\lvtemporary_758592.log
+Using LabVIEW: "C:\Program Files\National Instruments\LabVIEW 2026\LabVIEW.exe"
+LabVIEW launched successfully.
+Connection established with LabVIEW at port number 3363.
+
+LabVIEWCLI.exe : Operation output: 
+At C:\workspace\.github\labview\build-binaries.ps1:252 char:12
++     $out = & $CliExe @cliArgs 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Operation output: :String) [], Re 
+   moteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error Code : 1
+Error Message : Cannot complete build because following VI loaded broken:
+
+C:\workspace\test_files\build from toolkit\main.vi
+
+Open the VI in LabVIEW and fix the listed errors. If the VI loads as expected 
+but errors are still detected during the build, contact National Instruments 
+technical support for assistance.
+
+Broken VIs:
+- main.vi:
+- main.vi:Instance:66e5d843-df2e-46cc-88a2-5ef3a179773d.vi:
+
+
+
+
+
+
+
+
+
+
+Click the link below to visit the Application Builder support page. Use the 
+following information as a reference:
+
+
+
+Error 1003 occurred at AB_Get_Detailed_BrokenVI_Message.vi -> 
+AB_Targetfile.lvclass:Open_Top_Level_VIs.vi
+
+
+Possible reason(s):
+
+
+LabVIEW: (Hex 0x3EB) The VI is not executable. This error may occur because 
+the VI is either broken or contains a subVI that LabVIEW cannot locate. Select 
+File>>Open to open the VI and verify that you can run it.
+An error occurred while running the ExecuteBuildSpec operation.
+
+ExecuteBuildSpec operation failed.
+
+
+=== ExecuteBuildSpec 'My Application' [EXE] target 'My Computer' in test_files\building an application\application.lvproj ===
+LabVIEWCLI started logging in file:  C:\Users\ContainerAdministrator\AppData\Local\Temp\lvtemporary_409797.log
+Using LabVIEW: "C:\Program Files\National Instruments\LabVIEW 2026\LabVIEW.exe"
+Connection established with LabVIEW at port number 3363.
+
+LabVIEWCLI.exe : Error code : 66
+At C:\workspace\.github\labview\build-binaries.ps1:252 char:12
++     $out = & $CliExe @cliArgs 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error code : 66:String) [], Remot 
+   eException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error message : Call By Reference in RunExecuteOperationVI.vi->RunOperationCore
+.vi->RunOperation.vi->RunOperation.vi.ProxyCaller
+An error occurred while running the LabVIEW CLI.
+
+
