@@ -8,7 +8,7 @@ run-name: Publish CI dashboard - ${{ github.event_name == 'workflow_dispatch' &&
 
 on:
   # Build on the install merge + whenever the config changes, so the dashboard
-  # publishes itself the first time without needing a manual dispatch.
+  # publishes itself the first time without waiting for the hourly schedule.
   push:
     branches: [main]
     paths:
@@ -29,6 +29,8 @@ on:
       - "Build LabVIEW CI Image"
       - "Build LabVIEW CI Image - Linux"
     types: [completed]
+  schedule:
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 concurrency:
@@ -51,7 +53,7 @@ jobs:
         shell: bash
         run: |
           REF=$(awk '/^[[:space:]]*ref:[[:space:]]/{print $2; exit}' .github/labview-ci.yml 2>/dev/null)
-          echo "ref=${REF:-v4.8.11}" >> "$GITHUB_OUTPUT"
+          echo "ref=${REF:-v4.11.10}" >> "$GITHUB_OUTPUT"
       - name: Check out tooling (opted-in version)
         uses: actions/checkout@v5
         with:
