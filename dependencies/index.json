@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "3fbfc4f2f39cafe12dcdffa30a1ed3e975ac426d",
+  "sha": "53a88e4a6a8ae5e07fd1630085a2e8c71afe963d",
   "revisions": [
+    {
+      "sha": "53a88e4a6a8ae5e07fd1630085a2e8c71afe963d",
+      "short": "53a88e4",
+      "message": "Merge branch 'main' of https://github.com/nominal-io/labview-client",
+      "author": "Tom McQuillan",
+      "date": "2026-07-30T19:40:08Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "6beaef312780120cb8d788907740de656da53113",
+      "short": "6beaef3",
+      "message": "mass compile and post RC build, no functional changes",
+      "author": "Tom McQuillan",
+      "date": "2026-07-30T19:39:41Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "3fbfc4f2f39cafe12dcdffa30a1ed3e975ac426d",
       "short": "3fbfc4f",
@@ -882,24 +900,6 @@
       "message": "Stream Batches from custom cluster",
       "author": "Tom McQuillan",
       "date": "2025-06-30T18:47:16Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "ca5b8914bfec3bf5a99ac2b6a4cdf6fde1e2bfb4",
-      "short": "ca5b891",
-      "message": "Added first pass of generic cluster streaming",
-      "author": "Tom McQuillan",
-      "date": "2025-06-25T16:59:41Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "ce598595d2c1d2149d51efc1cf892c6d9b6d3d65",
-      "short": "ce59859",
-      "message": "Updated some JSON parsing errors",
-      "author": "Tom McQuillan",
-      "date": "2025-06-13T15:25:19Z",
       "project": true,
       "dep_only": false
     }
