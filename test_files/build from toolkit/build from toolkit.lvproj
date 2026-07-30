@@ -17,19 +17,14 @@
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
-				<Item Name="0BF797F00008B1FD6B91F6E6B1C133D0REST Client.lvlib" Type="Library" URL="/&lt;vilib&gt;/Nominal/_Nominal IO Client_internal_deps/0BF797F00008B1FD6B91F6E6B1C133D0REST Client.lvlib"/>
 				<Item Name="1D String Array to Delimited String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/1D String Array to Delimited String.vi"/>
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
-				<Item Name="asset.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/asset/asset.lvclass"/>
 				<Item Name="Base64 Support.lvlib" Type="Library" URL="/&lt;vilib&gt;/JDP Science/JDP Science Common Utilities/Base64/Base64 Support.lvlib"/>
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
-				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
 				<Item Name="Check Special Tags.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Check Special Tags.vi"/>
 				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
 				<Item Name="Convert property node font to graphics font.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Convert property node font to graphics font.vi"/>
 				<Item Name="Create Directory Recursive.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Create Directory Recursive.vi"/>
-				<Item Name="dataScopes.lvlib" Type="Library" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/nominal types/dataScope/dataScopes.lvlib"/>
-				<Item Name="datasources.lvlib" Type="Library" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/Nominal Client/datasources/datasources.lvlib"/>
 				<Item Name="DateTime.ISO8601.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/DateTime.ISO8601.lvclass"/>
 				<Item Name="DateTimeFormatter.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter/DateTimeFormatter.lvclass"/>
 				<Item Name="Details Display Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Details Display Dialog.vi"/>
@@ -63,6 +58,7 @@
 				<Item Name="GetHelpDir.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/GetHelpDir.vi"/>
 				<Item Name="GetRTHostConnectedProp.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/GetRTHostConnectedProp.vi"/>
 				<Item Name="GregorianCal_MonthLengths.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/GregorianCal_MonthLengths.vi"/>
+				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
 				<Item Name="isDST.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/isDST.vi"/>
 				<Item Name="isLeapYear (integer).vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/isLeapYear (integer).vi"/>
 				<Item Name="isLeapYear (timestamp).vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/isLeapYear (timestamp).vi"/>
@@ -75,7 +71,6 @@
 				<Item Name="JDP Utility.lvlib" Type="Library" URL="/&lt;vilib&gt;/JDP Science/JDP Science Common Utilities/JDP Utility.lvlib"/>
 				<Item Name="JSONtext LVClass Serializer.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JDP Science/JSONtext/LVClass Serializer/JSONtext LVClass Serializer.lvclass"/>
 				<Item Name="JSONtext.lvlib" Type="Library" URL="/&lt;vilib&gt;/JDP Science/JSONtext/JSONtext.lvlib"/>
-				<Item Name="LabVIEWHTTPClient.lvlib" Type="Library" URL="/&lt;vilib&gt;/httpClient/LabVIEWHTTPClient.lvlib"/>
 				<Item Name="Locale -- enum.ctl" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Locale -- enum.ctl"/>
 				<Item Name="Longest Line Length in Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Longest Line Length in Pixels.vi"/>
 				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
@@ -84,25 +79,18 @@
 				<Item Name="LVMapReplaceAction.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMapReplaceAction.ctl"/>
 				<Item Name="LVNumericRepresentation.ctl" Type="VI" URL="/&lt;vilib&gt;/numeric/LVNumericRepresentation.ctl"/>
 				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
-				<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
 				<Item Name="NI_Data Type.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/Data Type/NI_Data Type.lvlib"/>
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
-				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
+				<Item Name="NI_MABase.lvlib" Type="Library" URL="/&lt;vilib&gt;/measure/NI_MABase.lvlib"/>
 				<Item Name="NI_SystemLogging.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/SystemLogging/NI_SystemLogging.lvlib"/>
-				<Item Name="Nominal Client.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/Nominal Client/Nominal Client.lvclass"/>
-				<Item Name="nominal types.lvlib" Type="Library" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/nominal types/nominal types.lvlib"/>
 				<Item Name="Not Found Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Not Found Dialog.vi"/>
-				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
-				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
 				<Item Name="Qualified Name Array To Single String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Qualified Name Array To Single String.vi"/>
-				<Item Name="Run.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/Run/Run.lvclass"/>
 				<Item Name="Search and Replace Pattern.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Search and Replace Pattern.vi"/>
 				<Item Name="Seconds Units -- enum.ctl" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Seconds Units -- enum.ctl"/>
 				<Item Name="Set Bold Text.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set Bold Text.vi"/>
 				<Item Name="Set String Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set String Value.vi"/>
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="Space Constant.vi" Type="VI" URL="/&lt;vilib&gt;/dlg_ctls.llb/Space Constant.vi"/>
-				<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/stream_custom_cluster/stream_custom_cluster.lvclass"/>
 				<Item Name="System Directory Type.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/System Directory Type.ctl"/>
 				<Item Name="TagReturnType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/TagReturnType.ctl"/>
 				<Item Name="Three Button Dialog CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog CORE.vi"/>
@@ -114,15 +102,7 @@
 				<Item Name="Timestamp to ISO8601 UTC DateTime.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Timestamp to ISO8601 UTC DateTime.vi"/>
 				<Item Name="Timestamp to ISO8601 Week.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Timestamp to ISO8601 Week.vi"/>
 				<Item Name="Timestamp to ISO8601 Year.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/formatter.iso8601/Timestamp to ISO8601 Year.vi"/>
-				<Item Name="timestampMetadata.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/timestampMetadata/timestampMetadata.lvclass"/>
-				<Item Name="timestampType.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/timestampType/timestampType.lvclass"/>
 				<Item Name="Trim Whitespace.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace.vi"/>
-				<Item Name="ts.absoloute type.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/ts.absoloute type/ts.absoloute type.lvclass"/>
-				<Item Name="ts.epochOfTimeUnit.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/ts.epochOfTimeUnit/ts.epochOfTimeUnit.lvclass"/>
-				<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/ts.iso8601/ts.iso8601.lvclass"/>
-				<Item Name="ts.logtime.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/ts.logtime/ts.logtime.lvclass"/>
-				<Item Name="ts.relative.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/ts.relative/ts.relative.lvclass"/>
-				<Item Name="type.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Nominal/Nominal IO Client/type/type.lvclass"/>
 				<Item Name="UTC Offset to Seconds.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/UTC Offset to Seconds.vi"/>
 				<Item Name="UTC Offsets -- enum.ctl" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Epoch Date &amp; Time/UTC Offsets -- enum.ctl"/>
 				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
@@ -133,10 +113,29 @@
 				<Item Name="Write Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet.vi"/>
 				<Item Name="Write Spreadsheet String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Spreadsheet String.vi"/>
 			</Item>
-			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
-			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
+			<Item Name="asset.lvclass" Type="LVClass" URL="../../../lv_src/asset/asset.lvclass"/>
+			<Item Name="dataScopes.lvlib" Type="Library" URL="../../../lv_src/nominal types/dataScope/dataScopes.lvlib"/>
+			<Item Name="datasources.lvlib" Type="Library" URL="../../../lv_src/datasources/datasources.lvlib"/>
+			<Item Name="event.lvclass" Type="LVClass" URL="../../../lv_src/event/event.lvclass"/>
+			<Item Name="lib_http_rs_labview_64.dll" Type="Document" URL="../../../submodules/reqwest-labview/lv-src/shared-library/lib_http_rs_labview_64.dll"/>
+			<Item Name="lib_nominal-streaming-lv_64.dll" Type="Document" URL="../../../submodules/nominal-streaming-labview-ffi/lv_src/bin/lib_nominal-streaming-lv_64.dll"/>
+			<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../../../lv_src/Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
+			<Item Name="Nominal Client.lvclass" Type="LVClass" URL="../../../lv_src/Nominal Client/Nominal Client.lvclass"/>
+			<Item Name="Nominal Streaming.lvlib" Type="Library" URL="../../../submodules/nominal-streaming-labview-ffi/lv_src/Nominal Streaming/Nominal Streaming.lvlib"/>
+			<Item Name="nominal types.lvlib" Type="Library" URL="../../../lv_src/nominal types/nominal types.lvlib"/>
+			<Item Name="reqwest-labview.lvlib" Type="Library" URL="../../../submodules/reqwest-labview/lv-src/shared-library/reqwest-labview.lvlib"/>
+			<Item Name="reqwest.lvclass" Type="LVClass" URL="../../../submodules/reqwest-labview/lv-src/reqwest/reqwest.lvclass"/>
+			<Item Name="Run.lvclass" Type="LVClass" URL="../../../lv_src/Run/Run.lvclass"/>
+			<Item Name="stream_custom_cluster.lvclass" Type="LVClass" URL="../../../lv_src/stream_custom_cluster/stream_custom_cluster.lvclass"/>
+			<Item Name="timestampMetadata.lvclass" Type="LVClass" URL="../../../lv_src/timestampMetadata/timestampMetadata.lvclass"/>
+			<Item Name="timestampType.lvclass" Type="LVClass" URL="../../../lv_src/timestampType/timestampType.lvclass"/>
+			<Item Name="ts.absoloute type.lvclass" Type="LVClass" URL="../../../lv_src/ts.absoloute type/ts.absoloute type.lvclass"/>
+			<Item Name="ts.epochOfTimeUnit.lvclass" Type="LVClass" URL="../../../lv_src/ts.epochOfTimeUnit/ts.epochOfTimeUnit.lvclass"/>
+			<Item Name="ts.iso8601.lvclass" Type="LVClass" URL="../../../lv_src/ts.iso8601/ts.iso8601.lvclass"/>
+			<Item Name="ts.logtime.lvclass" Type="LVClass" URL="../../../lv_src/ts.logtime/ts.logtime.lvclass"/>
+			<Item Name="ts.relative.lvclass" Type="LVClass" URL="../../../lv_src/ts.relative/ts.relative.lvclass"/>
+			<Item Name="type.lvclass" Type="LVClass" URL="../../../lv_src/type/type.lvclass"/>
+			<Item Name="User.lvclass" Type="LVClass" URL="../../../lv_src/User/User.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="My Application" Type="EXE">
