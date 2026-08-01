@@ -1183,7 +1183,9 @@
         "sas_workshops_lib_lunit_for_g_cli",
         "sas_workshops_lib_lunit_for_g_cli-1.2.1.85",
         "sas_workshops_lib_lunit_for_g_cli-v1.2.1.85",
-        "wiresmith_technology_lib_g_cli-3.0.1.98"
+        "wiresmith_technology_lib_g_cli",
+        "wiresmith_technology_lib_g_cli-3.0.1.98",
+        "wiresmith_technology_lib_g_cli-v3.0.1.98"
       ],
       "failed_packages": [],
       "nipkg_ready": true,
@@ -1363,6 +1365,10 @@
         {
           "name": "eula-ni-standard",
           "version": "26.3.0.49236-0+f84"
+        },
+        {
+          "name": "eula-ni-standard",
+          "version": "26.5.0.49245-0+f93"
         },
         {
           "name": "jki-dragon",
@@ -1571,6 +1577,10 @@
         {
           "name": "ni-certificates",
           "version": "26.3.0.49183-0+f31"
+        },
+        {
+          "name": "ni-certificates",
+          "version": "26.5.0.49183-0+f31"
         },
         {
           "name": "ni-codesignapi",
@@ -2309,6 +2319,10 @@
           "version": "26.3.0.49236-0+f84"
         },
         {
+          "name": "ni-msiproperties",
+          "version": "26.5.0.49245-0+f93"
+        },
+        {
           "name": "ni-mstudio-cw3dgraph",
           "version": "8.7.5.49154-0+f2"
         },
@@ -2541,6 +2555,10 @@
           "version": "26.3.0.49300-0+f148"
         },
         {
+          "name": "ni-package-manager",
+          "version": "26.5.0.49301-0+f149"
+        },
+        {
           "name": "ni-package-manager-deployment-support",
           "version": "17.5.0.49152-0+f0"
         },
@@ -2691,6 +2709,10 @@
         {
           "name": "ni-package-manager-deployment-support",
           "version": "26.3.0.49300-0+f148"
+        },
+        {
+          "name": "ni-package-manager-deployment-support",
+          "version": "26.5.0.49301-0+f149"
         },
         {
           "name": "ni-package-manager-released-feed",
@@ -2845,6 +2867,10 @@
           "version": "26.3.0.49300-0+f148"
         },
         {
+          "name": "ni-package-manager-released-feed",
+          "version": "26.5.0.49301-0+f149"
+        },
+        {
           "name": "ni-package-manager-upgrader",
           "version": "17.0.0.49157-0+f5"
         },
@@ -2999,6 +3025,10 @@
         {
           "name": "ni-package-manager-upgrader",
           "version": "26.3.0.49300-0+f148"
+        },
+        {
+          "name": "ni-package-manager-upgrader",
+          "version": "26.5.0.49301-0+f149"
         },
         {
           "name": "ni-portable-configuration",
@@ -3467,6 +3497,10 @@
         {
           "name": "system-windows-x64",
           "version": "26.3.0.49300-0+f148"
+        },
+        {
+          "name": "system-windows-x64",
+          "version": "26.5.0.49301-0+f149"
         },
         {
           "name": "system-windows-x86",
