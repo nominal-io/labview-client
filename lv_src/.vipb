@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-07-30 17:28:24" Creator="Tom" Comments="" ID="7b1930be0b82c40b405c5d53d946b930">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-08-04 08:18:13" Creator="Tom" Comments="" ID="2d835f9edcc07ba2be1f02edd2ed760b">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>5.0.4.15</Library_Version>
+    <Library_Version>5.0.4.17</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..</Library_Source_Folder>
     <Library_Output_Folder>..\builds</Library_Output_Folder>
@@ -53,6 +53,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
       <URL>https://docs.nominal.io/</URL>
       <Release_Notes>Fixes:
 - Fixed certificate location detection when using network proxies
+- Fixed asset return payload parsing
 - Fixed missing VI description
 
 Updates:
@@ -251,6 +252,9 @@ Updates:
       </Exclusions>
       <Exclusions>
         <Path>lv_src/tests</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>builds</Path>
       </Exclusions>
       <Place_Folder_Contents>
         <Path/>
@@ -524,7 +528,7 @@ Updates:
         <Path>..\Workspaces</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>11CA21D2464E700D2C3ABFC7C0B5E1ED</GUID>
+      <GUID>3A8B960436EFABC3E231707263C53581</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -811,7 +815,7 @@ Updates:
         <Path>asset\Palette Items\unarchive.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>788053AE3E03998A68FC36B6EDA3C469</GUID>
+      <GUID>BEA1A0F5C28174D76CB6A74EDA5F03DF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -986,7 +990,7 @@ Updates:
         <Path>Nominal Client\Palette Items\run.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9BCD9716C7CCC7D7A4DB5A630A1EFEAC</GUID>
+      <GUID>B4520D23E6FDAD970265C13A0370057F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1147,7 +1151,7 @@ Updates:
         <Path>Run\Palette Items\event.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2148E9EBFA594892373D38D54E7265C6</GUID>
+      <GUID>1341F78F32935350C0D5AD10F2876EEE</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1406,7 +1410,7 @@ Updates:
         <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Basic Function Generator (Absolute Time).vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6EE38FE49DE77BC358B7F85DA77E7AD2</GUID>
+      <GUID>7607980AB26586D7A12508A70781FFFE</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1469,7 +1473,7 @@ Updates:
         <Path>Nominal Client\Palette Items\catalog.get_dataset.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>309A7F7F1F233B08F01537CDB9DEE962</GUID>
+      <GUID>9034E8DB590F571CF8D1B7B88C402633</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1532,7 +1536,7 @@ Updates:
         <Path>..\MultiPart File Upload</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7B378490139C476CB3FF61EAC3D44E70</GUID>
+      <GUID>9E8CB02E561ABE46E502B67023A2BF24</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1665,7 +1669,7 @@ Updates:
         <Path>Nominal Client MultiPart Upload\upload.list_parts.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6BE64AEBB5F20387A91455796D0E2B81</GUID>
+      <GUID>1A28908B0CAAF8D286E33A131973DCF5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1826,7 +1830,7 @@ Updates:
         <Path>Quick Start\Quick Start - Update Channel Metadata.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CB9AD82BFD4D1413BF1A6FFEFEC143D3</GUID>
+      <GUID>7B0F2702C38C32A302E8676C2917681A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1917,7 +1921,7 @@ Updates:
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FE24C14FD51D8CA827A2A7B6C4D063F4</GUID>
+      <GUID>D73486E14A5AB6120B4988DBA8458651</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2008,7 +2012,7 @@ Updates:
         <Path>Nominal Client\workspace.from_rid.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6D0719FDFFD6F06F7F76A72D11DDDC63</GUID>
+      <GUID>F565006EC61963C0BE471550EE20A81F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2127,7 +2131,7 @@ Updates:
         <Path>type\type.property.set.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>85F7D5E455408EFA6611620BEC7A612D</GUID>
+      <GUID>E47E9ECF8460C68F2FF11480B3531EDF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -2162,7 +2166,7 @@ Updates:
         <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Stream\Initialize.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AE194F04F3E250959CA9D9FA8C837980</GUID>
+      <GUID>06957F672E16D3F2DA9CF3644B4D0719</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
