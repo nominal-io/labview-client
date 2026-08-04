@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "53a88e4a6a8ae5e07fd1630085a2e8c71afe963d",
+  "sha": "74a3bc206a251825ff47b96e50ce0a8be6363611",
   "revisions": [
+    {
+      "sha": "74a3bc206a251825ff47b96e50ce0a8be6363611",
+      "short": "74a3bc2",
+      "message": "post build",
+      "author": "Tom McQuillan",
+      "date": "2026-08-04T10:21:41Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "53a88e4a6a8ae5e07fd1630085a2e8c71afe963d",
       "short": "53a88e4",
@@ -891,15 +900,6 @@
       "message": "Merge pull request #17 from nominal-io/Obsoleting-ingest-methods",
       "author": "Tom McQuillan",
       "date": "2025-07-02T08:52:09Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "962cf2fa68a63e52a3927c3d055de207004a72d3",
-      "short": "962cf2f",
-      "message": "Stream Batches from custom cluster",
-      "author": "Tom McQuillan",
-      "date": "2025-06-30T18:47:16Z",
       "project": true,
       "dep_only": false
     }
