@@ -1052,9 +1052,9 @@
   "dragon": {
     "available": true,
     "column": "windows",
-    "ready": false,
+    "ready": true,
     "health": "",
-    "manifest_version": "",
+    "manifest_version": "win-adecf1482f37",
     "files": [
       {
         "source_file": "lv_src/Nominal Client.dragon",
