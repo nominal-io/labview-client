@@ -1,7 +1,7 @@
 {
-  "version": "linux-faa4596c3848",
+  "version": "linux-4ce478ba9bb6",
   "platform": "linux",
-  "manifest_url": "https://nominal-io.github.io/labview-client/workers/linux/linux-faa4596c3848/manifest.html",
-  "build_date": "2026-08-01T05:09:16Z",
-  "git_sha": "53a88e4a6a8ae5e07fd1630085a2e8c71afe963d"
+  "manifest_url": "https://nominal-io.github.io/labview-client/workers/linux/linux-4ce478ba9bb6/manifest.html",
+  "build_date": "2026-09-01T04:18:01Z",
+  "git_sha": "74a3bc206a251825ff47b96e50ce0a8be6363611"
 }
