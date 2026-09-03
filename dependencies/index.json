@@ -1,8 +1,35 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "74a3bc206a251825ff47b96e50ce0a8be6363611",
+  "sha": "cfa925f6bdbabaa81757bc762da2c0a9bd0851d6",
   "revisions": [
+    {
+      "sha": "cfa925f6bdbabaa81757bc762da2c0a9bd0851d6",
+      "short": "cfa925f",
+      "message": "Merge pull request #75 from nominal-io/74-create-run-workspace-rid",
+      "author": "Tom McQuillan",
+      "date": "2026-09-03T10:07:15Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "9e5280abaab53eb4c6bf8a59d54f1e76851b61b1",
+      "short": "9e5280a",
+      "message": "verified version and added lvversion file",
+      "author": "Tom McQuillan",
+      "date": "2026-09-03T10:06:57Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "5da6e7325a6c63c9163ff8f9056cdd2ee610e7f8",
+      "short": "5da6e73",
+      "message": "Add workspace RID to run create.vi",
+      "author": "John Hoehner",
+      "date": "2026-09-03T00:35:54Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "74a3bc206a251825ff47b96e50ce0a8be6363611",
       "short": "74a3bc2",
@@ -873,33 +900,6 @@
       "message": "Updated VI Documentation",
       "author": "Tom McQuillan",
       "date": "2025-07-02T10:49:04Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "1b84dfb41e7e1414274499efee54362a9654d545",
-      "short": "1b84dfb",
-      "message": "Merge pull request #24 from nominal-io/19-documentation-developer-debugging-tools",
-      "author": "Tom McQuillan",
-      "date": "2025-07-02T09:59:25Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "7d17de5a2307a1b28d355fbca5636fe011a58a09",
-      "short": "7d17de5",
-      "message": "Updated file name",
-      "author": "Tom McQuillan",
-      "date": "2025-07-02T09:58:30Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "3bfa8011575385d8861ed0a8c2b6ff17a43bc14a",
-      "short": "3bfa801",
-      "message": "Merge pull request #17 from nominal-io/Obsoleting-ingest-methods",
-      "author": "Tom McQuillan",
-      "date": "2025-07-02T08:52:09Z",
       "project": true,
       "dep_only": false
     }
