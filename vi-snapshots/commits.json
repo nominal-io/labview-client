@@ -1,10 +1,10 @@
 [
   {
-    "sha": "53a88e4a6a8ae5e07fd1630085a2e8c71afe963d",
-    "short": "53a88e4",
-    "message": "Merge branch 'main' of https://github.com/nominal-io/labview-client",
+    "sha": "cfa925f6bdbabaa81757bc762da2c0a9bd0851d6",
+    "short": "cfa925f",
+    "message": "Merge pull request #75 from nominal-io/74-create-run-workspace-rid",
     "author": "Tom McQuillan",
-    "date": "2026-07-30T20:40:08+01:00",
+    "date": "2026-09-03T11:07:15+01:00",
     "vi_count": 563
   }
 ]
