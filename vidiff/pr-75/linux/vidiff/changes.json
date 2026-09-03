@@ -10,6 +10,11 @@
       "file": "lv_src/Run/create.vi",
       "type": "modified",
       "report": "lv_src-Run-create.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/Palette Items/run.create.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-Palette_Items-run.create.vi/index.html"
     }
   ]
 }
