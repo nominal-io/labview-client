@@ -241,7 +241,7 @@
     // the install/Configure iframe and its in-flight work. When a refresh comes due
     // with a dialog open, keep re-checking and reload only once it is closed.
     (function () {
-      var REFRESH_MS = 60 * 1000;
+      var REFRESH_MS = 900 * 1000;
       if (!(REFRESH_MS > 0)) return;
       function tick() {
         if (lvciModalOpen()) { setTimeout(tick, 5000); return; }
@@ -2040,7 +2040,7 @@
   </script>
   <main class="lvci-main">
   <h1>CI Dashboard — labview-client</h1>
-  <div class="sub">Last updated: 2026-09-03 15:20 UTC &nbsp;|&nbsp; Live — refreshing every 60 s while CI runs</div>
+  <div class="sub">Last updated: 2026-09-03 16:18 UTC &nbsp;|&nbsp; Auto-refreshes every 15 min</div>
   <div class="nav">
     <a href="https://github.com/nominal-io/labview-client">GitHub</a>
     <a href="https://github.com/nominal-io/labview-client/actions">Actions</a>
@@ -2101,7 +2101,7 @@
       <td style="text-align:center" class="cidash-cap-cell" data-cap="snapshots" data-sha="cfa925f6bdbabaa81757bc762da2c0a9bd0851d6" data-parent="74a3bc206a251825ff47b96e50ce0a8be6363611" data-short="cfa925f" data-ts="2026-09-03T10:23:18Z" data-done="true"><span class="cidash-chip cc-info" title="Snapshots rendered for all 563 VIs in this revision"><a href="https://nominal-io.github.io/labview-client/vi-snapshots/index.html?sha=cfa925f6bdbabaa81757bc762da2c0a9bd0851d6" style="color:inherit">563</a></span></td>
       <td style="text-align:center"><a href="#" class="cidash-run" data-cap="unit-tests" data-sha="cfa925f6bdbabaa81757bc762da2c0a9bd0851d6" data-parent="74a3bc206a251825ff47b96e50ce0a8be6363611" data-short="cfa925f" title="Run Unit Tests for commit cfa925f">&#9655;</a></td>
       <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
-      <td style="text-align:center" class="cidash-active-cell" data-cap="builds" data-sha="cfa925f6bdbabaa81757bc762da2c0a9bd0851d6" data-parent="74a3bc206a251825ff47b96e50ce0a8be6363611" data-short="cfa925f" data-active="true"><span class="run-badge" title="Running — click to view progress"><a href="https://github.com/nominal-io/labview-client/actions/runs/33742594949" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>build</a></span></td>
+      <td style="text-align:center" class="cidash-cap-cell" data-cap="builds" data-sha="cfa925f6bdbabaa81757bc762da2c0a9bd0851d6" data-parent="74a3bc206a251825ff47b96e50ce0a8be6363611" data-short="cfa925f" data-ts="2026-09-03T10:26:31Z"><span class="cidash-chip cc-split" title="0 built, 2 failed of 2 build specification(s)"><a href="https://nominal-io.github.io/labview-client/report/index.html?type=builds-report&sha=cfa925f6bdbabaa81757bc762da2c0a9bd0851d6&short=cfa925f&src=..%2Fbuilds%2Fcfa925f6bdbabaa81757bc762da2c0a9bd0851d6%2Findex.html&title=Builds%20%C2%B7%20cfa925f" style="color:inherit"><span class="cidash-vseg cc-pass" data-tip="Succeeded">0</span><span class="cidash-vseg-sep">/</span><span class="cidash-vseg cc-fail" data-tip="Failed">2</span></a></span></td>
     </tr>
 
     <tr data-project="true" data-deponly="false">
@@ -2120,7 +2120,7 @@
       <td style="text-align:center" class="cidash-cap-cell" data-cap="snapshots" data-sha="9e5280abaab53eb4c6bf8a59d54f1e76851b61b1" data-parent="5da6e7325a6c63c9163ff8f9056cdd2ee610e7f8" data-short="9e5280a" data-ts="" data-done="true"><span class="cidash-chip cc-info" title="Snapshots rendered for all 563 VIs in this revision"><a href="https://nominal-io.github.io/labview-client/vi-snapshots/index.html?sha=9e5280abaab53eb4c6bf8a59d54f1e76851b61b1" style="color:inherit">563</a></span></td>
       <td style="text-align:center"><a href="#" class="cidash-run" data-cap="unit-tests" data-sha="9e5280abaab53eb4c6bf8a59d54f1e76851b61b1" data-parent="5da6e7325a6c63c9163ff8f9056cdd2ee610e7f8" data-short="9e5280a" title="Run Unit Tests for commit 9e5280a">&#9655;</a></td>
       <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
-      <td style="text-align:center" class="cidash-active-cell" data-cap="builds" data-sha="9e5280abaab53eb4c6bf8a59d54f1e76851b61b1" data-parent="5da6e7325a6c63c9163ff8f9056cdd2ee610e7f8" data-short="9e5280a" data-active="true"><span class="run-badge" title="Running — click to view progress"><a href="https://github.com/nominal-io/labview-client/actions/runs/33742574676" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>build</a></span></td>
+      <td style="text-align:center"><a href="#" class="cidash-run" data-cap="builds" data-sha="9e5280abaab53eb4c6bf8a59d54f1e76851b61b1" data-parent="5da6e7325a6c63c9163ff8f9056cdd2ee610e7f8" data-short="9e5280a" title="Run Builds for commit 9e5280a">&#9655;</a></td>
     </tr>
 
     <tr data-project="true" data-deponly="false">
