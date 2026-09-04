@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "cfa925f6bdbabaa81757bc762da2c0a9bd0851d6",
+  "sha": "aefe524593d8d069e84e968d66704391741c08cb",
   "revisions": [
+    {
+      "sha": "aefe524593d8d069e84e968d66704391741c08cb",
+      "short": "aefe524",
+      "message": "Merge pull request #76 from nominal-io/add-workspace-support-for-dataset",
+      "author": "Tom McQuillan",
+      "date": "2026-09-04T08:55:43Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "7bfa006cdba625e6ce81ccae43f14ec3d40ff8c5",
+      "short": "7bfa006",
+      "message": "added workspace support for datasets",
+      "author": "Tom McQuillan",
+      "date": "2026-09-04T08:51:19Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "cfa925f6bdbabaa81757bc762da2c0a9bd0851d6",
       "short": "cfa925f",
@@ -882,24 +900,6 @@
       "message": "Preparing for VIP distribution. Working on API usability",
       "author": "Tom McQuillan",
       "date": "2025-07-03T15:34:10Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "20702649b3803dfd5aff161d79a3d37b863cb257",
-      "short": "2070264",
-      "message": "Merge pull request #25 from nominal-io/23-streaming-custom-cluster-api",
-      "author": "Tom McQuillan",
-      "date": "2025-07-02T10:49:37Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "86e99ad2cd27ad5b0e38304fa5a6e685f6d99d60",
-      "short": "86e99ad",
-      "message": "Updated VI Documentation",
-      "author": "Tom McQuillan",
-      "date": "2025-07-02T10:49:04Z",
       "project": true,
       "dep_only": false
     }
