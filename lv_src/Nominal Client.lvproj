@@ -67,6 +67,7 @@
 			<Item Name="ts.logtime.lvclass" Type="LVClass" URL="../ts.logtime/ts.logtime.lvclass"/>
 		</Item>
 		<Item Name="Tests" Type="Folder">
+			<Item Name="tdms file.vi" Type="VI" URL="../tests/tdms file.vi"/>
 			<Item Name="test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_in_incorrect_workspace.vi"/>
 			<Item Name="test.workspace_create_datasource_and_connection_in_expected_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_in_expected_workspace.vi"/>
 			<Item Name="test.workspace_create_datasource_and_connection_without_specifying_workspace.vi" Type="VI" URL="../tests/test.workspace_create_datasource_and_connection_without_specifying_workspace.vi"/>
