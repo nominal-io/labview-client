@@ -1,0 +1,4095 @@
+Project has no build specifications: lv_src\Nominal Client.lvproj
+Project has no build specifications: lv_src\asset\asset.lvproj
+Project has no build specifications: lv_src\dataset\dataset.lvproj
+Project has no build specifications: lv_src\Run\run.lvproj
+Project has no build specifications: sample_project\Source\Nominal Fan Test\Fan Characterization.lvproj
+=== ExecuteBuildSpec 'My Application' [EXE] target 'My Computer' in test_files\build from toolkit\build from toolkit.lvproj ===
+LabVIEWCLI started logging in file:  C:\Users\ContainerAdministrator\AppData\Local\Temp\lvtemporary_115371.log
+Using LabVIEW: "C:\Program Files\National Instruments\LabVIEW 2026\LabVIEW.exe"
+LabVIEW launched successfully.
+Connection established with LabVIEW at port number 3363.
+
+LabVIEWCLI.exe : Operation output: 
+At C:\workspace\.github\labview\build-binaries.ps1:252 char:12
++     $out = & $CliExe @cliArgs 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Operation output: :String) [], Re 
+   moteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error Code : 1
+Error Message : Cannot complete build because following VI loaded broken:
+
+C:\workspace\test_files\build from toolkit\main.vi
+
+Open the VI in LabVIEW and fix the listed errors. If the VI loads as expected 
+but errors are still detected during the build, contact National Instruments 
+technical support for assistance.
+
+Broken VIs:
+- asset.lvclass:asset.from_json.vi:
+	Default value includes broken or missing LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Default value includes broken or missing LabVIEW class
+
+	Default value includes broken or missing LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:asset.from_json.vi:Instance:02f22241-51c4-4473-a36f-78f3127849f
+2.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:18bbe2ca-1498-4f7a-80b6-98471bfcd25
+a.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:362a07b5-d5ef-4f04-8007-9594c2c726f
+8.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:582e419f-de3c-4dbc-8ecf-df929f928f5
+5.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:73a2c702-0eb7-401a-afb6-8e357fc678e
+b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:856e22dd-e93b-4c21-b825-9b1f5d095f0
+e.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:97b0fc54-f6bc-4c4f-b7ab-356d389efbe
+9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:9ada0a1a-2184-4ddd-b537-4dbb756a36f
+8.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:asset.from_json.vi:Instance:bfdfcee5-81ab-4956-b6ce-ad5bee6cace
+f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:dataset.add.request.vi:
+	Refers to a broken LabVIEW class
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:dataset.add.request.vi:Instance:d09293c4-a5fb-4d14-8e4d-efc7866
+11564.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:dataset.add.request.vi:Instance:dbf372a7-e192-454a-a0bf-8f356cd
+897b9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:labels.set.vi:
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- asset.lvclass:links.set.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- asset.lvclass:properties.set.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- asset.lvclass:runs.list.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- asset.lvclass:update.description.request.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:update.description.request.vi:Instance:116a1f63-1174-4f6f-bedf-
+07de5800daec.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:update.labels.request.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:update.labels.request.vi:Instance:fc7aacf3-d9fa-4911-86be-9d011
+dabdec1.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:update.links.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:update.links.request.vi:Instance:9b41e2d1-33be-4c38-84cf-5d62aa
+6acda7.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:update.properties.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- asset.lvclass:update.staged.request.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:update.staged.request.vi:Instance:116a1f63-1174-4f6f-bedf-07de5
+800daec.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:update.title.request.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:update.title.request.vi:Instance:116a1f63-1174-4f6f-bedf-07de58
+00daec.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:video.add.request.vi:
+	SubVI is missing
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- asset.lvclass:video.add.request.vi:Instance:d09293c4-a5fb-4d14-8e4d-efc786611
+564.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- asset.lvclass:video.add.request.vi:Instance:dbf372a7-e192-454a-a0bf-8f356cd89
+7b9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:datascope.from_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- dataScopes.lvlib:datascope.from_json.vi:Instance:67163aca-3a6b-4dd5-86ca-74d1
+3fcabb29.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:datascope.from_json.vi:Instance:ab9a869c-e1cd-4f12-85c3-02f8
+72140d20.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:datascope.to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- dataScopes.lvlib:datascope.to_json.vi:Instance:b3ef6cc6-145b-425d-8ca9-b3251d
+becc9c.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:datascopes.to_json.vi:
+	SubVI is missing
+
+	SubVI is not executable
+
+- dataScopes.lvlib:datasource.from_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- dataScopes.lvlib:datasource.from_json.vi:Instance:7d87e695-0c51-4d0d-8beb-747
+f1085477c.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:datasource.from_json.vi:Instance:e5b7be2a-dd82-4e76-91a8-ac3
+345dfd91b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:datasource.to_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- dataScopes.lvlib:datasource.to_json.vi:Instance:505a04b1-beae-45fc-bcd5-c0218
+de0aff1.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:datasource.to_json.vi:Instance:ab7c0d24-36bc-4d84-84a5-63418
+75158a7.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- dataScopes.lvlib:offset.to_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- dataScopes.lvlib:offset.to_json.vi:Instance:ab7c0d24-36bc-4d84-84a5-634187515
+8a7.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:dataset.lvclass:dataset.ctl:
+- datasources.lvlib:dataset.lvclass:from_json.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- datasources.lvlib:dataset.lvclass:from_json.vi:Instance:70fcde8b-cfa6-496f-aa
+5e-b47ccf35a795.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- datasources.lvlib:dataset.lvclass:from_json.vi:Instance:9732f3ad-4379-4d2e-b4
+29-3f31743c0da7.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- datasources.lvlib:dataset.lvclass:from_json.vi:Instance:97724406-c35b-4f72-91
+4b-b01749b4f1b5.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- datasources.lvlib:dataset.lvclass:stream.create.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+- datasources.lvlib:dataset.lvclass:to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- datasources.lvlib:dataset.lvclass:to_json.vi:Instance:d062dd61-71d6-44b5-8ec0
+-c8fc7e52ec0a.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:gcs.lvclass:to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- datasources.lvlib:gcs.lvclass:to_json.vi:Instance:e4c6944f-4a67-449d-9f92-17c
+70d7df472.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:s3.lvclass:to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- datasources.lvlib:s3.lvclass:to_json.vi:Instance:b507f1fd-3569-41e4-9012-7a89
+e1841568.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.lvclass:target.ctl:
+- datasources.lvlib:target.lvclass:to_json.vi:
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- datasources.lvlib:target.lvclass:to_json.vi:Instance:92ef1fda-d962-45ff-88fd-
+c2047d5c0ec4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.lvclass:to_json.vi:Instance:b2c1eefe-8312-4a03-882f-
+d0c7cc634c10.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.lvclass:to_json.vi:Instance:d6cf4258-1369-4a0e-93db-
+dcab189557e5.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.video.lvclass:to_json.vi:
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- datasources.lvlib:target.video.lvclass:to_json.vi:Instance:44014f50-ab4e-42bf
+-98e0-f8910821d057.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.video.lvclass:to_json.vi:Instance:6f4a9cd9-95da-4d00
+-8da6-4a49d3ace755.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.video.lvclass:to_json.vi:Instance:b13016ed-5689-47b0
+-9406-ea70241d4c20.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.video.lvclass:to_json.vi:Instance:b2da3fc4-5a27-4170
+-9632-6c616410d1ce.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- datasources.lvlib:target.video.lvclass:to_json.vi:Instance:dd574b23-1e1f-49d0
+-b409-8656717e9e11.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- event.lvclass:create.request.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- event.lvclass:create.request.vi:Instance:352cc468-aba9-4bd5-96da-7e448382693f
+.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- event.lvclass:create.request.vi:Instance:88b4df77-45d7-451c-ac61-e829d33da7cc
+.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- event.lvclass:update.assets.request.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- event.lvclass:update.assets.request.vi:Instance:bfb2349f-e977-412d-987f-5a52b
+4c45808.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- event.lvclass:update.labels.request.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- event.lvclass:update.labels.request.vi:Instance:a9f2edff-e53b-4153-b937-d1922
+f04ea96.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- event.lvclass:update.properties.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- event.lvclass:update.properties.request.vi:Instance:13542d29-fea5-4531-aa33-7
+06b80d0c749.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- event.lvclass:update_event_data.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- event.lvclass:update_event_data.vi:Instance:28bc5a72-9374-4728-b9ac-1639a12f8
+99b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- event.lvclass:update_event_data.vi:Instance:7ff10bfd-9200-4696-87bf-282c67a75
+8f1.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- event.lvclass:update_event_data.vi:Instance:9860abd8-ae07-4152-ba21-12f588446
+6ca.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- main.vi:
+- main.vi:Instance:66e5d843-df2e-46cc-88a2-5ef3a179773d.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Contains unwired or bad terminal
+
+	Type definition not found or contains errors
+
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a missing LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a missing LabVIEW class
+
+	Constant value includes broken or missing LabVIEW class
+
+	Wired refnums are of different types.
+
+- Multipart Upload.lvclass:upload.complete_multipart_upload.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Multipart Upload.lvclass:upload.complete_multipart_upload.vi:Instance:8b3dcda
+b-c30a-41f7-882b-0fd92512159b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Multipart Upload.lvclass:upload.initiate_multipart_upload.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Multipart Upload.lvclass:upload.initiate_multipart_upload.vi:Instance:8b3dcda
+b-c30a-41f7-882b-0fd92512159b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Multipart Upload.lvclass:upload.list_parts.vi:
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Multipart Upload.lvclass:upload.list_parts.vi:Instance:72e5dcd8-64cf-4027-aad
+a-cf32ea863567.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Multipart Upload.lvclass:upload.sign_part.vi:
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Multipart Upload.lvclass:upload.sign_part.vi:Instance:8b3dcdab-c30a-41f7-882b
+-0fd92512159b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:asset.create.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:asset.create.request.vi:Instance:23b81bce-5bf5-4553-8e
+ce-e154542c4e39.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:asset.create.request.vi:Instance:b8348f26-5a24-4650-bd
+02-6cd2d99a680c.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:asset.get.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal 
+Client.lvclass:asset.get.vi:Instance:c20a9d0c-990e-4b00-9818-b2ddac785778.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:asset.get[].vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal 
+Client.lvclass:asset.get[].vi:Instance:c20a9d0c-990e-4b00-9818-b2ddac785778.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:asset.get_from_datasouce.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:asset.links.from_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:asset.links.from_json.vi:Instance:da3c3072-a0b3-4c36-a
+5a9-8b605c2a1e9f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:asset.links.to_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:asset.links.to_json.vi:Instance:01dcef65-c848-435e-b82
+c-8c09c626b1d5.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:asset.links.to_json.vi:Instance:5aca689d-ef0c-4f78-ba9
+8-68a9845d9c34.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:catalog.get_ingest_progress_v2.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:catalog.get_ingest_progress_v2.vi:Instance:dd643593-8e
+ee-4817-a06c-cfd53975b380.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:catalog.get_multiple_ingest_progress_v2.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:catalog.get_multiple_ingest_progress_v2.vi:Instance:74
+33fb34-7591-4323-882c-c8caa2b5fb1a.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:connection.create_connection.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:connection.create_connection.vi:Instance:28804fc9-aee6
+-4b6e-ba11-1ba961eefadd.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:connection.create_connection.vi:Instance:301638a4-f299
+-4835-8683-15cfc56d6fd6.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:connection.list.vi:
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	VI Library item not available
+
+- Nominal Client.lvclass:connection.list.vi:Instance:28804fc9-aee6-4b6e-ba11-1b
+a961eefadd.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:create.vim:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Contains unwired or bad terminal
+
+	Type definition not found or contains errors
+
+	Refers to a missing LabVIEW class
+
+	Refers to a missing LabVIEW class
+
+	Constant value includes broken or missing LabVIEW class
+
+	Wired refnums are of different types.
+
+- Nominal Client.lvclass:destroy.vi:
+	SubVI is missing
+
+	Contains unwired or bad terminal
+
+- Nominal Client.lvclass:error.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal 
+Client.lvclass:error.vi:Instance:859f8e04-e495-489b-b5b4-7ac163f56130.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:http.delete.vi:
+	SubVI is missing
+
+	Contains unwired or bad terminal
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:http.get.vi:
+	SubVI is missing
+
+	Contains unwired or bad terminal
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:http.post.vi:
+	SubVI is missing
+
+	Contains unwired or bad terminal
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:http.put.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	Contains unwired or bad terminal
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:ingest.ingest_run.vi:
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest.ingest_run.vi:Instance:4b965f09-dc68-4d5e-a5c1-
+32d476accfd4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.mcap.vi:
+	SubVI is not executable
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal 
+Client.lvclass:ingest.mcap.vi:Instance:03f47964-3351-4de7-ad21-2429850d9a88.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal 
+Client.lvclass:ingest.mcap.vi:Instance:328a2a72-b35c-448c-8cc8-7fb2a3abc54b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal 
+Client.lvclass:ingest.mcap.vi:Instance:4b965f09-dc68-4d5e-a5c1-32d476accfd4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.trigger.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest.trigger.vi:Instance:3b653ec0-b3f4-4e20-9ef1-155
+60b52d02f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.trigger.vi:Instance:4b965f09-dc68-4d5e-a5c1-32d
+476accfd4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.trigger.vi:Instance:dc60078f-5e64-4343-b872-027
+2d4308f69.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.trigger_file_ingest-existing_dataset.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest.trigger_file_ingest-existing_dataset.vi:Instanc
+e:4b965f09-dc68-4d5e-a5c1-32d476accfd4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.trigger_file_ingest-new_dataset.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest.trigger_file_ingest-new_dataset.vi:Instance:49e
+cdc87-d06e-40b5-807d-cfeea5b09dd4.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.trigger_file_ingest-new_dataset.vi:Instance:4b9
+65f09-dc68-4d5e-a5c1-32d476accfd4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.trigger_file_ingest-new_dataset.vi:Instance:ae6
+47589-d40a-40ab-8bd3-12ed03615a29.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.video-with_manifest_timestamp.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest.video-with_manifest_timestamp.vi:Instance:16974
+51f-e5b3-4789-844d-430f2d519a58.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.video-with_manifest_timestamp.vi:Instance:4b965
+f09-dc68-4d5e-a5c1-32d476accfd4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.video-with_manifest_timestamp.vi:Instance:bab28
+5cf-d058-4520-b957-25c58aac0c58.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.video-without_manifest_timestamp.vi:
+	SubVI is not executable
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest.video-without_manifest_timestamp.vi:Instance:03
+f47964-3351-4de7-ad21-2429850d9a88.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.video-without_manifest_timestamp.vi:Instance:32
+8a2a72-b35c-448c-8cc8-7fb2a3abc54b.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest.video-without_manifest_timestamp.vi:Instance:4b
+965f09-dc68-4d5e-a5c1-32d476accfd4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_containerized.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest_containerized.vi:Instance:51a8208b-abcd-4ca2-95
+10-7220a654322d.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_containerized.vi:Instance:6c2804b0-e365-4e4a-89
+a7-22827fb1f174.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_containerized.vi:Instance:d08c04c5-7678-4b16-ba
+2b-d4dd41cd1ace.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_csv.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal 
+Client.lvclass:ingest_csv.vi:Instance:4e81ab5e-e540-474e-8302-0a664eb7b944.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal 
+Client.lvclass:ingest_csv.vi:Instance:da70c7dd-7914-44ef-86ed-2bc4582d2eab.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_dataflash.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest_dataflash.vi:Instance:1ebe6b59-d508-471d-b6f9-c
+7b5c3253389.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_journalJson.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest_journalJson.vi:Instance:ac599124-47d5-44f8-8944
+-41970eb09d00.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_journalJson.vi:Instance:c811998a-e5cf-4f6e-88ed
+-9ebe04757b7f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_mcapProtobufTimeseries.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Refers to a broken LabVIEW class
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest_mcapProtobufTimeseries.vi:Instance:4690b3d5-22f
+0-4aee-9331-ce368bb25e7c.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_parquet.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest_parquet.vi:Instance:4e81ab5e-e540-474e-8302-0a6
+64eb7b944.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_parquet.vi:Instance:5b5e685d-1dc7-44a1-a266-f8f
+b5c0c2742.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_parquet.vi:Instance:eb167d14-4f2b-41c0-88bb-5be
+ef1829223.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:ingest_video.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:ingest_video.vi:Instance:7ecb1b1c-631a-4c89-b8b8-2ed88
+685cfb3.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:json.pretty_print.vi:
+	SubVI is missing
+
+- Nominal Client.lvclass:log.write.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:log.write.request.vi:Instance:8accc981-0023-4d42-bd6a-
+63233f6e5657.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:log.write.request.vi:Instance:9ae5cbee-81e9-4394-a3ea-
+0608fb529230.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:log.write.request.vi:Instance:bb59544d-9623-4990-916d-
+6c8c801fc026.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:logical_series.resolve_batch.vi:
+	SubVI is not executable
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:logical_series.resolve_batch.vi:Instance:5272cbb0-1055
+-44a7-a196-32070c1239e9.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:logical_series.resolve_batch.vi:Instance:d51cee68-3910
+-4483-a6bc-435354615454.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:map_to_compatible_json.vim:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.get.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:metadata.get_request.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Contains unwired or bad terminal
+
+	Invalid property
+
+	Invalid property
+
+	Contains unwired or bad terminal
+
+	Invalid property
+
+	Invalid property
+
+	Invalid property
+
+	You have connected two terminals of different types.
+
+	You have connected two terminals of different types.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+- Nominal Client.lvclass:metadata.get_request.vi:Instance:3536d236-6dd3-40ff-a9
+be-19a538437cb9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.get_request.vi:Instance:3b5d701c-bf98-49ac-9b
+a1-b856c1a1d350.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.update.description.request.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Contains unwired or bad terminal
+
+	Invalid property
+
+	Invalid property
+
+	Contains unwired or bad terminal
+
+	Invalid property
+
+	Invalid property
+
+	Invalid property
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+- Nominal Client.lvclass:metadata.update.description.request.vi:Instance:3536d2
+36-6dd3-40ff-a9be-19a538437cb9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.update.description.request.vi:Instance:5a4ea9
+3c-afbb-4790-a514-34ee44610bed.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.update.description.request.vi:Instance:f593ea
+07-b612-4092-bdd6-7231a3a1b6a9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.update.unit.request.vi:
+	Refers to a missing LabVIEW class
+
+	Contains unwired or bad terminal
+
+	Invalid property
+
+	Invalid property
+
+	Invalid property
+
+	Contains unwired or bad terminal
+
+	Invalid property
+
+	Invalid property
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	You have connected two terminals of different types.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+- Nominal Client.lvclass:metadata.update.unit.request.vi:Instance:3536d236-6dd3
+-40ff-a9be-19a538437cb9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.update.unit.request.vi:Instance:5a4ea93c-afbb
+-4790-a514-34ee44610bed.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.update.unit.request.vi:Instance:f593ea07-b612
+-4092-bdd6-7231a3a1b6a9.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:metadata.update_description.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:metadata.update_unit.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:Nominal Client.ctl:
+- Nominal 
+Client.lvclass:nominal_channel_writer.write_batches.from_waveform.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.from_waveform.req
+uest.vi:Instance:028fdd67-09da-40c6-8995-0c4bd62a0b31.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.from_waveform.req
+uest.vi:Instance:2c8a2fb0-06af-4bda-9dcc-d72a85547e70.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.from_waveform.req
+uest.vi:Instance:c2a1aca9-ea5a-4b2a-8072-18de54756c53.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.vim:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Contains unwired or bad terminal
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is not executable
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.vim:Instance:028f
+dd67-09da-40c6-8995-0c4bd62a0b31.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.vim:Instance:2c8a
+2fb0-06af-4bda-9dcc-d72a85547e70.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.vim:Instance:9114
+8961-6041-444e-86d8-9fb81e16d9b3.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.vim:Instance:9383
+615c-1185-4e09-a9f4-80b1122cf8ed.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.vim:Instance:bb6e
+4b13-dc77-4fd2-b99f-1816582307a8.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_channel_writer.write_batches.vim:Instance:c2a1
+aca9-ea5a-4b2a-8072-18de54756c53.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:nominal_data_source.create.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:nominal_data_source.create.vi:Instance:609118db-7d9c-4
+28b-a577-7bf67d0e67c4.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:parse_response.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:parse_response.vi:Instance:bcb0b382-5e64-4907-9ede-aec
+9321e7f5a.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:private_data.ctl:
+- Nominal Client.lvclass:private_data.set.vi:
+	Type definition not found or contains errors
+
+	Refers to a missing LabVIEW class
+
+	Refers to a missing LabVIEW class
+
+	Wired refnums are of different types.
+
+- Nominal Client.lvclass:run.create.request.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is not executable
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:run.create.request.vi:Instance:2be38be4-a54f-44d4-b7cf
+-5ac4b5fc8952.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:run.create.request.vi:Instance:b56b23ec-042d-4749-be22
+-73137a14bf37.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Nominal Client.lvclass:run.create.request.vi:Instance:bc98cd5f-ae14-4807-8600
+-5baebe045155.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:run.get.multiple.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:run.get.multiple.vi:Instance:49411445-db77-4211-b7bb-0
+6afe579b778.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:run.get_from_number.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:run.get_from_number.vi:Instance:49411445-db77-4211-b7b
+b-06afe579b778.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:run.update_endtime.request.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:run.update_endtime.request.vi:Instance:dbbb6b07-2306-4
+fbf-be02-61899f0ec727.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:run.update_endtime.request.vi:Instance:ecb75084-90d7-4
+e08-bee6-04057d0c25d0.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:tdms.parse.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic subVI is broken
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic subVI is broken
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic subVI is broken
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal 
+Client.lvclass:tdms.parse.vi:Instance:3e839d65-de1a-4bcc-af02-da9fc57c1e69.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Contains unwired or bad terminal
+
+	Type definition not found or contains errors
+
+	Refers to a missing LabVIEW class
+
+	Refers to a missing LabVIEW class
+
+	Constant value includes broken or missing LabVIEW class
+
+	Wired refnums are of different types.
+
+- Nominal Client.lvclass:type.get.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal 
+Client.lvclass:type.get.vi:Instance:50f5c392-d963-4889-9ba8-5574e989f4eb.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:types.create.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:types.create.vi:Instance:4939f83f-28a0-422e-8382-4d9b1
+fcbd9ee.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:types.create.vi:Instance:76140119-96e7-4153-8821-f12d4
+61a7f7a.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:types.create.vi:Instance:f0ddba77-c476-4c6f-9ef5-c6d42
+655afba.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:video.get_ingest_status.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:video.get_ingest_status.vi:Instance:3ce23808-1dd2-45d8
+-8215-d591b3b9a39c.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:workspace.add_to_payload.vi:
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Nominal Client.lvclass:workspace.add_to_payload.vi:Instance:88650e10-de3e-481
+c-85db-71cb0fdf4485.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Nominal Client.lvclass:workspace.get_all.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- nominal types.lvlib:channelConfig.lvclass:to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:channelConfig.lvclass:to_json.vi:Instance:383bacbf-beb0-4
+6d4-b203-dcb6afdce316.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:channelFilter.lvlib:all.lvclass:to_json.vi:Instance:6d611
+ec1-bcaa-4bca-b46d-5e409a1cfc52.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:channelFilter.lvlib:exclude.lvclass:to_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:channelFilter.lvlib:exclude.lvclass:to_json.vi:Instance:d
+2a2ac13-5471-4191-9e88-4f0084fe2bd1.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:channelFilter.lvlib:id.lvclass:to_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:channelFilter.lvlib:id.lvclass:to_json.vi:Instance:2098b5
+ef-f0de-4629-b9a5-4f8fbf79e7eb.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:channelFilter.lvlib:include.lvclass:to_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:channelFilter.lvlib:include.lvclass:to_json.vi:Instance:b
+423daf5-c2a3-4c24-a941-a75b541187cf.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:channelFilter.lvlib:topic.lvclass:to_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:channelFilter.lvlib:topic.lvclass:to_json.vi:Instance:f4a
+c0dc0-1a1f-4287-8c6a-adac34cc9fd8.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:labels.lvclass:from_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:labels.lvclass:from_json.vi:Instance:1dbc0355-b049-4ca1-9
+33e-7ee337e7c81e.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:labels.lvclass:to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:labels.lvclass:to_json.vi:Instance:b8486177-9344-4009-902
+6-0c4df4e1a446.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:properties.lvclass:from_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:properties.lvclass:from_json.vi:Instance:0b6facf3-7b7a-47
+ad-9322-a02dd5dd4c91.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:properties.lvclass:to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+- nominal 
+types.lvlib:timestampManifest.lvlib:endingTimestamp.lvclass:to_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:timestampManifest.lvlib:endingTimestamp.lvclass:to_json.v
+i:Instance:4a6799ba-c5e5-4c66-8feb-5e644ce3fb2d.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:timestampManifest.lvlib:mcap.lvclass:to_json.vi:
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+- nominal types.lvlib:timestampManifest.lvlib:noManifest.lvclass:to_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:timestampManifest.lvlib:noManifest.lvclass:to_json.vi:Ins
+tance:3ea01a1e-9b4b-4b52-9ce8-3c2677203621.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:timestampManifest.lvlib:s3path.lvclass:to_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:timestampManifest.lvlib:s3path.lvclass:to_json.vi:Instanc
+e:07388e5c-2f37-468f-a409-5c4f42408061.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:timestampManifest.lvlib:scaleFactor.lvclass:to_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:timestampManifest.lvlib:scaleFactor.lvclass:to_json.vi:In
+stance:9065bcfc-cb62-4650-b7ab-74173ce26db5.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:timestampManifest.lvlib:trueFrameRate.lvclass:to_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:timestampManifest.lvlib:trueFrameRate.lvclass:to_json.vi:
+Instance:3737468a-64db-419b-9e6c-8f4439dbebd7.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- nominal types.lvlib:workspace.lvclass:create_from_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- nominal types.lvlib:workspace.lvclass:create_from_json.vi:Instance:aec5e6cc-9
+1bd-4b97-98ba-b813f6ae0012.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- nominal types.lvlib:workspace.lvclass:to_json.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- nominal types.lvlib:workspace.lvclass:to_json.vi:Instance:bf7b01e1-8110-4372-
+be0e-405f04d60bdb.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:asset.get.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:asset.get.vi:Instance:de85e14f-50dd-4ec2-a9b0-0cc4386a757e.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- Run.lvclass:asset.get.vi:Instance:de85e14f-50dd-4ec2-a9b0-0cc4386a757e.vi:Ins
+tance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:assets.get.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:assets.get.vi:Instance:fc990382-c15b-405e-8523-435b97eca7cf.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- Run.lvclass:assets.get.vi:Instance:fc990382-c15b-405e-8523-435b97eca7cf.vi:In
+stance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:attachments.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:attachments.get.vi:Instance:f8940fc2-285b-4416-aebd-2c1d34bf7d3c.
+vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	You have connected two terminals of different types.
+
+	SubVI is missing
+
+- Run.lvclass:attachments.get.vi:Instance:f8940fc2-285b-4416-aebd-2c1d34bf7d3c.
+vi:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:authorRid.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+Run.lvclass:authorRid.get.vi:Instance:00467254-ce2c-4e37-b69b-d84d91206466.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- Run.lvclass:authorRid.get.vi:Instance:00467254-ce2c-4e37-b69b-d84d91206466.vi
+:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:create.request.vi:
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+Run.lvclass:create.request.vi:Instance:21ec94b3-9936-4974-8d50-7fe96fbbf006.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:createdAt.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+Run.lvclass:createdAt.get.vi:Instance:b3b51881-3115-4bdb-b91c-b9f37aeec093.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- Run.lvclass:createdAt.get.vi:Instance:b3b51881-3115-4bdb-b91c-b9f37aeec093.vi
+:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:endTime.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:endTime.get.vi:Instance:999315d3-869a-4829-82f3-8c20d3f4bab2.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	You have connected two terminals of different types.
+
+	SubVI is missing
+
+- Run.lvclass:endTime.get.vi:Instance:999315d3-869a-4829-82f3-8c20d3f4bab2.vi:I
+nstance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:get_property.vim:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	SubVI is not executable
+
+- 
+Run.lvclass:get_property.vim:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:labels.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:labels.get.vi:Instance:f1169c98-1276-4422-bd8c-c56aec442079.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	You have connected two terminals of different types.
+
+	SubVI is missing
+
+- Run.lvclass:labels.get.vi:Instance:f1169c98-1276-4422-bd8c-c56aec442079.vi:In
+stance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:links.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:links.get.vi:Instance:5b00825a-b8ea-4fac-8dbd-770dc6ccb513.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- Run.lvclass:links.get.vi:Instance:5b00825a-b8ea-4fac-8dbd-770dc6ccb513.vi:Ins
+tance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:properties.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+Run.lvclass:properties.get.vi:Instance:cd719d9e-4b9a-483f-af8c-e945a04ea9d5.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	You have connected two terminals of different types.
+
+	SubVI is missing
+
+- Run.lvclass:properties.get.vi:Instance:cd719d9e-4b9a-483f-af8c-e945a04ea9d5.v
+i:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:runPrefix.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+Run.lvclass:runPrefix.get.vi:Instance:a95c02fe-50a5-4945-b9d2-058883f2984e.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- Run.lvclass:runPrefix.get.vi:Instance:a95c02fe-50a5-4945-b9d2-058883f2984e.vi
+:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:startTime.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+Run.lvclass:startTime.get.vi:Instance:a23810a7-3b77-49a4-899b-4f9ad3fa80dd.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	You have connected two terminals of different types.
+
+	You have connected two terminals of different types.
+
+	SubVI is missing
+
+- Run.lvclass:startTime.get.vi:Instance:a23810a7-3b77-49a4-899b-4f9ad3fa80dd.vi
+:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:update.assets.request.vi:
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:update.assets.request.vi:Instance:846ed7e2-8c26-4a38-8561-4cc4821
+2a6c5.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:update.labels.request.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:update.labels.request.vi:Instance:948b03f0-39eb-47bf-9e75-6b92294
+667bf.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:update.links.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:update.links.request.vi:Instance:e085151d-f813-46c9-b9d0-95cd78f8
+561e.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- Run.lvclass:update.properties.request.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+- Run.lvclass:update_run_data.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- Run.lvclass:update_run_data.vi:Instance:6111fa5d-6312-4459-8f70-6676b09230da.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- Run.lvclass:update_run_data.vi:Instance:7085f704-a81d-405d-a9ad-0f59f2d0802f.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- Run.lvclass:update_run_data.vi:Instance:88df1df5-70e2-4e71-bcc4-80a84804b439.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- Run.lvclass:update_run_data.vi:Instance:8f37e2be-7729-4acf-ba7c-a9ed101f2fc7.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- Run.lvclass:updatedAt.get.vi:
+	Bad linkage to subVI
+
+	An unsupported data type is wired to this subVI node.
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+Run.lvclass:updatedAt.get.vi:Instance:3fa23586-c96c-44de-800b-8ec637a95f2c.vi:
+	Refers to a broken LabVIEW class
+
+	Refers to a broken LabVIEW class
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- Run.lvclass:updatedAt.get.vi:Instance:3fa23586-c96c-44de-800b-8ec637a95f2c.vi
+:Instance:32c3acc2-0975-485a-8283-62feb0f3dc4f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- stream_custom_cluster.lvclass:to json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- stream_custom_cluster.lvclass:to 
+json.vi:Instance:3d1b79a7-f0f8-4911-8cd0-6b30bac1e9f1.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- stream_custom_cluster.lvclass:to 
+json.vi:Instance:50db6b1e-7037-4d0a-8807-b72f8bc667cd.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- stream_custom_cluster.lvclass:to 
+json.vi:Instance:d27922d7-2c6b-4151-838e-76c4f3329ecb.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+- timestampMetadata.lvclass:json.insert.vi:
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+- timestampMetadata.lvclass:json.replace.vi:
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+- timestampMetadata.lvclass:to_json.vi:
+	SubVI is not executable
+
+	Refers to a broken LabVIEW class
+
+	SubVI is missing
+
+	One or more of the set of VIs that this dynamic dispatch subVI or property 
+item may call are broken.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- timestampMetadata.lvclass:to_json.vi:Instance:f81aad97-b53f-4cee-8283-f8a4a18
+4eeeb.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- ts.epochOfTimeUnit.lvclass:to_json.vi:Instance:8228e4ca-03be-40b8-987d-2b8b2c
+52d251.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- ts.iso8601.lvclass:json.generate_object.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- ts.iso8601.lvclass:json.generate_object.vi:Instance:fc4585b6-f5f8-418e-b4b0-6
+256cccee070.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- 
+ts.iso8601.lvclass:to_json.vi:Instance:6bf8de66-28e8-4e60-b919-903522d86b70.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- ts.relative.lvclass:to_json.vi:
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- ts.relative.lvclass:to_json.vi:Instance:51cf98f5-1973-4989-a3e0-4cf140f0eb2f.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- ts.relative.lvclass:to_json.vi:Instance:ac553a3d-6aa5-49ef-9e1c-caec14b63934.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:datasourceConfigs.from_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- type.lvclass:datasourceConfigs.from_json.vi:Instance:7f84b30d-55bd-48c8-8d63-
+fe38355a9436.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:datasourceConfigs.set.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+- type.lvclass:datasourceConfigs.to_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- type.lvclass:datasourceConfigs.to_json.vi:Instance:7a922176-cc80-476e-b002-49
+75f22ae696.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:description.set.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- type.lvclass:description.set.vi:Instance:f25efd28-d0c3-44dc-9fcd-1669f60030d2
+.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:iconName.set.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- 
+type.lvclass:iconName.set.vi:Instance:3ddc10c0-dff5-4ae8-a87f-bac8ced954c2.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:name.set.vi:
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- type.lvclass:name.set.vi:Instance:a9d8e627-8d17-4eab-b85a-f7c2878cfb23.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:properties.from_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	SubVI is missing
+
+- type.lvclass:properties.from_json.vi:Instance:1faf4446-3ada-4580-8778-cf8f364
+cebb8.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:properties.to_json.vi:
+	SubVI is missing
+
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- type.lvclass:properties.to_json.vi:Instance:89e06e07-596b-4f08-8f01-ad3ba6215
+8ca.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:propertyConfigs.set.vi:
+	SubVI is not executable
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is not executable
+
+- type.lvclass:type.from_json.vi:
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is missing
+
+	SubVI is not executable
+
+	SubVI is not executable
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- type.lvclass:type.from_json.vi:Instance:01775f0d-1d50-4cb6-90f6-62c2ea3e59c1.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:type.from_json.vi:Instance:0291c9b3-499c-415b-bf66-a18a159dd8d9.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:type.from_json.vi:Instance:15851eda-cf92-4957-8668-c5e3b34a493d.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:type.from_json.vi:Instance:7bc173f6-7a04-4246-bce0-fbee4d6db3d8.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- type.lvclass:type.from_json.vi:Instance:f7a6be7a-58d2-4e9b-85a3-8e07cf356219.
+vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+- User.lvclass:from_json.vi:
+	SubVI is missing
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+	Polymorphic terminal cannot accept this data type.
+
+- User.lvclass:from_json.vi:Instance:77e552a5-7182-4905-9610-0a88d4800e8f.vi:
+	Refers to a missing LabVIEW class
+
+	SubVI is missing
+
+	SubVI is missing
+
+
+
+
+
+
+
+
+
+
+
+Click the link below to visit the Application Builder support page. Use the 
+following information as a reference:
+
+
+
+Error 1003 occurred at AB_Get_Detailed_BrokenVI_Message.vi -> 
+AB_Targetfile.lvclass:Open_Top_Level_VIs.vi
+
+
+Possible reason(s):
+
+
+LabVIEW: (Hex 0x3EB) The VI is not executable. This error may occur because 
+the VI is either broken or contains a subVI that LabVIEW cannot locate. Select 
+File>>Open to open the VI and verify that you can run it.
+An error occurred while running the ExecuteBuildSpec operation.
+
+ExecuteBuildSpec operation failed.
+
+
+=== ExecuteBuildSpec 'My Application' [EXE] target 'My Computer' in test_files\building an application\application.lvproj ===
+LabVIEWCLI started logging in file:  C:\Users\ContainerAdministrator\AppData\Local\Temp\lvtemporary_162953.log
+Using LabVIEW: "C:\Program Files\National Instruments\LabVIEW 2026\LabVIEW.exe"
+Connection established with LabVIEW at port number 3363.
+
+LabVIEWCLI.exe : Error code : 66
+At C:\workspace\.github\labview\build-binaries.ps1:252 char:12
++     $out = & $CliExe @cliArgs 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error code : 66:String) [], Remot 
+   eException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error message : Call By Reference in RunExecuteOperationVI.vi->RunOperationCore
+.vi->RunOperation.vi->RunOperation.vi.ProxyCaller
+An error occurred while running the LabVIEW CLI.
+
+
