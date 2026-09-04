@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "aefe524593d8d069e84e968d66704391741c08cb",
+  "sha": "a15570c82e4304bbcb74262bffc2099b86c5e96d",
   "revisions": [
+    {
+      "sha": "a15570c82e4304bbcb74262bffc2099b86c5e96d",
+      "short": "a15570c",
+      "message": "Merge pull request #77 from nominal-io/tdms-file-updates",
+      "author": "Tom McQuillan",
+      "date": "2026-09-04T10:09:20Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "da0ad89e021c915d361f139b925518007f477eac",
+      "short": "da0ad89",
+      "message": "Added workspace and endpoint to create function.",
+      "author": "Tom McQuillan",
+      "date": "2026-09-04T10:05:39Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "aefe524593d8d069e84e968d66704391741c08cb",
       "short": "aefe524",
@@ -882,24 +900,6 @@
       "message": "Update property.get.vi",
       "author": "Tom McQuillan",
       "date": "2025-07-04T08:24:41Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "03f94ffd71f0b8442a2da32a949a10181b9bf7fe",
-      "short": "03f94ff",
-      "message": "Prepare Assets and Types for Release",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T08:02:23Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "feca65b0afb179e04e167cf1585627cddd733e6f",
-      "short": "feca65b",
-      "message": "Preparing for VIP distribution. Working on API usability",
-      "author": "Tom McQuillan",
-      "date": "2025-07-03T15:34:10Z",
       "project": true,
       "dep_only": false
     }
