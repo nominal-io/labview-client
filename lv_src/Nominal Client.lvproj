@@ -248,6 +248,9 @@
 				<Item Name="Assert Error.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/classes/Assert/Assert Error.vi"/>
 				<Item Name="Assert True.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/classes/Assert/Assert True.vi"/>
 				<Item Name="Assert Greater Or Equal_Variant.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/classes/Assert/Assert Greater Or Equal_Variant.vi"/>
+				<Item Name="REST Client.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/addons/_JKI.lib/REST Client/classes/REST Client/REST Client.lvclass"/>
+				<Item Name="Create REST Client.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI.lib/REST Client/classes/REST Client/Create REST Client.vi"/>
+				<Item Name="Response Headers.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/addons/_JKI.lib/REST Client/classes/Response Headers/Response Headers.lvclass"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_variant.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/openg_variant.lvlib"/>

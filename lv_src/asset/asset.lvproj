@@ -90,8 +90,8 @@
 			<Item Name="dataScopes.lvlib" Type="Library" URL="../../nominal types/dataScope/dataScopes.lvlib"/>
 			<Item Name="datasources.lvlib" Type="Library" URL="../../datasources/datasources.lvlib"/>
 			<Item Name="event.lvclass" Type="LVClass" URL="../../event/event.lvclass"/>
-			<Item Name="lib_http_rs_labview_64.dll" Type="Document" URL="../../../submodules/reqwest-labview/lv-src/shared-library/lib_http_rs_labview_64.dll"/>
 			<Item Name="lib_nominal-streaming-lv_64.dll" Type="Document" URL="../../../submodules/nominal-streaming-labview-ffi/lv_src/bin/lib_nominal-streaming-lv_64.dll"/>
+			<Item Name="lib_reqwest_labview_64.dll" Type="Document" URL="../../../submodules/reqwest-labview/lv-src/shared-library/lib_reqwest_labview_64.dll"/>
 			<Item Name="LV Config Read String.vi" Type="VI" URL="/&lt;resource&gt;/dialog/lvconfig.llb/LV Config Read String.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="Multipart Upload.lvclass" Type="LVClass" URL="../../Nominal Client MultiPart Upload/Multipart Upload.lvclass"/>
