@@ -1,0 +1,10 @@
+{
+  "platform": "linux",
+  "files": [
+    {
+      "file": "lv_src/Nominal Client/tdms.parse_properties.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-tdms.parse_properties.vi/index.html"
+    }
+  ]
+}
