@@ -1,8 +1,53 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "a15570c82e4304bbcb74262bffc2099b86c5e96d",
+  "sha": "9436c9416ee0a633e99a20dc34e61122acdbd949",
   "revisions": [
+    {
+      "sha": "9436c9416ee0a633e99a20dc34e61122acdbd949",
+      "short": "9436c94",
+      "message": "Merge pull request #78 from nominal-io/ds/tdms-bool-prop-bug",
+      "author": "Tom McQuillan",
+      "date": "2026-09-08T09:10:38Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "1a3ffe05d448637bd98089fa617bd2ae070c5acb",
+      "short": "1a3ffe0",
+      "message": "updated fix to use fstr instead of string constants",
+      "author": "Tom McQuillan",
+      "date": "2026-09-08T09:09:04Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "e755941ff46f78d73f5b5999a6f09e7867c2fc21",
+      "short": "e755941",
+      "message": "mass compile, LabVIEW doing LabVIEW things",
+      "author": "Tom McQuillan",
+      "date": "2026-09-08T09:06:02Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "5d5d5690a91a17ca1aa03d0efe0831bba6a4176b",
+      "short": "5d5d569",
+      "message": "Resolves issues where variant property parser attempts to convert a bool variant to a string directly using %s syntax. Tested and confirmed this does not work.",
+      "author": "Daniel Smith",
+      "date": "2026-09-04T21:31:04Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "664b3efb9f0484c8dffe6238c3975cce35c0f53b",
+      "short": "664b3ef",
+      "message": "updated submodules",
+      "author": "Tom McQuillan",
+      "date": "2026-09-04T13:08:34Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "a15570c82e4304bbcb74262bffc2099b86c5e96d",
       "short": "a15570c",
@@ -855,51 +900,6 @@
       "message": "Merge pull request #27 from nominal-io/20-obsoleting-ingest-methods",
       "author": "Tom McQuillan",
       "date": "2025-07-04T13:32:54Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "fe8a62498db140bacaea7a153bbd1f01a20bf6f3",
-      "short": "fe8a624",
-      "message": "Made maps and lists standard",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T13:30:53Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "57fec3bc736ef4caebd5cebad8be7c2c5cdc1904",
-      "short": "57fec3b",
-      "message": "Added type checking to streaming custom clusters",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T12:52:36Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "36a58cbca37c1e76d19bf387f5305fc357a9d5b0",
-      "short": "36a58cb",
-      "message": "Updated examples and methods to use newer ingest methods. Deprecated old ingest",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T11:17:25Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "e10b87004a503bda0344ca25cd63e8b005443731",
-      "short": "e10b870",
-      "message": "Merge pull request #26 from nominal-io/22-assets-and-types-support",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T08:27:20Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "82208e3c7e0b33a49683950603524f317e07f71c",
-      "short": "82208e3",
-      "message": "Update property.get.vi",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T08:24:41Z",
       "project": true,
       "dep_only": false
     }
