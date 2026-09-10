@@ -1,10 +1,10 @@
 [
   {
-    "sha": "9436c9416ee0a633e99a20dc34e61122acdbd949",
-    "short": "9436c94",
-    "message": "Merge pull request #78 from nominal-io/ds/tdms-bool-prop-bug",
+    "sha": "c1cdd47081b701193a3211034b31c6541921d4b0",
+    "short": "c1cdd47",
+    "message": "Merge pull request #80 from nominal-io/79-drop-leading-dot-in-channel-names-for-unnamed-parent-clusters",
     "author": "Tom McQuillan",
-    "date": "2026-09-08T10:10:38+01:00",
-    "vi_count": 563
+    "date": "2026-09-10T08:58:27+01:00",
+    "vi_count": 565
   }
 ]
