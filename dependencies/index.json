@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "9436c9416ee0a633e99a20dc34e61122acdbd949",
+  "sha": "c1cdd47081b701193a3211034b31c6541921d4b0",
   "revisions": [
+    {
+      "sha": "c1cdd47081b701193a3211034b31c6541921d4b0",
+      "short": "c1cdd47",
+      "message": "Merge pull request #80 from nominal-io/79-drop-leading-dot-in-channel-names-for-unnamed-parent-clusters",
+      "author": "Tom McQuillan",
+      "date": "2026-09-10T07:58:27Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "a612170cdeedfbb8ecec2e893d1f4cef3a918ea3",
+      "short": "a612170",
+      "message": "Added error checking to validate cluster based channel names, added support for elements and clusters without a name provided a name can be resolved",
+      "author": "Tom McQuillan",
+      "date": "2026-09-10T07:33:54Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "9436c9416ee0a633e99a20dc34e61122acdbd949",
       "short": "9436c94",
@@ -882,24 +900,6 @@
       "message": "Merge pull request #28 from nominal-io/21-new-ingest-api-holistic-support-for-all-variants",
       "author": "Tom McQuillan",
       "date": "2025-07-04T20:19:45Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "c0c2bd854299c6902b5fbcda5c09cbee2d43af38",
-      "short": "c0c2bd8",
-      "message": "Post build commit",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T20:15:16Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "7e3c0d608a99ba598ecd65b6552160da4704007e",
-      "short": "7e3c0d6",
-      "message": "Merge pull request #27 from nominal-io/20-obsoleting-ingest-methods",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T13:32:54Z",
       "project": true,
       "dep_only": false
     }
