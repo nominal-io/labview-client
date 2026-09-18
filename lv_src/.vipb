@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-09-05 08:48:09" Creator="Tom" Comments="" ID="0de7150a9fc26feb849d7ca2acfd6337">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2024-11-05 11:16:52" Modified_Date="2026-09-11 14:24:31" Creator="Tom" Comments="" ID="cc9124ab9515e92f007f298083c00201">
   <Library_General_Settings>
     <Package_File_Name>Nominal_lib_Nominal_IO_Client</Package_File_Name>
-    <Library_Version>5.0.4.18</Library_Version>
+    <Library_Version>5.0.4.19</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..</Library_Source_Folder>
     <Library_Output_Folder>..\builds</Library_Output_Folder>
@@ -54,6 +54,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
       <Release_Notes>- New: Added workspace and endpoint strings to the Connect function, allowing explicit targeting of a workspace and endpoint at connection time.
 - Fixed: Resolved an issue with the TDMS upload function.
 - Fixed: Resolved issues creating runs and datasets in non-default workspaces.
+- Fixed: Custom cluster channel name resolution issue
 - Updated: Refreshed networking library metadata.</Release_Notes>
     </Description>
     <Destinations>
@@ -525,7 +526,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>..\Workspaces</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BF3700F27137F5E863110AAC83F449C1</GUID>
+      <GUID>E2A926D1EA70EA8CBA82E1EBF4A6B4F4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -812,7 +813,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>asset\Palette Items\unarchive.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>14D60C819AD1BB6F32DF0E69310FD5AE</GUID>
+      <GUID>7C44ACDAB301F109D639C8F41B6F250C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -987,7 +988,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>Nominal Client\Palette Items\run.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4AE953BBA227A0080EACA0F1F87C84EC</GUID>
+      <GUID>1DE070EC37BEBC5AD8D5F9C6F0CEE389</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1148,7 +1149,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>Run\Palette Items\event.create.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1BD56D67DBDEDCB1805E9AB259D2EE0C</GUID>
+      <GUID>6C16E6788613D62BA0696BC1E56BE95A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1407,7 +1408,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Channel\Basic Function Generator (Absolute Time).vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A3E468F88A5210701674B59A8FC83E21</GUID>
+      <GUID>2D85927E9045F4EBA41E136760E705C4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1470,7 +1471,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>Nominal Client\Palette Items\catalog.get_dataset.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>21011CC3596FFB08925208E67BC56C33</GUID>
+      <GUID>C9DAB73BFDB1044B156CDCC78095F082</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1533,7 +1534,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>..\MultiPart File Upload</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>77FD460424E4E75FE9689F92D50A6B64</GUID>
+      <GUID>33754EC068185E3FDFDADDF54E02F72D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1666,7 +1667,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>Nominal Client MultiPart Upload\upload.list_parts.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8148B9EFC49250B9264484C84959EDC5</GUID>
+      <GUID>7AC77180CF9AF4A124A831706685964D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1827,7 +1828,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>Quick Start\Quick Start - Update Channel Metadata.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3AF70635577B714D7221E32157A1E0EA</GUID>
+      <GUID>8682AAE48E98C509FC4CBB66A5CB141C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1918,7 +1919,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>Nominal Client\file.name_and_type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>045931CCA13C294915C1260F2BAE846B</GUID>
+      <GUID>E6B382B72347A3D9EA8D329134CAA882</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2009,7 +2010,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>Nominal Client\workspace.from_rid.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C78C3696B81FFD686BFF09DE71E65D2B</GUID>
+      <GUID>978FB87A7039315F524F91614F5F0586</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2128,7 +2129,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>type\type.property.set.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>99545D692EE565BA06A3076234C2A6F2</GUID>
+      <GUID>86B9AA50FD9E7AE4DDA22B5437C19072</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -2163,7 +2164,7 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
         <Path>..\submodules\nominal-streaming-labview-ffi\lv_src\Stream\Initialize.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2C6E71E90FE945125EBB61A2CDA6C562</GUID>
+      <GUID>4D36A8836551513BB8F7727D92D53202</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
