@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "sha": "42e8f01abc0df6b48876b874d293819db5bb3abf",
+    "short": "42e8f01",
+    "platform": "linux",
+    "repo": "nominal-io/labview-client",
+    "pages_url": "https://nominal-io.github.io/labview-client",
+    "pages_base": "../../..",
+    "commit": {
+      "message": "Merge d158590284d082592a5aea0f745db22451222c30 into c1cdd47081b701193a3211034b31c6541921d4b0",
+      "author": "Tom McQuillan",
+      "date": "2026-09-18T10:20:22Z"
+    },
+    "generated_utc": "2026-09-18 10:26 UTC",
+    "analysis_date": "",
+    "duration": ""
+  },
+  "summary": {
+    "vis_analyzed": 0,
+    "tests_run": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "findings": 0,
+    "vis_with_findings": 0
+  },
+  "errors": {
+    "vi_not_loadable": 0,
+    "test_not_loadable": 0,
+    "test_not_runnable": 0,
+    "test_error_out": 0
+  },
+  "rule_counts": []
+}
