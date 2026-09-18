@@ -103,6 +103,12 @@
 			<Item Name="type.property.set.vi" Type="VI" URL="../type/type.property.set.vi"/>
 			<Item Name="assets.property.set.vi" Type="VI" URL="../asset/assets.property.set.vi"/>
 		</Item>
+		<Item Name="User Extensions" Type="Folder">
+			<Item Name="GET Template.vi" Type="VI" URL="../Quick Start/Developer Extensions/GET Template.vi"/>
+			<Item Name="POST Template.vi" Type="VI" URL="../Quick Start/Developer Extensions/POST Template.vi"/>
+			<Item Name="PUT Template.vi" Type="VI" URL="../Quick Start/Developer Extensions/PUT Template.vi"/>
+			<Item Name="DELETE Template.vi" Type="VI" URL="../Quick Start/Developer Extensions/DELETE Template.vi"/>
+		</Item>
 		<Item Name="User.lvclass" Type="LVClass" URL="../User/User.lvclass"/>
 		<Item Name="asset.lvclass" Type="LVClass" URL="../asset/asset.lvclass"/>
 		<Item Name="event.lvclass" Type="LVClass" URL="../event/event.lvclass"/>
