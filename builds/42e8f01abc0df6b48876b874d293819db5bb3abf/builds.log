@@ -1,0 +1,43 @@
+Project has no build specifications: lv_src\Nominal Client.lvproj
+Project has no build specifications: lv_src\asset\asset.lvproj
+Project has no build specifications: lv_src\dataset\dataset.lvproj
+Project has no build specifications: lv_src\Run\run.lvproj
+Project has no build specifications: sample_project\Source\Nominal Fan Test\Fan Characterization.lvproj
+=== ExecuteBuildSpec 'My Application' [EXE] target 'My Computer' in test_files\build from toolkit\build from toolkit.lvproj ===
+LabVIEWCLI started logging in file:  C:\Users\ContainerAdministrator\AppData\Local\Temp\lvtemporary_113120.log
+Using LabVIEW: "C:\Program Files\National Instruments\LabVIEW 2026\LabVIEW.exe"
+LabVIEW launched successfully.
+Connection established with LabVIEW at port number 3363.
+
+LabVIEWCLI.exe : Error code : 66
+At C:\workspace\.github\labview\build-binaries.ps1:252 char:12
++     $out = & $CliExe @cliArgs 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error code : 66:String) [], Remot 
+   eException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error message : Call By Reference in RunExecuteOperationVI.vi->RunOperationCore
+.vi->RunOperation.vi->RunOperation.vi.ProxyCaller
+An error occurred while running the LabVIEW CLI.
+
+
+=== ExecuteBuildSpec 'My Application' [EXE] target 'My Computer' in test_files\building an application\application.lvproj ===
+LabVIEWCLI started logging in file:  C:\Users\ContainerAdministrator\AppData\Local\Temp\lvtemporary_370988.log
+Using LabVIEW: "C:\Program Files\National Instruments\LabVIEW 2026\LabVIEW.exe"
+LabVIEW launched successfully.
+Connection established with LabVIEW at port number 3363.
+
+LabVIEWCLI.exe : Error code : 66
+At C:\workspace\.github\labview\build-binaries.ps1:252 char:12
++     $out = & $CliExe @cliArgs 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error code : 66:String) [], Remot 
+   eException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error message : Call By Reference in RunExecuteOperationVI.vi->RunOperationCore
+.vi->RunOperation.vi->RunOperation.vi.ProxyCaller
+An error occurred while running the LabVIEW CLI.
+
+
