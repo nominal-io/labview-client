@@ -1,8 +1,44 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "c1cdd47081b701193a3211034b31c6541921d4b0",
+  "sha": "5d892390f8a899f22622f4d08b472adbf05e4290",
   "revisions": [
+    {
+      "sha": "5d892390f8a899f22622f4d08b472adbf05e4290",
+      "short": "5d89239",
+      "message": "Merge pull request #82 from nominal-io/43-create-extendable-interface-for-rest-api-calls",
+      "author": "Tom McQuillan",
+      "date": "2026-09-18T12:32:47Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "92e8c0402527bd02d909c05f6ba2ba1aab68264c",
+      "short": "92e8c04",
+      "message": "updated description of new feature",
+      "author": "Tom McQuillan",
+      "date": "2026-09-18T10:29:52Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "62a7a9ac155579411c1af464507f5d77421264b5",
+      "short": "62a7a9a",
+      "message": "updated vipb to include extension templates",
+      "author": "Tom McQuillan",
+      "date": "2026-09-18T10:27:11Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "d158590284d082592a5aea0f745db22451222c30",
+      "short": "d158590",
+      "message": "added template functions",
+      "author": "Tom McQuillan",
+      "date": "2026-09-18T10:18:58Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "c1cdd47081b701193a3211034b31c6541921d4b0",
       "short": "c1cdd47",
@@ -864,42 +900,6 @@
       "message": "corrected tag support for batch writing",
       "author": "Tom McQuillan",
       "date": "2025-09-26T15:11:26Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "e68edc6d2d89c14462c3532b85a850fab90b3933",
-      "short": "e68edc6",
-      "message": "Merge pull request #32 from nominal-io/29-add-tag-support-to-cluster-streaming",
-      "author": "Tom McQuillan",
-      "date": "2025-09-26T13:40:18Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "7ce1d4cfee23bd231ccd2d3c72728fe703e60dfb",
-      "short": "7ce1d4c",
-      "message": "added tag support for cluster streaming",
-      "author": "Tom McQuillan",
-      "date": "2025-09-26T13:39:45Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "70e6d5df153b8240761648165de0db11e4cedad6",
-      "short": "70e6d5d",
-      "message": "Add reqwest-rs-labview submodule",
-      "author": "Tom McQuillan",
-      "date": "2025-07-08T07:27:28Z",
-      "project": false,
-      "dep_only": false
-    },
-    {
-      "sha": "a6a1659e1bb018801f7c98691dbb4b0f42d7e933",
-      "short": "a6a1659",
-      "message": "Merge pull request #28 from nominal-io/21-new-ingest-api-holistic-support-for-all-variants",
-      "author": "Tom McQuillan",
-      "date": "2025-07-04T20:19:45Z",
       "project": true,
       "dep_only": false
     }
