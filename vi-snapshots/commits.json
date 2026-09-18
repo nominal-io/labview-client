@@ -1,10 +1,10 @@
 [
   {
-    "sha": "c1cdd47081b701193a3211034b31c6541921d4b0",
-    "short": "c1cdd47",
-    "message": "Merge pull request #80 from nominal-io/79-drop-leading-dot-in-channel-names-for-unnamed-parent-clusters",
+    "sha": "5d892390f8a899f22622f4d08b472adbf05e4290",
+    "short": "5d89239",
+    "message": "Merge pull request #82 from nominal-io/43-create-extendable-interface-for-rest-api-calls",
     "author": "Tom McQuillan",
-    "date": "2026-09-10T08:58:27+01:00",
-    "vi_count": 565
+    "date": "2026-09-18T13:32:47+01:00",
+    "vi_count": 569
   }
 ]
