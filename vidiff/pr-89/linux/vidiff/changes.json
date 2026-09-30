@@ -75,6 +75,51 @@
       "file": "lv_src/Nominal Client MultiPart Upload/upload.part_core.vi",
       "type": "modified",
       "report": "lv_src-Nominal_Client_MultiPart_Upload-upload.part_core.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client MultiPart Upload/upload.start_part_upload.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client_MultiPart_Upload-upload.start_part_upload.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload.file.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload.file.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload.file_multipart_upload.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload.file_multipart_upload.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload.tdms.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload.tdms.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload.tdms_core.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload.tdms_core.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload_ingest.csv.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload_ingest.csv.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload_ingest.video.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload_ingest.video.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/upload_to_s3.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-upload_to_s3.vi/index.html"
     }
   ]
 }
