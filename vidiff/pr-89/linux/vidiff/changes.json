@@ -65,6 +65,11 @@
       "file": "lv_src/Nominal Client/ingest_csv.vi",
       "type": "modified",
       "report": "lv_src-Nominal_Client-ingest_csv.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/catalog.wait_until_ingest_complete.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-catalog.wait_until_ingest_complete.vi/index.html"
     }
   ]
 }
