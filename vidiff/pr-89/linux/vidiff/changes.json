@@ -35,6 +35,31 @@
       "file": "lv_src/Nominal Client/set request timeout.vi",
       "type": "added",
       "report": "lv_src-Nominal_Client-set_request_timeout.vi/index.html"
+    },
+    {
+      "file": "lv_src/Run/create.request.vi",
+      "type": "modified",
+      "report": "lv_src-Run-create.request.vi/index.html"
+    },
+    {
+      "file": "lv_src/Run/update.description.request.vi",
+      "type": "modified",
+      "report": "lv_src-Run-update.description.request.vi/index.html"
+    },
+    {
+      "file": "lv_src/Run/update.name.request.vi",
+      "type": "modified",
+      "report": "lv_src-Run-update.name.request.vi/index.html"
+    },
+    {
+      "file": "lv_src/event/update.description.request.vi",
+      "type": "modified",
+      "report": "lv_src-event-update.description.request.vi/index.html"
+    },
+    {
+      "file": "lv_src/event/update.name.request.vi",
+      "type": "modified",
+      "report": "lv_src-event-update.name.request.vi/index.html"
     }
   ]
 }
