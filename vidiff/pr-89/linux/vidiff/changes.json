@@ -60,6 +60,11 @@
       "file": "lv_src/event/update.name.request.vi",
       "type": "modified",
       "report": "lv_src-event-update.name.request.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/ingest_csv.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-ingest_csv.vi/index.html"
     }
   ]
 }
