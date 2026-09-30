@@ -1,0 +1,40 @@
+{
+  "platform": "linux",
+  "files": [
+    {
+      "file": "lv_src/Nominal Client/get request timeout.vi",
+      "type": "added",
+      "report": "lv_src-Nominal_Client-get_request_timeout.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/http.delete.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-http.delete.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/http.get.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-http.get.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/http.post.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-http.post.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/http.put.vi",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-http.put.vi/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/private_data.ctl",
+      "type": "modified",
+      "report": "lv_src-Nominal_Client-private_data.ctl/index.html"
+    },
+    {
+      "file": "lv_src/Nominal Client/set request timeout.vi",
+      "type": "added",
+      "report": "lv_src-Nominal_Client-set_request_timeout.vi/index.html"
+    }
+  ]
+}
