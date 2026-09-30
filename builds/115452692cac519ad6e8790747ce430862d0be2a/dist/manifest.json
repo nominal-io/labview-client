@@ -1,0 +1,35 @@
+{
+    "repo":  "nominal-io/labview-client",
+    "sha":  "115452692cac519ad6e8790747ce430862d0be2a",
+    "ref":  "refs/pull/89/merge",
+    "platform":  "windows",
+    "arch":  "AMD64",
+    "labview_version":  "LabVIEW 2026",
+    "built_at":  "2026-09-30T18:44:56Z",
+    "specs":  [
+                  {
+                      "project":  "test_files\\build from toolkit\\build from toolkit.lvproj",
+                      "name":  "My Application",
+                      "type":  "EXE",
+                      "target":  "My Computer",
+                      "status":  "failed",
+                      "outputs":  [
+
+                                  ],
+                      "message":  "ExecuteBuildSpec exited 2",
+                      "duration":  87
+                  },
+                  {
+                      "project":  "test_files\\building an application\\application.lvproj",
+                      "name":  "My Application",
+                      "type":  "EXE",
+                      "target":  "My Computer",
+                      "status":  "failed",
+                      "outputs":  [
+
+                                  ],
+                      "message":  "ExecuteBuildSpec exited 2",
+                      "duration":  34.4
+                  }
+              ]
+}
