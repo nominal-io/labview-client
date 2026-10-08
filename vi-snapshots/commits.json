@@ -1,10 +1,10 @@
 [
   {
-    "sha": "5d892390f8a899f22622f4d08b472adbf05e4290",
-    "short": "5d89239",
-    "message": "Merge pull request #82 from nominal-io/43-create-extendable-interface-for-rest-api-calls",
+    "sha": "4dc214e38374fa68eec58a5ead1964347afc2860",
+    "short": "4dc214e",
+    "message": "Merge pull request #89 from nominal-io/ds/fix-quick-issues",
     "author": "Tom McQuillan",
-    "date": "2026-09-18T13:32:47+01:00",
-    "vi_count": 569
+    "date": "2026-10-08T21:02:58+01:00",
+    "vi_count": 571
   }
 ]
