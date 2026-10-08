@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "sha": "b73e6e9d4fa0a9763fa326f434c1a8055aa78e99",
+    "short": "b73e6e9",
+    "platform": "linux",
+    "repo": "nominal-io/labview-client",
+    "pages_url": "https://nominal-io.github.io/labview-client",
+    "pages_base": "../../..",
+    "commit": {
+      "message": "Merge 6aa74030700c0d7b1c682d87394f06bfbf60fb04 into 4dc214e38374fa68eec58a5ead1964347afc2860",
+      "author": "smithednominal",
+      "date": "2026-10-08T21:24:28Z"
+    },
+    "generated_utc": "2026-10-08 21:31 UTC",
+    "analysis_date": "",
+    "duration": ""
+  },
+  "summary": {
+    "vis_analyzed": 0,
+    "tests_run": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "findings": 0,
+    "vis_with_findings": 0
+  },
+  "errors": {
+    "vi_not_loadable": 0,
+    "test_not_loadable": 0,
+    "test_not_runnable": 0,
+    "test_error_out": 0
+  },
+  "rule_counts": []
+}
