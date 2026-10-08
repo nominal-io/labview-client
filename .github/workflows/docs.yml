@@ -1,0 +1,58 @@
+# Builds the docs (docs/) and, on main, uploads them for the Nominal docs hub (nominal-io/pub-docs),
+# which pulls the newest upload and serves it at dev.nominal.io/labview/client/.
+#
+# The upload is a plain artifact, not a GitHub Pages deploy: this repo's Pages serves the gh-pages
+# branch, where the LabVIEW CI dashboard lives. pub-docs' sites.toml names the artifact (docs-html).
+# It's kept for 90 days; the default of one day is too short to rely on.
+name: Docs
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "lv_src/.vipb"
+      - "pyproject.toml"
+      - "uv.lock"
+      - "justfile"
+      - ".github/workflows/docs.yml"
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "lv_src/.vipb"
+      - "pyproject.toml"
+      - "uv.lock"
+      - "justfile"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          lfs: true # the export's images (docs/lvdocs/assets) are in Git LFS
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          enable-cache: false
+          python-version: "3.13"
+      - name: Install just
+        uses: extractions/setup-just@53165ef7e734c5c07cb06b3c8e7b647c5aa16db3 # v4.0.0
+      - name: Build docs
+        run: just build-docs
+      - name: Upload docs for pub-docs
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: docs-html
+          path: docs/_build/dirhtml
+          retention-days: 90
