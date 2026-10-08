@@ -17,6 +17,8 @@
 *.aliases
 *.lvlps
 .cache/
+# per-user project state (.<project>.UserState/*.lvprojstate)
+*.UserState/
 
 
 # Developer Tools
@@ -27,3 +29,10 @@
 test_files/Narrative Demo v3.mp4
 /builds
 .claude
+
+# Docs (Python toolchain in pyproject.toml); ref/ and examples/ are generated from docs/lvdocs
+.venv
+__pycache__/
+docs/_build
+docs/ref/
+docs/examples/

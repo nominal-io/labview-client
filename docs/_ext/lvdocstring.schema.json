@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LabVIEW palette export (lvdocstring.json)",
+  "description": "What the LabVIEW export writes for the docs: one entry per palette slot in lv_src/.vipb, plus one per instance of each polymorphic VI. A VI on two palettes appears twice, differing only in its palette location. Images are named by the MD5 of the VI's path and live in assets/ next to this file; the docs build uses only the file name of icon and connpane.",
+  "type": "array",
+  "minItems": 1,
+  "items": { "$ref": "#/$defs/entry" },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "path", "owner", "description", "icon", "connpane", "terminals", "relative palette location", "parent ID"],
+      "properties": {
+        "id": {
+          "description": "The owning class or library, ::, then the VI's full qualified name, e.g. \"Nominal Client.lvclass::Nominal Client.lvclass:create.vim\"; just the file name for a VI outside any library.",
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "description": "\"vi\"; \"polymorph[<qualified name>]\" for a polymorphic VI; \"polymorph[<parent's qualified name>][menu=<name>][selector=<name>]\" for one of its instances. Menu and selector names are empty when the polymorphic VI doesn't set them.",
+          "type": "string",
+          "pattern": "^(vi|polymorph\\[.+\\](\\[menu=.*\\]\\[selector=.*\\])?)$"
+        },
+        "path": {
+          "description": "The VI's path relative to lv_src, with backslashes, e.g. \"Nominal Client\\\\Palette Items\\\\create.vim\" or \"..\\\\submodules\\\\nominal-streaming-labview-ffi\\\\lv_src\\\\Stream\\\\Shutdown.vi\". Matches the Path of its item in lv_src/.vipb.",
+          "type": "string",
+          "pattern": "\\.(vi|vim)$"
+        },
+        "owner": {
+          "description": "The owning class or library, without extension; \"\" if none.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The VI's description as saved in VI Properties > Documentation.",
+          "type": "string"
+        },
+        "icon": {
+          "description": "Path of the icon PNG; the docs build uses its file name, looked up in assets/.",
+          "type": "string",
+          "pattern": "\\.png$"
+        },
+        "connpane": {
+          "description": "Path of the connector pane PNG, like Context Help shows it; \"<Not A Path>\" for a polymorphic VI, whose instances have their own.",
+          "type": "string",
+          "pattern": "(\\.png|^<Not A Path>)$"
+        },
+        "terminals": {
+          "description": "The connector pane's terminals. Empty for polymorphic VIs and for VIs without a connector pane (Quick Start and drop VIs).",
+          "type": "array",
+          "items": { "$ref": "#/$defs/terminal" }
+        },
+        "relative palette location": {
+          "description": "The palette the entry was found in, by name from the top palette, e.g. \"Files/MultiPart File Upload\"; \"\" for the top palette.",
+          "type": "string"
+        },
+        "parent ID": {
+          "description": "For an instance of a polymorphic VI, the polymorphic VI's id; \"\" otherwise.",
+          "type": "string"
+        }
+      }
+    },
+    "terminal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "caption", "direction", "type", "type_id", "default", "description", "tip strip", "wiring rule"],
+      "properties": {
+        "label": { "description": "The control's label.", "type": "string" },
+        "caption": { "description": "The control's caption; \"\" if it has none.", "type": "string" },
+        "direction": { "enum": ["input", "output"] },
+        "type": {
+          "description": "LabVIEW's name for the data type, e.g. \"String\", \"Double Float\", \"Array[dims:1] of Cluster\", \"enum[INFO,FLAG]\", \"asset.lvclass\".",
+          "type": "string"
+        },
+        "type_id": {
+          "description": "The class or typedef that defines the type, \"INVALID\", or \"\".",
+          "type": "string"
+        },
+        "default": {
+          "description": "The default value, as LabVIEW's XML flattening of a variant (<LvVariant>...). Arrays include their element type even when empty.",
+          "type": "string"
+        },
+        "description": { "description": "The control's description.", "type": "string" },
+        "tip strip": { "description": "The control's tip strip.", "type": "string" },
+        "wiring rule": { "enum": ["Required", "Recommended", "Optional"] }
+      }
+    }
+  }
+}

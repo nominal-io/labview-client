@@ -1,0 +1,25 @@
+# Docs toolchain only. This repo is LabVIEW; Python is here for Sphinx.
+# Install with `uv sync --group docs`; build with `just build-docs`.
+[project]
+name = "nominal-labview-docs"
+version = "0.0.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+docs = [
+    # Sphinx 11 removes APIs that MyST still uses.
+    "sphinx>=9.1,<11",
+    "myst-parser>=4",
+    "sphinx-design>=0.6",
+    "sphinx-copybutton>=0.5",
+    "nominal-sphinx-theme",
+]
+
+[tool.uv.sources]
+# github.com/nominal-io/nominal-sphinx-theme; uv.lock pins the commit. To update it:
+# `uv lock --upgrade-package nominal-sphinx-theme`
+nominal-sphinx-theme = { git = "https://github.com/nominal-io/nominal-sphinx-theme" }
