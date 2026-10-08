@@ -1,8 +1,89 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "5d892390f8a899f22622f4d08b472adbf05e4290",
+  "sha": "4dc214e38374fa68eec58a5ead1964347afc2860",
   "revisions": [
+    {
+      "sha": "4dc214e38374fa68eec58a5ead1964347afc2860",
+      "short": "4dc214e",
+      "message": "Merge pull request #89 from nominal-io/ds/fix-quick-issues",
+      "author": "Tom McQuillan",
+      "date": "2026-10-08T20:02:58Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "0321033c5c5f659d6ac5432244b0d5103a512943",
+      "short": "0321033",
+      "message": "reset project file to last version on main, did not intend to commit and it may have damaged something in CI",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T20:12:43Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "638515cf6aad1b3d436560284e614eca23120c91",
+      "short": "638515c",
+      "message": "closes #84 by adding a timeout override for put and post commands",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T19:01:05Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "109601f1aaf1e3f406ae0b97947d780c27ad0ea5",
+      "short": "109601f",
+      "message": "closes #86, simple settings change",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T18:30:12Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "5e320a485a60480b78c5e593ba97b860c0e0ecc9",
+      "short": "5e320a4",
+      "message": "closes sub-issue of #88",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T18:21:13Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "26f8358d6f8f14502f94e952789a7313543a0bd2",
+      "short": "26f8358",
+      "message": "closes #88 as suggested in the ticket.",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T18:18:05Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "affa300d9457ca97fa66f668db80972180418289",
+      "short": "affa300",
+      "message": "close #83",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T18:06:08Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "4819d1a9ebb256ea176cf2eaf98f710a013d2097",
+      "short": "4819d1a",
+      "message": "close #81",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T17:55:10Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "688a23e4fff6d637f5c24492175e53fe92122220",
+      "short": "688a23e",
+      "message": "ignore project state file",
+      "author": "Daniel Smith",
+      "date": "2026-09-30T17:52:18Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "5d892390f8a899f22622f4d08b472adbf05e4290",
       "short": "5d89239",
@@ -819,87 +900,6 @@
       "message": "first batch of fixed VIs",
       "author": "Tom McQuillan",
       "date": "2026-01-06T17:31:43Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "51855619fc12cfe1a5c5c0325294883ddbaa904c",
-      "short": "5185561",
-      "message": "first batch of fixed VIs",
-      "author": "Tom McQuillan",
-      "date": "2026-01-06T17:18:10Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "5674391af3f05f12940758a2a37883641e0bf1ae",
-      "short": "5674391",
-      "message": "updated build number",
-      "author": "Tom McQuillan",
-      "date": "2025-11-19T10:01:30Z",
-      "project": false,
-      "dep_only": false
-    },
-    {
-      "sha": "61203e6fe91729a665697ed3fc001a656df3f0ba",
-      "short": "61203e6",
-      "message": "updated vipb to require oglib varient",
-      "author": "Tom McQuillan",
-      "date": "2025-11-13T18:21:03Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "98c3542c8f14f277bcff083907a3d0abab3148ef",
-      "short": "98c3542",
-      "message": "Merge pull request #40 from nominal-io/37-missing-tags-input-on-write-cluster-data-batches-vi",
-      "author": "Tom McQuillan",
-      "date": "2025-11-13T08:27:44Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "afc09b7d7bd506d6d25efff045bb82c28c2f6c48",
-      "short": "afc09b7",
-      "message": "Fix #37",
-      "author": "Tom McQuillan",
-      "date": "2025-11-13T08:27:19Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "3c94d3100291ca8934e63c648da1436561554b9a",
-      "short": "3c94d31",
-      "message": "Merge pull request #34 from nominal-io/31-implment-configurable-http-timeout",
-      "author": "Tom McQuillan",
-      "date": "2025-09-26T15:29:33Z",
-      "project": false,
-      "dep_only": false
-    },
-    {
-      "sha": "28d9261677b3f52d972c6ef2806d31ae5e45a379",
-      "short": "28d9261",
-      "message": "made timeout configurable in create.vipm",
-      "author": "Tom McQuillan",
-      "date": "2025-09-26T15:28:27Z",
-      "project": false,
-      "dep_only": false
-    },
-    {
-      "sha": "528d93f41bc52be19a7e20ecba176aac37c1293f",
-      "short": "528d93f",
-      "message": "Merge pull request #33 from nominal-io/30-review-tag-support-for-write-data-batchesvi",
-      "author": "Tom McQuillan",
-      "date": "2025-09-26T15:24:19Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "b69b75c8538f2fb2e195468d332d3aa2a37c076e",
-      "short": "b69b75c",
-      "message": "corrected tag support for batch writing",
-      "author": "Tom McQuillan",
-      "date": "2025-09-26T15:11:26Z",
       "project": true,
       "dep_only": false
     }
