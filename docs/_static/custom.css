@@ -1,0 +1,58 @@
+/* The project name in the header keeps its case: LabVIEW, not LABVIEW. */
+.sy-head-brand strong {
+  text-transform: none;
+}
+
+/* VI icons are 32x32 pixel art: scale them up without smoothing. */
+.lv-icon,
+.lv-card-icon {
+  image-rendering: pixelated;
+}
+
+/* A VI page's header: its icon beside its description. */
+.lv-header {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+.lv-header > p:first-child {
+  flex: none;
+  margin: 0;
+}
+.lv-icon {
+  width: 64px;
+  height: 64px;
+}
+.lv-description > :first-child {
+  margin-top: 0;
+}
+
+/* LabVIEW renders connector panes and block diagrams on white; keep them on white in dark mode too.
+   A scaled diagram is wrapped in a link to the full-size image, which carries the class too. */
+img.lv-connpane,
+img.lv-diagram {
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px;
+  max-width: 100%;
+  height: auto;
+}
+a.lv-diagram {
+  display: block;
+}
+
+.lv-meta {
+  font-size: 0.875em;
+  color: var(--sy-c-text-weak, inherit);
+}
+
+/* Palette cards: the VI's icon to the left of its summary. */
+.lv-palette .sd-card-text {
+  font-size: 0.875em;
+}
+.lv-card-icon {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin: 0 0.75rem 0.25rem 0;
+}

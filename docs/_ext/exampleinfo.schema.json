@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LabVIEW examples export (exampleinfo.json)",
+  "description": "One entry per VI in lv_src/Examples. Diagram images live in assets/examples/ next to this file; the docs build uses only the file name.",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["vi name", "diagram image", "description"],
+    "properties": {
+      "vi name": {
+        "description": "The VI's file name in lv_src/Examples, e.g. \"Connect and Disconnect.vi\".",
+        "type": "string",
+        "pattern": "\\.vi$"
+      },
+      "diagram image": {
+        "description": "Path of the block diagram image, at native size.",
+        "type": "string",
+        "pattern": "\\.(png|jpg)$"
+      },
+      "description": {
+        "description": "The VI's description as saved in VI Properties > Documentation.",
+        "type": "string"
+      }
+    }
+  }
+}
