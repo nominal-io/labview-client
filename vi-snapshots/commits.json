@@ -1,10 +1,10 @@
 [
   {
-    "sha": "4dc214e38374fa68eec58a5ead1964347afc2860",
-    "short": "4dc214e",
-    "message": "Merge pull request #89 from nominal-io/ds/fix-quick-issues",
-    "author": "Tom McQuillan",
-    "date": "2026-10-08T21:02:58+01:00",
-    "vi_count": 571
+    "sha": "00e6e12e12f41a6365c72e43a87f606085cd0ec5",
+    "short": "00e6e12",
+    "message": "Merge branch 'docs'",
+    "author": "Daniel Smith",
+    "date": "2026-10-15T15:28:51-04:00",
+    "vi_count": 590
   }
 ]
