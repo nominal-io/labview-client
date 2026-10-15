@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "00e6e12e12f41a6365c72e43a87f606085cd0ec5",
+  "sha": "f5237a8a2db6a818705d14d18c04425350589ee2",
   "revisions": [
+    {
+      "sha": "f5237a8a2db6a818705d14d18c04425350589ee2",
+      "short": "f5237a8",
+      "message": "docs: link the landing page to API keys setup",
+      "author": "Daniel Smith",
+      "date": "2026-10-15T20:57:42Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "00e6e12e12f41a6365c72e43a87f606085cd0ec5",
       "short": "00e6e12",
@@ -891,15 +900,6 @@
       "message": "Merge pull request #48 from nominal-io/41-add-api-support-for-creating-events-during-test-runs",
       "author": "Tom McQuillan",
       "date": "2026-01-07T15:22:32Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "8b13fd30b453d25d67c65b5ef83a25aaee0ee669",
-      "short": "8b13fd3",
-      "message": "minor cleanup",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T14:55:41Z",
       "project": true,
       "dep_only": false
     }
