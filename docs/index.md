@@ -32,7 +32,9 @@ package with VIPM. It needs LabVIEW 2020 SP1 or later. The VIs appear under **Da
 Communication** on the Functions palette, and the examples in LabVIEW's examples folder.
 
 A program opens a connection with {lv:vi}`Create Nominal Client` and closes it with
-{lv:vi}`Destroy Nominal Client`.
+{lv:vi}`Destroy Nominal Client`. Creating a client takes an API token, your Nominal instance's
+base URL and a workspace; [API keys setup](site:/quickstart/quickstart/api-keys-setup/) shows
+where to find each.
 
 ::::{grid} 1 2 2 2
 :gutter: 2

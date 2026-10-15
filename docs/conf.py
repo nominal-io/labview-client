@@ -18,6 +18,7 @@ extensions = [
     "sphinx_copybutton",
     "nominal_sphinx_theme",
     "labview",
+    "site_links",  # [text](site:/quickstart/...) links to other projects on the docs site
 ]
 myst_enable_extensions = ["colon_fence", "deflist", "attrs_inline", "attrs_block", "fieldlist"]
 myst_heading_anchors = 6
