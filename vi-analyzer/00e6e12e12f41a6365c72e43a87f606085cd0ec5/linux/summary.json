@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "sha": "00e6e12e12f41a6365c72e43a87f606085cd0ec5",
+    "short": "00e6e12",
+    "platform": "linux",
+    "repo": "nominal-io/labview-client",
+    "pages_url": "https://nominal-io.github.io/labview-client",
+    "pages_base": "../../..",
+    "commit": {
+      "message": "Merge branch 'docs'",
+      "author": "Daniel Smith",
+      "date": "2026-10-15T15:28:51-04:00"
+    },
+    "generated_utc": "2026-10-15 20:03 UTC",
+    "analysis_date": "",
+    "duration": ""
+  },
+  "summary": {
+    "vis_analyzed": 0,
+    "tests_run": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "findings": 0,
+    "vis_with_findings": 0
+  },
+  "errors": {
+    "vi_not_loadable": 0,
+    "test_not_loadable": 0,
+    "test_not_runnable": 0,
+    "test_error_out": 0
+  },
+  "rule_counts": []
+}
