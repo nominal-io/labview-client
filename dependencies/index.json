@@ -1,8 +1,53 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "4dc214e38374fa68eec58a5ead1964347afc2860",
+  "sha": "00e6e12e12f41a6365c72e43a87f606085cd0ec5",
   "revisions": [
+    {
+      "sha": "00e6e12e12f41a6365c72e43a87f606085cd0ec5",
+      "short": "00e6e12",
+      "message": "Merge branch 'docs'",
+      "author": "Daniel Smith",
+      "date": "2026-10-15T19:28:51Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "ad50907a47b2c6b7733c013aa1eec315ce52f345",
+      "short": "ad50907",
+      "message": "Merge remote-tracking branch 'origin/main'",
+      "author": "Daniel Smith",
+      "date": "2026-10-15T19:28:06Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "907f2c7d456f0a244280e5f6f2604157bda3795d",
+      "short": "907f2c7",
+      "message": "add quickstart examples",
+      "author": "Daniel Smith",
+      "date": "2026-10-09T18:07:30Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "6aa74030700c0d7b1c682d87394f06bfbf60fb04",
+      "short": "6aa7403",
+      "message": "Merge branch 'main' into docs",
+      "author": "smithednominal",
+      "date": "2026-10-08T21:24:24Z",
+      "project": true,
+      "dep_only": false
+    },
+    {
+      "sha": "9a82a812b9088aff3c987923713422af3a8219a4",
+      "short": "9a82a81",
+      "message": "add Sphinx docs scaffolding generated from a LabVIEW export",
+      "author": "Daniel Smith",
+      "date": "2026-10-08T21:02:53Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "4dc214e38374fa68eec58a5ead1964347afc2860",
       "short": "4dc214e",
@@ -855,51 +900,6 @@
       "message": "minor cleanup",
       "author": "Tom McQuillan",
       "date": "2026-01-07T14:55:41Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "c149e6ef27f71d3b758ffacee49f5144ff5c74ce",
-      "short": "c149e6e",
-      "message": "Added event support and corrected VIPM behaviour for batch streaming",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T14:51:17Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "e6486bf88f4fcc586e3be1c0ff21cf3365b44939",
-      "short": "e6486bf",
-      "message": "initial creation of event.create support",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T12:09:12Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "2cf1b76675c74ab8a25f9abdea32d490c6b8bfa9",
-      "short": "2cf1b76",
-      "message": "Merge pull request #47 from nominal-io/fix-broken-vis",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T10:28:52Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "7419f8a9740dc747028c04742e968c0c9f5febb5",
-      "short": "7419f8a",
-      "message": "resolved #44",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T10:27:48Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "c8d7c32baa29a9a743ac879e45cfd450541969ff",
-      "short": "c8d7c32",
-      "message": "first batch of fixed VIs",
-      "author": "Tom McQuillan",
-      "date": "2026-01-06T17:31:43Z",
       "project": true,
       "dep_only": false
     }
