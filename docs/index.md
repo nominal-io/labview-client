@@ -9,6 +9,7 @@ runs and events it belongs to.
 :caption: Guides
 
 Overview <self>
+proxy
 ```
 
 ```{toctree}

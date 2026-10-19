@@ -51,12 +51,11 @@ The LabVIEW Client provides a native toolkit for connecting existing LabVIEW-bas
       <Copyright/>
       <Packager>Tom McQuillan</Packager>
       <URL>https://docs.nominal.io/</URL>
-      <Release_Notes>- New: Added workspace and endpoint strings to the Connect function, allowing explicit targeting of a workspace and endpoint at connection time.
-- New: Templates in the Quick Start palette drop as editable code, letting users extend the Nominal LabVIEW Client.
-- Fixed: Resolved an issue with the TDMS upload function.
-- Fixed: Resolved issues creating runs and datasets in non-default workspaces.
-- Fixed: Custom cluster channel name resolution issue
-- Updated: Refreshed networking library metadata.</Release_Notes>
+      <Release_Notes>- New: Connect to Nominal through a network proxy with the new proxy server input on Create Nominal Client and Create Stream (advanced). Give it a proxy address, or an empty string to use the HTTPS_PROXY, ALL_PROXY and NO_PROXY environment variables or the Windows proxy setting. It defaults to direct, so programs that don't wire it connect directly, as before. See "Connect through a proxy" in the documentation.
+- Updated: HTTP requests no longer use the HTTPS_PROXY, HTTP_PROXY or ALL_PROXY environment variables on their own. Set proxy server to an empty string to use them.
+- Updated: The streaming library is updated, including fixes for points that could be left unsent when a stream shut down.
+- Updated: The streaming fallback file is overwritten each time a stream starts. Previously, reusing a path could leave a corrupt file.
+- Fixed: A fallback file path that can't be opened now returns an error instead of crashing LabVIEW.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
