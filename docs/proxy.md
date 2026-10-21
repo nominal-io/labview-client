@@ -13,8 +13,13 @@ The client connects directly unless you ask it to use a proxy. Set the **proxy s
 - An empty string, to find the proxy as described below.
 - `direct`, the default, to connect without a proxy.
 
-Streams created with {lv:vi}`Create Stream (advanced)` take the same values on its own **proxy
-server** input.
+```{warning}
+Proxy settings are global: creating a client changes the proxy for every client in the LabVIEW
+session. Give all clients the same **proxy server**.
+```
+
+Streams created with {lv:vi}`Create Stream from Dataset` or {lv:vi}`Create Stream (advanced)` take
+the same values on their own **proxy server** input.
 
 ## How an empty value finds the proxy
 
@@ -50,8 +55,7 @@ either list.
 ## When changes take effect
 
 - A stream uses the proxy from when it was created.
-- Requests use the **proxy server** of the most recently created client, for every client in the
-  LabVIEW session. Create clients with the same setting if you use more than one.
+- Requests use the **proxy server** of the most recently created client (see the warning above).
 - With an empty **proxy server**, the proxy is looked up again for each new client or stream, so a
   change to the Windows setting applies to clients and streams created after it. Environment
   variables set in Windows reach LabVIEW only when LabVIEW starts.
