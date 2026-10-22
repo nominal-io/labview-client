@@ -1,5 +1,5 @@
 # Builds the docs (docs/) and, on main, uploads them for the Nominal docs hub (nominal-io/pub-docs),
-# which pulls the newest upload and serves it at dev.nominal.io/labview/client/.
+# which pulls the newest upload and serves it at dev.nominal.io/ni/labview/.
 #
 # The upload is a plain artifact, not a GitHub Pages deploy: this repo's Pages serves the gh-pages
 # branch, where the LabVIEW CI dashboard lives. pub-docs' sites.toml names the artifact (docs-html).
