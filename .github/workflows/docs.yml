@@ -7,14 +7,9 @@
 name: Docs
 
 on:
+  # every pull request, so the docs gate always reports; the changes job skips the build when
+  # none of the paths below changed
   pull_request:
-    paths:
-      - "docs/**"
-      - "lv_src/.vipb"
-      - "pyproject.toml"
-      - "uv.lock"
-      - "justfile"
-      - ".github/workflows/docs.yml"
   push:
     branches: [main]
     paths:
@@ -34,7 +29,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # on a pull request, whether it changes what the docs are built from: push's paths
+  changes:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      docs: ${{ steps.files.outputs.docs }}
+    steps:
+      - id: files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/pulls/$PR/files" --paginate -q '.[].filename' \
+            | grep -qE '^(docs/|lv_src/\.vipb$|pyproject\.toml$|uv\.lock$|justfile$|\.github/workflows/docs\.yml$)'; then
+            echo "docs=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "docs=false" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
+    needs: changes
+    if: always() && (github.event_name != 'pull_request' || needs.changes.outputs.docs == 'true')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -56,3 +74,12 @@ jobs:
           name: docs-html
           path: docs/_build/dirhtml
           retention-days: 90
+
+  # The check main's ruleset requires: a theme bump PR needs a passing docs build, and every other
+  # PR passes. See nominal-sphinx-theme's README, "CI".
+  docs-gate:
+    needs: build
+    if: always()
+    uses: nominal-io/nominal-sphinx-theme/.github/workflows/docs-gate.yml@c2e3280c9eba544212d52b3920aabf41713cc0cb # main, 2026-10-29
+    with:
+      docs-result: ${{ needs.build.result }}
