@@ -4,6 +4,8 @@
 Stream data to [Nominal](https://nominal.io) from LabVIEW, and create and update the assets,
 runs and events it belongs to.
 
+Nominal also integrates with [TestStand](site:/ni/teststand/), [VeriStand](site:/ni/veristand/) and [FlexLogger](site:/ni/flexlogger/).
+
 ```{toctree}
 :hidden:
 :caption: Guides
