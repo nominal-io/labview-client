@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "f5237a8a2db6a818705d14d18c04425350589ee2",
+  "sha": "aff4aee2779db31230e47e1288e321590366ea12",
   "revisions": [
+    {
+      "sha": "aff4aee2779db31230e47e1288e321590366ea12",
+      "short": "aff4aee",
+      "message": "Merge pull request #93 from nominal-io/bump-theme-caller",
+      "author": "alex arsenovic",
+      "date": "2026-10-30T13:41:10Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "bf63b7d409991d4fc74019474979a702c854fa00",
+      "short": "bf63b7d",
+      "message": "ci: bump nominal-sphinx-theme with a daily PR, gated on the docs build",
+      "author": "alex arsenovic",
+      "date": "2026-10-29T22:24:23Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "f5237a8a2db6a818705d14d18c04425350589ee2",
       "short": "f5237a8",
@@ -882,24 +900,6 @@
       "message": "post build commit",
       "author": "Tom McQuillan",
       "date": "2026-01-07T19:50:47Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "2a9c6c6cf9e689d2d7809025ae1c4d0aa9a0511a",
-      "short": "2a9c6c6",
-      "message": "added dev notes",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T15:34:18Z",
-      "project": false,
-      "dep_only": false
-    },
-    {
-      "sha": "56969de6e8fdef72bf11c7eef018493f34ff5492",
-      "short": "56969de",
-      "message": "Merge pull request #48 from nominal-io/41-add-api-support-for-creating-events-during-test-runs",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T15:22:32Z",
       "project": true,
       "dep_only": false
     }
