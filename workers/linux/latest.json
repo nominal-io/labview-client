@@ -2,6 +2,6 @@
   "version": "linux-4ce478ba9bb6",
   "platform": "linux",
   "manifest_url": "https://nominal-io.github.io/labview-client/workers/linux/linux-4ce478ba9bb6/manifest.html",
-  "build_date": "2026-10-01T04:19:36Z",
-  "git_sha": "5d892390f8a899f22622f4d08b472adbf05e4290"
+  "build_date": "2026-11-01T04:11:27Z",
+  "git_sha": "aff4aee2779db31230e47e1288e321590366ea12"
 }
