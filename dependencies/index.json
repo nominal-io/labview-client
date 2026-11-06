@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "aff4aee2779db31230e47e1288e321590366ea12",
+  "sha": "4d2510f3e05bca91f252cefc5271879e10a5bf3a",
   "revisions": [
+    {
+      "sha": "4d2510f3e05bca91f252cefc5271879e10a5bf3a",
+      "short": "4d2510f",
+      "message": "Merge branch 'main' of github.com:nominal-io/labview-client",
+      "author": "Daniel Smith",
+      "date": "2026-11-05T17:38:26Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "aff4aee2779db31230e47e1288e321590366ea12",
       "short": "aff4aee",
@@ -18,6 +27,15 @@
       "message": "ci: bump nominal-sphinx-theme with a daily PR, gated on the docs build",
       "author": "alex arsenovic",
       "date": "2026-10-29T22:24:23Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "2891405cfe1dca286ddcb45d1d6253553c95748b",
+      "short": "2891405",
+      "message": "docs: link Nominal's other NI integrations from the overview",
+      "author": "Daniel Smith",
+      "date": "2026-10-29T05:34:43Z",
       "project": false,
       "dep_only": false
     },
@@ -882,24 +900,6 @@
       "message": "added support log support and waveform write support",
       "author": "Tom McQuillan",
       "date": "2026-01-15T11:37:59Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "6b838fa1d3bfac179c477ccbd349cbd756982270",
-      "short": "6b838fa",
-      "message": "Added log.write support",
-      "author": "Tom McQuillan",
-      "date": "2026-01-14T20:25:09Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "c603944b1f770dcf0118ddbebe282122b91f104a",
-      "short": "c603944",
-      "message": "post build commit",
-      "author": "Tom McQuillan",
-      "date": "2026-01-07T19:50:47Z",
       "project": true,
       "dep_only": false
     }
