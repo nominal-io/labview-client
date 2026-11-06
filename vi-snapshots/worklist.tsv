@@ -1,15 +1,1 @@
-37b2f3cf6fc6a9feebb39f8edec6ea570d28d550	docs/lvdocs/convert palette names into relative paths.vi
-b87d48c814b57dfbf9309f165e5de528e52a534c	docs/lvdocs/dump data from VIs.vi
-180b9a5cf3c291cbbdef1224b5315370472fcd6f	docs/lvdocs/export example information.vi
-94bccdec2233d8c5bc3c213598a1a740dd756f15	docs/lvdocs/export labview dosctrings.vi
-9db0e00c616f826386a7f6550299f61fae7d1a97	docs/lvdocs/get ID from vi.vi
-17210e94aab31749efd20b726eb8d3699a73f93f	docs/lvdocs/get palette sections with items.vi
-6006bc0a3dda95c67230ca4b9a18fbd3220b4ff0	docs/lvdocs/get palettes.vi
-7a4553a09dc81256d4290ee289ec1415d5f0fd4d	docs/lvdocs/simple element vs typedef.vi
-9f3e4fa4c41eecb5da2be0af2546dda8d4674b7b	lv_src/Examples/labview-quick-asset.vi
-d4253cbc83437d7ef678bdabcc6cfc5469c3fcdd	lv_src/Examples/labview-quick-csv.vi
-c2095e14ea6c3aee577104f47ecc53dba4748902	lv_src/Examples/labview-quick-event.vi
-0af92b45170935c0256d7a548ad7ce312d1b5b6b	lv_src/Examples/labview-quick-extractor.vi
-f40c1e31f2e3f14aed3fff8e672230824bf71776	lv_src/Examples/labview-quick-run.vi
-386f004cc179f17cda14eb9b0df7eff57bf77f77	lv_src/Examples/labview-quick-video.vi
-ae4e055ffb54cf8f87c386793a1a264a91ccd826	lv_src/Examples/labview-quick-visualization.vi
+abcda2d34544ccd9878d9d3fa663a6c0be6b8c7e	lv_src/Nominal Client/asset.create.request.vi
