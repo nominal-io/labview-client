@@ -1,10 +1,10 @@
 [
   {
-    "sha": "00e6e12e12f41a6365c72e43a87f606085cd0ec5",
-    "short": "00e6e12",
-    "message": "Merge branch 'docs'",
+    "sha": "5ecaad6dedbbcbb7d4aaf64b5607c935ee8e9eb0",
+    "short": "5ecaad6",
+    "message": "Remove trailing comma from asset.create.request.vi JSON",
     "author": "Daniel Smith",
-    "date": "2026-10-15T15:28:51-04:00",
+    "date": "2026-11-06T15:49:02-05:00",
     "vi_count": 590
   }
 ]
