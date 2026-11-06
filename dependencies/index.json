@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "4d2510f3e05bca91f252cefc5271879e10a5bf3a",
+  "sha": "5ecaad6dedbbcbb7d4aaf64b5607c935ee8e9eb0",
   "revisions": [
+    {
+      "sha": "5ecaad6dedbbcbb7d4aaf64b5607c935ee8e9eb0",
+      "short": "5ecaad6",
+      "message": "Remove trailing comma from asset.create.request.vi JSON",
+      "author": "Daniel Smith",
+      "date": "2026-11-06T20:49:02Z",
+      "project": true,
+      "dep_only": false
+    },
     {
       "sha": "4d2510f3e05bca91f252cefc5271879e10a5bf3a",
       "short": "4d2510f",
@@ -891,15 +900,6 @@
       "message": "Merge pull request #52 from nominal-io/51-add-support-for-pushing-logs-to-nominal-core",
       "author": "Tom McQuillan",
       "date": "2026-01-15T11:38:40Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "9ccad8852cca299eaf437643bf3afde3606382f8",
-      "short": "9ccad88",
-      "message": "added support log support and waveform write support",
-      "author": "Tom McQuillan",
-      "date": "2026-01-15T11:37:59Z",
       "project": true,
       "dep_only": false
     }
