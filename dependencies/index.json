@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "5ecaad6dedbbcbb7d4aaf64b5607c935ee8e9eb0",
+  "sha": "c10e18df0516e96d3a0cd51e811809929eded41c",
   "revisions": [
+    {
+      "sha": "c10e18df0516e96d3a0cd51e811809929eded41c",
+      "short": "c10e18d",
+      "message": "docs: fix issues found in audit",
+      "author": "Daniel Smith",
+      "date": "2026-11-09T17:22:31Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "5ecaad6dedbbcbb7d4aaf64b5607c935ee8e9eb0",
       "short": "5ecaad6",
@@ -891,15 +900,6 @@
       "message": "added get asset method and improved general DB cosmetics",
       "author": "Tom McQuillan",
       "date": "2026-01-15T15:17:39Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "464f1ee75eb27f40936fea4b73b5cbc2f3938d32",
-      "short": "464f1ee",
-      "message": "Merge pull request #52 from nominal-io/51-add-support-for-pushing-logs-to-nominal-core",
-      "author": "Tom McQuillan",
-      "date": "2026-01-15T11:38:40Z",
       "project": true,
       "dep_only": false
     }
