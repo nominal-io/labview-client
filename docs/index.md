@@ -4,7 +4,7 @@
 Stream data to [Nominal](https://nominal.io) from LabVIEW, and create and update the assets,
 runs and events it belongs to.
 
-Nominal also integrates with [TestStand](site:/ni/teststand/), [VeriStand](site:/ni/veristand/) and [FlexLogger](site:/ni/flexlogger/).
+Nominal also integrates with [TestStand](site:/ni-teststand/), [VeriStand](site:/ni-veristand/) and [FlexLogger](site:/ni-flexlogger/).
 
 ```{toctree}
 :hidden:
@@ -35,7 +35,7 @@ Communication** on the Functions palette, and the examples in LabVIEW's examples
 
 A program opens a connection with {lv:vi}`Create Nominal Client` and closes it with
 {lv:vi}`Destroy Nominal Client`. Creating a client takes an API token, your Nominal instance's
-base URL and a workspace; [API keys setup](site:/quickstart/quickstart/api-keys-setup/) shows
+base URL and a workspace; [API keys setup](site:/quickstart/api-keys-setup/) shows
 where to find each.
 
 ::::{grid} 1 2 2 2
