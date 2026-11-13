@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "c10e18df0516e96d3a0cd51e811809929eded41c",
+  "sha": "459caaeaca41c78f1825571f1777a062091f4147",
   "revisions": [
+    {
+      "sha": "459caaeaca41c78f1825571f1777a062091f4147",
+      "short": "459caae",
+      "message": "chore(deps): bump nominal-sphinx-theme to a9beea0 (#94)",
+      "author": "nombotv2[bot]",
+      "date": "2026-11-13T16:09:25Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "c10e18df0516e96d3a0cd51e811809929eded41c",
       "short": "c10e18d",
@@ -891,15 +900,6 @@
       "message": "added quick asset test",
       "author": "Tom McQuillan",
       "date": "2026-01-15T15:24:39Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "d9d564b00807f3d88e3dd6a8d114941637aa6b45",
-      "short": "d9d564b",
-      "message": "added get asset method and improved general DB cosmetics",
-      "author": "Tom McQuillan",
-      "date": "2026-01-15T15:17:39Z",
       "project": true,
       "dep_only": false
     }
