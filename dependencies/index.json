@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "459caaeaca41c78f1825571f1777a062091f4147",
+  "sha": "5c1fe420b279c4f0f69f38a5c338cabd2f14a1af",
   "revisions": [
+    {
+      "sha": "5c1fe420b279c4f0f69f38a5c338cabd2f14a1af",
+      "short": "5c1fe42",
+      "message": "chore(deps): bump nominal-sphinx-theme to 1687063 (#97)",
+      "author": "nombotv2[bot]",
+      "date": "2026-11-16T18:44:34Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "459caaeaca41c78f1825571f1777a062091f4147",
       "short": "459caae",
@@ -891,15 +900,6 @@
       "message": "Updated VI metadata and post build",
       "author": "Tom McQuillan",
       "date": "2026-01-15T17:35:17Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "eb6e1635d19b9867fd2001bb6d6fcb9fc93b61cb",
-      "short": "eb6e163",
-      "message": "added quick asset test",
-      "author": "Tom McQuillan",
-      "date": "2026-01-15T15:24:39Z",
       "project": true,
       "dep_only": false
     }
