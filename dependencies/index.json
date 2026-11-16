@@ -1,8 +1,26 @@
 {
   "schema": 1,
   "repo": "nominal-io/labview-client",
-  "sha": "5c1fe420b279c4f0f69f38a5c338cabd2f14a1af",
+  "sha": "37f38e3f2ab109120a6a91174d0e0aba2a356f18",
   "revisions": [
+    {
+      "sha": "37f38e3f2ab109120a6a91174d0e0aba2a356f18",
+      "short": "37f38e3",
+      "message": "Merge branch 'main' of github.com:nominal-io/labview-client",
+      "author": "Daniel Smith",
+      "date": "2026-11-16T19:35:09Z",
+      "project": false,
+      "dep_only": false
+    },
+    {
+      "sha": "b4d8cbfd9436bb10cd4f686b5c9161b29640f93c",
+      "short": "b4d8cbf",
+      "message": "docs: build with nominal-sphinx-theme's newest main, falling back to uv.lock",
+      "author": "Daniel Smith",
+      "date": "2026-11-16T19:35:03Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "5c1fe420b279c4f0f69f38a5c338cabd2f14a1af",
       "short": "5c1fe42",
@@ -882,24 +900,6 @@
       "message": "added Channel support to Write Logs",
       "author": "Tom McQuillan",
       "date": "2026-02-10T00:11:10Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "c10766e5343758244f54b3ecb45e1750c197c28b",
-      "short": "c10766e",
-      "message": "added Run update endtime function",
-      "author": "Tom McQuillan",
-      "date": "2026-02-09T23:01:51Z",
-      "project": true,
-      "dep_only": false
-    },
-    {
-      "sha": "114cfee62438f5c4419c90efd514e7b84d4a3e82",
-      "short": "114cfee",
-      "message": "Updated VI metadata and post build",
-      "author": "Tom McQuillan",
-      "date": "2026-01-15T17:35:17Z",
       "project": true,
       "dep_only": false
     }
