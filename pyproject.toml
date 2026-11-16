@@ -20,6 +20,6 @@ docs = [
 ]
 
 [tool.uv.sources]
-# github.com/nominal-io/nominal-sphinx-theme; uv.lock pins the commit. To update it:
-# `uv lock --upgrade-package nominal-sphinx-theme`
+# github.com/nominal-io/nominal-sphinx-theme. `just build-docs` and `just serve-docs` use the newest
+# commit on its main; the commit in uv.lock is only their fallback when GitHub can't be reached.
 nominal-sphinx-theme = { git = "https://github.com/nominal-io/nominal-sphinx-theme" }
